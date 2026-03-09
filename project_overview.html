@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目讲解：ColBERT Token 级偏见审计</title>
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card: #1a1a2e;
+            --accent: #e94560;
+            --accent2: #0f3460;
+            --text: #e0e0e0;
+            --text-dim: #888;
+            --border: #2a2a4a;
+            --green: #2ecc71;
+            --blue: #3498db;
+            --orange: #e67e22;
+            --red: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            font-size: 0.95em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #fff;
+            margin: 50px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--accent);
+            margin: 25px 0 10px;
+            font-size: 1.15em;
+        }
+
+        p {
+            margin: 12px 0;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        .card.highlight {
+            border-left: 4px solid var(--accent);
+        }
+
+        .card.green {
+            border-left: 4px solid var(--green);
+        }
+
+        .card.blue {
+            border-left: 4px solid var(--blue);
+        }
+
+        .card.orange {
+            border-left: 4px solid var(--orange);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .tag-pass {
+            background: var(--green);
+            color: #000;
+        }
+
+        .tag-pending {
+            background: var(--orange);
+            color: #000;
+        }
+
+        .tag-phase {
+            background: var(--accent2);
+            color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        th,
+        td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--accent2);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(233, 69, 96, 0.05);
+        }
+
+        code {
+            background: rgba(233, 69, 96, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88em;
+            color: #ff6b6b;
+        }
+
+        .flow {
+            display: flex;
+            gap: 0;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 160px;
+            padding: 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-step:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+
+        .flow-step:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+
+        .flow-step .step-num {
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .flow-step .step-title {
+            font-weight: 700;
+            margin: 6px 0 4px;
+            font-size: 0.9em;
+        }
+
+        .flow-step .step-detail {
+            font-size: 0.75em;
+            color: var(--text-dim);
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            color: var(--accent);
+            z-index: 1;
+        }
+
+        .flow-step:last-child::after {
+            content: '';
+        }
+
+        .quote {
+            border-left: 3px solid var(--accent);
+            padding: 12px 20px;
+            margin: 15px 0;
+            background: rgba(233, 69, 96, 0.05);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .diagram {
+            background: #111122;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'SF Mono', monospace;
+            font-size: 0.85em;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+            color: #ccc;
+            margin: 15px 0;
+        }
+
+        .diagram .hl {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .diagram .g {
+            color: var(--green);
+        }
+
+        .diagram .b {
+            color: var(--blue);
+        }
+
+        .stat {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: var(--text-dim);
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .stat-box {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.85em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🔍 ColBERT Token 级偏见审计</h1>
+        <p class="subtitle">从一个模糊的假设到一系列可验证的发现 — 完整的研究脉络梳理<br>Chris Ziyu Kong · CSCI 2952W · 2026 年 3 月</p>
+
+        <!-- ============================================ -->
+        <h2>一、起点：一个直觉</h2>
+
+        <div class="card highlight">
+            <p><strong>最初的问题</strong>：搜索引擎会不会因为你的名字而歧视你？</p>
+            <p>ColBERT 是一个用于信息检索的深度学习模型。它在 880 万条真实搜索记录（MS MARCO）上训练完成后，会不会在"判断谁更相关"时，因为文档里出现了 "Lakisha" 而不是
+                "Emily"，就给出不同的分数？</p>
+        </div>
+
+        <p>这个想法来自两个源头：</p>
+        <ul style="margin-left: 20px;">
+            <li>课堂上 Bowker & Star (1999) 关于"<strong>分类的政治学</strong>"的讨论</li>
+            <li>劳动经济学中经典的 <strong>Bertrand & Mullainathan (2004)</strong> 简历审计实验</li>
+        </ul>
+
+        <p>我们的核心洞察是：ColBERT 使用了一种叫 <strong>"后期交互（Late Interaction）"</strong>
+            的架构。与其他模型不同，它保留了每个词（Token）的独立向量，这意味着我们可以<strong>拆开它的评分过程</strong>，看看偏见到底藏在哪里。</p>
+
+        <!-- ============================================ -->
+        <h2>二、研究演进：从大到小，从模糊到精确</h2>
+
+        <div class="flow">
+            <div class="flow-step">
+                <div class="step-num">01</div>
+                <div class="step-title">偏见"有没有"</div>
+                <div class="step-detail">783 对反事实文档<br>SS, p-value</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">02</div>
+                <div class="step-title">偏见"在哪里"</div>
+                <div class="step-detail">Token 级归因<br>TCD, 差分热力图</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">03</div>
+                <div class="step-title">功能词发现</div>
+                <div class="step-detail">650 对验证<br>Function > Content</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">04</div>
+                <div class="step-title">罕见度效应</div>
+                <div class="step-detail">1,140 组 ANOVA<br>Rarity → Bias ↑</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">05</div>
+                <div class="step-title">P0 对照实验</div>
+                <div class="step-detail">1,080 组对照<br>身份特异性 ✅</div>
+            </div>
+        </div>
+
+        <!-- Phase 1 -->
+        <h3>Phase 1：验证偏见的存在（RQ1）</h3>
+        <div class="card">
+            <p><span class="tag tag-pass">✅ 已完成</span> <span class="tag tag-phase">783 对</span></p>
+            <p>我们构建了反事实文档对 — 两篇内容完全相同的简历，只替换名字（Emily → Lakisha）或代词（He → They）。然后用 ColBERTv2 对它们评分。</p>
+            <p><strong>发现</strong>：偏见确实存在（p < 0.001）。非二元代词（They）被系统性降分，职业特定的偏见幅度差异显著。</p>
+                    <p style="color: var(--text-dim);">📁 代码：<code>targeted_experiments.py</code></p>
+        </div>
+
+        <!-- Phase 2 -->
+        <h3>Phase 2：定位偏见的位置（RQ2）— 核心创新</h3>
+
+        <p>这是整个项目的转折点。我们利用 ColBERT 的 MaxSim 可分解性，发明了 <strong>TCD（Token Contribution Disparity）</strong> 指标：</p>
+
+        <div class="diagram">TCD(q_i) = MaxSim(q_i, Doc_A) − MaxSim(q_i, Doc_B)
+
+            其中 q_i 是 Query 中的第 i 个词
+            Doc_A 和 Doc_B 只有身份标记不同
+
+            <span class="hl">TCD 告诉你：Query 里的哪一个具体的词，贡献了多少偏见。</span>
+        </div>
+
+        <!-- Discovery A -->
+        <h3>🔬 发现 A：分布式偏见传导</h3>
+        <div class="card green">
+            <p><span class="tag tag-pass">✅ 650 对验证</span></p>
+            <p><strong>偏见不是通过 "doctor" 或 "nurse" 传导的，而是通过 "is"、"who"、"a" 这些功能词传导。</strong></p>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat">1.44×</div>
+                <div class="stat-label">功能词 TCD 是内容词的倍数</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat">8.9×</div>
+                <div class="stat-label">功能词嵌入偏移是内容词的倍数</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat">9/10</div>
+                <div class="stat-label">个职业中功能词 > 内容词</div>
+            </div>
+        </div>
+
+        <p><strong>机制</strong>：BERT 的 Self-Attention
+            让身份替换的影响传播到所有词。内容词有强语义锚点（向量稳定），功能词几乎没有独立语义（纯粹的"上下文海绵"），因此吸收了最多的身份扰动。</p>
+
+        <div class="diagram">身份替换 (Emily → Lakisha)
+            │
+            ▼
+            Self-Attention 重新计算所有 Token 的嵌入
+            │
+            ├── 内容词 ("clinical", "experience"): <span class="g">偏移小</span> (语义锚点)
+            │
+            └── 功能词 ("has", "is", "a"): <span class="hl">偏移大</span> (无语义锚点)
+            │
+            ▼
+            Query 功能词找到不同的 MaxSim 匹配 → <span class="hl">TCD 升高</span> → 总分偏差</div>
+
+        <!-- Discovery B -->
+        <h3>🔬 发现 B：罕见度中介效应</h3>
+        <div class="card blue">
+            <p><span class="tag tag-pass">✅ 1,140 组验证</span></p>
+            <p><strong>名字越罕见（BPE Token 越多），功能词吸收的偏见越多。</strong></p>
+        </div>
+
+        <table>
+            <tr>
+                <th>名字组合</th>
+                <th>Mean SS（总偏见）</th>
+                <th>Mean Func-TCD</th>
+                <th>倍率</th>
+            </tr>
+            <tr>
+                <td>Common-Common</td>
+                <td>0.0210</td>
+                <td>0.0108</td>
+                <td>1.0×</td>
+            </tr>
+            <tr>
+                <td>Common-Rare</td>
+                <td>0.0305</td>
+                <td>0.0163</td>
+                <td>1.5×</td>
+            </tr>
+            <tr>
+                <td><strong>Rare-Rare</strong></td>
+                <td><strong>0.0366</strong></td>
+                <td><strong>0.0199</strong></td>
+                <td><strong>1.84×</strong></td>
+            </tr>
+        </table>
+
+        <p><strong>ANOVA</strong>：Profession（F=214, p&lt;0.0001）和 Rarity（F=300, p&lt;0.0001）都是极显著的预测因子。</p>
+
+        <!-- P0 -->
+        <h3>🧪 P0 对照实验：身份特异性验证</h3>
+        <div class="card orange">
+            <p><span class="tag tag-pass">✅ P0 PASS</span> <span class="tag tag-phase">1,080 组</span></p>
+            <p>GPT 提出了关键质疑：功能词的高 TCD 是不是 ColBERT 对<strong>任何</strong>词汇替换都这样？</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>条件</th>
+                <th>含义</th>
+                <th>Func-TCD</th>
+                <th>与非身份对照的比率</th>
+            </tr>
+            <tr>
+                <td><strong>IDENTITY_GENDER</strong></td>
+                <td>He → They</td>
+                <td><strong>0.0298</strong></td>
+                <td><strong>1.92×</strong></td>
+            </tr>
+            <tr>
+                <td>IDENTITY_RACE</td>
+                <td>Emily → Lakisha</td>
+                <td>0.0192</td>
+                <td>1.24×</td>
+            </tr>
+            <tr>
+                <td>CONTROL_SAMEGRP</td>
+                <td>Emily → Jennifer</td>
+                <td>0.0177</td>
+                <td>1.14×</td>
+            </tr>
+            <tr>
+                <td>CONTROL_NONID</td>
+                <td>ten → fifteen</td>
+                <td>0.0155</td>
+                <td>1.0× (基线)</td>
+            </tr>
+        </table>
+
+        <div class="quote">
+            身份替换的 function-word TCD 显著高于普通替换（p &lt; 1e-8, Cohen's d = 0.37）。代词替换是最强信号。<br>
+            → 功能词偏见传导<strong>不只是</strong>通用敏感性，它在跨越身份边界时被<strong>进一步放大</strong>。
+        </div>
+
+        <!-- ============================================ -->
+        <h2>三、正式研究问题（Refined RQs）</h2>
+
+        <div class="card highlight">
+            <h3 style="margin-top:0;">RQ1: Score-Level Bias</h3>
+            <p>ColBERT 在身份标记（名字/代词）替换后，是否产生统计显著的分数差异？这种差异在多大程度上受职业类型和名字罕见度的调节？</p>
+        </div>
+
+        <div class="card highlight">
+            <h3 style="margin-top:0;">RQ2: Token-Level Attribution</h3>
+            <p>ColBERT 的分数偏差在 Token 层面如何分布？功能词（is, who, a）是否比内容词（doctor, qualified）表现出更高的 Token Contribution Disparity
+                (TCD)？</p>
+        </div>
+
+        <div class="card highlight">
+            <h3 style="margin-top:0;">RQ3: Identity Specificity</h3>
+            <p>功能词的高 TCD 是身份替换的特异性效应，还是 ColBERT 对任何上下文变化的通用敏感性？（已通过 P0 部分回答）</p>
+        </div>
+
+        <div class="card highlight">
+            <h3 style="margin-top:0;">RQ4: Ecological Validity & Generalization</h3>
+            <p>上述发现在真实文本（MS MARCO）和跨模型（DPR, BM25）条件下是否依然成立？</p>
+        </div>
+
+        <!-- ============================================ -->
+        <h2>四、论文定位</h2>
+
+        <div class="quote">
+            <strong>论文类型</strong>：Measurement / Audit Paper（诊断性论文），而非 Debiasing Paper。<br>
+            <strong>核心叙事</strong>：ColBERT 的 Late Interaction 架构让我们第一次能像"X
+            光机"一样，看到密集检索模型内部偏见的精确位置。我们不只是说"偏见存在"，而是说"偏见藏在这里，通过这种方式传播"。
+        </div>
+
+        <h3>贡献点（Contribution Statement）</h3>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>类型</th>
+                <th>内容</th>
+            </tr>
+            <tr>
+                <td>C1</td>
+                <td>方法论</td>
+                <td>提出 TCD 指标，实现 Token 级偏见归因</td>
+            </tr>
+            <tr>
+                <td>C2</td>
+                <td>实证发现</td>
+                <td>揭示功能词偏见传导机制（分布式传播）</td>
+            </tr>
+            <tr>
+                <td>C3</td>
+                <td>实证发现</td>
+                <td>发现罕见度中介效应（BPE 碎片化 → 偏见放大）</td>
+            </tr>
+            <tr>
+                <td>C4</td>
+                <td>验证</td>
+                <td>P0 对照证明效应的身份特异性</td>
+            </tr>
+        </table>
+
+        <!-- ============================================ -->
+        <h2>五、接下来做什么</h2>
+
+        <div class="flow">
+            <div class="flow-step" style="border-left: 3px solid var(--green);">
+                <div class="step-num" style="color:var(--green)">P1</div>
+                <div class="step-title">真实文本验证</div>
+                <div class="step-detail">MS MARCO 子集<br>功能词效应还在吗？</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">P2</div>
+                <div class="step-title">Rarity 拆分</div>
+                <div class="step-detail">Token count vs<br>社会学属性</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">P3</div>
+                <div class="step-title">多模型对比</div>
+                <div class="step-detail">ColBERT vs DPR<br>vs BM25</div>
+            </div>
+            <div class="flow-step">
+                <div class="step-num">P4</div>
+                <div class="step-title">去偏（可选）</div>
+                <div class="step-detail">Null-Space Proj<br>如果 P1-P3 站住</div>
+            </div>
+        </div>
+
+        <footer>
+            ColBERT Bias Audit · Chris Ziyu Kong · CSCI 2952W Critical AI and Data Studies · Brown University · 2026
+        </footer>
+
+    </div>
+</body>
+
+</html>

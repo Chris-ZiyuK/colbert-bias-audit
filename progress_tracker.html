@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度看板 — ColBERT Bias Audit</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-dim: #8b949e;
+            --green: #3fb950;
+            --green-bg: rgba(63, 185, 80, 0.1);
+            --blue: #58a6ff;
+            --blue-bg: rgba(88, 166, 255, 0.1);
+            --orange: #d29922;
+            --orange-bg: rgba(210, 153, 34, 0.1);
+            --red: #f85149;
+            --purple: #bc8cff;
+            --purple-bg: rgba(188, 140, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            margin-bottom: 30px;
+        }
+
+        .last-update {
+            color: var(--text-dim);
+            font-size: 0.85em;
+            margin-bottom: 25px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar-bg {
+            background: var(--border);
+            border-radius: 8px;
+            height: 24px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--green), var(--blue));
+            transition: width 0.3s;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: var(--text-dim);
+        }
+
+        /* Phase Cards */
+        .phase {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            cursor: pointer;
+            gap: 12px;
+        }
+
+        .phase-header:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .phase-icon {
+            font-size: 1.4em;
+        }
+
+        .phase-title {
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .phase-badge {
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .badge-done {
+            background: var(--green-bg);
+            color: var(--green);
+        }
+
+        .badge-current {
+            background: var(--blue-bg);
+            color: var(--blue);
+            border: 1px solid var(--blue);
+        }
+
+        .badge-pending {
+            background: var(--orange-bg);
+            color: var(--orange);
+        }
+
+        .badge-blocked {
+            background: rgba(248, 81, 73, 0.1);
+            color: var(--red);
+        }
+
+        .phase-body {
+            padding: 0 20px 16px;
+        }
+
+        /* Task Items */
+        .task {
+            display: flex;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 10px;
+        }
+
+        .task:last-child {
+            border-bottom: none;
+        }
+
+        .task-check {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+        }
+
+        .task-check.done {
+            background: var(--green);
+            border-color: var(--green);
+            color: #000;
+        }
+
+        .task-check.current {
+            background: var(--blue-bg);
+            border-color: var(--blue);
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 0.9em;
+        }
+
+        .task-text.done {
+            text-decoration: line-through;
+            color: var(--text-dim);
+        }
+
+        .task-detail {
+            font-size: 0.8em;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        .task-stat {
+            font-size: 0.8em;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .tl-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .tl-row {
+            display: flex;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88em;
+        }
+
+        .tl-row:last-child {
+            border-bottom: none;
+        }
+
+        .tl-week {
+            width: 60px;
+            font-weight: 700;
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+
+        .tl-date {
+            width: 100px;
+            color: var(--text-dim);
+            flex-shrink: 0;
+        }
+
+        .tl-task {
+            flex: 1;
+        }
+
+        .tl-output {
+            width: 180px;
+            color: var(--text-dim);
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+
+        /* Risks */
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.88em;
+        }
+
+        .risk-table th,
+        .risk-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .risk-table th {
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+
+        .sev-high {
+            color: var(--red);
+        }
+
+        .sev-med {
+            color: var(--orange);
+        }
+
+        .sev-low {
+            color: var(--green);
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8em;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>📋 进度看板</h1>
+        <p class="subtitle">ColBERT Token-Level Bias Audit</p>
+        <p class="last-update">最后更新：2026 年 3 月 9 日</p>
+
+        <!-- Overall Progress -->
+        <div class="progress-container">
+            <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <span style="font-weight:700;">总体进度</span>
+                <span style="font-size:1.4em; font-weight:800; color:var(--green);">35%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 35%;"></div>
+            </div>
+            <div class="progress-stats">
+                <span>✅ 已完成: Phase 0–2 (合成数据验证)</span>
+                <span>🔲 待做: Phase 3–5 (真实数据 + 论文)</span>
+            </div>
+        </div>
+
+        <!-- ========== P0 ========== -->
+        <div class="phase">
+            <div class="phase-header">
+                <span class="phase-icon">🧪</span>
+                <span class="phase-title">P0 · 对照实验：身份特异性验证</span>
+                <span class="phase-badge badge-done">✅ 已完成</span>
+            </div>
+            <div class="phase-body">
+                <div class="task">
+                    <div class="task-check done">✓</div>
+                    <div>
+                        <div class="task-text done">设计 4 组对照条件 (Identity-Race / Identity-Gender / Control-SameGrp /
+                            Control-NonID)</div>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="task-check done">✓</div>
+                    <div>
+                        <div class="task-text done">运行 1,080 组对照测试</div>
+                        <div class="task-stat">p < 1e-8, Cohen's d=0.37, ratio=1.40×</div>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-check done">✓</div>
+                        <div>
+                            <div class="task-text done">确认功能词效应是身份特异性的（代词替换信号最强：1.92×）</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== Phase 1 ========== -->
+            <div class="phase">
+                <div class="phase-header">
+                    <span class="phase-icon">📊</span>
+                    <span class="phase-title">Phase 1 · 合成数据实验（偏见检测 + Token 归因）</span>
+                    <span class="phase-badge badge-done">✅ 已完成</span>
+                </div>
+                <div class="phase-body">
+                    <div class="task">
+                        <div class="task-check done">✓</div>
+                        <div>
+                            <div class="task-text done">反事实数据构建 (783 对, 覆盖 Race / Gender / Nonbinary)</div>
+                            <div class="task-detail">📁 targeted_experiments.py</div>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-check done">✓</div>
+                        <div>
+                            <div class="task-text done">Token 级审计：差分热力图 ΔM + TCD 条形图</div>
+                            <div class="task-detail">📁 token_level_audit.py</div>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-check done">✓</div>
+                        <div>
+                            <div class="task-text done">功能词 vs 内容词发现 (650 对, Mann-Whitney p=0.0002)</div>
+                            <div class="task-detail">📁 function_word_bias.py → finding_function_word_bias.md</div>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-check done">✓</div>
+                        <div>
+                            <div class="task-text done">罕见度中介效应 (1,140 组, ANOVA F=300 p<0.0001)< /div>
+                                    <div class="task-detail">📁 rarity_profession_audit.py → finding_rarity_effect.md
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Phase 2 (P1) ========== -->
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-icon">📄</span>
+                        <span class="phase-title">Phase 2 · P1: 真实文本验证（MS MARCO 子集）</span>
+                        <span class="phase-badge badge-current">🔵 下一步</span>
+                    </div>
+                    <div class="phase-body">
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">从 MS MARCO 中用 NER 提取包含人名的真实段落</div>
+                                <div class="task-detail">目标：~500 段落，最小扰动替换</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">在真实文本上重复 TCD 分析：功能词效应是否依然成立？</div>
+                                <div class="task-detail">这是论文最关键的验证步骤</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">对比合成数据 vs 真实数据的效应量差异</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Phase 3 (P2) ========== -->
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-icon">🔬</span>
+                        <span class="phase-title">Phase 3 · P2: Rarity 因素精细化拆分</span>
+                        <span class="phase-badge badge-pending">🟡 待定</span>
+                    </div>
+                    <div class="phase-body">
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">分离 Token Count vs 社会学属性（找 Common + Multi-token 名字作控制）</div>
+                                <div class="task-detail">如 Elizabeth (3 tokens) vs Emily (1 token), 两者都是 Common White
+                                    Female</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">回归分析：控制 token count 后，identity category 是否仍是显著预测因子？</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Phase 4 (P3) ========== -->
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-icon">🤖</span>
+                        <span class="phase-title">Phase 4 · P3: 多模型对比</span>
+                        <span class="phase-badge badge-pending">🟡 待定</span>
+                    </div>
+                    <div class="phase-body">
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">ColBERT vs DPR（单向量）对比：DPR 是否同样有偏见但无法定位？</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">BM25 基线对比（非神经网络，无上下文化）</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">SPLADE 对比（另一种可解释的稀疏架构）</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Phase 5 (P4) ========== -->
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-icon">🛠️</span>
+                        <span class="phase-title">Phase 5 · P4: 去偏干预（条件性）</span>
+                        <span class="phase-badge badge-pending">🟡 条件性</span>
+                    </div>
+                    <div class="phase-body">
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">Null-Space Projection：对功能词嵌入做身份方向投影去除</div>
+                                <div class="task-detail">仅在 P1-P3 全部站住后进行</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">Utility-Fairness Tradeoff：MRR@10 / NDCG@10 损耗评估</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Paper ========== -->
+                <div class="phase">
+                    <div class="phase-header">
+                        <span class="phase-icon">📝</span>
+                        <span class="phase-title">Phase 6 · 论文写作</span>
+                        <span class="phase-badge badge-pending">🟡 待定</span>
+                    </div>
+                    <div class="phase-body">
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">论文框架 & Related Work</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">实验章节 & 图表制作</div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="task-check"></div>
+                            <div>
+                                <div class="task-text">投稿目标：EMNLP 2026 (截稿 ~6月中旬)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Timeline ========== -->
+                <div class="timeline">
+                    <div class="tl-title">📅 两个月时间线</div>
+                    <div class="tl-row">
+                        <span class="tl-week">W1-2</span>
+                        <span class="tl-date">3/10 – 3/23</span>
+                        <span class="tl-task">P1: MS MARCO 数据预处理 + NER 筛选 + 真实文本 TCD</span>
+                        <span class="tl-output">真实反事实对数据集</span>
+                    </div>
+                    <div class="tl-row">
+                        <span class="tl-week">W3</span>
+                        <span class="tl-date">3/24 – 3/30</span>
+                        <span class="tl-task">P2: Rarity 因素拆分（Token count vs 社会学属性）</span>
+                        <span class="tl-output">回归分析结果</span>
+                    </div>
+                    <div class="tl-row">
+                        <span class="tl-week">W4</span>
+                        <span class="tl-date">3/31 – 4/6</span>
+                        <span class="tl-task">P3: 多模型对比（DPR, BM25, SPLADE）</span>
+                        <span class="tl-output">跨模型偏见对比表</span>
+                    </div>
+                    <div class="tl-row">
+                        <span class="tl-week">W5</span>
+                        <span class="tl-date">4/7 – 4/13</span>
+                        <span class="tl-task">P4: Null-Space Projection 去偏（如果 P1-P3 站住）</span>
+                        <span class="tl-output">去偏算法 + 效用评估</span>
+                    </div>
+                    <div class="tl-row">
+                        <span class="tl-week">W6-8</span>
+                        <span class="tl-date">4/14 – 5/4</span>
+                        <span class="tl-task">论文写作 + 图表 + 投稿准备</span>
+                        <span class="tl-output">论文初稿 (EMNLP)</span>
+                    </div>
+                </div>
+
+                <!-- ========== Risks ========== -->
+                <div class="timeline" style="margin-top: 20px;">
+                    <div class="tl-title">⚠️ 已知风险</div>
+                    <table class="risk-table">
+                        <tr>
+                            <th>#</th>
+                            <th>风险</th>
+                            <th>严重性</th>
+                            <th>缓解策略</th>
+                            <th>状态</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>合成数据生态效度</td>
+                            <td class="sev-high">🔴 高</td>
+                            <td>P1 的 MS MARCO 验证</td>
+                            <td>待做</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>功能词效应非身份特异</td>
+                            <td class="sev-high">🔴 高</td>
+                            <td>P0 对照实验</td>
+                            <td style="color:var(--green)">✅ 已解决</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Rarity = tokenizer artifact?</td>
+                            <td class="sev-med">🟡 中</td>
+                            <td>P2 拆分 token count vs 社会学属性</td>
+                            <td>待做</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>单模型贡献不足</td>
+                            <td class="sev-med">🟡 中</td>
+                            <td>P3 多模型对比</td>
+                            <td>待做</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>GPU 资源</td>
+                            <td class="sev-med">🟡 中</td>
+                            <td>学校 Oscar 集群 / Colab Pro</td>
+                            <td>可解决</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Heatmap 仅定性</td>
+                            <td class="sev-low">🟢 低</td>
+                            <td>TCD / Gini / ANOVA 等量化指标</td>
+                            <td style="color:var(--green)">✅ 已解决</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <footer>
+                    ColBERT Bias Audit · Chris Ziyu Kong · CSCI 2952W · Brown University · 2026
+                </footer>
+
+            </div>
+</body>
+
+</html>
