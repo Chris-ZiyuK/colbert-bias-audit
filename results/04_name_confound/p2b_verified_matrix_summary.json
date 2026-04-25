@@ -1,0 +1,187 @@
+{
+  "race": {
+    "description": "Same gender, same tokenizer count, small frequency gap; compare cross-race vs same-race pairs.",
+    "n_pairs": 35,
+    "n_rows": 3465,
+    "n_treatment_pairs": 22,
+    "n_control_pairs": 13,
+    "mean_by_group": [
+      {
+        "group": "cross_race",
+        "ss": 0.032742,
+        "func_tcd": 0.01757,
+        "cont_tcd": 0.014244
+      },
+      {
+        "group": "same_race",
+        "ss": 0.028628,
+        "func_tcd": 0.01415,
+        "cont_tcd": 0.011831
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.0041137961274664665,
+        "stderr": 0.003232450620010018,
+        "pvalue": 0.20314030760461965,
+        "r_squared": 0.15495247043181182,
+        "significant": false
+      },
+      "func_tcd": {
+        "coef": 0.003420293910613821,
+        "stderr": 0.0016494847669707427,
+        "pvalue": 0.03812085398726735,
+        "r_squared": 0.16280883290755666,
+        "significant": true
+      }
+    }
+  },
+  "gender": {
+    "description": "Same race, same tokenizer count, small frequency gap; compare cross-gender vs same-gender pairs.",
+    "n_pairs": 27,
+    "n_rows": 2673,
+    "n_treatment_pairs": 14,
+    "n_control_pairs": 13,
+    "mean_by_group": [
+      {
+        "group": "cross_gender",
+        "ss": 0.041426,
+        "func_tcd": 0.021403,
+        "cont_tcd": 0.014566
+      },
+      {
+        "group": "same_gender",
+        "ss": 0.028628,
+        "func_tcd": 0.01415,
+        "cont_tcd": 0.011831
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.01279809192935012,
+        "stderr": 0.004079536272249196,
+        "pvalue": 0.0017060243026079858,
+        "r_squared": 0.23386560584334048,
+        "significant": true
+      },
+      "func_tcd": {
+        "coef": 0.007253602407540266,
+        "stderr": 0.00207631690416239,
+        "pvalue": 0.0004767421829007808,
+        "r_squared": 0.24327455438484147,
+        "significant": true
+      }
+    }
+  },
+  "tokenization": {
+    "description": "Same race, same gender, small frequency gap; compare token-count mismatch vs token-count matched pairs.",
+    "n_pairs": 17,
+    "n_rows": 1683,
+    "n_treatment_pairs": 4,
+    "n_control_pairs": 13,
+    "mean_by_group": [
+      {
+        "group": "token_matched",
+        "ss": 0.028628,
+        "func_tcd": 0.01415,
+        "cont_tcd": 0.011831
+      },
+      {
+        "group": "token_mismatch",
+        "ss": 0.031008,
+        "func_tcd": 0.016745,
+        "cont_tcd": 0.015134
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.0023802294904716613,
+        "stderr": 0.0025792720309024807,
+        "pvalue": 0.356095828076612,
+        "r_squared": 0.12912917018427572,
+        "significant": false
+      },
+      "func_tcd": {
+        "coef": 0.002595341485108789,
+        "stderr": 0.0014546738829955114,
+        "pvalue": 0.0744009610033364,
+        "r_squared": 0.1255664432399809,
+        "significant": false
+      }
+    }
+  },
+  "frequency_gap": {
+    "description": "Same race, same gender, same tokenizer count; compare high vs low frequency-gap pairs.",
+    "n_pairs": 35,
+    "n_rows": 3465,
+    "n_treatment_pairs": 22,
+    "n_control_pairs": 13,
+    "mean_by_group": [
+      {
+        "group": "high_freq_gap",
+        "ss": 0.028702,
+        "func_tcd": 0.014575,
+        "cont_tcd": 0.014493
+      },
+      {
+        "group": "low_freq_gap",
+        "ss": 0.028628,
+        "func_tcd": 0.01415,
+        "cont_tcd": 0.011831
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 7.440278119884636e-05,
+        "stderr": 0.003021885747523763,
+        "pvalue": 0.980357022736788,
+        "r_squared": 0.14680818999477152,
+        "significant": false
+      },
+      "func_tcd": {
+        "coef": 0.0004252703186487278,
+        "stderr": 0.0014699177560327137,
+        "pvalue": 0.7723397811893096,
+        "r_squared": 0.12732298922529717,
+        "significant": false
+      }
+    }
+  },
+  "absolute_rarity": {
+    "description": "Same race, same gender, same tokenizer count, near-equal frequency; compare low-mean-rarity vs high-mean-rarity pairs.",
+    "n_pairs": 4,
+    "n_rows": 396,
+    "n_treatment_pairs": 2,
+    "n_control_pairs": 2,
+    "mean_by_group": [
+      {
+        "group": "higher_mean_freq",
+        "ss": 0.030892,
+        "func_tcd": 0.014356,
+        "cont_tcd": 0.010955
+      },
+      {
+        "group": "lower_mean_freq",
+        "ss": 0.032358,
+        "func_tcd": 0.015335,
+        "cont_tcd": 0.014459
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.0014664482689569366,
+        "stderr": 0.002960108644792717,
+        "pvalue": 0.6203153041292089,
+        "r_squared": 0.2609474080980455,
+        "significant": false
+      },
+      "func_tcd": {
+        "coef": 0.0009788565484848612,
+        "stderr": 0.001750482018302383,
+        "pvalue": 0.5760302994993038,
+        "r_squared": 0.3028904857113506,
+        "significant": false
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+P2b auxiliary names-dataset validation
+============================================================
+
+rankgap
+- rows=4752, pairs=48
+- ss: coef=+0.001232, p=0.6702, R2=0.1043
+- func_tcd: coef=+0.001548, p=0.2478, R2=0.1077
+
+tokenization
+- rows=4455, pairs=45
+- ss: coef=+0.009763, p=0.008128, R2=0.1241
+- func_tcd: coef=+0.007135, p=3.005e-05, R2=0.1783

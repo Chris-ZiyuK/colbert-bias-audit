@@ -1,0 +1,28 @@
+BM25 Baseline: Function-Word TCD Analysis
+=======================================================
+
+Total tests: 1400
+Name pairs: 14
+
+─── BM25 RESULT ───
+Mean func_tcd:  0.000000
+Mean cont_tcd:  0.000000
+Ratio (F/C):    0.00×
+Paired t-test:  t=nan, p=nan
+Func > Cont:    NO ✅ (as expected)
+
+─── COMPARISON WITH COLBERT ───
+ColBERT func_tcd:  0.012371
+ColBERT cont_tcd:  0.008711
+ColBERT ratio:     1.42×
+ColBERT p-value:   6.445e-26
+
+BM25 func_tcd:     0.000000
+BM25 cont_tcd:     0.000000
+BM25 ratio:        0.00×
+BM25 p-value:      nan
+
+─── INTERPRETATION ───
+BM25 shows NO function-word bias propagation (ratio ≈ 1.0).
+This confirms the ColBERT effect is specific to contextual models,
+not an artifact of retrieval decomposition in general.

@@ -1,0 +1,344 @@
+{
+  "total_tests": 43065,
+  "n_names": 30,
+  "n_pairs": 435,
+  "n_professions": 33,
+  "n_templates": 3,
+  "main_regression_ss": {
+    "r_squared": 0.20287715782861848,
+    "adj_r_squared": 0.2020433279418774,
+    "cross_race": {
+      "coef": 0.001345231936623798,
+      "pvalue": 0.3996912373481617,
+      "stderr": 0.0015973348213815554,
+      "significant": false
+    },
+    "cross_gender": {
+      "coef": 0.010247917967685044,
+      "pvalue": 4.8823212046723646e-15,
+      "stderr": 0.0013088173782962184,
+      "significant": true
+    },
+    "token_diff": {
+      "coef": -0.0011399226361534106,
+      "pvalue": 0.4680076442238136,
+      "stderr": 0.0015707373065747758,
+      "significant": false
+    },
+    "mean_tokens": {
+      "coef": 0.00014077957433576848,
+      "pvalue": 0.9619152940479765,
+      "stderr": 0.0029482485214336594,
+      "significant": false
+    },
+    "freq_diff": {
+      "coef": 0.00289803324532788,
+      "pvalue": 0.027089070113604185,
+      "stderr": 0.001311189657241065,
+      "significant": true
+    },
+    "mean_log_freq": {
+      "coef": 0.0016368454387922283,
+      "pvalue": 0.3586417936940568,
+      "stderr": 0.0017831410988482438,
+      "significant": false
+    }
+  },
+  "main_regression_func_tcd": {
+    "r_squared": 0.2039292386462469,
+    "adj_r_squared": 0.2030965092880349,
+    "cross_race": {
+      "coef": 0.0011580107404560887,
+      "pvalue": 0.12431370580919805,
+      "stderr": 0.000753463560764933,
+      "significant": false
+    },
+    "cross_gender": {
+      "coef": 0.004712720178431707,
+      "pvalue": 2.218920863845336e-14,
+      "stderr": 0.0006170694469730875,
+      "significant": true
+    },
+    "token_diff": {
+      "coef": -0.00063944906978982,
+      "pvalue": 0.44281743470781376,
+      "stderr": 0.0008332189333962312,
+      "significant": false
+    },
+    "mean_tokens": {
+      "coef": 1.9218906004625345e-05,
+      "pvalue": 0.9902421051216087,
+      "stderr": 0.0015714543254831414,
+      "significant": false
+    },
+    "freq_diff": {
+      "coef": 0.0024077534824782664,
+      "pvalue": 0.00018184922052460282,
+      "stderr": 0.0006432714470158533,
+      "significant": true
+    },
+    "mean_log_freq": {
+      "coef": 0.00018203178558196578,
+      "pvalue": 0.8302717819873267,
+      "stderr": 0.0008492149700387954,
+      "significant": false
+    }
+  },
+  "interaction_models": {
+    "ss_cross_race_x_mean_tokens": {
+      "coef": -0.0009850581003788678,
+      "pvalue": 0.7130285468115041,
+      "stderr": 0.0026783042111111297,
+      "significant": false
+    },
+    "func_cross_race_x_mean_tokens": {
+      "coef": -0.001007641645530745,
+      "pvalue": 0.460352421565717,
+      "stderr": 0.0013648749140994882,
+      "significant": false
+    }
+  },
+  "robustness": {
+    "within_race_ss_cross_gender": {
+      "coef": 0.010485734585017673,
+      "pvalue": 1.344270007013214e-06,
+      "stderr": 0.0021695695778260167,
+      "significant": true
+    },
+    "within_race_func_cross_gender": {
+      "coef": 0.005340649459260251,
+      "pvalue": 3.481814760471871e-08,
+      "stderr": 0.0009683330897591366,
+      "significant": true
+    },
+    "matched_token_ss_cross_race": {
+      "coef": 0.002093888291047392,
+      "pvalue": 0.24308546899686456,
+      "stderr": 0.0017937732725134008,
+      "significant": false
+    },
+    "matched_token_func_cross_race": {
+      "coef": 0.0014783718904733832,
+      "pvalue": 0.09963755399852908,
+      "stderr": 0.0008978257896280965,
+      "significant": false
+    }
+  },
+  "group_means": {
+    "race_pair_top5_by_ss": [
+      {
+        "race_pair": "Hispanic-White",
+        "mean_ss": 0.045564780089684113,
+        "mean_func_tcd": 0.024209842085838318,
+        "mean_cont_tcd": 0.014043181203305721,
+        "mean_tcd_ratio": 2.9343810081481934,
+        "n": 4356
+      },
+      {
+        "race_pair": "Hispanic-Hispanic",
+        "mean_ss": 0.04544098890356749,
+        "mean_func_tcd": 0.02523907646536827,
+        "mean_cont_tcd": 0.012578602880239487,
+        "mean_tcd_ratio": 3.14235520362854,
+        "n": 594
+      },
+      {
+        "race_pair": "Black-Hispanic",
+        "mean_ss": 0.04493863714219209,
+        "mean_func_tcd": 0.02445157989859581,
+        "mean_cont_tcd": 0.014665174297988415,
+        "mean_tcd_ratio": 2.753969430923462,
+        "n": 3960
+      },
+      {
+        "race_pair": "Asian-Hispanic",
+        "mean_ss": 0.04142770788734449,
+        "mean_func_tcd": 0.02396143600344658,
+        "mean_cont_tcd": 0.014839495532214642,
+        "mean_tcd_ratio": 2.8061094284057617,
+        "n": 1980
+      },
+      {
+        "race_pair": "White-White",
+        "mean_ss": 0.03976789953726967,
+        "mean_func_tcd": 0.01967434585094452,
+        "mean_cont_tcd": 0.014814730733633041,
+        "mean_tcd_ratio": 2.5303897857666016,
+        "n": 5445
+      }
+    ],
+    "gender_pair": [
+      {
+        "gender_pair": "F-M",
+        "mean_ss": 0.04409009459520231,
+        "mean_func_tcd": 0.023027053102850914,
+        "mean_cont_tcd": 0.01586812175810337,
+        "mean_tcd_ratio": 2.5828564167022705,
+        "n": 22275
+      },
+      {
+        "gender_pair": "F-F",
+        "mean_ss": 0.03703174049160223,
+        "mean_func_tcd": 0.01916133612394333,
+        "mean_cont_tcd": 0.014881780371069908,
+        "mean_tcd_ratio": 2.295168876647949,
+        "n": 10395
+      },
+      {
+        "gender_pair": "M-M",
+        "mean_ss": 0.029812885476557673,
+        "mean_func_tcd": 0.01716124638915062,
+        "mean_cont_tcd": 0.014903762377798557,
+        "mean_tcd_ratio": 2.143874406814575,
+        "n": 10395
+      }
+    ],
+    "ses_pair": [
+      {
+        "ses_pair": "low-low",
+        "mean_ss": 0.046511047638779716,
+        "mean_func_tcd": 0.023704739287495613,
+        "mean_cont_tcd": 0.01620519906282425,
+        "mean_tcd_ratio": 2.415828227996826,
+        "n": 2079
+      },
+      {
+        "ses_pair": "high-low",
+        "mean_ss": 0.04602413887548508,
+        "mean_func_tcd": 0.023996395990252495,
+        "mean_cont_tcd": 0.016731737181544304,
+        "mean_tcd_ratio": 2.6250429153442383,
+        "n": 4851
+      },
+      {
+        "ses_pair": "high-mid",
+        "mean_ss": 0.04153307641669774,
+        "mean_func_tcd": 0.021238617599010468,
+        "mean_cont_tcd": 0.015794768929481506,
+        "mean_tcd_ratio": 2.463620662689209,
+        "n": 11088
+      },
+      {
+        "ses_pair": "low-mid",
+        "mean_ss": 0.03886099041901165,
+        "mean_func_tcd": 0.020985983312129974,
+        "mean_cont_tcd": 0.015400312840938568,
+        "mean_tcd_ratio": 2.338325023651123,
+        "n": 11088
+      },
+      {
+        "ses_pair": "high-high",
+        "mean_ss": 0.03679401446462962,
+        "mean_func_tcd": 0.018329527229070663,
+        "mean_cont_tcd": 0.016162417829036713,
+        "mean_tcd_ratio": 2.120171070098877,
+        "n": 2079
+      },
+      {
+        "ses_pair": "mid-mid",
+        "mean_ss": 0.03275193679922911,
+        "mean_func_tcd": 0.018393835052847862,
+        "mean_cont_tcd": 0.014203212223947048,
+        "mean_tcd_ratio": 2.3795101642608643,
+        "n": 11880
+      }
+    ]
+  },
+  "token_count_audit": {
+    "n_updated_names": 16,
+    "updates": [
+      {
+        "name": "Jennifer",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Elizabeth",
+        "old": 3,
+        "new": 1
+      },
+      {
+        "name": "Katherine",
+        "old": 3,
+        "new": 1
+      },
+      {
+        "name": "Geoffrey",
+        "old": 3,
+        "new": 1
+      },
+      {
+        "name": "Christopher",
+        "old": 3,
+        "new": 1
+      },
+      {
+        "name": "Tamika",
+        "old": 3,
+        "new": 2
+      },
+      {
+        "name": "Ebony",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Jasmine",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Jamal",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Tyrone",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Andre",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Marcus",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Guadalupe",
+        "old": 4,
+        "new": 1
+      },
+      {
+        "name": "Carlos",
+        "old": 2,
+        "new": 1
+      },
+      {
+        "name": "Alejandro",
+        "old": 4,
+        "new": 1
+      },
+      {
+        "name": "Xuefeng",
+        "old": 4,
+        "new": 3
+      }
+    ],
+    "observed_token_counts": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "statement": "Tokenizer audit updated 16 names; observed token counts now span [1, 2, 3, 5]. This substantially compresses the fragmentation range relative to the hand-curated initial assumptions."
+  },
+  "interpretation": {
+    "name_rarity_statement": "Frequency disparity between the paired names is the most stable rarity-related predictor: larger log-frequency gaps increase both SS and function-word disruption, while mean rarity and mean BPE fragmentation are not independently significant in the upgraded specification.",
+    "tokenizer_statement": "Tokenizer audit updated 16 names; observed token counts now span [1, 2, 3, 5]. This substantially compresses the fragmentation range relative to the hand-curated initial assumptions.",
+    "conclusion": "Cross-race pairs are not significant for SS after controls (p=0.3997). and are also not significant for function-word disruption (p=0.1243). Gender crossing matters at least in one model (SS p=4.882e-15, Func-TCD p=2.219e-14)."
+  }
+}

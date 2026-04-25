@@ -1,0 +1,50 @@
+Real-Text Validation: Function-Word Bias in Natural Passages
+=================================================================
+
+Total tests: 1680
+Passages: 12
+Name pairs: 14 (1 identity, 4 control)
+Queries: 10
+
+─── CORE RESULT ───
+Mean func_tcd:  0.012371
+Mean cont_tcd:  0.008711
+Ratio (F/C):    1.42×
+Paired t-test:  t=10.705, p=6.445e-26
+Pattern holds:  YES ✅
+
+─── BY PASSAGE CATEGORY ───
+                  func_tcd  cont_tcd        ss
+passage_category                              
+community         0.015288  0.013709  0.032423
+education         0.016267  0.010939  0.037785
+evaluation        0.008901  0.008714  0.021619
+legal             0.007867  0.005052  0.012764
+medical           0.010196  0.005911  0.017880
+news              0.014667  0.008628  0.026284
+professional      0.012345  0.008535  0.024871
+
+─── IDENTITY vs CONTROL ───
+Identity swaps  — mean func_tcd=0.012558, mean SS=0.023886
+Control swaps   — mean func_tcd=0.011904, mean SS=0.027071
+Identity/Control ratio (func_tcd): 1.05×
+
+─── BY QUERY TYPE ───
+            func_tcd  cont_tcd        ss
+query_type                              
+natural     0.007594  0.008128  0.022502
+profession  0.015556  0.009099  0.026326
+
+─── PER-PASSAGE func>cont WIN RATE ───
+  bio_academic              78/140 (56%)
+  bio_engineer              91/140 (65%)
+  bio_finance               87/140 (62%)
+  community_volunteer       68/140 (49%)
+  legal_witness             84/140 (60%)
+  medical_case              86/140 (61%)
+  news_award                96/140 (69%)
+  news_controversy          99/140 (71%)
+  news_hire                 55/140 (39%)
+  rec_employee              72/140 (51%)
+  rec_student               68/140 (49%)
+  school_report             87/140 (62%)

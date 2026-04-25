@@ -1,0 +1,807 @@
+{
+  "nested_models": {
+    "ss": [
+      {
+        "model": "m0_race_only",
+        "r_squared": 0.15649723963705964,
+        "adj_r_squared": 0.15581113034768024,
+        "cross_race_coef": 0.0011359300769069726,
+        "cross_race_pvalue": 0.46246209413662964,
+        "cross_gender_coef": 0.0,
+        "cross_gender_pvalue": 1.0,
+        "token_diff_coef": 0.0,
+        "token_diff_pvalue": 1.0,
+        "mean_tokens_coef": 0.0,
+        "mean_tokens_pvalue": 1.0,
+        "freq_diff_coef": 0.0,
+        "freq_diff_pvalue": 1.0,
+        "mean_log_freq_coef": 0.0,
+        "mean_log_freq_pvalue": 1.0
+      },
+      {
+        "model": "m1_add_gender",
+        "r_squared": 0.18329666474266515,
+        "adj_r_squared": 0.18261335805703582,
+        "cross_race_coef": 0.0017677376982175642,
+        "cross_race_pvalue": 0.20853158405218308,
+        "cross_gender_coef": 0.010749153663898186,
+        "cross_gender_pvalue": 3.1664294913238155e-16,
+        "token_diff_coef": 0.0,
+        "token_diff_pvalue": 1.0,
+        "mean_tokens_coef": 0.0,
+        "mean_tokens_pvalue": 1.0,
+        "freq_diff_coef": 0.0,
+        "freq_diff_pvalue": 1.0,
+        "mean_log_freq_coef": 0.0,
+        "mean_log_freq_pvalue": 1.0
+      },
+      {
+        "model": "m2_add_rarity_token",
+        "r_squared": 0.184570543246953,
+        "adj_r_squared": 0.18381242735186842,
+        "cross_race_coef": 0.0015420189350521796,
+        "cross_race_pvalue": 0.3309865627759164,
+        "cross_gender_coef": 0.010667444972052229,
+        "cross_gender_pvalue": 5.123099488244314e-16,
+        "token_diff_coef": -0.0011547184367027112,
+        "token_diff_pvalue": 0.4617941550729395,
+        "mean_tokens_coef": 0.0010225610033456037,
+        "mean_tokens_pvalue": 0.7212737162087075,
+        "freq_diff_coef": 0.0014381981179086877,
+        "freq_diff_pvalue": 0.3019049698186036,
+        "mean_log_freq_coef": 0.0016371297889144622,
+        "mean_log_freq_pvalue": 0.3471990307159598
+      },
+      {
+        "model": "m3_full_plus_ses",
+        "r_squared": 0.20287715782861826,
+        "adj_r_squared": 0.20204332794187718,
+        "cross_race_coef": 0.0013452319366237923,
+        "cross_race_pvalue": 0.3996912373481628,
+        "cross_gender_coef": 0.010247917967685044,
+        "cross_gender_pvalue": 4.88232120467164e-15,
+        "token_diff_coef": -0.0011399226361534162,
+        "token_diff_pvalue": 0.4680076442238138,
+        "mean_tokens_coef": 0.0001407795743357632,
+        "mean_tokens_pvalue": 0.9619152940479779,
+        "freq_diff_coef": 0.002898033245327887,
+        "freq_diff_pvalue": 0.02708907011360349,
+        "mean_log_freq_coef": 0.0016368454387922196,
+        "mean_log_freq_pvalue": 0.35864179369406457
+      }
+    ],
+    "func_tcd": [
+      {
+        "model": "m0_race_only",
+        "r_squared": 0.15644509193233924,
+        "adj_r_squared": 0.15575894022576064,
+        "cross_race_coef": 0.0018156773367771016,
+        "cross_race_pvalue": 0.011446826577624622,
+        "cross_gender_coef": 0.0,
+        "cross_gender_pvalue": 1.0,
+        "token_diff_coef": 0.0,
+        "token_diff_pvalue": 1.0,
+        "mean_tokens_coef": 0.0,
+        "mean_tokens_pvalue": 1.0,
+        "freq_diff_coef": 0.0,
+        "freq_diff_pvalue": 1.0,
+        "mean_log_freq_coef": 0.0,
+        "mean_log_freq_pvalue": 1.0
+      },
+      {
+        "model": "m1_add_gender",
+        "r_squared": 0.18406313386960138,
+        "adj_r_squared": 0.18338046846147893,
+        "cross_race_coef": 0.00210737614857584,
+        "cross_race_pvalue": 0.0011622080085515753,
+        "cross_gender_coef": 0.004962769118069498,
+        "cross_gender_pvalue": 1.7688815596348664e-15,
+        "token_diff_coef": 0.0,
+        "token_diff_pvalue": 1.0,
+        "mean_tokens_coef": 0.0,
+        "mean_tokens_pvalue": 1.0,
+        "freq_diff_coef": 0.0,
+        "freq_diff_pvalue": 1.0,
+        "mean_log_freq_coef": 0.0,
+        "mean_log_freq_pvalue": 1.0
+      },
+      {
+        "model": "m2_add_rarity_token",
+        "r_squared": 0.18735865313575595,
+        "adj_r_squared": 0.18660312938448764,
+        "cross_race_coef": 0.001351991672311429,
+        "cross_race_pvalue": 0.05916426931821294,
+        "cross_gender_coef": 0.004866961590842957,
+        "cross_gender_pvalue": 3.189799959115618e-15,
+        "token_diff_coef": -0.000601141760667947,
+        "token_diff_pvalue": 0.4432106382963754,
+        "mean_tokens_coef": 0.0002942521974553318,
+        "mean_tokens_pvalue": 0.8368469017758986,
+        "freq_diff_coef": 0.0016633523206126238,
+        "freq_diff_pvalue": 0.013299663198380367,
+        "mean_log_freq_coef": -0.00010691021959668958,
+        "mean_log_freq_pvalue": 0.8981433629151497
+      },
+      {
+        "model": "m3_full_plus_ses",
+        "r_squared": 0.20392923887210745,
+        "adj_r_squared": 0.20309650951413172,
+        "cross_race_coef": 0.0011580107440548246,
+        "cross_race_pvalue": 0.12431370440810066,
+        "cross_gender_coef": 0.004712720181972138,
+        "cross_gender_pvalue": 2.218920773042057e-14,
+        "token_diff_coef": -0.0006394490646849831,
+        "token_diff_pvalue": 0.44281743833919596,
+        "mean_tokens_coef": 1.9218899280722464e-05,
+        "mean_tokens_pvalue": 0.9902421085403434,
+        "freq_diff_coef": 0.0024077534795436204,
+        "freq_diff_pvalue": 0.00018184922436465892,
+        "mean_log_freq_coef": 0.00018203178340396792,
+        "mean_log_freq_pvalue": 0.8302717841404167
+      }
+    ]
+  },
+  "template_robustness": {
+    "ss": [
+      {
+        "template_id": "t1",
+        "n": 14355,
+        "cross_race": {
+          "coef": 0.002122743910178078,
+          "pvalue": 0.3088212729113652,
+          "stderr": 0.002085827939530322,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.009924548496338939,
+          "pvalue": 4.198647158533708e-09,
+          "stderr": 0.0016889482217169547,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.002841540077231472,
+          "pvalue": 0.0923248299210647,
+          "stderr": 0.001688117461513901,
+          "significant": false
+        },
+        "token_diff": {
+          "coef": -0.0008029184220656007,
+          "pvalue": 0.7030846678768116,
+          "stderr": 0.0021065138495735152,
+          "significant": false
+        }
+      },
+      {
+        "template_id": "t2",
+        "n": 14355,
+        "cross_race": {
+          "coef": 0.002106713945274174,
+          "pvalue": 0.0751115387131055,
+          "stderr": 0.0011836916994416428,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.007782776438396465,
+          "pvalue": 9.497422072130326e-16,
+          "stderr": 0.0009688282230539735,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.00032219698148431344,
+          "pvalue": 0.7246701004010188,
+          "stderr": 0.0009147496000899614,
+          "significant": false
+        },
+        "token_diff": {
+          "coef": -0.0007669738383373929,
+          "pvalue": 0.5130802706171109,
+          "stderr": 0.0011726551054122326,
+          "significant": false
+        }
+      },
+      {
+        "template_id": "t3",
+        "n": 14355,
+        "cross_race": {
+          "coef": -0.00019376204558119829,
+          "pvalue": 0.9156207168611185,
+          "stderr": 0.0018287780553469016,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.013036428968319184,
+          "pvalue": 5.4572437678993876e-18,
+          "stderr": 0.001508255326779356,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.005530362677267455,
+          "pvalue": 0.00046673525949013914,
+          "stderr": 0.0015804852182342074,
+          "significant": true
+        },
+        "token_diff": {
+          "coef": -0.0018498756480570424,
+          "pvalue": 0.3212497694794434,
+          "stderr": 0.0018649953384877445,
+          "significant": false
+        }
+      }
+    ],
+    "func_tcd": [
+      {
+        "template_id": "t1",
+        "n": 14355,
+        "cross_race": {
+          "coef": 0.0013496147272175076,
+          "pvalue": 0.1583818155353195,
+          "stderr": 0.0009568106266091403,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.00434765287908705,
+          "pvalue": 1.5333355847397042e-08,
+          "stderr": 0.0007684364378012578,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0021209288339066076,
+          "pvalue": 0.009968852483284281,
+          "stderr": 0.0008230518757612879,
+          "significant": true
+        },
+        "token_diff": {
+          "coef": -0.00038932363878251756,
+          "pvalue": 0.7411624146704074,
+          "stderr": 0.001178645680584411,
+          "significant": false
+        }
+      },
+      {
+        "template_id": "t2",
+        "n": 14355,
+        "cross_race": {
+          "coef": 0.0022860575938812326,
+          "pvalue": 0.0009509880605602766,
+          "stderr": 0.000691772261557518,
+          "significant": true
+        },
+        "cross_gender": {
+          "coef": 0.0039724917954676335,
+          "pvalue": 5.7322871723761875e-12,
+          "stderr": 0.0005768814588891168,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.00029645517355718544,
+          "pvalue": 0.5816370205668229,
+          "stderr": 0.0005380359341694828,
+          "significant": false
+        },
+        "token_diff": {
+          "coef": -3.978665051122257e-05,
+          "pvalue": 0.9466694164068058,
+          "stderr": 0.0005948087437722782,
+          "significant": false
+        }
+      },
+      {
+        "template_id": "t3",
+        "n": 14355,
+        "cross_race": {
+          "coef": -0.00016164008893440197,
+          "pvalue": 0.8529187392713481,
+          "stderr": 0.0008718657113622581,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.005818015871361503,
+          "pvalue": 9.77171200197597e-16,
+          "stderr": 0.000724562706561479,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0048058764311668485,
+          "pvalue": 7.15346894986432e-10,
+          "stderr": 0.0007798384724969128,
+          "significant": true
+        },
+        "token_diff": {
+          "coef": -0.0014892369047610956,
+          "pvalue": 0.14709967480276773,
+          "stderr": 0.0010271644704193175,
+          "significant": false
+        }
+      }
+    ]
+  },
+  "leave_one_race_pair_out": {
+    "ss": [
+      {
+        "held_out_race_pair": "Asian-Asian",
+        "n": 42075,
+        "cross_race": {
+          "coef": 0.0009297999080294852,
+          "pvalue": 0.5959867902336463,
+          "stderr": 0.0017537421864935383,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.010504779794654785,
+          "pvalue": 3.8207982327079445e-15,
+          "stderr": 0.001336371821703995,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.002911296505807871,
+          "pvalue": 0.031522425760526364,
+          "stderr": 0.0013538302595605819,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Asian-Black",
+        "n": 38115,
+        "cross_race": {
+          "coef": 0.002250399431557388,
+          "pvalue": 0.17161609434322567,
+          "stderr": 0.0016461968206291251,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.010845601633304258,
+          "pvalue": 2.3731992358389977e-14,
+          "stderr": 0.0014217030786711619,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.002565251147321521,
+          "pvalue": 0.07123981049400038,
+          "stderr": 0.0014220223275700306,
+          "significant": false
+        }
+      },
+      {
+        "held_out_race_pair": "Asian-Hispanic",
+        "n": 41085,
+        "cross_race": {
+          "coef": 0.0014897140491569735,
+          "pvalue": 0.35343657455084987,
+          "stderr": 0.0016053920407429316,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.010150709978032238,
+          "pvalue": 2.0035703165379643e-14,
+          "stderr": 0.001326821032506566,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0018638005498438448,
+          "pvalue": 0.15284517564258804,
+          "stderr": 0.001303764004565887,
+          "significant": false
+        }
+      },
+      {
+        "held_out_race_pair": "Asian-White",
+        "n": 37620,
+        "cross_race": {
+          "coef": 0.0014977450348449344,
+          "pvalue": 0.35132806829238494,
+          "stderr": 0.0016069943529889502,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.010320624773066485,
+          "pvalue": 2.4412066841685084e-13,
+          "stderr": 0.0014095171054693504,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.005639610731863216,
+          "pvalue": 0.0015515919078758842,
+          "stderr": 0.0017819480448044767,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Black-Black",
+        "n": 38610,
+        "cross_race": {
+          "coef": -0.0012604101449631702,
+          "pvalue": 0.47952861052441353,
+          "stderr": 0.0017826046960975315,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.011059319257371218,
+          "pvalue": 7.742751033142663e-16,
+          "stderr": 0.0013724308635692712,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.003230027043513872,
+          "pvalue": 0.015376388992289101,
+          "stderr": 0.0013328545577998348,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Black-Hispanic",
+        "n": 39105,
+        "cross_race": {
+          "coef": -0.0012774178182360658,
+          "pvalue": 0.4168826051603587,
+          "stderr": 0.0015734818578933968,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.010546979702508726,
+          "pvalue": 4.422822478101796e-16,
+          "stderr": 0.0012978685522484254,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0029427905456669945,
+          "pvalue": 0.02847499775501006,
+          "stderr": 0.0013433232122068513,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Black-White",
+        "n": 32175,
+        "cross_race": {
+          "coef": 0.00254527610581406,
+          "pvalue": 0.16101168808429422,
+          "stderr": 0.0018158790510606436,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.010775662221000504,
+          "pvalue": 2.307292112377398e-11,
+          "stderr": 0.0016118866666461355,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.004293238890932337,
+          "pvalue": 0.003990737218337248,
+          "stderr": 0.001491281165052878,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Hispanic-Hispanic",
+        "n": 42471,
+        "cross_race": {
+          "coef": 0.0019370190929514626,
+          "pvalue": 0.23638695687156352,
+          "stderr": 0.0016359047317358025,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.009965306774375118,
+          "pvalue": 4.810648854932972e-14,
+          "stderr": 0.001322192335832276,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0028306422108731206,
+          "pvalue": 0.03227355211758264,
+          "stderr": 0.001322108474508179,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Hispanic-White",
+        "n": 38709,
+        "cross_race": {
+          "coef": -7.38322170635943e-05,
+          "pvalue": 0.9652052293623559,
+          "stderr": 0.0016925218027817694,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.00925566558509967,
+          "pvalue": 1.969068213447432e-12,
+          "stderr": 0.0013153498370743137,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0034164964550518393,
+          "pvalue": 0.011619183881927418,
+          "stderr": 0.0013538702000224522,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "White-White",
+        "n": 37620,
+        "cross_race": {
+          "coef": 0.003647301969265754,
+          "pvalue": 0.07961519314190967,
+          "stderr": 0.002080696974458272,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.00907912932611661,
+          "pvalue": 3.8566569992476456e-11,
+          "stderr": 0.0013736520628712928,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0013271191989626403,
+          "pvalue": 0.32063944019271495,
+          "stderr": 0.0013362797900069786,
+          "significant": false
+        }
+      }
+    ],
+    "func_tcd": [
+      {
+        "held_out_race_pair": "Asian-Asian",
+        "n": 42075,
+        "cross_race": {
+          "coef": 0.0013090275293803069,
+          "pvalue": 0.11301487425593751,
+          "stderr": 0.0008259961925796793,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.004863100094316225,
+          "pvalue": 8.934951246220726e-15,
+          "stderr": 0.0006272084417092357,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0025707774812278508,
+          "pvalue": 9.294941702922114e-05,
+          "stderr": 0.0006577745229490424,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Asian-Black",
+        "n": 38115,
+        "cross_race": {
+          "coef": 0.001785959944278521,
+          "pvalue": 0.022102973214290323,
+          "stderr": 0.0007803744210038428,
+          "significant": true
+        },
+        "cross_gender": {
+          "coef": 0.005033481491458137,
+          "pvalue": 4.358598807445904e-14,
+          "stderr": 0.0006667021765069462,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.002158626571126825,
+          "pvalue": 0.0021864767153063906,
+          "stderr": 0.0007045909068862149,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Asian-Hispanic",
+        "n": 41085,
+        "cross_race": {
+          "coef": 0.0012109956245188239,
+          "pvalue": 0.10953713892304189,
+          "stderr": 0.000756741237541168,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.004698500130566318,
+          "pvalue": 3.064446478535328e-14,
+          "stderr": 0.0006185844128225119,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0018727827607964154,
+          "pvalue": 0.003220651501345232,
+          "stderr": 0.0006357352508065421,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Asian-White",
+        "n": 37620,
+        "cross_race": {
+          "coef": 0.0012891166795022577,
+          "pvalue": 0.09129248207473738,
+          "stderr": 0.0007634148015586415,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.004706351227367199,
+          "pvalue": 1.022619154388998e-12,
+          "stderr": 0.0006603155288214897,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0035885335166579197,
+          "pvalue": 3.0433124180669533e-05,
+          "stderr": 0.000860518139558846,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Black-Black",
+        "n": 38610,
+        "cross_race": {
+          "coef": -0.001079585851673167,
+          "pvalue": 0.20382554155140808,
+          "stderr": 0.0008495808040826317,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.004975264868033671,
+          "pvalue": 1.1582116910322192e-14,
+          "stderr": 0.0006444177493097866,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.002757931550959311,
+          "pvalue": 2.0353977697865294e-05,
+          "stderr": 0.0006472540961825876,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Black-Hispanic",
+        "n": 39105,
+        "cross_race": {
+          "coef": -0.00047459297430801694,
+          "pvalue": 0.5104647074921997,
+          "stderr": 0.0007211406840842229,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.004939513223667553,
+          "pvalue": 4.1287424212908856e-16,
+          "stderr": 0.0006072132960975793,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.002505459096696901,
+          "pvalue": 0.00012183053975577059,
+          "stderr": 0.0006520535430818966,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Black-White",
+        "n": 32175,
+        "cross_race": {
+          "coef": 0.0021100992226920673,
+          "pvalue": 0.014904435821858941,
+          "stderr": 0.0008666798501685851,
+          "significant": true
+        },
+        "cross_gender": {
+          "coef": 0.004925118529906982,
+          "pvalue": 1.906514326106458e-10,
+          "stderr": 0.0007733332496989489,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0028862346218621526,
+          "pvalue": 0.00012098313661119954,
+          "stderr": 0.0007508169808402853,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Hispanic-Hispanic",
+        "n": 42471,
+        "cross_race": {
+          "coef": 0.0015893659962411238,
+          "pvalue": 0.03252705937545922,
+          "stderr": 0.0007434333388231357,
+          "significant": true
+        },
+        "cross_gender": {
+          "coef": 0.004575983463564685,
+          "pvalue": 1.451096112213571e-13,
+          "stderr": 0.0006190817378372281,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0023568236513464274,
+          "pvalue": 0.00026343715518360993,
+          "stderr": 0.0006459121220035487,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "Hispanic-White",
+        "n": 38709,
+        "cross_race": {
+          "coef": 0.0002416253660056744,
+          "pvalue": 0.7605814421117323,
+          "stderr": 0.0007929491844056659,
+          "significant": false
+        },
+        "cross_gender": {
+          "coef": 0.004301959582120574,
+          "pvalue": 2.0018225413897893e-12,
+          "stderr": 0.0006115640274026599,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.0027408240804912363,
+          "pvalue": 2.4973973727795236e-05,
+          "stderr": 0.0006502494631924721,
+          "significant": true
+        }
+      },
+      {
+        "held_out_race_pair": "White-White",
+        "n": 37620,
+        "cross_race": {
+          "coef": 0.0024571611694595846,
+          "pvalue": 0.01780844090978527,
+          "stderr": 0.0010369618921502695,
+          "significant": true
+        },
+        "cross_gender": {
+          "coef": 0.004119301048776139,
+          "pvalue": 2.7451845643375933e-10,
+          "stderr": 0.0006525599206339602,
+          "significant": true
+        },
+        "freq_diff": {
+          "coef": 0.001730485544284631,
+          "pvalue": 0.009984350896300781,
+          "stderr": 0.000671675652873144,
+          "significant": true
+        }
+      }
+    ]
+  },
+  "final_model_takeaways": {
+    "ss_cross_race": {
+      "coef": 0.0013452319366237923,
+      "pvalue": 0.3996912373481628,
+      "stderr": 0.0015973348213815526,
+      "significant": false
+    },
+    "ss_cross_gender": {
+      "coef": 0.010247917967685044,
+      "pvalue": 4.88232120467164e-15,
+      "stderr": 0.0013088173782962152,
+      "significant": true
+    },
+    "ss_freq_diff": {
+      "coef": 0.002898033245327887,
+      "pvalue": 0.02708907011360349,
+      "stderr": 0.0013111896572410623,
+      "significant": true
+    },
+    "func_cross_race": {
+      "coef": 0.0011580107440548246,
+      "pvalue": 0.12431370440810066,
+      "stderr": 0.0007534635603018912,
+      "significant": false
+    },
+    "func_cross_gender": {
+      "coef": 0.004712720181972138,
+      "pvalue": 2.218920773042057e-14,
+      "stderr": 0.0006170694470107999,
+      "significant": true
+    },
+    "func_freq_diff": {
+      "coef": 0.0024077534795436204,
+      "pvalue": 0.00018184922436465892,
+      "stderr": 0.0006432714471433802,
+      "significant": true
+    }
+  },
+  "interpretation": {
+    "model_ladder": "Cross-race weakens rather than strengthens as the specification becomes more realistic, while cross-gender and frequency disparity remain stable.",
+    "template_statement": "The qualitative pattern is consistent across templates: gender and frequency are more stable than race under fixed-effects specifications.",
+    "sensitivity_statement": "Leaving out any single race pair does not qualitatively restore a stable cross-race main effect; the conclusions are not driven by one particular pair family."
+  }
+}

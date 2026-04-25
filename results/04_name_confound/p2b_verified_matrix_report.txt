@@ -1,0 +1,32 @@
+P2b tokenizer-verified matrix analysis
+============================================================
+
+race
+- Same gender, same tokenizer count, small frequency gap; compare cross-race vs same-race pairs.
+- rows=3465, pairs=35, treatment_pairs=22, control_pairs=13
+- ss: coef=+0.004114, p=0.2031, R2=0.1550 n.s.
+- func_tcd: coef=+0.003420, p=0.03812, R2=0.1628 *
+
+gender
+- Same race, same tokenizer count, small frequency gap; compare cross-gender vs same-gender pairs.
+- rows=2673, pairs=27, treatment_pairs=14, control_pairs=13
+- ss: coef=+0.012798, p=0.001706, R2=0.2339 **
+- func_tcd: coef=+0.007254, p=0.0004767, R2=0.2433 ***
+
+tokenization
+- Same race, same gender, small frequency gap; compare token-count mismatch vs token-count matched pairs.
+- rows=1683, pairs=17, treatment_pairs=4, control_pairs=13
+- ss: coef=+0.002380, p=0.3561, R2=0.1291 n.s.
+- func_tcd: coef=+0.002595, p=0.0744, R2=0.1256 n.s.
+
+frequency_gap
+- Same race, same gender, same tokenizer count; compare high vs low frequency-gap pairs.
+- rows=3465, pairs=35, treatment_pairs=22, control_pairs=13
+- ss: coef=+0.000074, p=0.9804, R2=0.1468 n.s.
+- func_tcd: coef=+0.000425, p=0.7723, R2=0.1273 n.s.
+
+absolute_rarity
+- Same race, same gender, same tokenizer count, near-equal frequency; compare low-mean-rarity vs high-mean-rarity pairs.
+- rows=396, pairs=4, treatment_pairs=2, control_pairs=2
+- ss: coef=+0.001466, p=0.6203, R2=0.2609 n.s.
+- func_tcd: coef=+0.000979, p=0.576, R2=0.3029 n.s.

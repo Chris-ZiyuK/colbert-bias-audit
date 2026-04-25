@@ -1,0 +1,500 @@
+{
+  "_doc": "Tokenizer-verified version of the P2 name feature matrix using the actual ColBERT tokenizer.",
+  "model_name": "colbert-ir/colbertv2.0",
+  "n_names": 30,
+  "n_corrected_token_counts": 16,
+  "names": [
+    {
+      "name": "Mei",
+      "gender": "F",
+      "race": "Asian",
+      "census_freq_per_100k": 8,
+      "bpe_tokens": 1,
+      "ses_tier": "mid",
+      "notes": "Rare, 1-token Asian female — rare + 1-token confound breaker",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "mei"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 0.90309
+    },
+    {
+      "name": "Priya",
+      "gender": "F",
+      "race": "Asian",
+      "census_freq_per_100k": 14,
+      "bpe_tokens": 2,
+      "ses_tier": "high",
+      "notes": "Rare, 2-token South Asian female",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 2,
+      "tokenizer_tokens": [
+        "pri",
+        "##ya"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 1.146128
+    },
+    {
+      "name": "Wei",
+      "gender": "M",
+      "race": "Asian",
+      "census_freq_per_100k": 12,
+      "bpe_tokens": 1,
+      "ses_tier": "mid",
+      "notes": "Rare, 1-token Asian male — rare but 1-token (breaks rarity=multi-token)",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "wei"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 1.079181
+    },
+    {
+      "name": "Xuefeng",
+      "gender": "M",
+      "race": "Asian",
+      "census_freq_per_100k": 1,
+      "bpe_tokens": 4,
+      "ses_tier": "mid",
+      "notes": "Very rare, 4-token Asian male",
+      "manual_bpe_tokens": 4,
+      "actual_bpe_tokens": 3,
+      "tokenizer_tokens": [
+        "xu",
+        "##efe",
+        "##ng"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 0.0
+    },
+    {
+      "name": "Thiruvengadam",
+      "gender": "M",
+      "race": "Asian",
+      "census_freq_per_100k": 0.5,
+      "bpe_tokens": 5,
+      "ses_tier": "mid",
+      "notes": "Extremely rare, 5-token South Asian male",
+      "manual_bpe_tokens": 5,
+      "actual_bpe_tokens": 5,
+      "tokenizer_tokens": [
+        "th",
+        "##ir",
+        "##uven",
+        "##ga",
+        "##dam"
+      ],
+      "token_count_corrected": false,
+      "log_freq": -0.30103
+    },
+    {
+      "name": "Jasmine",
+      "gender": "F",
+      "race": "Black",
+      "census_freq_per_100k": 215,
+      "bpe_tokens": 2,
+      "ses_tier": "mid",
+      "notes": "Common, 2-token Black female — frequency control (common Black)",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "jasmine"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 2.332438
+    },
+    {
+      "name": "Ebony",
+      "gender": "F",
+      "race": "Black",
+      "census_freq_per_100k": 42,
+      "bpe_tokens": 2,
+      "ses_tier": "low",
+      "notes": "Low-freq, 2-token Black female",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "ebony"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.623249
+    },
+    {
+      "name": "Tamika",
+      "gender": "F",
+      "race": "Black",
+      "census_freq_per_100k": 25,
+      "bpe_tokens": 3,
+      "ses_tier": "low",
+      "notes": "Rare, 3-token Black female",
+      "manual_bpe_tokens": 3,
+      "actual_bpe_tokens": 2,
+      "tokenizer_tokens": [
+        "tam",
+        "##ika"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.39794
+    },
+    {
+      "name": "Aisha",
+      "gender": "F",
+      "race": "Black",
+      "census_freq_per_100k": 18,
+      "bpe_tokens": 2,
+      "ses_tier": "mid",
+      "notes": "Rare, 2-token Black female",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 2,
+      "tokenizer_tokens": [
+        "ai",
+        "##sha"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 1.255273
+    },
+    {
+      "name": "Lakisha",
+      "gender": "F",
+      "race": "Black",
+      "census_freq_per_100k": 5,
+      "bpe_tokens": 3,
+      "ses_tier": "low",
+      "notes": "Rare, 3-token Black female — classic B&M audit name",
+      "manual_bpe_tokens": 3,
+      "actual_bpe_tokens": 3,
+      "tokenizer_tokens": [
+        "la",
+        "##kis",
+        "##ha"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 0.69897
+    },
+    {
+      "name": "Marcus",
+      "gender": "M",
+      "race": "Black",
+      "census_freq_per_100k": 98,
+      "bpe_tokens": 2,
+      "ses_tier": "mid",
+      "notes": "Mid-freq, 2-token Black male — common Black male name",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "marcus"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.991226
+    },
+    {
+      "name": "Andre",
+      "gender": "M",
+      "race": "Black",
+      "census_freq_per_100k": 83,
+      "bpe_tokens": 2,
+      "ses_tier": "mid",
+      "notes": "Mid-freq, 2-token Black male",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "andre"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.919078
+    },
+    {
+      "name": "Jamal",
+      "gender": "M",
+      "race": "Black",
+      "census_freq_per_100k": 46,
+      "bpe_tokens": 2,
+      "ses_tier": "low",
+      "notes": "Low-freq, 2-token Black male",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "jamal"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.662758
+    },
+    {
+      "name": "Tyrone",
+      "gender": "M",
+      "race": "Black",
+      "census_freq_per_100k": 44,
+      "bpe_tokens": 2,
+      "ses_tier": "low",
+      "notes": "Low-freq, 2-token Black male",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "tyrone"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.643453
+    },
+    {
+      "name": "Darnell",
+      "gender": "M",
+      "race": "Black",
+      "census_freq_per_100k": 27,
+      "bpe_tokens": 2,
+      "ses_tier": "low",
+      "notes": "Rare, 2-token Black male",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 2,
+      "tokenizer_tokens": [
+        "dar",
+        "##nell"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 1.431364
+    },
+    {
+      "name": "Maria",
+      "gender": "F",
+      "race": "Hispanic",
+      "census_freq_per_100k": 577,
+      "bpe_tokens": 1,
+      "ses_tier": "mid",
+      "notes": "Very common, 1-token Hispanic female — high freq control",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "maria"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.761176
+    },
+    {
+      "name": "Guadalupe",
+      "gender": "F",
+      "race": "Hispanic",
+      "census_freq_per_100k": 68,
+      "bpe_tokens": 4,
+      "ses_tier": "low",
+      "notes": "Mid-freq, 4-token Hispanic female",
+      "manual_bpe_tokens": 4,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "guadalupe"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.832509
+    },
+    {
+      "name": "Carlos",
+      "gender": "M",
+      "race": "Hispanic",
+      "census_freq_per_100k": 157,
+      "bpe_tokens": 2,
+      "ses_tier": "mid",
+      "notes": "Common, 2-token Hispanic male",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "carlos"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 2.1959
+    },
+    {
+      "name": "Alejandro",
+      "gender": "M",
+      "race": "Hispanic",
+      "census_freq_per_100k": 52,
+      "bpe_tokens": 4,
+      "ses_tier": "mid",
+      "notes": "Mid-freq, 4-token Hispanic male",
+      "manual_bpe_tokens": 4,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "alejandro"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.716003
+    },
+    {
+      "name": "Jennifer",
+      "gender": "F",
+      "race": "White",
+      "census_freq_per_100k": 932,
+      "bpe_tokens": 2,
+      "ses_tier": "mid",
+      "notes": "Common, 2-token White female — frequency control",
+      "manual_bpe_tokens": 2,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "jennifer"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 2.969416
+    },
+    {
+      "name": "Emily",
+      "gender": "F",
+      "race": "White",
+      "census_freq_per_100k": 844,
+      "bpe_tokens": 1,
+      "ses_tier": "high",
+      "notes": "Common, 1-token White female",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "emily"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.926342
+    },
+    {
+      "name": "Elizabeth",
+      "gender": "F",
+      "race": "White",
+      "census_freq_per_100k": 568,
+      "bpe_tokens": 3,
+      "ses_tier": "high",
+      "notes": "Common, 3-token White female — token-count isolation vs Emily",
+      "manual_bpe_tokens": 3,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "elizabeth"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 2.754348
+    },
+    {
+      "name": "Sarah",
+      "gender": "F",
+      "race": "White",
+      "census_freq_per_100k": 537,
+      "bpe_tokens": 1,
+      "ses_tier": "high",
+      "notes": "Common, 1-token White female",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "sarah"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.729974
+    },
+    {
+      "name": "Anne",
+      "gender": "F",
+      "race": "White",
+      "census_freq_per_100k": 346,
+      "bpe_tokens": 1,
+      "ses_tier": "high",
+      "notes": "Mid-freq, 1-token White female",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "anne"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.539076
+    },
+    {
+      "name": "Katherine",
+      "gender": "F",
+      "race": "White",
+      "census_freq_per_100k": 189,
+      "bpe_tokens": 3,
+      "ses_tier": "high",
+      "notes": "Mid-freq, 3-token White female — freq isolation vs Elizabeth",
+      "manual_bpe_tokens": 3,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "katherine"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 2.276462
+    },
+    {
+      "name": "Christopher",
+      "gender": "M",
+      "race": "White",
+      "census_freq_per_100k": 617,
+      "bpe_tokens": 3,
+      "ses_tier": "mid",
+      "notes": "Common, 3-token White male — token-count isolation vs Greg",
+      "manual_bpe_tokens": 3,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "christopher"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 2.790285
+    },
+    {
+      "name": "Greg",
+      "gender": "M",
+      "race": "White",
+      "census_freq_per_100k": 275,
+      "bpe_tokens": 1,
+      "ses_tier": "mid",
+      "notes": "Common, 1-token White male",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "greg"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.439333
+    },
+    {
+      "name": "Todd",
+      "gender": "M",
+      "race": "White",
+      "census_freq_per_100k": 172,
+      "bpe_tokens": 1,
+      "ses_tier": "mid",
+      "notes": "Mid-freq, 1-token White male",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "todd"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.235528
+    },
+    {
+      "name": "Brett",
+      "gender": "M",
+      "race": "White",
+      "census_freq_per_100k": 107,
+      "bpe_tokens": 1,
+      "ses_tier": "mid",
+      "notes": "Mid-freq, 1-token White male",
+      "manual_bpe_tokens": 1,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "brett"
+      ],
+      "token_count_corrected": false,
+      "log_freq": 2.029384
+    },
+    {
+      "name": "Geoffrey",
+      "gender": "M",
+      "race": "White",
+      "census_freq_per_100k": 31,
+      "bpe_tokens": 3,
+      "ses_tier": "high",
+      "notes": "Low-freq, 3-token White male — rarity within White",
+      "manual_bpe_tokens": 3,
+      "actual_bpe_tokens": 1,
+      "tokenizer_tokens": [
+        "geoffrey"
+      ],
+      "token_count_corrected": true,
+      "log_freq": 1.491362
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "n_tests": 1680,
+  "n_passages": 12,
+  "n_pairs": 14,
+  "n_queries": 10,
+  "core_result": {
+    "mean_func_tcd": 0.012371,
+    "mean_cont_tcd": 0.008711,
+    "ratio": 1.42,
+    "t_stat": 10.7054,
+    "p_value": 6.445e-26,
+    "pattern_holds": true
+  },
+  "identity_vs_control": {
+    "identity_func_tcd": 0.012558,
+    "control_func_tcd": 0.011904,
+    "identity_ss": 0.023886,
+    "control_ss": 0.027071
+  }
+}

@@ -1,0 +1,27 @@
+P2b Rosenman targeted validation
+============================================================
+
+race
+- rows=12276, pairs=124
+- ss: coef=+0.004276, p=0.01425, R2=0.0973
+- func_tcd: coef=+0.002594, p=0.004851, R2=0.1225
+
+gender
+- rows=10593, pairs=107
+- ss: coef=+0.008753, p=6.189e-07, R2=0.1860
+- func_tcd: coef=+0.004900, p=4.54e-09, R2=0.2150
+
+tokenization
+- rows=10197, pairs=103
+- ss: coef=+0.006697, p=0.009316, R2=0.0962
+- func_tcd: coef=+0.004787, p=0.0005328, R2=0.1162
+
+frequency_gap
+- rows=9900, pairs=100
+- ss: coef=+0.001489, p=0.4047, R2=0.0980
+- func_tcd: coef=+0.000755, p=0.3834, R2=0.1116
+
+absolute_rarity
+- rows=2772, pairs=28
+- ss: coef=+0.002393, p=0.4924, R2=0.1056
+- func_tcd: coef=+0.003153, p=0.08422, R2=0.1415

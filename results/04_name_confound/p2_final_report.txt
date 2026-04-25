@@ -1,0 +1,27 @@
+P2 final analysis suite
+============================================================
+
+Nested model ladder: SS
+m0_race_only: R2=0.1565, cross_race=+0.001136 (p=0.4625), cross_gender=+0.000000 (p=1), freq_diff=+0.000000 (p=1)
+m1_add_gender: R2=0.1833, cross_race=+0.001768 (p=0.2085), cross_gender=+0.010749 (p=3.166e-16), freq_diff=+0.000000 (p=1)
+m2_add_rarity_token: R2=0.1846, cross_race=+0.001542 (p=0.331), cross_gender=+0.010667 (p=5.123e-16), freq_diff=+0.001438 (p=0.3019)
+m3_full_plus_ses: R2=0.2029, cross_race=+0.001345 (p=0.3997), cross_gender=+0.010248 (p=4.882e-15), freq_diff=+0.002898 (p=0.02709)
+
+Nested model ladder: Func-TCD
+m0_race_only: R2=0.1564, cross_race=+0.001816 (p=0.01145), cross_gender=+0.000000 (p=1), freq_diff=+0.000000 (p=1)
+m1_add_gender: R2=0.1841, cross_race=+0.002107 (p=0.001162), cross_gender=+0.004963 (p=1.769e-15), freq_diff=+0.000000 (p=1)
+m2_add_rarity_token: R2=0.1874, cross_race=+0.001352 (p=0.05916), cross_gender=+0.004867 (p=3.19e-15), freq_diff=+0.001663 (p=0.0133)
+m3_full_plus_ses: R2=0.2039, cross_race=+0.001158 (p=0.1243), cross_gender=+0.004713 (p=2.219e-14), freq_diff=+0.002408 (p=0.0001818)
+
+Template robustness
+SS t1: cross_race p=0.3088 n.s., cross_gender p=4.199e-09 ***, freq_diff p=0.09232 n.s.
+SS t2: cross_race p=0.07511 n.s., cross_gender p=9.497e-16 ***, freq_diff p=0.7247 n.s.
+SS t3: cross_race p=0.9156 n.s., cross_gender p=5.457e-18 ***, freq_diff p=0.0004667 ***
+Func t1: cross_race p=0.1584 n.s., cross_gender p=1.533e-08 ***, freq_diff p=0.009969 **
+Func t2: cross_race p=0.000951 ***, cross_gender p=5.732e-12 ***, freq_diff p=0.5816 n.s.
+Func t3: cross_race p=0.8529 n.s., cross_gender p=9.772e-16 ***, freq_diff p=7.153e-10 ***
+
+Interpretation
+- model_ladder: Cross-race weakens rather than strengthens as the specification becomes more realistic, while cross-gender and frequency disparity remain stable.
+- template_statement: The qualitative pattern is consistent across templates: gender and frequency are more stable than race under fixed-effects specifications.
+- sensitivity_statement: Leaving out any single race pair does not qualitatively restore a stable cross-race main effect; the conclusions are not driven by one particular pair family.

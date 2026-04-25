@@ -1,0 +1,278 @@
+{
+  "n_rows": 1287,
+  "n_professions": 33,
+  "swap_type_summary": [
+    {
+      "swap_type": "name",
+      "mean_ss": 0.03332679963054645,
+      "mean_func_tcd": 0.01770454195181818,
+      "mean_cont_tcd": 0.013339172967181817,
+      "mean_ratio": 2.439212878574747,
+      "mean_func_minus_cont": 0.0043653689846363634,
+      "n": 990
+    },
+    {
+      "swap_type": "pronoun",
+      "mean_ss": 0.0349760681027437,
+      "mean_func_tcd": 0.02094018267979798,
+      "mean_cont_tcd": 0.013548826557171717,
+      "mean_ratio": 2.558815464175084,
+      "mean_func_minus_cont": 0.007391356122626262,
+      "n": 297
+    }
+  ],
+  "row_level_func_gt_content_tests": {
+    "name": {
+      "n_rows": 990,
+      "mean_func_tcd": 0.01770454195181818,
+      "mean_cont_tcd": 0.013339172967181817,
+      "mean_func_minus_cont": 0.0043653689846363634,
+      "wilcoxon_greater_stat": 346849.0,
+      "wilcoxon_greater_pvalue": 7.554000137527033e-30
+    },
+    "pronoun": {
+      "n_rows": 297,
+      "mean_func_tcd": 0.02094018267979798,
+      "mean_cont_tcd": 0.013548826557171717,
+      "mean_func_minus_cont": 0.007391356122626262,
+      "wilcoxon_greater_stat": 36123.0,
+      "wilcoxon_greater_pvalue": 1.7124141343412824e-21
+    }
+  },
+  "overall_func_gt_content": {
+    "mean_func_tcd": 0.018451228273659675,
+    "mean_cont_tcd": 0.013387554564871796,
+    "wilcoxon_greater_stat": 606599.0,
+    "wilcoxon_greater_pvalue": 2.211500185334768e-47
+  },
+  "profession_level_name_vs_pronoun_tests": {
+    "mean_ss": {
+      "pronoun_mean": 0.034976068102743695,
+      "name_mean": 0.03332679963054645,
+      "wilcoxon_pronoun_gt_name_stat": 247.0,
+      "wilcoxon_pronoun_gt_name_pvalue": 0.7258343952707946
+    },
+    "mean_func_tcd": {
+      "pronoun_mean": 0.020940182679797976,
+      "name_mean": 0.017704541951818187,
+      "wilcoxon_pronoun_gt_name_stat": 429.0,
+      "wilcoxon_pronoun_gt_name_pvalue": 0.0034839357249438763
+    },
+    "mean_func_minus_cont": {
+      "pronoun_mean": 0.007391356122626262,
+      "name_mean": 0.0043653689846363634,
+      "wilcoxon_pronoun_gt_name_stat": 399.0,
+      "wilcoxon_pronoun_gt_name_pvalue": 0.016869247192516923
+    }
+  },
+  "profession_level_dominance_counts": [
+    {
+      "swap_type": "name",
+      "sum": 25,
+      "count": 33
+    },
+    {
+      "swap_type": "pronoun",
+      "sum": 29,
+      "count": 33
+    }
+  ],
+  "category_swap_summary": [
+    {
+      "bls_category": "STEM",
+      "swap_type": "name",
+      "mean_ss": 0.031082775217178574,
+      "mean_func_tcd": 0.015849685010666668,
+      "mean_cont_tcd": 0.011534662015333333,
+      "mean_func_minus_cont": 0.004315022995333333,
+      "n": 150
+    },
+    {
+      "bls_category": "STEM",
+      "swap_type": "pronoun",
+      "mean_ss": 0.029022329807777435,
+      "mean_func_tcd": 0.01954279870888889,
+      "mean_cont_tcd": 0.011131944951111111,
+      "mean_func_minus_cont": 0.008410853757777777,
+      "n": 45
+    },
+    {
+      "bls_category": "blue-collar",
+      "swap_type": "name",
+      "mean_ss": 0.03529829687679798,
+      "mean_func_tcd": 0.01771122152388889,
+      "mean_cont_tcd": 0.01615183023,
+      "mean_func_minus_cont": 0.0015593912938888887,
+      "n": 180
+    },
+    {
+      "bls_category": "blue-collar",
+      "swap_type": "pronoun",
+      "mean_ss": 0.028674336680165,
+      "mean_func_tcd": 0.016129202035185183,
+      "mean_cont_tcd": 0.014159494981481481,
+      "mean_func_minus_cont": 0.001969707053703704,
+      "n": 54
+    },
+    {
+      "bls_category": "education",
+      "swap_type": "name",
+      "mean_ss": 0.03291621948203327,
+      "mean_func_tcd": 0.01815376248222222,
+      "mean_cont_tcd": 0.012962192525555557,
+      "mean_func_minus_cont": 0.005191569956666666,
+      "n": 90
+    },
+    {
+      "bls_category": "education",
+      "swap_type": "pronoun",
+      "mean_ss": 0.02492558730749357,
+      "mean_func_tcd": 0.02066871640740741,
+      "mean_cont_tcd": 0.01006355321962963,
+      "mean_func_minus_cont": 0.010605163187777778,
+      "n": 27
+    },
+    {
+      "bls_category": "healthcare",
+      "swap_type": "name",
+      "mean_ss": 0.03154391415467785,
+      "mean_func_tcd": 0.016631271483333335,
+      "mean_cont_tcd": 0.015007553540666668,
+      "mean_func_minus_cont": 0.0016237179426666667,
+      "n": 150
+    },
+    {
+      "bls_category": "healthcare",
+      "swap_type": "pronoun",
+      "mean_ss": 0.05062717518153693,
+      "mean_func_tcd": 0.02719143739777778,
+      "mean_cont_tcd": 0.018653086796666666,
+      "mean_func_minus_cont": 0.00853835060111111,
+      "n": 45
+    },
+    {
+      "bls_category": "leadership",
+      "swap_type": "name",
+      "mean_ss": 0.02968486525786887,
+      "mean_func_tcd": 0.017341367624444444,
+      "mean_cont_tcd": 0.010947285254000001,
+      "mean_func_minus_cont": 0.006394082370444444,
+      "n": 90
+    },
+    {
+      "bls_category": "leadership",
+      "swap_type": "pronoun",
+      "mean_ss": 0.03567310186880861,
+      "mean_func_tcd": 0.020292974214814814,
+      "mean_cont_tcd": 0.012428736233333335,
+      "mean_func_minus_cont": 0.00786423798148148,
+      "n": 27
+    },
+    {
+      "bls_category": "service",
+      "swap_type": "name",
+      "mean_ss": 0.03697576791209438,
+      "mean_func_tcd": 0.020292235650952378,
+      "mean_cont_tcd": 0.01413174569452381,
+      "mean_func_minus_cont": 0.006160489956428571,
+      "n": 210
+    },
+    {
+      "bls_category": "service",
+      "swap_type": "pronoun",
+      "mean_ss": 0.04132796423883143,
+      "mean_func_tcd": 0.0241960618984127,
+      "mean_cont_tcd": 0.014351546573015872,
+      "mean_func_minus_cont": 0.009844515325396826,
+      "n": 63
+    },
+    {
+      "bls_category": "white-collar",
+      "swap_type": "name",
+      "mean_ss": 0.03205688252089892,
+      "mean_func_tcd": 0.01676168323,
+      "mean_cont_tcd": 0.009979998889166668,
+      "mean_func_minus_cont": 0.006781684340833333,
+      "n": 120
+    },
+    {
+      "bls_category": "white-collar",
+      "swap_type": "pronoun",
+      "mean_ss": 0.028206221290563424,
+      "mean_func_tcd": 0.017080532633333333,
+      "mean_cont_tcd": 0.011322863347222222,
+      "mean_func_minus_cont": 0.0057576692861111105,
+      "n": 36
+    }
+  ],
+  "category_tests": {
+    "name": {
+      "kruskal_h_mean_ss": 2.1650623885918066,
+      "kruskal_pvalue_mean_ss": 0.9039089555935088
+    },
+    "pronoun": {
+      "kruskal_h_mean_ss": 4.905042016806718,
+      "kruskal_pvalue_mean_ss": 0.5560487387703121
+    }
+  },
+  "correlations_by_swap_type": {
+    "name": {
+      "female_pct_vs_ss_r": 0.049817531926314725,
+      "female_pct_vs_ss_p": 0.7830733232443572,
+      "female_pct_vs_func_tcd_r": 0.14731503648348768,
+      "female_pct_vs_func_tcd_p": 0.413295689845456
+    },
+    "pronoun": {
+      "female_pct_vs_ss_r": 0.3554683958800542,
+      "female_pct_vs_ss_p": 0.04234438522822995,
+      "female_pct_vs_func_tcd_r": 0.5124272292862999,
+      "female_pct_vs_func_tcd_p": 0.002297294345152693
+    }
+  },
+  "bootstrap": {
+    "overall": {
+      "ss_mean": 0.03370740004720735,
+      "ss_ci_95": [
+        0.03219627668909929,
+        0.035254383603376405
+      ],
+      "func_minus_cont_mean": 0.0050636737087878785,
+      "func_minus_cont_ci_95": [
+        0.0043102359910827505,
+        0.005801178109923465
+      ]
+    },
+    "name": {
+      "ss_mean": 0.03332679963054645,
+      "ss_ci_95": [
+        0.031609151487027774,
+        0.035101228778967104
+      ],
+      "func_minus_cont_mean": 0.0043653689846363634,
+      "func_minus_cont_ci_95": [
+        0.0034671343387166664,
+        0.005259168301253787
+      ]
+    },
+    "pronoun": {
+      "ss_mean": 0.0349760681027437,
+      "ss_ci_95": [
+        0.03157257460274543,
+        0.038533140967837304
+      ],
+      "func_minus_cont_mean": 0.007391356122626262,
+      "func_minus_cont_ci_95": [
+        0.006059630400183502,
+        0.008703699139300506
+      ]
+    }
+  },
+  "regression_support": {
+    "swap_type_pronoun_coef": 0.0030259871379899276,
+    "swap_type_pronoun_pvalue": 0.03384132239589006
+  },
+  "interpretation": {
+    "main_claim": "Function-word dominance remains robust in both name and pronoun swaps, and pronoun swaps are modestly but consistently stronger than name swaps at the profession level.",
+    "category_claim": "Profession category remains a meaningful moderator of SS, rather than the effect being driven by only one occupational slice."
+  }
+}

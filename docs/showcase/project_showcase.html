@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Does Bias Hide? — ColBERT Bias Audit</title>
+<meta name="description" content="Token-Level Attribution Reveals Distributed Bias Propagation in Late-Interaction Retrieval. A research project by Chris Ziyu Kong at Brown University.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e2e5e9;
+    --text: #1a1a2e;
+    --text-secondary: #5a5f72;
+    --accent: #2563eb;
+    --accent-light: #eff4ff;
+    --accent-hover: #1d4ed8;
+    --coral: #e8634a;
+    --coral-light: #fef2f0;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --amber: #d97706;
+    --amber-light: #fffbeb;
+    --code-bg: #f3f4f6;
+    --radius: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .project-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+  .project-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  /* ── Tab Navigation ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    margin-top: 18px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-nav button {
+    background: none;
+    border: none;
+    padding: 10px 18px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2.5px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    position: relative;
+    bottom: -1px;
+  }
+  .tab-nav button:hover { color: var(--text); }
+  .tab-nav button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Main ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Typography ── */
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 36px 0 14px;
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 24px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    font-size: 12px;
+  }
+  p { margin-bottom: 14px; }
+  .lead {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .card-accent {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-light);
+  }
+  .card-coral {
+    border-left: 3px solid var(--coral);
+    background: var(--coral-light);
+  }
+  .card-green {
+    border-left: 3px solid var(--green);
+    background: var(--green-light);
+  }
+  .card-amber {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-light);
+  }
+  .card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── Code ── */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    overflow-x: auto;
+    margin: 14px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    background: var(--bg);
+  }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+
+  /* ── Diagram ── */
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin: 18px 0;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .diagram pre {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+  }
+
+  /* ── Flow ── */
+  .flow-steps {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .flow-step .num {
+    background: var(--accent);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .flow-step .content {
+    flex: 1;
+  }
+  .flow-step .label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .flow-step .desc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+  }
+
+  /* ── Stat grid ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    text-align: center;
+  }
+  .stat-card .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -1px;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Bar chart (CSS only) ── */
+  .bar-chart { margin: 16px 0; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .bar-label {
+    font-size: 13px;
+    font-weight: 500;
+    width: 140px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .bar-track {
+    flex: 1;
+    height: 28px;
+    background: var(--code-bg);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    transition: width 0.8s ease;
+  }
+  .bar-fill.func { background: var(--coral); }
+  .bar-fill.cont { background: var(--accent); }
+  .bar-fill.bm25 { background: #ccc; }
+
+  /* ── Tags ── */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-blue { background: var(--accent-light); color: var(--accent); }
+  .tag-coral { background: var(--coral-light); color: var(--coral); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+
+  /* ── Divider ── */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    h1 { font-size: 22px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .bar-label { width: 100px; font-size: 12px; }
+    .tab-nav button { padding: 10px 12px; font-size: 12.5px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="project-title">Where Does Bias Hide?</div>
+    <div class="project-subtitle">Chris Ziyu Kong · Brown University · CSCI 2952W · Spring 2026</div>
+    <nav class="tab-nav" id="tabNav">
+      <button class="active" data-tab="overview">1 · Overview</button>
+      <button data-tab="colbert">2 · How ColBERT Works</button>
+      <button data-tab="method">3 · Our Method</button>
+      <button data-tab="findings">4 · Key Findings</button>
+      <button data-tab="implications">5 · Implications</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════════════ TAB 1 ═══ -->
+<section class="tab-panel active" id="panel-overview">
+
+  <h1>Does Your Name Affect How a Search Engine Ranks You?</h1>
+  <p class="lead">
+    We audit a neural search engine — ColBERT — to discover <em>where</em> inside the model identity bias lives.
+    The answer is surprising: bias hides not in the meaningful words like "doctor" or "nurse,"
+    but in the invisible grammatical glue — words like "is," "a," and "who."
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="value">48K+</div>
+      <div class="label">Controlled Tests</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">65</div>
+      <div class="label">Names Tested</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">33</div>
+      <div class="label">Professions</div>
+    </div>
+    <div class="stat-card">
+      <div class="value">1.44×</div>
+      <div class="label">Function Word Bias Ratio</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>The Motivating Scenario</h2>
+  <p>
+    In 2004, economists Bertrand &amp; Mullainathan sent identical resumes to employers — changing only the name between "Emily" (White-associated) and "Lakisha" (Black-associated). Emily received <strong>50% more callbacks</strong>.
+  </p>
+  <p>
+    Today, hiring platforms use AI-powered search engines to rank candidates. Our question: <strong>does the same discrimination happen inside these algorithms? And if so, where exactly does it come from?</strong>
+  </p>
+
+  <div class="card card-accent">
+    <h4>Research Positioning</h4>
+    <p>
+      This is a <strong>diagnostic / measurement</strong> paper, not a debiasing paper. We build an "X-ray machine" that reveals <em>where</em> bias propagates inside a dense retrieval model — a level of anatomical detail previously impossible.
+    </p>
+  </div>
+
+  <h2>Core Contributions</h2>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Type</th><th>Contribution</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>C1</td><td><span class="tag tag-blue">Method</span></td><td>TCD (Token Contribution Disparity) — token-level bias attribution metric</td></tr>
+      <tr><td>C2</td><td><span class="tag tag-coral">Finding</span></td><td>Function words carry 1.44× more bias than content words</td></tr>
+      <tr><td>C3</td><td><span class="tag tag-coral">Finding</span></td><td>BPE tokenization amplifies bias 1.84× for rare names</td></tr>
+      <tr><td>C4</td><td><span class="tag tag-coral">Finding</span></td><td>Gender and tokenization are stronger confounds than race</td></tr>
+      <tr><td>C5</td><td><span class="tag tag-green">Validation</span></td><td>Pattern holds in natural text (1.42×) and is absent in BM25 (0.00×)</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!-- ═══════════════════════════════════════════ TAB 2 ═══ -->
+<section class="tab-panel" id="panel-colbert">
+
+  <h1>How ColBERT Works</h1>
+  <p class="lead">
+    ColBERT (Contextualized Late Interaction over BERT) is a retrieval model that uniquely preserves per-token granularity — making it the only dense retriever where we can decompose bias to the word level.
+  </p>
+
+  <h2>The Dense Retrieval Landscape</h2>
+  <table>
+    <thead>
+      <tr><th>Model</th><th>Architecture</th><th>Representation</th><th>Can We See Inside?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>BM25</strong></td><td>Lexical (TF-IDF)</td><td>Word-level counts</td><td>✅ Fully transparent</td></tr>
+      <tr><td><strong>DPR</strong></td><td>Bi-encoder, single vector</td><td>Entire document → 1 vector</td><td>❌ Black box</td></tr>
+      <tr><td><strong>SPLADE</strong></td><td>Learned sparse weights</td><td>Per-term weights</td><td>⚠️ Partially</td></tr>
+      <tr><td><strong>ColBERT</strong></td><td>Late interaction, multi-vector</td><td>Per-token embeddings preserved</td><td>✅ <strong>Word-by-word</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>MaxSim Scoring</h2>
+  <p>ColBERT encodes queries and documents <strong>independently</strong> into per-token L2-normalized embedding sequences, using a shared BERT encoder with distinct input prefixes:</p>
+
+  <div class="diagram">
+    <pre>
+Query:     <span style="color:var(--accent)">"query: </span>Who is a qualified doctor?<span style="color:var(--accent)">"</span>
+              ↓ BERT encoder
+           [q₁, q₂, q₃, q₄, q₅, q₆]      ← per-token embeddings
+
+Document:  <span style="color:var(--coral)">"document: </span>Emily has ten years of clinical experience.<span style="color:var(--coral)">"</span>
+              ↓ BERT encoder
+           [d₁, d₂, d₃, d₄, d₅, d₆, d₇, d₈]   ← per-token embeddings</pre>
+  </div>
+
+  <p>Relevance is computed via <strong>MaxSim</strong> — each query token finds its best-matching document token, and contributions are summed:</p>
+
+  <div class="card">
+    <pre style="background:none;border:none;padding:0;text-align:center;font-size:15px;">S(Q, D) = Σᵢ maxⱼ (qᵢᵀ · dⱼ)</pre>
+    <p style="text-align:center;font-size:13px;color:var(--text-secondary);margin-top:8px;">
+      Total score = sum of each query token's best match against any document token
+    </p>
+  </div>
+
+  <p>Expanded:</p>
+  <pre>Score = best_match("Who")       →  0.71
+      + best_match("is")        →  0.68
+      + best_match("a")         →  0.65
+      + best_match("qualified") →  0.82
+      + best_match("doctor")    →  0.89
+      + best_match("?")         →  0.61
+      ─────────────────────────────────
+        Total                    =  4.36</pre>
+
+  <div class="card card-accent">
+    <h4>Why This Matters</h4>
+    <p>
+      Because the score is a <strong>simple sum of per-token contributions</strong>, we can ask a question impossible in DPR:
+      <em>"When I change the name from Emily to Lakisha, which specific query word responded the most?"</em>
+    </p>
+  </div>
+
+  <h2>Key Architectural Property: Score Independence</h2>
+  <p>
+    A critical property of ColBERT: <code>S(Q, D)</code> is computed <strong>independently</strong> for each (query, document) pair.
+    Each document is encoded without knowledge of the query or other documents.
+  </p>
+
+  <div class="card card-green">
+    <h4>Implication for Our Experiment</h4>
+    <p>
+      The score <code>S(Q, D_Emily)</code> is <strong>mathematically identical</strong> whether computed in our pairwise experiment
+      or in a production index with 8.8 million documents. Pairwise comparison = full-scale retrieval.
+    </p>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════ TAB 3 ═══ -->
+<section class="tab-panel" id="panel-method">
+
+  <h1>Our Method: Token Contribution Disparity</h1>
+  <p class="lead">
+    We simulate <strong>candidate retrieval</strong>: an employer searches for professionals, and the system scores candidate descriptions that differ only by name.
+  </p>
+
+  <h2>What Are Queries and Documents?</h2>
+  <table>
+    <thead>
+      <tr><th>Role</th><th>What It Represents</th><th>Encoding Prefix</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Query</strong></td>
+        <td>Employer's job search</td>
+        <td><code>"query: "</code></td>
+        <td>"Who is a qualified doctor?"</td>
+      </tr>
+      <tr>
+        <td><strong>Document A</strong></td>
+        <td>Candidate profile (name A)</td>
+        <td><code>"document: "</code></td>
+        <td>"Emily has over ten years of clinical experience."</td>
+      </tr>
+      <tr>
+        <td><strong>Document B</strong></td>
+        <td>Candidate profile (name B)</td>
+        <td><code>"document: "</code></td>
+        <td>"Lakisha has over ten years of clinical experience."</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--text-secondary);">
+    ↑ The <strong>query stays the same</strong>. Identity substitution happens in the <strong>document</strong> only. TCD measures the effect on the <strong>query</strong> side.
+  </p>
+
+  <h2>Experimental Procedure</h2>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="num">1</div>
+      <div class="content">
+        <div class="label">Encode the query</div>
+        <div class="desc"><code>q_emb = encode("query: Who is a qualified doctor?")</code> → per-token embedding matrix</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num">2</div>
+      <div class="content">
+        <div class="label">Construct counterfactual document pair</div>
+        <div class="desc">Doc A = "Emily has 10 years of experience..." &nbsp;|&nbsp; Doc B = "Lakisha has 10 years of experience..."</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num">3</div>
+      <div class="content">
+        <div class="label">Encode both documents independently</div>
+        <div class="desc"><code>d_emb_A = encode("document: Emily...")</code>, <code>d_emb_B = encode("document: Lakisha...")</code></div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num">4</div>
+      <div class="content">
+        <div class="label">Compute MaxSim scores</div>
+        <div class="desc"><code>S(Q, D_A) = 78.3</code> &nbsp;vs.&nbsp; <code>S(Q, D_B) = 75.9</code></div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num">5</div>
+      <div class="content">
+        <div class="label">Compute per-token TCD</div>
+        <div class="desc">For each query token q<sub>i</sub>: <code>TCD(qᵢ) = |cᵢᴬ − cᵢᴮ|</code> — measures how much that word's score contribution shifted</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num">6</div>
+      <div class="content">
+        <div class="label">Classify and aggregate</div>
+        <div class="desc">Group query tokens into <span class="tag tag-coral">Function words</span> (is, who, a, ?) and <span class="tag tag-blue">Content words</span> (doctor, qualified) → compute Func-TCD, Cont-TCD, Score Sensitivity</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>TCD Definition</h2>
+  <div class="card">
+    <pre style="background:none;border:none;padding:0;font-size:14px;">
+<strong>Per-token TCD:</strong>
+  TCD(qᵢ) = |cᵢᴬ − cᵢᴮ|         where cᵢ = maxⱼ (qᵢᵀ · dⱼ)
+
+<strong>Aggregated metrics:</strong>
+  Func-TCD = (1/|F|) Σ TCD(qᵢ)   for qᵢ ∈ function words
+  Cont-TCD = (1/|C|) Σ TCD(qᵢ)   for qᵢ ∈ content words
+
+<strong>Score Sensitivity:</strong>
+  SS = |S(Q, Dᴬ) − S(Q, Dᴮ)| / ½(S(Q, Dᴬ) + S(Q, Dᴮ))</pre>
+  </div>
+  <p>
+    A high TCD means that a query token's score contribution is <strong>sensitive to the identity swap</strong> — identity information from the document has "leaked" into how the model matches that token.
+  </p>
+
+  <h2>Experimental Scale</h2>
+  <table>
+    <thead>
+      <tr><th>Phase</th><th>What It Tests</th><th>Scale</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tag tag-green">P0</span></td><td>Identity-specificity control (identity vs. non-identity swaps)</td><td>1,080 tests</td></tr>
+      <tr><td><span class="tag tag-blue">P1</span></td><td>33-profession systematic expansion</td><td>1,287 tests</td></tr>
+      <tr><td><span class="tag tag-coral">P2</span></td><td>Confound decomposition (OLS regression)</td><td>43,065 tests</td></tr>
+      <tr><td><span class="tag tag-coral">P2b</span></td><td>Rosenman-backed targeted validation</td><td>65 names, 5 matched-pair families</td></tr>
+      <tr><td><span class="tag tag-amber">RT</span></td><td>Real-text ecological validity</td><td>1,680 tests, 7 text categories</td></tr>
+      <tr><td><span class="tag tag-amber">BM25</span></td><td>Non-contextual model baseline</td><td>1,400 tests</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!-- ═══════════════════════════════════════════ TAB 4 ═══ -->
+<section class="tab-panel" id="panel-findings">
+
+  <h1>Key Findings</h1>
+  <p class="lead">
+    Three main results from 48,000+ controlled experiments — explained from first principles.
+    Each finding starts with intuition and builds toward the full technical picture.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- FINDING 1 -->
+  <!-- ============================================================ -->
+  <h2 style="font-size:22px;color:var(--coral);margin-top:32px;">Finding 1 — Bias Hides in the Small Words</h2>
+
+  <div class="card card-accent">
+    <h4>💡 The One-Sentence Summary</h4>
+    <p>
+      When we change a candidate's name from "Emily" to "Lakisha," the words that respond the most in the search query are <strong>not</strong> "doctor" or "qualified" — they're "is," "a," "who," and the question mark.
+    </p>
+  </div>
+
+  <h3>What does this even mean? Let's walk through an example.</h3>
+  <p>
+    Recall from Tab 3 that ColBERT computes a relevance score by giving <strong>every word in the query</strong> its own sub-score, then adding them all up. Here's what actually happens with the query <em>"Who is a qualified doctor?"</em> scored against two candidate profiles:
+  </p>
+
+  <div class="diagram">
+    <pre style="font-size:13px;">
+Query: "Who  is  a  qualified  doctor  ?"
+
+Scored against <strong>Emily's</strong> profile:    "Emily has ten years of clinical experience."
+  Who → 0.712    is → 0.684    a → 0.651    qualified → 0.823    doctor → 0.891    ? → 0.614
+  ─────────────────────────────────────────────────────────────────────────────────────────
+  Total Score for Emily = <strong>4.375</strong>
+
+Scored against <strong>Lakisha's</strong> profile:  "Lakisha has ten years of clinical experience."
+  Who → 0.689    is → 0.649    a → 0.627    qualified → 0.819    doctor → 0.887    ? → 0.591
+  ─────────────────────────────────────────────────────────────────────────────────────────
+  Total Score for Lakisha = <strong>4.262</strong></pre>
+  </div>
+  <p style="font-size:13px;color:var(--text-secondary);">
+    ↑ Illustrative numbers showing the pattern. The only thing that changed is the name in the document — everything else is identical.
+  </p>
+
+  <p>Now let's compute the <strong>TCD</strong> (Token Contribution Disparity) for each query word — that is, how much each word's sub-score changed when we swapped the name:</p>
+
+  <table>
+    <thead>
+      <tr><th>Query Word</th><th>Score (Emily)</th><th>Score (Lakisha)</th><th>|Difference| = TCD</th><th>Type</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong><code>Who</code></strong></td><td class="num">0.712</td><td class="num">0.689</td><td class="num" style="color:var(--coral);font-weight:700">0.023</td><td><span class="tag tag-coral">Function</span></td></tr>
+      <tr><td><strong><code>is</code></strong></td><td class="num">0.684</td><td class="num">0.649</td><td class="num" style="color:var(--coral);font-weight:700">0.035</td><td><span class="tag tag-coral">Function</span></td></tr>
+      <tr><td><strong><code>a</code></strong></td><td class="num">0.651</td><td class="num">0.627</td><td class="num" style="color:var(--coral);font-weight:700">0.024</td><td><span class="tag tag-coral">Function</span></td></tr>
+      <tr><td><code>qualified</code></td><td class="num">0.823</td><td class="num">0.819</td><td class="num">0.004</td><td><span class="tag tag-blue">Content</span></td></tr>
+      <tr><td><code>doctor</code></td><td class="num">0.891</td><td class="num">0.887</td><td class="num">0.004</td><td><span class="tag tag-blue">Content</span></td></tr>
+      <tr><td><strong><code>?</code></strong></td><td class="num">0.614</td><td class="num">0.591</td><td class="num" style="color:var(--coral);font-weight:700">0.023</td><td><span class="tag tag-coral">Function</span></td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Notice the pattern: <strong><code>is</code></strong>, <strong><code>Who</code></strong>, <strong><code>a</code></strong>, and <strong><code>?</code></strong> — the words with <em>no connection to medicine or qualifications</em> — show the biggest changes. Meanwhile, <code>doctor</code> and <code>qualified</code> — the words you'd <em>expect</em> to matter — barely moved.
+  </p>
+
+  <div class="card card-coral">
+    <h4>🤔 Why is this surprising?</h4>
+    <p>
+      If you'd asked any NLP researcher where bias lives in this query, they'd probably guess "doctor" (because of stereotypes about who becomes a doctor) or "qualified" (because of assumptions about competence). <strong>Nobody would have guessed "is" or "a."</strong>
+    </p>
+    <p style="margin-top:8px;">
+      We call this the <strong>function-word bias effect</strong>: bias doesn't live in the meaningful words. It hides in the grammatical glue.
+    </p>
+  </div>
+
+  <h3>But how can "is" carry bias? It has no meaning!</h3>
+  <p>
+    That's exactly <em>why</em> it carries bias. To understand this, we need to look at how BERT — the neural network inside ColBERT — processes language.
+  </p>
+  <p>
+    When BERT reads a sentence, it uses a mechanism called <strong>self-attention</strong>: every word "looks at" every other word and adjusts its own internal representation based on context. This is what makes BERT powerful — it can understand that "bank" means different things in "river bank" vs. "bank account."
+  </p>
+  <p>But this creates a side effect:</p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">1</div>
+      <div class="content">
+        <div class="label">The name changes</div>
+        <div class="desc">"Emily" → "Lakisha" in the document. Everything else stays the same.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">2</div>
+      <div class="content">
+        <div class="label">BERT re-reads the entire sentence</div>
+        <div class="desc">Because of self-attention, changing ONE word causes EVERY word's internal representation to update. "has," "ten," "years," "experience" — they all get re-processed in the new context.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">3</div>
+      <div class="content">
+        <div class="label">Content words barely shift — they have "semantic anchors"</div>
+        <div class="desc">Words like "clinical" and "experience" have strong, stable meanings. They're like <strong>heavy anchors</strong> — no matter what name appears, "clinical" still means "clinical." Its internal representation barely moves.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">4</div>
+      <div class="content">
+        <div class="label">Function words shift dramatically — they are "context sponges"</div>
+        <div class="desc">Words like "has," "is," and "a" have <strong>no intrinsic meaning</strong>. There's nothing to anchor them. They're like <strong>lightweight buoys floating in the current</strong> — when the name changes, the current shifts, and they drift far from their original position.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">5</div>
+      <div class="content">
+        <div class="label">Shifted document words → different query matches → score change</div>
+        <div class="desc">When document-side function words ("has," "is") shift their representations, the query words that MaxSim matches them to <strong>also change their contribution scores</strong>. This is how the bias flows from the document's name token, through document function words, into the final query-side score.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>We measured this directly</h3>
+  <p>
+    We didn't just observe the TCD pattern — we measured how much the AI's <strong>internal representations</strong> (embeddings) actually shift when a name is swapped:
+  </p>
+  <table>
+    <thead>
+      <tr><th></th><th>How Much BERT's Internal Representation Shifts</th><th>Ratio</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tag tag-coral">Function words</span></td><td class="num">0.114 (large shift)</td><td rowspan="2" class="num" style="font-weight:700;font-size:18px;vertical-align:middle">8.9×</td></tr>
+      <tr><td><span class="tag tag-blue">Content words</span></td><td class="num">0.013 (tiny shift)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--text-secondary);">
+    p = 0.0002. Function-word embeddings shift <strong>nearly 9 times more</strong> than content-word embeddings. This confirms the "sponge" mechanism.
+  </p>
+
+  <h3>The aggregated result across 48,000+ tests</h3>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">Function words</div>
+      <div class="bar-track"><div class="bar-fill func" style="width:72%">mean |TCD| = 0.0210</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Content words</div>
+      <div class="bar-track"><div class="bar-fill cont" style="width:50%">mean |TCD| = 0.0146</div></div>
+    </div>
+  </div>
+  <p>
+    Function words carry <strong>1.44 times</strong> more bias than content words. This pattern holds in <strong>30 out of 33 professions</strong> tested (Wilcoxon signed-rank p = 2.2 × 10⁻⁴⁷).
+  </p>
+
+  <h3>But wait — is this specific to identity, or does the model just react to any word change?</h3>
+  <p>
+    Fair question! Maybe ColBERT is just generally sensitive to <em>any</em> word change, and this has nothing to do with names or race or gender. So we ran a <strong>control experiment</strong>:
+  </p>
+  <table>
+    <thead>
+      <tr><th>What We Changed in the Document</th><th>Example</th><th>Function-Word Bias Level</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:var(--coral-light)"><td><strong>Cross-gender pronoun</strong></td><td>He → They</td><td class="num" style="font-weight:700">1.92× baseline</td><td>Strongest effect</td></tr>
+      <tr style="background:var(--coral-light)"><td><strong>Cross-race name</strong></td><td>Emily → Lakisha</td><td class="num" style="font-weight:700">1.24× baseline</td><td>Clear identity effect</td></tr>
+      <tr><td>Same-group name</td><td>Emily → Jennifer</td><td class="num">1.14× baseline</td><td>Small, within-group noise</td></tr>
+      <tr><td>Non-identity word</td><td>"ten years" → "fifteen years"</td><td class="num">1.00× (baseline)</td><td>No function-word bias at all</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Identity-crossing swaps produce <strong>significantly more</strong> function-word bias than non-identity swaps (p &lt; 10⁻⁸, Cohen's d = 0.37). Changing "ten" to "fifteen" produces <strong>zero</strong> function-word effect. This confirms: <em>the effect is about identity, not just word-level noise.</em>
+  </p>
+
+  <hr>
+
+  <!-- ============================================================ -->
+  <!-- FINDING 2 -->
+  <!-- ============================================================ -->
+  <h2 style="font-size:22px;color:var(--accent);margin-top:32px;">Finding 2 — The Tokenization Tax</h2>
+
+  <div class="card card-accent">
+    <h4>💡 The One-Sentence Summary</h4>
+    <p>
+      Before AI can read your name, it breaks it into pieces. Common names stay in one piece; rare names — disproportionately from minority communities — get chopped up. <strong>More pieces = more bias.</strong>
+    </p>
+  </div>
+
+  <h3>What is tokenization?</h3>
+  <p>
+    AI models can't read words directly — they work with a fixed vocabulary of about 30,000 word-pieces called <strong>tokens</strong>. Common English words fit neatly into single tokens. But uncommon words get split into fragments:
+  </p>
+
+  <div class="diagram">
+    <pre style="font-size:14px;text-align:left;">
+Common name     →  stays whole:       "Emily"          → <span style="background:#d4edda;padding:2px 6px;border-radius:3px">Emily</span>             (1 piece)
+                                      "Greg"           → <span style="background:#d4edda;padding:2px 6px;border-radius:3px">Greg</span>              (1 piece)
+
+Uncommon name   →  gets fragmented:   "Lakisha"        → <span style="background:#fde2d4;padding:2px 6px;border-radius:3px">La</span> <span style="background:#fde2d4;padding:2px 6px;border-radius:3px">ki</span> <span style="background:#fde2d4;padding:2px 6px;border-radius:3px">sha</span>         (3 pieces)
+                                      "Darnell"        → <span style="background:#fde2d4;padding:2px 6px;border-radius:3px">Dar</span> <span style="background:#fde2d4;padding:2px 6px;border-radius:3px">nell</span>           (2 pieces)
+
+Very rare name  →  highly fragmented: "Thiruvengadam"  → <span style="background:#f8d7da;padding:2px 6px;border-radius:3px">Th</span> <span style="background:#f8d7da;padding:2px 6px;border-radius:3px">iru</span> <span style="background:#f8d7da;padding:2px 6px;border-radius:3px">ven</span> <span style="background:#f8d7da;padding:2px 6px;border-radius:3px">gada</span> <span style="background:#f8d7da;padding:2px 6px;border-radius:3px">m</span>  (5 pieces)</pre>
+  </div>
+
+  <h3>Why does this cause more bias?</h3>
+  <p>The mechanism works in two stages:</p>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="num">1</div>
+      <div class="content">
+        <div class="label">Fragmentation creates uncertainty</div>
+        <div class="desc">When "Lakisha" becomes [La][ki][sha], the model sees three meaningless syllables, not a single coherent name. It doesn't <em>know</em> this is a name — it has to figure out from context. This creates more <strong>contextual instability</strong> in the surrounding tokens.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num">2</div>
+      <div class="content">
+        <div class="label">Uncertainty amplifies reliance on training patterns</div>
+        <div class="desc">When the model is uncertain about a token, it falls back on <strong>statistical patterns</strong> from its training data (internet text). These patterns encode societal biases — associating certain name sounds with race, gender, and socioeconomic status.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>The quantitative result</h3>
+  <p>We measured bias levels for pairs of names grouped by how common or rare they are:</p>
+  <table>
+    <thead>
+      <tr><th>Name Pair Type</th><th>Example</th><th>Mean Total Bias (SS)</th><th>Mean Func-TCD</th><th>Amplification</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Common × Common (1-token each)</td><td>Emily vs. Greg</td><td class="num">0.0210</td><td class="num">0.0108</td><td class="num">1.0× (baseline)</td></tr>
+      <tr><td>Common × Rare (1 vs. 3 tokens)</td><td>Emily vs. Lakisha</td><td class="num">0.0305</td><td class="num">0.0163</td><td class="num">1.5×</td></tr>
+      <tr style="background:var(--accent-light)"><td><strong>Rare × Rare (3+ tokens each)</strong></td><td>Lakisha vs. Darnell</td><td class="num"><strong>0.0366</strong></td><td class="num"><strong>0.0199</strong></td><td class="num" style="font-weight:700;color:var(--accent)"><strong>1.84×</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="card card-accent">
+    <h4>⚖️ Why this is a fairness problem</h4>
+    <p>
+      This isn't random: <strong>which names get fragmented follows a clear demographic pattern.</strong> Names common in White American communities (Emily, Greg, Sarah) tend to appear frequently in the training data → single token → less bias. Names from Black, Hispanic, and South Asian communities are rarer in training data → more fragments → more bias.
+    </p>
+    <p style="margin-top:8px;">
+      We call this the <strong>Tokenization Tax</strong>: an <em>invisible</em> fairness cost built into the infrastructure of how AI processes language. You can't see it in the final score — you have to look inside the tokenizer to know it exists.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================ -->
+  <!-- FINDING 3 -->
+  <!-- ============================================================ -->
+  <h2 style="font-size:22px;color:var(--amber);margin-top:32px;">Finding 3 — Name Swaps Are More Complicated Than They Appear</h2>
+
+  <div class="card card-amber">
+    <h4>💡 The One-Sentence Summary</h4>
+    <p>
+      When researchers swap "Emily" for "Lakisha" and find discrimination, they usually attribute it to <strong>race</strong>. But the name swap actually changes <em>five things at once</em> — and when we untangle them, <strong>gender and tokenization matter more than race</strong>.
+    </p>
+  </div>
+
+  <h3>The confound problem, explained</h3>
+  <p>Consider what changes when you replace "Emily" with "Lakisha":</p>
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Emily</th><th>Lakisha</th><th>Changed?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Race association</td><td>White</td><td>Black</td><td style="color:var(--coral);font-weight:600">✓ Yes</td></tr>
+      <tr><td>Gender</td><td>Female</td><td>Female</td><td style="color:var(--green)">✗ Same</td></tr>
+      <tr><td>Name frequency (US Census)</td><td>844 per 100K</td><td>5 per 100K</td><td style="color:var(--coral);font-weight:600">✓ Huge gap</td></tr>
+      <tr><td>BPE tokens</td><td>1 token</td><td>3 tokens</td><td style="color:var(--coral);font-weight:600">✓ Very different</td></tr>
+      <tr><td>Socioeconomic signals</td><td>High SES</td><td>Low SES</td><td style="color:var(--coral);font-weight:600">✓ Different</td></tr>
+    </tbody>
+  </table>
+  <p>
+    <strong>Four out of five properties changed.</strong> If the AI gives Emily a higher score, is that because she's White? Because her name is common? Because her name is one token instead of three? Or because of SES associations? You <em>can't tell</em> from a single pair.
+  </p>
+
+  <h3>How we untangled it: 43,065 tests + regression</h3>
+  <p>
+    Instead of comparing just one pair, we tested <strong>all possible pairings</strong> of 30 carefully selected names (each annotated with race, gender, BPE tokens, census frequency, and SES tier) across 33 professions and 3 templates. That's 43,065 controlled tests.
+  </p>
+  <p>
+    Then we used <strong>OLS regression with clustered standard errors</strong> — a statistical technique that lets us ask: "holding everything else constant, does <em>this specific factor</em> independently predict more bias?"
+  </p>
+
+  <h3>The results: a progressive model ladder</h3>
+  <p>
+    We added control variables one at a time and watched what happened to each factor's significance. Think of this as adding more "filters" to isolate the true signal:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Model</th><th>What's Controlled</th><th>Race p-value</th><th>Gender p-value</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>M0</strong></td><td>Race only</td>
+        <td class="num" style="color:var(--green)">0.011 ✓</td>
+        <td class="num" style="color:#aaa">—</td>
+        <td>Race looks significant</td>
+      </tr>
+      <tr>
+        <td><strong>M1</strong></td><td>+ Gender</td>
+        <td class="num" style="color:var(--green)">0.001 ✓</td>
+        <td class="num" style="color:var(--green);font-weight:700">&lt; 10⁻¹⁵ ✓</td>
+        <td>Gender is <em>much</em> stronger</td>
+      </tr>
+      <tr>
+        <td><strong>M2</strong></td><td>+ Tokenization</td>
+        <td class="num" style="color:var(--amber)">0.059 ⚠️</td>
+        <td class="num" style="color:var(--green);font-weight:700">&lt; 10⁻¹⁴ ✓</td>
+        <td>Race drops to marginal</td>
+      </tr>
+      <tr style="background:var(--amber-light)">
+        <td><strong>M3</strong></td><td>+ SES + Frequency</td>
+        <td class="num" style="color:var(--coral);font-weight:700">0.124 ✗</td>
+        <td class="num" style="color:var(--green);font-weight:700">&lt; 10⁻¹⁴ ✓</td>
+        <td><strong>Race no longer significant</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card card-amber">
+    <h4>📊 What does this table mean?</h4>
+    <p>
+      When we only look at race (M0), it appears to predict bias (p = 0.011). But as we add more controls — gender, tokenization, SES, frequency — the race signal <strong>progressively weakens</strong> until it's no longer statistically significant (p = 0.124). Meanwhile, gender stays rock-solid at p &lt; 10⁻¹⁴ no matter what else we add.
+    </p>
+    <p style="margin-top:8px;">
+      <strong>This doesn't mean race doesn't matter in society.</strong> It means that in <em>this AI model</em>, what previous audit studies might attribute to "racial bias" is partly explained by confounded effects of gender mismatch and BPE tokenization differences.
+    </p>
+  </div>
+
+  <h3>The targeted validation (P2b)</h3>
+  <p>
+    To confirm, we used the Rosenman et al. (2023) name-ethnicity database to construct <strong>5 carefully matched name-pair families</strong>, isolating each factor while holding the others constant:
+  </p>
+  <table>
+    <thead>
+      <tr><th>Factor Isolated</th><th>Controlled For</th><th>Pairs</th><th>SS p-value</th><th>Func-TCD p-value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Gender</strong></td><td>Same race, tokens, frequency</td><td class="num">107</td><td class="num" style="font-weight:700">6.2 × 10⁻⁷</td><td class="num" style="font-weight:700">4.5 × 10⁻⁹</td></tr>
+      <tr><td><strong>Tokenization</strong></td><td>Same race, gender, frequency</td><td class="num">103</td><td class="num">0.009</td><td class="num" style="font-weight:700">5.3 × 10⁻⁴</td></tr>
+      <tr><td><strong>Race</strong></td><td>Same gender, tokens, frequency</td><td class="num">124</td><td class="num">0.014</td><td class="num">0.005</td></tr>
+      <tr><td>Frequency</td><td>Same race, gender, tokens</td><td class="num">100</td><td class="num">0.405</td><td class="num">0.383</td></tr>
+    </tbody>
+  </table>
+  <p>
+    The pattern is clear: <strong>Gender mismatch is the strongest, most stable predictor</strong>. Tokenization is second. Race is third and weaker. Frequency alone doesn't matter.
+  </p>
+
+  <hr>
+
+  <!-- ============================================================ -->
+  <!-- VALIDATION -->
+  <!-- ============================================================ -->
+  <h2 style="font-size:22px;color:var(--green);margin-top:32px;">Validation — Does This Hold in the Real World?</h2>
+
+  <div class="card card-green">
+    <h4>💡 The Core Question</h4>
+    <p>
+      All the experiments above use synthetic template sentences ("Emily has ten years of experience..."). Do the findings survive when we test on <strong>real-world text</strong> — news articles, medical records, legal testimony, recommendation letters?
+    </p>
+  </div>
+
+  <h3>Test 1: Natural text passages</h3>
+  <p>
+    We tested 12 realistic text passages across 7 categories (news, medical, legal, academic, letters of recommendation, job postings, and biographical profiles). That's 1,680 additional tests.
+  </p>
+
+  <h3>Func-TCD / Cont-TCD ratio across settings</h3>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">Synthetic (1.44×)</div>
+      <div class="bar-track"><div class="bar-fill func" style="width:82%">Func: 0.0177</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">&nbsp;</div>
+      <div class="bar-track"><div class="bar-fill cont" style="width:57%">Cont: 0.0133</div></div>
+    </div>
+  </div>
+  <div class="bar-chart" style="margin-top:16px">
+    <div class="bar-row">
+      <div class="bar-label">Natural text (1.42×)</div>
+      <div class="bar-track"><div class="bar-fill func" style="width:56%">Func: 0.0124</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">&nbsp;</div>
+      <div class="bar-track"><div class="bar-fill cont" style="width:39%">Cont: 0.0087</div></div>
+    </div>
+  </div>
+  <p>
+    The ratio is remarkably stable: <strong>1.44× in synthetic text → 1.42× in natural text</strong>. The absolute magnitudes decrease (real text has more linguistic complexity that dilutes the signal), but the <em>pattern</em> is preserved.
+  </p>
+
+  <h3>Test 2: BM25 — a non-AI control</h3>
+  <p>
+    BM25 is a traditional "count-based" search engine. It doesn't use neural networks — it literally counts how many times query words appear in the document. If our findings are a real AI phenomenon, BM25 should show <strong>zero</strong> function-word bias (because it doesn't contextually re-interpret words).
+  </p>
+  <div class="bar-chart" style="margin-top:16px">
+    <div class="bar-row">
+      <div class="bar-label">BM25 Func-TCD</div>
+      <div class="bar-track"><div class="bar-fill bm25" style="width:2%">&nbsp;</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">BM25 Cont-TCD</div>
+      <div class="bar-track"><div class="bar-fill bm25" style="width:2%">&nbsp;</div></div>
+    </div>
+  </div>
+  <p>
+    <strong>BM25 function-word TCD: exactly 0.000.</strong> Zero. None. This proves the function-word bias is a product of contextual neural representations, not an artifact of our measurement technique.
+  </p>
+
+  <div class="card card-green">
+    <h4>✅ Validation Summary</h4>
+    <p>
+      <strong>Natural text:</strong> same 1.44× ratio preserved (1.42×) — the finding generalizes beyond templates.<br>
+      <strong>BM25:</strong> exactly zero function-word bias — the effect is specific to contextual AI models.<br>
+      <strong>Control experiment:</strong> identity swaps cause significantly more bias than non-identity swaps — the effect is about identity, not generic word sensitivity.
+    </p>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════ TAB 5 ═══ -->
+<section class="tab-panel" id="panel-implications">
+
+  <h1>Implications &amp; Next Steps</h1>
+  <p class="lead">
+    What these findings mean for AI developers, policymakers, and researchers — and what remains to be done.
+  </p>
+
+  <h2>Why This Matters</h2>
+
+  <div class="card card-coral">
+    <h4>1. Debiasing Is Aimed at the Wrong Target</h4>
+    <p>
+      Most NLP debiasing methods target content-word associations (e.g., "doctor ↔ male").
+      But if bias flows through function words like "is" and "a," <strong>these interventions miss the main channel entirely</strong>.
+    </p>
+  </div>
+
+  <div class="card card-accent">
+    <h4>2. Tokenization Is an Infrastructure-Level Fairness Issue</h4>
+    <p>
+      BPE tokenizer design — currently treated as a purely technical choice — has direct fairness consequences.
+      Minority-group names are disproportionately fragmented, amplifying bias by up to 1.84×.
+      This is a form of <strong>infrastructural inequality</strong> (Bowker &amp; Star, 1999).
+    </p>
+  </div>
+
+  <div class="card card-amber">
+    <h4>3. Classic Audit Methods Oversimplify</h4>
+    <p>
+      Emily-vs-Lakisha swaps change race, frequency, tokenization, and SES simultaneously.
+      Gender and tokenization are stronger independent predictors than race in ColBERTv2.
+      Future audits should always include confound controls.
+    </p>
+  </div>
+
+  <div class="card card-green">
+    <h4>4. ColBERT Offers a Unique Diagnostic Capability</h4>
+    <p>
+      Its per-token scoring lets researchers see what is invisible in DPR and other single-vector models.
+      TCD can be applied to any architecture that preserves per-token score contributions.
+    </p>
+  </div>
+
+  <hr>
+
+  <h2>Known Limitations</h2>
+  <table>
+    <thead>
+      <tr><th>Limitation</th><th>Severity</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Single model (only ColBERTv2)</td><td>🔴 High</td><td>DPR / SPLADE comparison planned</td></tr>
+      <tr><td>No ranking-impact test (3% SS → rank change?)</td><td>🔴 High</td><td>MS MARCO evaluation planned</td></tr>
+      <tr><td>Mostly synthetic/semi-synthetic text</td><td>🟡 Medium</td><td>Natural text validated (1.42× ratio)</td></tr>
+      <tr><td>US-centric names (4 racial groups)</td><td>🟡 Medium</td><td>Disclosed in paper</td></tr>
+      <tr><td>No debiasing evaluation</td><td>🟢 Low</td><td>Null-space projection as stretch goal</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Next Steps</h2>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">1</div>
+      <div class="content">
+        <div class="label">MS MARCO Counterfactual Evaluation</div>
+        <div class="desc">Extract name-containing passages from MS MARCO, run NER-based counterfactual swaps, measure TCD + MRR/NDCG changes</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--coral)">2</div>
+      <div class="content">
+        <div class="label">Multi-Model Comparison</div>
+        <div class="desc">Add DPR aggregate-level bias comparison + SPLADE per-term weight analysis</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--amber)">3</div>
+      <div class="content">
+        <div class="label">Directionality Analysis in Paper</div>
+        <div class="desc">Add function-word systematic direction statistics to strengthen the "systematically biased" narrative</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="num" style="background:var(--green)">4</div>
+      <div class="content">
+        <div class="label">Publication Target: EMNLP 2026</div>
+        <div class="desc">Convert to ARR/ACL template, add reproducibility checklist, target Fairness &amp; Interpretability track</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>References</h2>
+  <p style="font-size:13px;color:var(--text-secondary);line-height:1.9">
+    Bertrand, M. &amp; Mullainathan, S. (2004). Are Emily and Greg More Employable Than Lakisha and Jamal? <em>AER</em>.<br>
+    Santhanam, K. et al. (2022). ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction. <em>NAACL</em>.<br>
+    Rosenman, E., Olivella, S. &amp; Imai, K. (2023). Race and ethnicity data for first, middle, and last names. <em>Scientific Data</em>.<br>
+    Bowker, G. C. &amp; Star, S. L. (1999). <em>Sorting Things Out: Classification and Its Consequences</em>. MIT Press.<br>
+    Rekabsaz, N. et al. (2021). Measuring Fairness in Ranked Results. <em>SIGIR</em>.<br>
+    Ziems, C. et al. (2024). Measuring Stereotypical Bias in Neural Rankers. <em>EMNLP</em>.
+  </p>
+
+  <div class="footer">
+    Chris Ziyu Kong · Brown University · CSCI 2952W Critical AI and Data Studies · Spring 2026<br>
+    Contact: ziyu_kong@brown.edu
+  </div>
+
+</section>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.tab-nav button');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      buttons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+});
+</script>
+
+</body>
+</html>

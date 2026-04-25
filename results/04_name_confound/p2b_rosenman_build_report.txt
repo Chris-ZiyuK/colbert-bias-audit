@@ -1,0 +1,13 @@
+P2b Rosenman matrix build
+============================================================
+
+Names exported: 65
+Missing from Rosenman tables: 1
+Missing names: Thiruvengadam
+
+Family counts
+- race: total_pairs=124, treatment_pairs=73, control_pairs=51
+- gender: total_pairs=107, treatment_pairs=56, control_pairs=51
+- tokenization: total_pairs=103, treatment_pairs=52, control_pairs=51
+- frequency_gap: total_pairs=100, treatment_pairs=49, control_pairs=51
+- absolute_rarity: total_pairs=28, treatment_pairs=14, control_pairs=14

@@ -1,0 +1,655 @@
+==============================================================================
+Main Model 1: SS
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     ss   R-squared:                       0.203
+Model:                            OLS   Adj. R-squared:                  0.202
+Method:                 Least Squares   F-statistic:                     54.95
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):          3.93e-151
+Time:                        21:05:39   Log-Likelihood:                 90987.
+No. Observations:               43065   AIC:                        -1.819e+05
+Df Residuals:                   43019   BIC:                        -1.815e+05
+Df Model:                          45                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0341      0.008      4.471      0.000       0.019       0.049
+C(ses_pair)[T.high-low]                  0.0071      0.004      1.701      0.089      -0.001       0.015
+C(ses_pair)[T.high-mid]                  0.0008      0.004      0.221      0.825      -0.007       0.008
+C(ses_pair)[T.low-low]                   0.0098      0.006      1.699      0.089      -0.002       0.021
+C(ses_pair)[T.low-mid]                   0.0003      0.004      0.085      0.932      -0.007       0.008
+C(ses_pair)[T.mid-mid]                  -0.0059      0.004     -1.613      0.107      -0.013       0.001
+C(profession)[T.accountant]              0.0020      0.001      1.820      0.069      -0.000       0.004
+C(profession)[T.biologist]              -0.0106      0.001     -8.007      0.000      -0.013      -0.008
+C(profession)[T.chef]                    0.0037      0.001      3.230      0.001       0.001       0.006
+C(profession)[T.civil engineer]         -0.0096      0.001     -8.571      0.000      -0.012      -0.007
+C(profession)[T.construction worker]    -0.0037      0.001     -3.234      0.001      -0.006      -0.001
+C(profession)[T.consultant]             -0.0014      0.001     -2.079      0.038      -0.003   -8.01e-05
+C(profession)[T.data scientist]         -0.0055      0.001     -4.299      0.000      -0.008      -0.003
+C(profession)[T.dentist]                -0.0059      0.001     -4.948      0.000      -0.008      -0.004
+C(profession)[T.director]               -0.0042      0.001     -3.452      0.001      -0.007      -0.002
+C(profession)[T.doctor]                 -0.0126      0.001    -11.144      0.000      -0.015      -0.010
+C(profession)[T.electrician]            -0.0100      0.001     -7.841      0.000      -0.012      -0.007
+C(profession)[T.financial analyst]      -0.0047      0.001     -4.761      0.000      -0.007      -0.003
+C(profession)[T.firefighter]             0.0014      0.001      0.957      0.338      -0.001       0.004
+C(profession)[T.janitor]                 0.0127      0.001      9.827      0.000       0.010       0.015
+C(profession)[T.lawyer]                 -0.0092      0.001     -9.417      0.000      -0.011      -0.007
+C(profession)[T.librarian]              -0.0029      0.002     -1.683      0.092      -0.006       0.000
+C(profession)[T.manager]                 0.0030      0.001      4.296      0.000       0.002       0.004
+C(profession)[T.mechanic]               -0.0040      0.001     -3.133      0.002      -0.006      -0.001
+C(profession)[T.nurse]                   0.0464      0.003     15.263      0.000       0.040       0.052
+C(profession)[T.pilot]                  -0.0031      0.001     -3.240      0.001      -0.005      -0.001
+C(profession)[T.plumber]                 0.0099      0.001      7.856      0.000       0.007       0.012
+C(profession)[T.professor]              -0.0011      0.002     -0.665      0.506      -0.005       0.002
+C(profession)[T.receptionist]            0.0104      0.002      4.907      0.000       0.006       0.015
+C(profession)[T.researcher]             -0.0081      0.001     -6.495      0.000      -0.011      -0.006
+C(profession)[T.secretary]               0.0098      0.002      5.223      0.000       0.006       0.013
+C(profession)[T.social worker]           0.0044      0.002      2.493      0.013       0.001       0.008
+C(profession)[T.software engineer]      -0.0023      0.001     -2.060      0.039      -0.004      -0.000
+C(profession)[T.surgeon]                -0.0044      0.001     -5.158      0.000      -0.006      -0.003
+C(profession)[T.teacher]                -0.0067      0.002     -3.865      0.000      -0.010      -0.003
+C(profession)[T.therapist]              -0.0121      0.002     -7.957      0.000      -0.015      -0.009
+C(profession)[T.truck driver]            0.0115      0.001      7.715      0.000       0.009       0.014
+C(profession)[T.welder]                 -0.0046      0.001     -4.052      0.000      -0.007      -0.002
+C(template_id)[T.t2]                    -0.0163      0.001    -30.391      0.000      -0.017      -0.015
+C(template_id)[T.t3]                    -0.0020      0.000     -5.009      0.000      -0.003      -0.001
+cross_race                               0.0013      0.002      0.842      0.400      -0.002       0.004
+cross_gender                             0.0102      0.001      7.830      0.000       0.008       0.013
+token_diff                              -0.0011      0.002     -0.726      0.468      -0.004       0.002
+mean_tokens                              0.0001      0.003      0.048      0.962      -0.006       0.006
+freq_diff                                0.0029      0.001      2.210      0.027       0.000       0.005
+mean_log_freq                            0.0016      0.002      0.918      0.359      -0.002       0.005
+==============================================================================
+Omnibus:                     5991.793   Durbin-Watson:                   1.405
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            11217.545
+Skew:                           0.893   Prob(JB):                         0.00
+Kurtosis:                       4.751   Cond. No.                         102.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_race         coef=+0.001345  se=0.001597  p=0.399691  n.s.
+  cross_gender       coef=+0.010248  se=0.001309  p=0.000000  ***
+  token_diff         coef=-0.001140  se=0.001571  p=0.468008  n.s.
+  mean_tokens        coef=+0.000141  se=0.002948  p=0.961915  n.s.
+  freq_diff          coef=+0.002898  se=0.001311  p=0.027089  *
+  mean_log_freq      coef=+0.001637  se=0.001783  p=0.358642  n.s.
+
+==============================================================================
+Main Model 2: Func-TCD
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               func_tcd   R-squared:                       0.204
+Model:                            OLS   Adj. R-squared:                  0.203
+Method:                 Least Squares   F-statistic:                     61.70
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):          2.40e-160
+Time:                        21:05:39   Log-Likelihood:             1.2495e+05
+No. Observations:               43065   AIC:                        -2.498e+05
+Df Residuals:                   43019   BIC:                        -2.494e+05
+Df Model:                          45                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0182      0.004      5.017      0.000       0.011       0.025
+C(ses_pair)[T.high-low]                  0.0040      0.002      2.124      0.034       0.000       0.008
+C(ses_pair)[T.high-mid]                  0.0006      0.002      0.362      0.717      -0.003       0.004
+C(ses_pair)[T.low-low]                   0.0055      0.003      2.013      0.044       0.000       0.011
+C(ses_pair)[T.low-mid]                   0.0012      0.002      0.693      0.488      -0.002       0.005
+C(ses_pair)[T.mid-mid]                  -0.0016      0.002     -0.951      0.342      -0.005       0.002
+C(profession)[T.accountant]             -0.0007      0.000     -1.632      0.103      -0.001       0.000
+C(profession)[T.biologist]              -0.0052      0.001    -10.342      0.000      -0.006      -0.004
+C(profession)[T.chef]                   -0.0007      0.000     -1.814      0.070      -0.002    6.02e-05
+C(profession)[T.civil engineer]         -0.0046      0.000     -9.644      0.000      -0.006      -0.004
+C(profession)[T.construction worker]    -0.0029      0.001     -5.830      0.000      -0.004      -0.002
+C(profession)[T.consultant]             -0.0017      0.000     -5.546      0.000      -0.002      -0.001
+C(profession)[T.data scientist]         -0.0035      0.001     -6.317      0.000      -0.005      -0.002
+C(profession)[T.dentist]                -0.0051      0.000    -11.508      0.000      -0.006      -0.004
+C(profession)[T.director]               -0.0028      0.000     -6.312      0.000      -0.004      -0.002
+C(profession)[T.doctor]                 -0.0054      0.000    -11.801      0.000      -0.006      -0.004
+C(profession)[T.electrician]            -0.0059      0.000    -12.463      0.000      -0.007      -0.005
+C(profession)[T.financial analyst]      -0.0058      0.000    -15.237      0.000      -0.007      -0.005
+C(profession)[T.firefighter]             0.0049      0.001      6.201      0.000       0.003       0.006
+C(profession)[T.janitor]                 0.0029      0.000      5.919      0.000       0.002       0.004
+C(profession)[T.lawyer]                 -0.0052      0.000    -12.711      0.000      -0.006      -0.004
+C(profession)[T.librarian]               0.0010      0.001      1.391      0.164      -0.000       0.002
+C(profession)[T.manager]                 0.0018      0.000      6.148      0.000       0.001       0.002
+C(profession)[T.mechanic]               -0.0031      0.000     -6.398      0.000      -0.004      -0.002
+C(profession)[T.nurse]                   0.0199      0.001     14.624      0.000       0.017       0.023
+C(profession)[T.pilot]                  -0.0010      0.000     -2.520      0.012      -0.002      -0.000
+C(profession)[T.plumber]                 0.0032      0.001      6.211      0.000       0.002       0.004
+C(profession)[T.professor]              -0.0008      0.001     -1.087      0.277      -0.002       0.001
+C(profession)[T.receptionist]            0.0030      0.001      3.469      0.001       0.001       0.005
+C(profession)[T.researcher]             -0.0047      0.001     -9.374      0.000      -0.006      -0.004
+C(profession)[T.secretary]               0.0039      0.001      4.943      0.000       0.002       0.005
+C(profession)[T.social worker]          -0.0001      0.001     -0.146      0.884      -0.002       0.001
+C(profession)[T.software engineer]      -0.0039      0.000    -10.170      0.000      -0.005      -0.003
+C(profession)[T.surgeon]                -0.0044      0.000    -11.168      0.000      -0.005      -0.004
+C(profession)[T.teacher]                -0.0039      0.001     -5.836      0.000      -0.005      -0.003
+C(profession)[T.therapist]              -0.0061      0.001     -9.954      0.000      -0.007      -0.005
+C(profession)[T.truck driver]            0.0029      0.001      5.000      0.000       0.002       0.004
+C(profession)[T.welder]                 -0.0018      0.001     -3.344      0.001      -0.003      -0.001
+C(template_id)[T.t2]                    -0.0071      0.000    -23.688      0.000      -0.008      -0.006
+C(template_id)[T.t3]                    -0.0007      0.000     -2.663      0.008      -0.001      -0.000
+cross_race                               0.0012      0.001      1.537      0.124      -0.000       0.003
+cross_gender                             0.0047      0.001      7.637      0.000       0.004       0.006
+token_diff                              -0.0006      0.001     -0.767      0.443      -0.002       0.001
+mean_tokens                           1.922e-05      0.002      0.012      0.990      -0.003       0.003
+freq_diff                                0.0024      0.001      3.743      0.000       0.001       0.004
+mean_log_freq                            0.0002      0.001      0.214      0.830      -0.001       0.002
+==============================================================================
+Omnibus:                     7971.554   Durbin-Watson:                   1.370
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            17014.370
+Skew:                           1.090   Prob(JB):                         0.00
+Kurtosis:                       5.176   Cond. No.                         102.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_race         coef=+0.001158  se=0.000753  p=0.124314  n.s.
+  cross_gender       coef=+0.004713  se=0.000617  p=0.000000  ***
+  token_diff         coef=-0.000639  se=0.000833  p=0.442817  n.s.
+  mean_tokens        coef=+0.000019  se=0.001571  p=0.990242  n.s.
+  freq_diff          coef=+0.002408  se=0.000643  p=0.000182  ***
+  mean_log_freq      coef=+0.000182  se=0.000849  p=0.830272  n.s.
+
+==============================================================================
+Interaction Model: SS ~ cross_race * mean_tokens
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     ss   R-squared:                       0.203
+Model:                            OLS   Adj. R-squared:                  0.202
+Method:                 Least Squares   F-statistic:                     54.14
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):          3.33e-151
+Time:                        21:05:39   Log-Likelihood:                 90988.
+No. Observations:               43065   AIC:                        -1.819e+05
+Df Residuals:                   43018   BIC:                        -1.815e+05
+Df Model:                          46                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0330      0.008      3.894      0.000       0.016       0.050
+C(ses_pair)[T.high-low]                  0.0070      0.004      1.664      0.096      -0.001       0.015
+C(ses_pair)[T.high-mid]                  0.0007      0.004      0.186      0.852      -0.007       0.008
+C(ses_pair)[T.low-low]                   0.0096      0.006      1.622      0.105      -0.002       0.021
+C(ses_pair)[T.low-mid]                   0.0002      0.004      0.058      0.954      -0.007       0.008
+C(ses_pair)[T.mid-mid]                  -0.0061      0.004     -1.663      0.096      -0.013       0.001
+C(profession)[T.accountant]              0.0020      0.001      1.820      0.069      -0.000       0.004
+C(profession)[T.biologist]              -0.0106      0.001     -8.007      0.000      -0.013      -0.008
+C(profession)[T.chef]                    0.0037      0.001      3.229      0.001       0.001       0.006
+C(profession)[T.civil engineer]         -0.0096      0.001     -8.571      0.000      -0.012      -0.007
+C(profession)[T.construction worker]    -0.0037      0.001     -3.234      0.001      -0.006      -0.001
+C(profession)[T.consultant]             -0.0014      0.001     -2.079      0.038      -0.003   -8.01e-05
+C(profession)[T.data scientist]         -0.0055      0.001     -4.299      0.000      -0.008      -0.003
+C(profession)[T.dentist]                -0.0059      0.001     -4.948      0.000      -0.008      -0.004
+C(profession)[T.director]               -0.0042      0.001     -3.452      0.001      -0.007      -0.002
+C(profession)[T.doctor]                 -0.0126      0.001    -11.144      0.000      -0.015      -0.010
+C(profession)[T.electrician]            -0.0100      0.001     -7.841      0.000      -0.012      -0.007
+C(profession)[T.financial analyst]      -0.0047      0.001     -4.761      0.000      -0.007      -0.003
+C(profession)[T.firefighter]             0.0014      0.001      0.957      0.338      -0.001       0.004
+C(profession)[T.janitor]                 0.0127      0.001      9.827      0.000       0.010       0.015
+C(profession)[T.lawyer]                 -0.0092      0.001     -9.416      0.000      -0.011      -0.007
+C(profession)[T.librarian]              -0.0029      0.002     -1.683      0.092      -0.006       0.000
+C(profession)[T.manager]                 0.0030      0.001      4.296      0.000       0.002       0.004
+C(profession)[T.mechanic]               -0.0040      0.001     -3.133      0.002      -0.006      -0.001
+C(profession)[T.nurse]                   0.0464      0.003     15.263      0.000       0.040       0.052
+C(profession)[T.pilot]                  -0.0031      0.001     -3.240      0.001      -0.005      -0.001
+C(profession)[T.plumber]                 0.0099      0.001      7.856      0.000       0.007       0.012
+C(profession)[T.professor]              -0.0011      0.002     -0.665      0.506      -0.005       0.002
+C(profession)[T.receptionist]            0.0104      0.002      4.907      0.000       0.006       0.015
+C(profession)[T.researcher]             -0.0081      0.001     -6.495      0.000      -0.011      -0.006
+C(profession)[T.secretary]               0.0098      0.002      5.223      0.000       0.006       0.013
+C(profession)[T.social worker]           0.0044      0.002      2.493      0.013       0.001       0.008
+C(profession)[T.software engineer]      -0.0023      0.001     -2.060      0.039      -0.004      -0.000
+C(profession)[T.surgeon]                -0.0044      0.001     -5.158      0.000      -0.006      -0.003
+C(profession)[T.teacher]                -0.0067      0.002     -3.865      0.000      -0.010      -0.003
+C(profession)[T.therapist]              -0.0121      0.002     -7.957      0.000      -0.015      -0.009
+C(profession)[T.truck driver]            0.0115      0.001      7.715      0.000       0.009       0.014
+C(profession)[T.welder]                 -0.0046      0.001     -4.052      0.000      -0.007      -0.002
+C(template_id)[T.t2]                    -0.0163      0.001    -30.391      0.000      -0.017      -0.015
+C(template_id)[T.t3]                    -0.0020      0.000     -5.009      0.000      -0.003      -0.001
+cross_race                               0.0026      0.004      0.720      0.471      -0.005       0.010
+mean_tokens                              0.0008      0.004      0.213      0.832      -0.006       0.008
+cross_race:mean_tokens                  -0.0010      0.003     -0.368      0.713      -0.006       0.004
+cross_gender                             0.0103      0.001      7.842      0.000       0.008       0.013
+token_diff                              -0.0010      0.002     -0.666      0.505      -0.004       0.002
+freq_diff                                0.0029      0.001      2.214      0.027       0.000       0.006
+mean_log_freq                            0.0018      0.002      0.959      0.337      -0.002       0.005
+==============================================================================
+Omnibus:                     5994.866   Durbin-Watson:                   1.405
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            11230.689
+Skew:                           0.893   Prob(JB):                         0.00
+Kurtosis:                       4.753   Cond. No.                         109.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_race         coef=+0.002647  se=0.003675  p=0.471380  n.s.
+  cross_gender       coef=+0.010260  se=0.001308  p=0.000000  ***
+  token_diff         coef=-0.001019  se=0.001530  p=0.505329  n.s.
+  mean_tokens        coef=+0.000783  se=0.003684  p=0.831596  n.s.
+  freq_diff          coef=+0.002938  se=0.001327  p=0.026807  *
+  mean_log_freq      coef=+0.001765  se=0.001840  p=0.337474  n.s.
+
+==============================================================================
+Interaction Model: Func-TCD ~ cross_race * mean_tokens
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               func_tcd   R-squared:                       0.204
+Model:                            OLS   Adj. R-squared:                  0.203
+Method:                 Least Squares   F-statistic:                     61.79
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):          9.61e-162
+Time:                        21:05:39   Log-Likelihood:             1.2495e+05
+No. Observations:               43065   AIC:                        -2.498e+05
+Df Residuals:                   43018   BIC:                        -2.494e+05
+Df Model:                          46                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0171      0.004      4.150      0.000       0.009       0.025
+C(ses_pair)[T.high-low]                  0.0038      0.002      2.038      0.042       0.000       0.008
+C(ses_pair)[T.high-mid]                  0.0005      0.002      0.282      0.778      -0.003       0.004
+C(ses_pair)[T.low-low]                   0.0052      0.003      1.861      0.063      -0.000       0.011
+C(ses_pair)[T.low-mid]                   0.0011      0.002      0.630      0.529      -0.002       0.005
+C(ses_pair)[T.mid-mid]                  -0.0018      0.002     -1.052      0.293      -0.005       0.002
+C(profession)[T.accountant]             -0.0007      0.000     -1.632      0.103      -0.001       0.000
+C(profession)[T.biologist]              -0.0052      0.001    -10.342      0.000      -0.006      -0.004
+C(profession)[T.chef]                   -0.0007      0.000     -1.814      0.070      -0.002    6.02e-05
+C(profession)[T.civil engineer]         -0.0046      0.000     -9.644      0.000      -0.006      -0.004
+C(profession)[T.construction worker]    -0.0029      0.001     -5.830      0.000      -0.004      -0.002
+C(profession)[T.consultant]             -0.0017      0.000     -5.546      0.000      -0.002      -0.001
+C(profession)[T.data scientist]         -0.0035      0.001     -6.317      0.000      -0.005      -0.002
+C(profession)[T.dentist]                -0.0051      0.000    -11.508      0.000      -0.006      -0.004
+C(profession)[T.director]               -0.0028      0.000     -6.312      0.000      -0.004      -0.002
+C(profession)[T.doctor]                 -0.0054      0.000    -11.801      0.000      -0.006      -0.004
+C(profession)[T.electrician]            -0.0059      0.000    -12.463      0.000      -0.007      -0.005
+C(profession)[T.financial analyst]      -0.0058      0.000    -15.236      0.000      -0.007      -0.005
+C(profession)[T.firefighter]             0.0049      0.001      6.201      0.000       0.003       0.006
+C(profession)[T.janitor]                 0.0029      0.000      5.919      0.000       0.002       0.004
+C(profession)[T.lawyer]                 -0.0052      0.000    -12.711      0.000      -0.006      -0.004
+C(profession)[T.librarian]               0.0010      0.001      1.391      0.164      -0.000       0.002
+C(profession)[T.manager]                 0.0018      0.000      6.147      0.000       0.001       0.002
+C(profession)[T.mechanic]               -0.0031      0.000     -6.398      0.000      -0.004      -0.002
+C(profession)[T.nurse]                   0.0199      0.001     14.623      0.000       0.017       0.023
+C(profession)[T.pilot]                  -0.0010      0.000     -2.520      0.012      -0.002      -0.000
+C(profession)[T.plumber]                 0.0032      0.001      6.211      0.000       0.002       0.004
+C(profession)[T.professor]              -0.0008      0.001     -1.087      0.277      -0.002       0.001
+C(profession)[T.receptionist]            0.0030      0.001      3.469      0.001       0.001       0.005
+C(profession)[T.researcher]             -0.0047      0.001     -9.374      0.000      -0.006      -0.004
+C(profession)[T.secretary]               0.0039      0.001      4.943      0.000       0.002       0.005
+C(profession)[T.social worker]          -0.0001      0.001     -0.146      0.884      -0.002       0.001
+C(profession)[T.software engineer]      -0.0039      0.000    -10.170      0.000      -0.005      -0.003
+C(profession)[T.surgeon]                -0.0044      0.000    -11.168      0.000      -0.005      -0.004
+C(profession)[T.teacher]                -0.0039      0.001     -5.836      0.000      -0.005      -0.003
+C(profession)[T.therapist]              -0.0061      0.001     -9.954      0.000      -0.007      -0.005
+C(profession)[T.truck driver]            0.0029      0.001      4.999      0.000       0.002       0.004
+C(profession)[T.welder]                 -0.0018      0.001     -3.344      0.001      -0.003      -0.001
+C(template_id)[T.t2]                    -0.0071      0.000    -23.688      0.000      -0.008      -0.006
+C(template_id)[T.t3]                    -0.0007      0.000     -2.663      0.008      -0.001      -0.000
+cross_race                               0.0025      0.002      1.314      0.189      -0.001       0.006
+mean_tokens                              0.0007      0.002      0.343      0.731      -0.003       0.005
+cross_race:mean_tokens                  -0.0010      0.001     -0.738      0.460      -0.004       0.002
+cross_gender                             0.0047      0.001      7.675      0.000       0.004       0.006
+token_diff                              -0.0005      0.001     -0.662      0.508      -0.002       0.001
+freq_diff                                0.0024      0.001      3.792      0.000       0.001       0.004
+mean_log_freq                            0.0003      0.001      0.356      0.722      -0.001       0.002
+==============================================================================
+Omnibus:                     7981.800   Durbin-Watson:                   1.370
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            17068.601
+Skew:                           1.090   Prob(JB):                         0.00
+Kurtosis:                       5.181   Cond. No.                         109.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_race         coef=+0.002490  se=0.001895  p=0.188823  n.s.
+  cross_gender       coef=+0.004725  se=0.000616  p=0.000000  ***
+  token_diff         coef=-0.000516  se=0.000780  p=0.508225  n.s.
+  mean_tokens        coef=+0.000677  se=0.001972  p=0.731494  n.s.
+  freq_diff          coef=+0.002448  se=0.000646  p=0.000150  ***
+  mean_log_freq      coef=+0.000313  se=0.000878  p=0.721768  n.s.
+
+==============================================================================
+Within-Race Robustness: SS
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     ss   R-squared:                       0.240
+Model:                            OLS   Adj. R-squared:                  0.238
+Method:                 Least Squares   F-statistic:                     28.12
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):           9.03e-44
+Time:                        21:05:39   Log-Likelihood:                 24686.
+No. Observations:               11484   AIC:                        -4.929e+04
+Df Residuals:                   11441   BIC:                        -4.897e+04
+Df Model:                          42                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0399      0.013      3.128      0.002       0.015       0.065
+C(ses_pair)[T.high-mid]                  0.0023      0.004      0.558      0.577      -0.006       0.011
+C(ses_pair)[T.low-low]                   0.0017      0.005      0.317      0.752      -0.009       0.012
+C(ses_pair)[T.low-mid]                  -0.0013      0.005     -0.279      0.780      -0.010       0.008
+C(ses_pair)[T.mid-mid]                  -0.0063      0.004     -1.498      0.134      -0.014       0.002
+C(profession)[T.accountant]              0.0012      0.002      0.576      0.564      -0.003       0.005
+C(profession)[T.biologist]              -0.0111      0.003     -4.091      0.000      -0.016      -0.006
+C(profession)[T.chef]                    0.0042      0.002      1.831      0.067      -0.000       0.009
+C(profession)[T.civil engineer]         -0.0087      0.002     -4.339      0.000      -0.013      -0.005
+C(profession)[T.construction worker]    -0.0021      0.002     -0.924      0.355      -0.006       0.002
+C(profession)[T.consultant]             -0.0006      0.001     -0.482      0.630      -0.003       0.002
+C(profession)[T.data scientist]         -0.0080      0.002     -3.236      0.001      -0.013      -0.003
+C(profession)[T.dentist]                -0.0056      0.002     -2.854      0.004      -0.010      -0.002
+C(profession)[T.director]               -0.0058      0.002     -2.520      0.012      -0.010      -0.001
+C(profession)[T.doctor]                 -0.0134      0.002     -6.444      0.000      -0.018      -0.009
+C(profession)[T.electrician]            -0.0087      0.003     -3.429      0.001      -0.014      -0.004
+C(profession)[T.financial analyst]      -0.0099      0.002     -5.832      0.000      -0.013      -0.007
+C(profession)[T.firefighter]            -0.0021      0.002     -0.875      0.381      -0.007       0.003
+C(profession)[T.janitor]                 0.0150      0.003      5.632      0.000       0.010       0.020
+C(profession)[T.lawyer]                 -0.0098      0.002     -5.049      0.000      -0.014      -0.006
+C(profession)[T.librarian]              -0.0056      0.003     -1.687      0.092      -0.012       0.001
+C(profession)[T.manager]                 0.0046      0.001      3.529      0.000       0.002       0.007
+C(profession)[T.mechanic]               -0.0022      0.002     -0.919      0.358      -0.007       0.003
+C(profession)[T.nurse]                   0.0496      0.006      8.652      0.000       0.038       0.061
+C(profession)[T.pilot]                  -0.0052      0.002     -2.573      0.010      -0.009      -0.001
+C(profession)[T.plumber]                 0.0099      0.002      4.187      0.000       0.005       0.015
+C(profession)[T.professor]              -0.0002      0.003     -0.069      0.945      -0.007       0.007
+C(profession)[T.receptionist]            0.0142      0.004      3.362      0.001       0.006       0.022
+C(profession)[T.researcher]             -0.0115      0.002     -4.854      0.000      -0.016      -0.007
+C(profession)[T.secretary]               0.0040      0.003      1.211      0.226      -0.002       0.010
+C(profession)[T.social worker]           0.0068      0.003      1.988      0.047    9.76e-05       0.014
+C(profession)[T.software engineer]      -0.0018      0.002     -0.857      0.391      -0.006       0.002
+C(profession)[T.surgeon]                -0.0041      0.002     -2.456      0.014      -0.007      -0.001
+C(profession)[T.teacher]                -0.0060      0.003     -1.754      0.079      -0.013       0.001
+C(profession)[T.therapist]              -0.0128      0.003     -4.410      0.000      -0.018      -0.007
+C(profession)[T.truck driver]            0.0153      0.003      5.236      0.000       0.010       0.021
+C(profession)[T.welder]                 -0.0048      0.002     -2.245      0.025      -0.009      -0.001
+C(template_id)[T.t2]                    -0.0158      0.001    -16.521      0.000      -0.018      -0.014
+C(template_id)[T.t3]                    -0.0012      0.001     -1.720      0.085      -0.003       0.000
+cross_gender                             0.0105      0.002      4.833      0.000       0.006       0.015
+mean_tokens                             -0.0038      0.004     -0.860      0.390      -0.013       0.005
+freq_diff                                0.0119      0.003      3.828      0.000       0.006       0.018
+mean_log_freq                           -0.0011      0.003     -0.342      0.733      -0.007       0.005
+==============================================================================
+Omnibus:                     1820.952   Durbin-Watson:                   1.591
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4008.333
+Skew:                           0.933   Prob(JB):                         0.00
+Kurtosis:                       5.213   Cond. No.                         93.0
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_gender       coef=+0.010486  se=0.002170  p=0.000001  ***
+
+==============================================================================
+Within-Race Robustness: Func-TCD
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               func_tcd   R-squared:                       0.249
+Model:                            OLS   Adj. R-squared:                  0.246
+Method:                 Least Squares   F-statistic:                     29.99
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):           3.39e-45
+Time:                        21:05:39   Log-Likelihood:                 34021.
+No. Observations:               11484   AIC:                        -6.796e+04
+Df Residuals:                   11441   BIC:                        -6.764e+04
+Df Model:                          42                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0228      0.006      3.830      0.000       0.011       0.034
+C(ses_pair)[T.high-mid]                  0.0013      0.002      0.636      0.525      -0.003       0.005
+C(ses_pair)[T.low-low]                  -0.0011      0.002     -0.430      0.667      -0.006       0.004
+C(ses_pair)[T.low-mid]                  -0.0007      0.002     -0.317      0.751      -0.005       0.004
+C(ses_pair)[T.mid-mid]                  -0.0021      0.002     -1.043      0.297      -0.006       0.002
+C(profession)[T.accountant]             -0.0011      0.001     -1.323      0.186      -0.003       0.001
+C(profession)[T.biologist]              -0.0056      0.001     -5.160      0.000      -0.008      -0.003
+C(profession)[T.chef]                   -0.0007      0.001     -0.880      0.379      -0.002       0.001
+C(profession)[T.civil engineer]         -0.0039      0.001     -4.957      0.000      -0.005      -0.002
+C(profession)[T.construction worker]    -0.0017      0.001     -1.695      0.090      -0.004       0.000
+C(profession)[T.consultant]             -0.0016      0.001     -2.623      0.009      -0.003      -0.000
+C(profession)[T.data scientist]         -0.0046      0.001     -4.248      0.000      -0.007      -0.002
+C(profession)[T.dentist]                -0.0050      0.001     -6.311      0.000      -0.007      -0.003
+C(profession)[T.director]               -0.0038      0.001     -4.179      0.000      -0.006      -0.002
+C(profession)[T.doctor]                 -0.0054      0.001     -6.052      0.000      -0.007      -0.004
+C(profession)[T.electrician]            -0.0056      0.001     -6.029      0.000      -0.007      -0.004
+C(profession)[T.financial analyst]      -0.0078      0.001    -10.435      0.000      -0.009      -0.006
+C(profession)[T.firefighter]             0.0026      0.001      2.065      0.039       0.000       0.005
+C(profession)[T.janitor]                 0.0039      0.001      3.854      0.000       0.002       0.006
+C(profession)[T.lawyer]                 -0.0053      0.001     -6.419      0.000      -0.007      -0.004
+C(profession)[T.librarian]               0.0004      0.001      0.315      0.753      -0.002       0.003
+C(profession)[T.manager]                 0.0020      0.001      3.652      0.000       0.001       0.003
+C(profession)[T.mechanic]               -0.0022      0.001     -2.439      0.015      -0.004      -0.000
+C(profession)[T.nurse]                   0.0220      0.003      8.686      0.000       0.017       0.027
+C(profession)[T.pilot]                  -0.0012      0.001     -1.486      0.137      -0.003       0.000
+C(profession)[T.plumber]                 0.0032      0.001      3.297      0.001       0.001       0.005
+C(profession)[T.professor]           -7.705e-05      0.002     -0.051      0.959      -0.003       0.003
+C(profession)[T.receptionist]            0.0046      0.002      2.772      0.006       0.001       0.008
+C(profession)[T.researcher]             -0.0059      0.001     -5.910      0.000      -0.008      -0.004
+C(profession)[T.secretary]               0.0019      0.001      1.313      0.189      -0.001       0.005
+C(profession)[T.social worker]           0.0014      0.001      0.988      0.323      -0.001       0.004
+C(profession)[T.software engineer]      -0.0042      0.001     -6.064      0.000      -0.006      -0.003
+C(profession)[T.surgeon]                -0.0041      0.001     -5.548      0.000      -0.006      -0.003
+C(profession)[T.teacher]                -0.0033      0.001     -2.425      0.015      -0.006      -0.001
+C(profession)[T.therapist]              -0.0069      0.001     -5.694      0.000      -0.009      -0.005
+C(profession)[T.truck driver]            0.0044      0.001      4.052      0.000       0.002       0.006
+C(profession)[T.welder]                 -0.0013      0.001     -1.414      0.157      -0.003       0.001
+C(template_id)[T.t2]                    -0.0068      0.001    -12.082      0.000      -0.008      -0.006
+C(template_id)[T.t3]                    -0.0004      0.000     -1.020      0.308      -0.001       0.000
+cross_gender                             0.0053      0.001      5.515      0.000       0.003       0.007
+mean_tokens                             -0.0013      0.002     -0.623      0.533      -0.006       0.003
+freq_diff                                0.0049      0.002      3.139      0.002       0.002       0.008
+mean_log_freq                           -0.0018      0.001     -1.188      0.235      -0.005       0.001
+==============================================================================
+Omnibus:                     2266.685   Durbin-Watson:                   1.543
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             5428.220
+Skew:                           1.105   Prob(JB):                         0.00
+Kurtosis:                       5.542   Cond. No.                         93.0
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_gender       coef=+0.005341  se=0.000968  p=0.000000  ***
+
+==============================================================================
+Matched-Token Robustness: SS
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     ss   R-squared:                       0.237
+Model:                            OLS   Adj. R-squared:                  0.236
+Method:                 Least Squares   F-statistic:                     50.52
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):          1.92e-103
+Time:                        21:05:39   Log-Likelihood:                 54115.
+No. Observations:               25740   AIC:                        -1.081e+05
+Df Residuals:                   25695   BIC:                        -1.078e+05
+Df Model:                          44                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0448      0.010      4.350      0.000       0.025       0.065
+C(ses_pair)[T.high-low]                  0.0054      0.005      0.991      0.322      -0.005       0.016
+C(ses_pair)[T.high-mid]                  0.0006      0.005      0.126      0.899      -0.009       0.010
+C(ses_pair)[T.low-low]                   0.0032      0.007      0.477      0.633      -0.010       0.017
+C(ses_pair)[T.low-mid]                  -0.0011      0.005     -0.228      0.820      -0.011       0.009
+C(ses_pair)[T.mid-mid]                  -0.0081      0.005     -1.723      0.085      -0.017       0.001
+C(profession)[T.accountant]              0.0016      0.001      1.167      0.243      -0.001       0.004
+C(profession)[T.biologist]              -0.0144      0.002     -8.251      0.000      -0.018      -0.011
+C(profession)[T.chef]                    0.0038      0.002      2.486      0.013       0.001       0.007
+C(profession)[T.civil engineer]         -0.0126      0.002     -7.949      0.000      -0.016      -0.009
+C(profession)[T.construction worker]    -0.0045      0.002     -2.851      0.004      -0.008      -0.001
+C(profession)[T.consultant]             -0.0020      0.001     -2.355      0.019      -0.004      -0.000
+C(profession)[T.data scientist]         -0.0081      0.002     -4.981      0.000      -0.011      -0.005
+C(profession)[T.dentist]                -0.0104      0.001     -8.380      0.000      -0.013      -0.008
+C(profession)[T.director]               -0.0062      0.002     -3.996      0.000      -0.009      -0.003
+C(profession)[T.doctor]                 -0.0158      0.001    -10.515      0.000      -0.019      -0.013
+C(profession)[T.electrician]            -0.0132      0.002     -7.657      0.000      -0.017      -0.010
+C(profession)[T.financial analyst]      -0.0042      0.001     -3.155      0.002      -0.007      -0.002
+C(profession)[T.firefighter]            -0.0009      0.002     -0.450      0.653      -0.005       0.003
+C(profession)[T.janitor]                 0.0128      0.002      7.796      0.000       0.010       0.016
+C(profession)[T.lawyer]                 -0.0105      0.001     -7.856      0.000      -0.013      -0.008
+C(profession)[T.librarian]              -0.0058      0.002     -2.643      0.008      -0.010      -0.001
+C(profession)[T.manager]                 0.0036      0.001      3.576      0.000       0.002       0.006
+C(profession)[T.mechanic]               -0.0060      0.002     -3.454      0.001      -0.009      -0.003
+C(profession)[T.nurse]                   0.0512      0.004     12.191      0.000       0.043       0.059
+C(profession)[T.pilot]                  -0.0045      0.001     -3.468      0.001      -0.007      -0.002
+C(profession)[T.plumber]                 0.0093      0.002      5.312      0.000       0.006       0.013
+C(profession)[T.professor]              -0.0052      0.002     -2.509      0.012      -0.009      -0.001
+C(profession)[T.receptionist]            0.0116      0.003      3.905      0.000       0.006       0.017
+C(profession)[T.researcher]             -0.0086      0.002     -4.979      0.000      -0.012      -0.005
+C(profession)[T.secretary]               0.0098      0.003      3.829      0.000       0.005       0.015
+C(profession)[T.social worker]           0.0037      0.002      1.561      0.119      -0.001       0.008
+C(profession)[T.software engineer]      -0.0021      0.001     -1.500      0.134      -0.005       0.001
+C(profession)[T.surgeon]                -0.0055      0.001     -4.885      0.000      -0.008      -0.003
+C(profession)[T.teacher]                -0.0109      0.002     -4.968      0.000      -0.015      -0.007
+C(profession)[T.therapist]              -0.0172      0.002     -8.747      0.000      -0.021      -0.013
+C(profession)[T.truck driver]            0.0082      0.002      4.290      0.000       0.004       0.012
+C(profession)[T.welder]                 -0.0074      0.001     -5.054      0.000      -0.010      -0.005
+C(template_id)[T.t2]                    -0.0168      0.001    -25.503      0.000      -0.018      -0.015
+C(template_id)[T.t3]                    -0.0024      0.000     -4.826      0.000      -0.003      -0.001
+cross_race                               0.0021      0.002      1.167      0.243      -0.001       0.006
+cross_gender                             0.0126      0.002      7.547      0.000       0.009       0.016
+mean_tokens                             -0.0068      0.003     -1.952      0.051      -0.014     2.7e-05
+freq_diff                                0.0022      0.002      1.157      0.247      -0.001       0.006
+mean_log_freq                            0.0010      0.002      0.389      0.697      -0.004       0.006
+==============================================================================
+Omnibus:                     3529.685   Durbin-Watson:                   1.427
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             6863.810
+Skew:                           0.866   Prob(JB):                         0.00
+Kurtosis:                       4.843   Cond. No.                         96.3
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_race         coef=+0.002094  se=0.001794  p=0.243085  n.s.
+  cross_gender       coef=+0.012573  se=0.001666  p=0.000000  ***
+
+==============================================================================
+Matched-Token Robustness: Func-TCD
+==============================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               func_tcd   R-squared:                       0.238
+Model:                            OLS   Adj. R-squared:                  0.237
+Method:                 Least Squares   F-statistic:                     49.87
+Date:                Thu, 26 Mar 2026   Prob (F-statistic):          8.45e-103
+Time:                        21:05:39   Log-Likelihood:                 74551.
+No. Observations:               25740   AIC:                        -1.490e+05
+Df Residuals:                   25695   BIC:                        -1.486e+05
+Df Model:                          44                                         
+Covariance Type:              cluster                                         
+========================================================================================================
+                                           coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+Intercept                                0.0220      0.005      4.427      0.000       0.012       0.032
+C(ses_pair)[T.high-low]                  0.0039      0.003      1.507      0.132      -0.001       0.009
+C(ses_pair)[T.high-mid]                  0.0006      0.002      0.268      0.788      -0.004       0.005
+C(ses_pair)[T.low-low]                   0.0050      0.004      1.322      0.186      -0.002       0.012
+C(ses_pair)[T.low-mid]                   0.0010      0.002      0.405      0.685      -0.004       0.006
+C(ses_pair)[T.mid-mid]                  -0.0026      0.002     -1.171      0.242      -0.007       0.002
+C(profession)[T.accountant]             -0.0017      0.001     -3.097      0.002      -0.003      -0.001
+C(profession)[T.biologist]              -0.0073      0.001    -11.291      0.000      -0.009      -0.006
+C(profession)[T.chef]                   -0.0014      0.001     -2.495      0.013      -0.003      -0.000
+C(profession)[T.civil engineer]         -0.0059      0.001     -9.016      0.000      -0.007      -0.005
+C(profession)[T.construction worker]    -0.0036      0.001     -5.297      0.000      -0.005      -0.002
+C(profession)[T.consultant]             -0.0026      0.000     -6.759      0.000      -0.003      -0.002
+C(profession)[T.data scientist]         -0.0054      0.001     -7.752      0.000      -0.007      -0.004
+C(profession)[T.dentist]                -0.0066      0.001    -12.595      0.000      -0.008      -0.006
+C(profession)[T.director]               -0.0041      0.001     -7.013      0.000      -0.005      -0.003
+C(profession)[T.doctor]                 -0.0065      0.001    -10.301      0.000      -0.008      -0.005
+C(profession)[T.electrician]            -0.0081      0.001    -13.079      0.000      -0.009      -0.007
+C(profession)[T.financial analyst]      -0.0063      0.001    -12.048      0.000      -0.007      -0.005
+C(profession)[T.firefighter]             0.0041      0.001      3.755      0.000       0.002       0.006
+C(profession)[T.janitor]                 0.0027      0.001      4.033      0.000       0.001       0.004
+C(profession)[T.lawyer]                 -0.0061      0.001    -10.764      0.000      -0.007      -0.005
+C(profession)[T.librarian]              -0.0004      0.001     -0.498      0.618      -0.002       0.001
+C(profession)[T.manager]                 0.0015      0.000      3.581      0.000       0.001       0.002
+C(profession)[T.mechanic]               -0.0041      0.001     -6.268      0.000      -0.005      -0.003
+C(profession)[T.nurse]                   0.0224      0.002     11.632      0.000       0.019       0.026
+C(profession)[T.pilot]                  -0.0014      0.001     -2.504      0.012      -0.002      -0.000
+C(profession)[T.plumber]                 0.0030      0.001      4.169      0.000       0.002       0.004
+C(profession)[T.professor]              -0.0029      0.001     -3.518      0.000      -0.004      -0.001
+C(profession)[T.receptionist]            0.0035      0.001      2.840      0.005       0.001       0.006
+C(profession)[T.researcher]             -0.0052      0.001     -7.261      0.000      -0.007      -0.004
+C(profession)[T.secretary]               0.0037      0.001      3.384      0.001       0.002       0.006
+C(profession)[T.social worker]        6.469e-05      0.001      0.060      0.952      -0.002       0.002
+C(profession)[T.software engineer]      -0.0039      0.001     -7.323      0.000      -0.005      -0.003
+C(profession)[T.surgeon]                -0.0053      0.001     -9.850      0.000      -0.006      -0.004
+C(profession)[T.teacher]                -0.0057      0.001     -6.829      0.000      -0.007      -0.004
+C(profession)[T.therapist]              -0.0085      0.001    -10.356      0.000      -0.010      -0.007
+C(profession)[T.truck driver]            0.0026      0.001      3.265      0.001       0.001       0.004
+C(profession)[T.welder]                 -0.0035      0.001     -5.162      0.000      -0.005      -0.002
+C(template_id)[T.t2]                    -0.0065      0.000    -18.721      0.000      -0.007      -0.006
+C(template_id)[T.t3]                    -0.0009      0.000     -3.431      0.001      -0.001      -0.000
+cross_race                               0.0015      0.001      1.647      0.100      -0.000       0.003
+cross_gender                             0.0059      0.001      7.201      0.000       0.004       0.008
+mean_tokens                             -0.0039      0.002     -2.547      0.011      -0.007      -0.001
+freq_diff                                0.0018      0.001      1.975      0.048     1.4e-05       0.004
+mean_log_freq                            0.0006      0.001      0.495      0.621      -0.002       0.003
+==============================================================================
+Omnibus:                     4650.495   Durbin-Watson:                   1.316
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            10066.817
+Skew:                           1.059   Prob(JB):                         0.00
+Kurtosis:                       5.214   Cond. No.                         96.3
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
+
+Core coefficients:
+  cross_race         coef=+0.001478  se=0.000898  p=0.099638  n.s.
+  cross_gender       coef=+0.005909  se=0.000821  p=0.000000  ***
+
+==============================================================================
+Group Summaries
+==============================================================================
+
+Race pairs (sorted by mean SS)
+        race_pair  mean_ss  mean_func_tcd  mean_cont_tcd  mean_tcd_ratio     n
+   Hispanic-White 0.045565       0.024210       0.014043        2.934381  4356
+Hispanic-Hispanic 0.045441       0.025239       0.012579        3.142355   594
+   Black-Hispanic 0.044939       0.024452       0.014665        2.753969  3960
+   Asian-Hispanic 0.041428       0.023961       0.014839        2.806109  1980
+      White-White 0.039768       0.019674       0.014815        2.530390  5445
+      Black-White 0.039046       0.020184       0.015931        2.294520 10890
+      Black-Black 0.037011       0.018338       0.016170        2.019479  4455
+      Asian-White 0.036178       0.020335       0.015851        2.403520  5445
+      Asian-Black 0.032055       0.017791       0.016002        1.935655  4950
+      Asian-Asian 0.029505       0.018546       0.015430        2.157281   990
+
+Gender pairs (sorted by mean SS)
+gender_pair  mean_ss  mean_func_tcd  mean_cont_tcd  mean_tcd_ratio     n
+        F-M 0.044090       0.023027       0.015868        2.582856 22275
+        F-F 0.037032       0.019161       0.014882        2.295169 10395
+        M-M 0.029813       0.017161       0.014904        2.143874 10395
+
+SES pairs (sorted by mean SS)
+ ses_pair  mean_ss  mean_func_tcd  mean_cont_tcd  mean_tcd_ratio     n
+  low-low 0.046511       0.023705       0.016205        2.415828  2079
+ high-low 0.046024       0.023996       0.016732        2.625043  4851
+ high-mid 0.041533       0.021239       0.015795        2.463621 11088
+  low-mid 0.038861       0.020986       0.015400        2.338325 11088
+high-high 0.036794       0.018330       0.016162        2.120171  2079
+  mid-mid 0.032752       0.018394       0.014203        2.379510 11880

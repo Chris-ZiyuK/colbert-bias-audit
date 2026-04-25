@@ -1,0 +1,85 @@
+%%
+%% ACM journal-style submission template for course deliverable use.
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+\documentclass[acmsmall,screen,review]{acmart}
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+\setcopyright{none}
+\settopmatter{printacmref=false, printccs=false, printfolios=false}
+\citestyle{acmauthoryear}
+
+\begin{document}
+
+\title[Token-Level Bias Attribution in Dense Retrieval]{Literature Review and Progress Update: Token-Level Bias Attribution in Dense Retrieval}
+
+\author{Chris Ziyu Kong}
+\affiliation{%
+  \institution{Brown University}
+  \city{Providence}
+  \state{Rhode Island}
+  \department{CSCI 2952W}
+  \country{USA}
+}
+\email{ziyukong@brown.edu}
+
+\renewcommand{\shortauthors}{Kong}
+
+\begin{abstract}
+This deliverable presents a literature review and progress update for my project on auditing identity-related bias in ColBERT. The project has evolved from simple score-level bias detection into a more mechanism-oriented audit: instead of just showing that retrieval scores change when you swap names or pronouns, I use ColBERT's late-interaction architecture to look at \emph{where} those differences come from at the token level and what factors drive them. The literature review covers retrieval fairness, names as identity proxies, and tokenization and interpretability in neural retrieval. The progress update summarizes what I have done so far and outlines next steps.
+\end{abstract}
+
+\maketitle
+
+\section{Literature Review}
+
+My project asks how identity cues---names and pronouns---affect neural retrieval scores, and what ColBERT's architecture specifically lets us see about that process. Rather than a debiasing paper, this is a measurement and audit project: I use ColBERT's late-interaction structure to look at where score differences come from and what mechanisms drive them. The literature behind this falls into three areas: fairness in retrieval, names as demographic proxies, and tokenization and interpretability in contextual retrieval models.
+
+\subsection{Bias, Fairness, and Audit in Retrieval}
+
+Modern search systems increasingly rely on \emph{neural retrieval} models, which use deep neural networks to encode queries and documents into dense vector representations and rank results by learned semantic similarity, rather than exact keyword overlap. These models---including bi-encoders like DPR \cite{karpukhin2020}, which compress entire passages into single vectors, and late-interaction models like ColBERT \cite{khattab2020,santhanam2022}, which preserve per-token representations and compute relevance through fine-grained token matching---now power production search systems at scale. Because ranking determines what information users see first, \emph{ranking fairness} asks whether retrieval systems distribute visibility equitably across people and groups, or whether identity-linked cues systematically distort the results. This is a high-stakes question: biased retrieval can affect who gets hired, whose research gets read, and whose medical symptoms are taken seriously.
+
+Research on ranking fairness has shown that search systems distribute attention and opportunity unevenly, making exposure itself a fairness concern rather than just a side effect of relevance optimization \cite{singh2018}. In neural retrieval specifically, Rekabsaz et al.\ showed that BERT-based rankers produce measurably gender-biased retrieved content and proposed adversarial mitigation, but their analysis stays at the level of aggregate ranking metrics---it does not look inside the model to see where the bias comes from \cite{rekabsaz2021}. Broader NLP fairness work also cautions that ``bias'' is not a single thing; what counts as a harmful disparity depends on the social context and measurement choices involved \cite{blodgett2020}. For my project, the takeaway from this literature is that retrieval bias is real and worth auditing, but existing work mostly tells us \emph{that} systems are unfair without explaining the internal mechanism through which identity information changes relevance scores.
+
+Understanding the internal mechanism matters for at least three reasons. First, without knowing \emph{where} bias enters the score, we cannot distinguish between fundamentally different failure modes: a model that has learned stereotyped lexical associations (``nurse'' $\leftrightarrow$ ``female'') requires a different fix than a model whose tokenizer systematically disadvantages unfamiliar names. Aggregate-level audits conflate these causes. Second, mechanism-level knowledge enables \emph{targeted} debiasing: if bias concentrates in a specific subset of token representations, interventions can be scoped to those representations without degrading the model's overall retrieval quality---a precision that broad-spectrum debiasing methods lack. Third, if the bias pathway runs through infrastructure components like the subword tokenizer, the finding generalizes beyond any single model to every system built on the same tokenization scheme, making it an infrastructure-level fairness concern rather than a model-specific bug.
+
+\subsection{Names, Identity Proxies, and Confounds}
+
+Classic audit studies established names as a tool for detecting discrimination. Bertrand and Mullainathan's resume experiment showed that racially associated names led to different callback rates, and Sweeney showed similar effects in online advertising \cite{bertrand2004,sweeney2013}. These studies motivate using name swaps as a controlled intervention, but they also raise the methodological question at the center of my project: what exactly does a name swap measure? Caliskan et al.\ showed with the Word Embedding Association Test (WEAT) that even static word embeddings absorb human-like biases tied to names and social categories \cite{caliskan2017}, and De-Arteaga et al.\ found that occupation-linked gender stereotypes persist in text embeddings and affect downstream classification even when explicit gender markers are removed \cite{dearteaga2019}. Demographic name databases provide structured data on how names correlate with race, gender, and geography \cite{rosenman2023}, and more recent work by Manchanda and Shivaswamy showed that names can distort embedding similarity even when the rest of the text is identical \cite{manchanda2025}. The problem is that a swap like \texttt{Emily $\rightarrow$ Lakisha} is useful because it is socially meaningful, but that same feature makes it analytically messy: a name change may simultaneously vary race coding, gender associations, frequency, and how easily the model processes the string itself.
+
+\subsection{Tokenization, Representation, and Late-Interaction Interpretability}
+
+A third body of work explains why a model's ability to process a name belongs inside the bias story. Tokenization is not a neutral preprocessing step---different subword schemes change what units a model can represent, and these choices affect downstream behavior \cite{bostrom2020}. For names, this matters because rare or unfamiliar strings get split into more subword tokens, which can change the model's contextual representations and retrieval behavior. Recent work has begun to connect tokenization disparities directly to downstream fairness harms. Petrov et al.\ showed that multilingual BPE tokenizers introduce systematic cost and performance unfairness across languages by requiring more tokens to represent the same content in lower-resource languages \cite{petrov2023}. Ovalle et al.\ demonstrated that BPE over-fragmentation of data-scarce neopronouns is a direct cause of LLM misgendering, and proposed ``pronoun tokenization parity'' as a mitigation \cite{ovalle2024}. These findings establish that tokenization is not merely a performance bottleneck but an \emph{active fairness hazard}---though neither study examines how tokenization-driven disparities propagate through retrieval scoring mechanisms at the individual token level.
+
+ColBERT and ColBERTv2 are especially useful here because their late-interaction design preserves token-level document representations and computes relevance through fine-grained token matching rather than collapsing everything into a single vector \cite{khattab2020,santhanam2022}. This makes it possible to ask which specific tokens contribute most to a score difference---something that single-vector models like DPR (Dense Passage Retrieval \cite{karpukhin2020}), which encode entire passages into a single dense vector, fundamentally cannot support. Related analysis of dense retriever representations also shows that identity-linked information like gender and occupation remains encoded in retrieval embeddings, though the relationship between what is encoded and what actually affects output is not straightforward \cite{goldfarb2024}. The gap across these literatures is fairly clear: we know retrieval systems can be biased, that name-based audits are useful but messy, and that tokenization and representations matter---including emerging evidence that tokenization disparities cause downstream harms in generation \cite{ovalle2024} and cross-lingual settings \cite{petrov2023}. What is missing is a mechanism-level account of how identity-related bias actually propagates \emph{inside} a neural retriever---across profession context, token-level attribution, gender contrast, tokenization, frequency, and any residual race-category signal. To my knowledge, no prior work has empirically demonstrated that BPE fragmentation mediates bias magnitude in retrieval. My project uses ColBERT's decomposable scoring structure to try to fill that gap.
+
+\section{Progress Update}
+
+Since the proposal, my project has become more focused. The question is no longer just whether ColBERT exhibits identity-related bias---it clearly does. Instead, I am now asking how those score differences are assembled and how robust the mechanism is across different professions and controls. The first major step was \texttt{P0}, which established that the effect is identity-specific: across 1,080 control comparisons, identity swaps produced significantly larger function-word bias than non-identity substitutions (\texttt{p < 1e-8}, Cohen's \texttt{d = 0.37}).
+
+Phase~1 then introduced the token-level attribution story. The key metric is \emph{Token Contribution Disparity} (TCD): because ColBERT computes its total relevance score as a sum of per-query-token MaxSim contributions, I can measure each query token's contribution to both the original document and the name-swapped document, and take the absolute difference. A high TCD value for a given token means that token's score contribution is sensitive to the identity swap---in other words, the identity change in the document is ``leaking'' into that token's representation and changing how it matches. When I say function words ``carry more bias'' than content words, I mean their TCD values are systematically and significantly higher: their score contributions shift more when you swap a name or pronoun, even though these words (``is,'' ``a,'' ``who'') have no semantic connection to the identity being changed.
+
+Phase~1 found two things: function words carry more bias (higher TCD) than content words, and rare name pairs produce substantially larger score disparities than common ones. \texttt{P1} expanded this across 33 professions and 1,287 tests, confirming that function-word TCD exceeded content-word TCD in 30 of 33 professions. The pattern held for both name and pronoun swaps, with pronoun swaps stronger at the token level.
+
+The most important conceptual shift came with \texttt{P2} and \texttt{P2b}, which reframed the name-swap story as a decomposition problem. The expanded \texttt{P2} analysis covered 30 names, 435 name pairs, 33 professions, 3 templates, and 43,065 tests. The main finding is that the strongest stable signal is \texttt{cross\_gender}, not a universally stable independent race effect. A Rosenman-backed \texttt{P2b} validation strengthened this: under stricter matched designs, tokenization became significant for both score disparity and function-word TCD (\texttt{p = 0.0026} and \texttt{p = 0.0013} respectively), while a weaker residual race-category signal remains detectable but does not justify a broad race-main-effect claim. The main bottleneck right now is \texttt{absolute\_rarity}, which is underpowered with only five pairs. Looking ahead, my immediate next step is to expand the verified name pool to close that gap. After that, I plan to run supplemental validation experiments and multi-model comparison before writing the full paper draft. MS~MARCO would serve as an ecological validity check---testing whether the token-level patterns I found in controlled templates also appear in real retrieved passages---rather than as a core part of the argument.
+
+\begin{acks}
+This writeup draws on results and planning documents from my ColBERT Bias Audit project repository.
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{overall_lit_review_refs}
+
+\end{document}

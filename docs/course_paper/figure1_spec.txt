@@ -1,0 +1,166 @@
+================================================================================
+  Figure 1: TCD Method Overview & Experimental Pipeline
+  (Full-width figure for ACL two-column format, ~16cm × 6cm)
+================================================================================
+
+PURPOSE:
+  This is the main methodological figure for the paper. It should serve as a
+  self-contained visual explanation of: (1) what TCD is, (2) how it is computed,
+  and (3) how the TCD signal feeds into the three downstream analyses.
+
+OVERALL LAYOUT:
+  Three panels arranged left-to-right, connected by arrows.
+  Panel A → Panel B → Panel C
+  White background, clean academic style, no decorative elements.
+
+================================================================================
+PANEL A: Counterfactual Design (leftmost, ~30% width)
+================================================================================
+
+Title label: "(A) Counterfactual Scoring"
+
+Show a query at top and two documents below, scored via ColBERT MaxSim.
+
+QUERY (horizontal row of rounded rectangles):
+  ┌──────┐ ┌──────┐ ┌──────┐ ┌──────────┐ ┌──────┐ ┌──────┐
+  │ Who  │ │  is  │ │  a   │ │qualified │ │doctor│ │  ?   │
+  │  F   │ │  F   │ │  F   │ │    C     │ │  C   │ │  F   │
+  └──────┘ └──────┘ └──────┘ └──────────┘ └──────┘ └──────┘
+
+  - Function words (F): fill with light blue (#2C73D2 at 15% opacity), blue border
+  - Content words (C): fill with light orange (#FF9F43 at 15% opacity), orange border
+  - Each box shows the token text on top and F/C label below in smaller italics
+
+TWO DOCUMENTS (stacked vertically below query):
+  ┌─────────────────────────────────────────────────┐
+  │ D_A: "...Emily is a qualified doctor..."        │
+  └─────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────┐
+  │ D_B: "...Lakisha is a qualified doctor..."      │
+  └─────────────────────────────────────────────────┘
+
+  - Light gray border, white fill
+  - "Emily" in D_A and "Lakisha" in D_B can be highlighted/bolded
+
+ARROWS:
+  - Two curved arrows from query row to each document box
+  - Label each arrow "MaxSim"
+  - Gray color (#6C757D)
+
+SCORE LABELS (to the right of each document):
+  - Next to D_A: "S(Q, D_A) = 25.83"
+  - Next to D_B: "S(Q, D_B) = 25.12"
+
+================================================================================
+PANEL B: TCD Computation (middle, ~35% width)
+================================================================================
+
+Title label: "(B) Per-Token TCD"
+
+A TABLE showing the per-token score breakdown:
+
+  NOTE: These are ILLUSTRATIVE values for ONE example query-document pair.
+  Content words have non-zero TCD (they ARE affected, just less than function words).
+
+  ┌──────────┬────────┬────────┬──────────┬───────────┐
+  │  Token   │ c_i^A  │ c_i^B  │   TCD    │   Type    │
+  ├──────────┼────────┼────────┼──────────┼───────────┤
+  │  Who     │  0.82  │  0.81  │  0.010   │  F (blue) │
+  │  is      │  0.91  │  0.87  │  0.040*  │  F (blue) │
+  │  a       │  0.78  │  0.75  │  0.030*  │  F (blue) │
+  │ qualified│  0.95  │  0.94  │  0.010   │  C (orange)│
+  │  doctor  │  0.97  │  0.96  │  0.010   │  C (orange)│
+  │  ?       │  0.73  │  0.71  │  0.020   │  F (blue) │
+  └──────────┴────────┴────────┴──────────┴───────────┘
+
+  Func-TCD mean for this example: (0.010+0.040+0.030+0.020)/4 = 0.025
+  Cont-TCD mean for this example: (0.010+0.010)/2 = 0.010
+  Example ratio: 2.5× (single example; aggregate across 43k tests = 1.44×)
+
+  * TCD values > 0.02 should be rendered in RED BOLD (#E63946)
+  * Alternating row backgrounds (very light gray #F7F7F7 and white)
+  * Token names colored by type (blue for F, orange for C)
+
+Below the table, a MINI BAR CHART showing AGGREGATE data (from Table 1 in paper):
+  - Func-TCD mean = 0.0210 (blue bar)        ← aggregate across 2,535 function tokens
+  - Cont-TCD mean = 0.0146 (orange bar)       ← aggregate across 4,225 content tokens
+  - Arrow annotation: "1.44× ratio (p=0.0002)"
+  NOTE: The table above shows one illustrative example; the bar chart shows
+  the real aggregate result. Label the bar chart "Aggregate (N=43,065)".
+
+================================================================================
+PANEL C: Three Downstream Analyses (rightmost, ~35% width)
+================================================================================
+
+Title label: "(C) Downstream Findings"
+
+Three stacked boxes (rounded rectangles), each representing a finding.
+Connected from Panel B via a branching arrow labeled "Func-TCD as diagnostic signal".
+
+BOX 1 (top): "Rarity Amplification"
+  Content: Small icon or mini-chart showing:
+    Common-Common: 1.0×
+    Common-Rare:   1.5×
+    Rare-Rare:     1.84×
+  Color: Light blue background
+
+BOX 2 (middle): "Confound Decomposition"
+  Content: Mini forest plot or ranking:
+    Gender:       ████████  (strongest)
+    Tokenization: ███████   (strong)
+    Race:         ████      (weaker)
+  Color: Light blue background
+
+BOX 3 (bottom): "Ecological Validation"
+  Content:
+    Synthetic: 1.44×  ✓
+    Natural:   1.42×  ✓
+    BM25:      0.00×  (control)
+  Color: Light blue background
+
+================================================================================
+CONNECTING ARROWS
+================================================================================
+
+Panel A → Panel B:
+  Arrow from the score labels area to the table, labeled "decompose"
+
+Panel B → Panel C:
+  Arrow from beneath the mini bar chart to the three boxes,
+  labeled "Func-TCD as response variable"
+
+================================================================================
+COLOR PALETTE
+================================================================================
+
+  Function word blue:  #2C73D2  (also used for Func-TCD bars)
+  Content word orange: #FF9F43  (also used for Cont-TCD bars)
+  Highlight red:       #E63946  (for significant TCD values)
+  Neutral gray:        #6C757D  (for arrows, labels)
+  Background band:     #F7F7F7  (for alternating table rows)
+  Significance green:  #2D6A4F  (for checkmarks in validation)
+
+================================================================================
+CAPTION TEXT
+================================================================================
+
+"Figure 1: Overview of the TCD methodology and experimental pipeline.
+(A) A query is scored against two counterfactual documents differing only
+in an identity marker (Emily → Lakisha) using ColBERT's MaxSim.
+(B) Per-token contributions are compared to compute Token Contribution
+Disparity (TCD); function words (blue) show systematically higher TCD
+than content words (orange).
+(C) The Func-TCD signal serves as the response variable for three
+downstream analyses: rarity amplification (§4.2), confound decomposition
+(§4.3), and ecological validation (§4.4)."
+
+================================================================================
+DESIGN NOTES
+================================================================================
+
+- Target size: 16cm wide × 6cm tall (fits ACL \textwidth for figure*)
+- Style: clean, minimalist, academic — similar to NeurIPS/ICML method figures
+- Font: serif (Times or similar), consistent with paper body
+- No 3D effects, no shadows, no gradients — flat design only
+- Panel labels (A), (B), (C) in bold, top-left of each panel
+- All text must be legible at the printed size (minimum ~7pt equivalent)

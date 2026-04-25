@@ -1,0 +1,40 @@
+{
+  "_doc": "Orthogonalized name feature matrix for confound decomposition. Census frequency = approximate occurrences per 100k (US Census 2010). SES tier derived from Bertrand & Mullainathan (2004) and census socioeconomic correlations. Key design: includes names that break the frequency-race confound.",
+  "names": [
+    {"name": "Emily",          "gender": "F", "race": "White",    "census_freq_per_100k": 844,  "bpe_tokens": 1, "ses_tier": "high",  "notes": "Common, 1-token White female"},
+    {"name": "Sarah",          "gender": "F", "race": "White",    "census_freq_per_100k": 537,  "bpe_tokens": 1, "ses_tier": "high",  "notes": "Common, 1-token White female"},
+    {"name": "Jennifer",       "gender": "F", "race": "White",    "census_freq_per_100k": 932,  "bpe_tokens": 2, "ses_tier": "mid",   "notes": "Common, 2-token White female — frequency control"},
+    {"name": "Elizabeth",      "gender": "F", "race": "White",    "census_freq_per_100k": 568,  "bpe_tokens": 3, "ses_tier": "high",  "notes": "Common, 3-token White female — token-count isolation vs Emily"},
+    {"name": "Katherine",      "gender": "F", "race": "White",    "census_freq_per_100k": 189,  "bpe_tokens": 3, "ses_tier": "high",  "notes": "Mid-freq, 3-token White female — freq isolation vs Elizabeth"},
+    {"name": "Anne",           "gender": "F", "race": "White",    "census_freq_per_100k": 346,  "bpe_tokens": 1, "ses_tier": "high",  "notes": "Mid-freq, 1-token White female"},
+
+    {"name": "Greg",           "gender": "M", "race": "White",    "census_freq_per_100k": 275,  "bpe_tokens": 1, "ses_tier": "mid",   "notes": "Common, 1-token White male"},
+    {"name": "Todd",           "gender": "M", "race": "White",    "census_freq_per_100k": 172,  "bpe_tokens": 1, "ses_tier": "mid",   "notes": "Mid-freq, 1-token White male"},
+    {"name": "Brett",          "gender": "M", "race": "White",    "census_freq_per_100k": 107,  "bpe_tokens": 1, "ses_tier": "mid",   "notes": "Mid-freq, 1-token White male"},
+    {"name": "Geoffrey",       "gender": "M", "race": "White",    "census_freq_per_100k": 31,   "bpe_tokens": 3, "ses_tier": "high",  "notes": "Low-freq, 3-token White male — rarity within White"},
+    {"name": "Christopher",    "gender": "M", "race": "White",    "census_freq_per_100k": 617,  "bpe_tokens": 3, "ses_tier": "mid",   "notes": "Common, 3-token White male — token-count isolation vs Greg"},
+
+    {"name": "Lakisha",        "gender": "F", "race": "Black",    "census_freq_per_100k": 5,    "bpe_tokens": 3, "ses_tier": "low",   "notes": "Rare, 3-token Black female — classic B&M audit name"},
+    {"name": "Tamika",         "gender": "F", "race": "Black",    "census_freq_per_100k": 25,   "bpe_tokens": 3, "ses_tier": "low",   "notes": "Rare, 3-token Black female"},
+    {"name": "Aisha",          "gender": "F", "race": "Black",    "census_freq_per_100k": 18,   "bpe_tokens": 2, "ses_tier": "mid",   "notes": "Rare, 2-token Black female"},
+    {"name": "Ebony",          "gender": "F", "race": "Black",    "census_freq_per_100k": 42,   "bpe_tokens": 2, "ses_tier": "low",   "notes": "Low-freq, 2-token Black female"},
+    {"name": "Jasmine",        "gender": "F", "race": "Black",    "census_freq_per_100k": 215,  "bpe_tokens": 2, "ses_tier": "mid",   "notes": "Common, 2-token Black female — frequency control (common Black)"},
+
+    {"name": "Jamal",          "gender": "M", "race": "Black",    "census_freq_per_100k": 46,   "bpe_tokens": 2, "ses_tier": "low",   "notes": "Low-freq, 2-token Black male"},
+    {"name": "Darnell",        "gender": "M", "race": "Black",    "census_freq_per_100k": 27,   "bpe_tokens": 2, "ses_tier": "low",   "notes": "Rare, 2-token Black male"},
+    {"name": "Tyrone",         "gender": "M", "race": "Black",    "census_freq_per_100k": 44,   "bpe_tokens": 2, "ses_tier": "low",   "notes": "Low-freq, 2-token Black male"},
+    {"name": "Andre",          "gender": "M", "race": "Black",    "census_freq_per_100k": 83,   "bpe_tokens": 2, "ses_tier": "mid",   "notes": "Mid-freq, 2-token Black male"},
+    {"name": "Marcus",         "gender": "M", "race": "Black",    "census_freq_per_100k": 98,   "bpe_tokens": 2, "ses_tier": "mid",   "notes": "Mid-freq, 2-token Black male — common Black male name"},
+
+    {"name": "Maria",          "gender": "F", "race": "Hispanic", "census_freq_per_100k": 577,  "bpe_tokens": 1, "ses_tier": "mid",   "notes": "Very common, 1-token Hispanic female — high freq control"},
+    {"name": "Guadalupe",      "gender": "F", "race": "Hispanic", "census_freq_per_100k": 68,   "bpe_tokens": 4, "ses_tier": "low",   "notes": "Mid-freq, 4-token Hispanic female"},
+    {"name": "Carlos",         "gender": "M", "race": "Hispanic", "census_freq_per_100k": 157,  "bpe_tokens": 2, "ses_tier": "mid",   "notes": "Common, 2-token Hispanic male"},
+    {"name": "Alejandro",      "gender": "M", "race": "Hispanic", "census_freq_per_100k": 52,   "bpe_tokens": 4, "ses_tier": "mid",   "notes": "Mid-freq, 4-token Hispanic male"},
+
+    {"name": "Wei",            "gender": "M", "race": "Asian",    "census_freq_per_100k": 12,   "bpe_tokens": 1, "ses_tier": "mid",   "notes": "Rare, 1-token Asian male — rare but 1-token (breaks rarity=multi-token)"},
+    {"name": "Mei",            "gender": "F", "race": "Asian",    "census_freq_per_100k": 8,    "bpe_tokens": 1, "ses_tier": "mid",   "notes": "Rare, 1-token Asian female — rare + 1-token confound breaker"},
+    {"name": "Xuefeng",        "gender": "M", "race": "Asian",    "census_freq_per_100k": 1,    "bpe_tokens": 4, "ses_tier": "mid",   "notes": "Very rare, 4-token Asian male"},
+    {"name": "Thiruvengadam",  "gender": "M", "race": "Asian",    "census_freq_per_100k": 0.5,  "bpe_tokens": 5, "ses_tier": "mid",   "notes": "Extremely rare, 5-token South Asian male"},
+    {"name": "Priya",          "gender": "F", "race": "Asian",    "census_freq_per_100k": 14,   "bpe_tokens": 2, "ses_tier": "high",  "notes": "Rare, 2-token South Asian female"}
+  ]
+}

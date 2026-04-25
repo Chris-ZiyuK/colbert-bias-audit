@@ -1,0 +1,18 @@
+{
+  "n_tests": 1400,
+  "bm25": {
+    "mean_func_tcd": 0.0,
+    "mean_cont_tcd": 0.0,
+    "ratio": 0.0,
+    "t_stat": NaN,
+    "p_value": NaN
+  },
+  "colbert": {
+    "mean_func_tcd": 0.012371,
+    "mean_cont_tcd": 0.008711,
+    "ratio": 1.42,
+    "t_stat": 10.7054,
+    "p_value": 6.445e-26,
+    "pattern_holds": true
+  }
+}

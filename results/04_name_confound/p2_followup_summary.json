@@ -1,0 +1,98 @@
+{
+  "subset_sizes": {
+    "same_race": 11484,
+    "same_gender": 20790,
+    "freq_matched_same_race_same_gender": 1683,
+    "token_matched_same_race_same_gender": 3465
+  },
+  "models": {
+    "within_race_ss_gender": {
+      "r_squared": 0.24030261175661483,
+      "adj_r_squared": 0.2375137567346568
+    },
+    "within_race_func_gender": {
+      "r_squared": 0.24891614401321815,
+      "adj_r_squared": 0.24615890933517914
+    },
+    "within_gender_ss_race": {
+      "r_squared": 0.1646196015287401,
+      "adj_r_squared": 0.1628881180073738
+    },
+    "within_gender_func_race": {
+      "r_squared": 0.1870229230053343,
+      "adj_r_squared": 0.18533787459548312
+    },
+    "freq_matched_ss_token": {
+      "r_squared": 0.13446498322142197,
+      "adj_r_squared": 0.11553469123841553
+    },
+    "freq_matched_func_token": {
+      "r_squared": 0.12766038879357533,
+      "adj_r_squared": 0.10858127214507529
+    },
+    "token_matched_ss_freq": {
+      "r_squared": 0.16464941704694724,
+      "adj_r_squared": 0.15587677381873544
+    },
+    "token_matched_func_freq": {
+      "r_squared": 0.1608320098871192,
+      "adj_r_squared": 0.15201927720215314
+    }
+  },
+  "coefficients": {
+    "within_race_ss_cross_gender": {
+      "coef": 0.010485734585017649,
+      "pvalue": 1.3442700070132535e-06,
+      "stderr": 0.002169569577826014,
+      "significant": true
+    },
+    "within_race_func_cross_gender": {
+      "coef": 0.00534064945108616,
+      "pvalue": 3.481814913482311e-08,
+      "stderr": 0.0009683330896339436,
+      "significant": true
+    },
+    "within_gender_ss_cross_race": {
+      "coef": 0.0011882209916168902,
+      "pvalue": 0.5803226542514206,
+      "stderr": 0.002149017934229982,
+      "significant": false
+    },
+    "within_gender_func_cross_race": {
+      "coef": 0.001599573753182533,
+      "pvalue": 0.09804674687688378,
+      "stderr": 0.0009668617267317789,
+      "significant": false
+    },
+    "freq_matched_ss_token_diff": {
+      "coef": 0.0052903893093636445,
+      "pvalue": 0.0019542612113377456,
+      "stderr": 0.0017081769936923268,
+      "significant": true
+    },
+    "freq_matched_func_token_diff": {
+      "coef": 0.003364731228392282,
+      "pvalue": 0.002526396756208162,
+      "stderr": 0.0011140897215814077,
+      "significant": true
+    },
+    "token_matched_ss_freq_diff": {
+      "coef": 0.008082399332214704,
+      "pvalue": 0.1741992879588089,
+      "stderr": 0.005948041515143458,
+      "significant": false
+    },
+    "token_matched_func_freq_diff": {
+      "coef": 0.004456623294174564,
+      "pvalue": 0.06278624192576822,
+      "stderr": 0.002395129793348682,
+      "significant": false
+    }
+  },
+  "interpretation": {
+    "gender_statement": "Gender contrast remains robust inside same-race comparisons, so the upgraded P2 gender signal is not merely a byproduct of race mixing.",
+    "race_statement": "Race contrast does not remain stable once gender is held fixed; any remaining race effect is weak and does not survive cleanly in the within-gender models.",
+    "tokenization_statement": "When race, gender, and frequency are tightly matched, token difference becomes a significant positive predictor of both SS and function-word disruption.",
+    "frequency_statement": "Once token count, race, and gender are exactly matched, frequency alone is weaker: it is not significant for SS and only borderline for function-word disruption."
+  }
+}

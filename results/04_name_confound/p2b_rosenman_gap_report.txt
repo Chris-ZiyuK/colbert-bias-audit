@@ -1,0 +1,62 @@
+P2b Rosenman gap report
+============================================================
+
+Current tokenizer-verified cell coverage
+- Asian / F / 1 token(s): 1 -> Mei(58.637291)
+- Asian / F / 2 token(s): 1 -> Priya(65.716392)
+- Asian / F / 3 token(s): 1 -> Divya(32.223868)
+- Asian / F / 4 token(s): 1 -> Khushbu(6.343281)
+- Asian / F / 5 token(s): 0 -> 
+- Asian / M / 1 token(s): 1 -> Wei(70.511913)
+- Asian / M / 2 token(s): 0 -> 
+- Asian / M / 3 token(s): 3 -> Sandeep(35.497001), Vivek(33.111927), Xuefeng(0.735821)
+- Asian / M / 4 token(s): 1 -> Abhishek(15.579098)
+- Asian / M / 5 token(s): 1 -> Thiruvengadam(0.5)
+- Black / F / 1 token(s): 2 -> Jasmine(292.271901), Ebony(103.721719)
+- Black / F / 2 token(s): 2 -> Tamika(64.688658), Aisha(29.387597)
+- Black / F / 3 token(s): 3 -> Latoya(167.140884), Latasha(90.042176), Lakisha(38.08859)
+- Black / F / 4 token(s): 0 -> 
+- Black / F / 5 token(s): 0 -> 
+- Black / M / 1 token(s): 4 -> Marcus(220.905026), Andre(142.756692), Tyrone(121.592116), Jamal(54.743027)
+- Black / M / 2 token(s): 2 -> Alonzo(37.38884), Darnell(33.844203)
+- Black / M / 3 token(s): 1 -> Jermaine(80.807767)
+- Black / M / 4 token(s): 0 -> 
+- Black / M / 5 token(s): 0 -> 
+- Hispanic / F / 1 token(s): 2 -> Maria(3048.357205), Guadalupe(83.504368)
+- Hispanic / F / 2 token(s): 2 -> Gabriela(176.517025), Marisol(128.285509)
+- Hispanic / F / 3 token(s): 1 -> Alejandra(103.500746)
+- Hispanic / F / 4 token(s): 0 -> 
+- Hispanic / F / 5 token(s): 0 -> 
+- Hispanic / M / 1 token(s): 2 -> Carlos(1303.357168), Alejandro(334.04908)
+- Hispanic / M / 2 token(s): 1 -> Rolando(126.341709)
+- Hispanic / M / 3 token(s): 1 -> Mauricio(84.826574)
+- Hispanic / M / 4 token(s): 1 -> Heriberto(53.994435)
+- Hispanic / M / 5 token(s): 0 -> 
+- White / F / 1 token(s): 6 -> Jennifer(731.906011), Elizabeth(625.450747), Sarah(410.517738), Emily(265.190476), Katherine(256.504074), Anne(133.000396)
+- White / F / 2 token(s): 1 -> Kelli(41.784898)
+- White / F / 3 token(s): 1 -> Rebekah(38.662136)
+- White / F / 4 token(s): 0 -> 
+- White / F / 5 token(s): 0 -> 
+- White / M / 1 token(s): 5 -> Christopher(824.871898), Todd(109.191405), Brett(66.352567), Geoffrey(25.993666), Greg(18.944447)
+- White / M / 2 token(s): 0 -> 
+- White / M / 3 token(s): 1 -> Jonathon(21.857347)
+- White / M / 4 token(s): 1 -> Demetrios(1.104254)
+- White / M / 5 token(s): 0 -> 
+
+Critical family counts
+- tokenization: total_pairs=49, treatment_pairs=30, control_pairs=19
+- absolute_rarity: total_pairs=5, treatment_pairs=2, control_pairs=3
+
+Coverage gaps
+- Asian / F: Tokenizer bucket too sparse for robust matched pairs -> {1: 1, 2: 1, 3: 1, 4: 1}
+- Asian / M: Tokenizer bucket too sparse for robust matched pairs -> {1: 1, 3: 3, 4: 1, 5: 1}
+- Black / M: Tokenizer bucket too sparse for robust matched pairs -> {1: 4, 2: 2, 3: 1}
+- Hispanic / F: Tokenizer bucket too sparse for robust matched pairs -> {1: 2, 2: 2, 3: 1}
+- Hispanic / M: Tokenizer bucket too sparse for robust matched pairs -> {1: 2, 2: 1, 3: 1, 4: 1}
+- White / F: Tokenizer bucket too sparse for robust matched pairs -> {1: 6, 2: 1, 3: 1}
+- White / M: Tokenizer bucket too sparse for robust matched pairs -> {1: 5, 3: 1, 4: 1}
+
+Acquisition priorities
+- Priority 1: add non-White names that stay 2+ tokens under the actual ColBERT tokenizer while remaining close in frequency to existing same-race same-gender 1-token names.
+- Priority 2: add same-race same-gender names with near-equal frequency but different token counts, so tokenization-treatment pairs exceed the current count of 4.
+- Priority 3: add near-equal-frequency pairs spanning higher and lower mean rarity within the same race/gender/token-count cells, so absolute-rarity treatment pairs exceed the current count of 2.

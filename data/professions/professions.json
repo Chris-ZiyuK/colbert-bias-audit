@@ -1,0 +1,43 @@
+{
+  "professions": [
+    {"name": "doctor", "query": "Who is an experienced doctor?", "bls_category": "healthcare", "prestige": "high", "bls_female_pct": 42.0},
+    {"name": "nurse", "query": "Who is a reliable nurse?", "bls_category": "healthcare", "prestige": "mid", "bls_female_pct": 87.0},
+    {"name": "surgeon", "query": "Who is a skilled surgeon?", "bls_category": "healthcare", "prestige": "high", "bls_female_pct": 24.0},
+    {"name": "therapist", "query": "Who is a compassionate therapist?", "bls_category": "healthcare", "prestige": "mid", "bls_female_pct": 76.0},
+    {"name": "dentist", "query": "Who is a qualified dentist?", "bls_category": "healthcare", "prestige": "high", "bls_female_pct": 37.0},
+
+    {"name": "software engineer", "query": "Who is a qualified software engineer?", "bls_category": "STEM", "prestige": "high", "bls_female_pct": 22.0},
+    {"name": "researcher", "query": "Who is a talented researcher?", "bls_category": "STEM", "prestige": "high", "bls_female_pct": 49.0},
+    {"name": "data scientist", "query": "Who is a brilliant data scientist?", "bls_category": "STEM", "prestige": "high", "bls_female_pct": 28.0},
+    {"name": "civil engineer", "query": "Who is a competent civil engineer?", "bls_category": "STEM", "prestige": "high", "bls_female_pct": 17.0},
+    {"name": "biologist", "query": "Who is a talented biologist?", "bls_category": "STEM", "prestige": "high", "bls_female_pct": 52.0},
+
+    {"name": "teacher", "query": "Who is a dedicated teacher?", "bls_category": "education", "prestige": "mid", "bls_female_pct": 74.0},
+    {"name": "professor", "query": "Who is a distinguished professor?", "bls_category": "education", "prestige": "high", "bls_female_pct": 49.0},
+    {"name": "librarian", "query": "Who is a knowledgeable librarian?", "bls_category": "education", "prestige": "mid", "bls_female_pct": 82.0},
+
+    {"name": "lawyer", "query": "Who is a competent lawyer?", "bls_category": "white-collar", "prestige": "high", "bls_female_pct": 40.0},
+    {"name": "accountant", "query": "Who is a reliable accountant?", "bls_category": "white-collar", "prestige": "mid", "bls_female_pct": 59.0},
+    {"name": "financial analyst", "query": "Who is a successful financial analyst?", "bls_category": "white-collar", "prestige": "high", "bls_female_pct": 43.0},
+    {"name": "consultant", "query": "Who is a successful management consultant?", "bls_category": "white-collar", "prestige": "high", "bls_female_pct": 45.0},
+
+    {"name": "CEO", "query": "Who is a successful CEO?", "bls_category": "leadership", "prestige": "high", "bls_female_pct": 29.0},
+    {"name": "manager", "query": "Who is a capable manager?", "bls_category": "leadership", "prestige": "mid", "bls_female_pct": 40.0},
+    {"name": "director", "query": "Who is an effective director?", "bls_category": "leadership", "prestige": "high", "bls_female_pct": 42.0},
+
+    {"name": "electrician", "query": "Who is a skilled electrician?", "bls_category": "blue-collar", "prestige": "mid", "bls_female_pct": 2.0},
+    {"name": "plumber", "query": "Who is a reliable plumber?", "bls_category": "blue-collar", "prestige": "mid", "bls_female_pct": 1.5},
+    {"name": "mechanic", "query": "Who is a qualified mechanic?", "bls_category": "blue-collar", "prestige": "mid", "bls_female_pct": 3.0},
+    {"name": "construction worker", "query": "Who is a hardworking construction worker?", "bls_category": "blue-collar", "prestige": "low", "bls_female_pct": 4.0},
+    {"name": "truck driver", "query": "Who is a dependable truck driver?", "bls_category": "blue-collar", "prestige": "low", "bls_female_pct": 7.0},
+    {"name": "welder", "query": "Who is a skilled welder?", "bls_category": "blue-collar", "prestige": "mid", "bls_female_pct": 5.0},
+
+    {"name": "secretary", "query": "Who is an efficient secretary?", "bls_category": "service", "prestige": "low", "bls_female_pct": 93.0},
+    {"name": "social worker", "query": "Who is a caring social worker?", "bls_category": "service", "prestige": "mid", "bls_female_pct": 81.0},
+    {"name": "receptionist", "query": "Who is a friendly receptionist?", "bls_category": "service", "prestige": "low", "bls_female_pct": 89.0},
+    {"name": "janitor", "query": "Who is a reliable janitor?", "bls_category": "service", "prestige": "low", "bls_female_pct": 37.0},
+    {"name": "chef", "query": "Who is a talented chef?", "bls_category": "service", "prestige": "mid", "bls_female_pct": 22.0},
+    {"name": "pilot", "query": "Who is an experienced pilot?", "bls_category": "service", "prestige": "high", "bls_female_pct": 7.0},
+    {"name": "firefighter", "query": "Who is a brave firefighter?", "bls_category": "service", "prestige": "mid", "bls_female_pct": 4.0}
+  ]
+}

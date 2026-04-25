@@ -1,76 +1,59 @@
-# ColBERT Bias Audit: Token-Level Attribution of Identity Bias in Dense Retrieval
+# ColBERT Bias Audit: Token-Level Attribution Reveals Distributed Bias in Dense Retrieval
 
-> **Where does bias hide?** We show that identity-related bias in ColBERT propagates not through semantic
-> content words (doctor, nurse), but through **function words** (is, who, a) — revealing a distributed,
-> context-mediated bias mechanism that traditional debiasing methods cannot address.
+## Overview
 
-## Key Findings (Preliminary)
+This repository contains the code, data, and experiments for analyzing identity-related bias in ColBERT (late-interaction dense retrieval) using **Token Contribution Disparity (TCD)** — a decomposable metric that attributes bias to individual query tokens.
 
-| Finding | Evidence | Status |
-|---------|----------|--------|
-| **Function-Word Bias Leakage**: Function words carry 1.4× more bias (TCD) than content words | 650 pairs, p=0.0002 | ✅ Validated |
-| **Identity Specificity**: The effect is stronger for identity swaps than ordinary swaps | P0 control, p<1e-8, d=0.37 | ✅ Validated |
-| **Rarity Amplification**: Rare names (more BPE tokens) amplify bias by 1.84× | 1,140 tests, ANOVA p<0.0001 | ✅ Validated |
-| **Real-text generalization**: Effect persists in natural (non-template) text | — | 🔲 Pending |
-| **Multi-model contrast**: ColBERT vs DPR/BM25 comparison | — | 🔲 Pending |
+## Key Findings
 
-## Project Structure
+1. **Function-word bias propagation**: Bias flows through function words (`is`, `who`, `a`) at 1.44× the rate of content words, across 30/33 professions.
+2. **Rarity amplification**: Names fragmented into more BPE subword tokens amplify bias by up to 1.84×.
+3. **Confound decomposition**: Gender mismatch and tokenization disparity are stronger bias drivers than race category alone.
+
+## Repository Structure
 
 ```
-colbert-bias-audit/
-├── src/
-│   ├── models/          # Model wrappers (ColBERT, DPR, SPLADE)
-│   ├── metrics/         # TCD, SS, Gini coefficient, F/C ratio
-│   ├── audit/           # Core token-level audit logic
-│   └── visualization/   # Heatmaps, TCD bar charts, interaction plots
-├── data/
-│   ├── counterfactual/  # Counterfactual pair datasets
-│   └── audit_names/     # Name lists (Bertrand & Mullainathan, 2004)
-├── experiments/
-│   ├── phase0_control/  # P0: Identity vs ordinary swap control
-│   ├── phase1_synthetic/# Phase 1: Synthetic template experiments
-│   ├── phase2_real_text/ # Phase 2: MS MARCO natural text validation
-│   └── phase3_multi_model/ # Phase 3: Cross-model comparison
-├── results/             # Experiment outputs (JSON, CSV, PNG)
-├── paper/               # LaTeX manuscript
-├── configs/             # Experiment configurations (YAML)
-├── notebooks/           # Jupyter analysis notebooks
-├── project_overview.html # 项目讲解 (中文)
-└── progress_tracker.html # 进度看板
+├── paper/                  # Publication manuscript (EMNLP target)
+├── src/                    # Core library code (TCD, models, utilities)
+├── experiments/            # Numbered experiment scripts (reproducible)
+│   ├── 01_control_validation/
+│   ├── 02_function_word_bias/
+│   ├── 03_profession_expansion/
+│   ├── 04_name_confound/
+│   ├── 05_real_text_validation/
+│   ├── 06_bm25_baseline/
+│   ├── 07_dpr_comparison/       # planned
+│   ├── 08_msmarco_counterfactual/ # planned
+│   ├── 09_ranking_impact/       # planned
+│   └── 10_mitigation/          # planned
+├── data/                   # Name pools, professions, passages
+├── results/                # Experiment outputs (numbered)
+├── scripts/                # Reproducibility scripts
+├── configs/                # Experiment configurations
+└── docs/                   # Course materials, presentations, archives
 ```
 
-## Quick Start
+## Reproduction
 
 ```bash
-# Environment setup
-conda create -n colbert_bias python=3.10
-conda activate colbert_bias
-pip install torch transformers matplotlib seaborn scipy statsmodels pandas
+# Install dependencies
+pip install -r requirements.txt
 
-# Run the P0 control experiment
-python experiments/phase0_control/p0_control_experiment.py
+# Run all experiments
+bash scripts/run_all.sh
+
+# Generate paper figures
+python scripts/generate_figures.py
 ```
-
-## Core Methodology: TCD (Token Contribution Disparity)
-
-ColBERT computes relevance via **MaxSim**: for each query token, find the best-matching
-document token and sum the scores. This decomposability lets us define:
-
-```
-TCD(q_i) = MaxSim(q_i, D_A) − MaxSim(q_i, D_B)
-```
-
-where D_A and D_B are counterfactual documents differing only in identity markers.
-TCD tells us **exactly which query word** is responsible for the score difference.
 
 ## Citation
 
 ```bibtex
-@article{kong2026colbert-bias,
-  title={Where Does Bias Hide? Token-Level Attribution Reveals Distributed 
-         Bias Propagation in Late-Interaction Retrieval},
+@inproceedings{kong2027tokenization,
+  title={The Tokenization Tax: How BPE Fragmentation Amplifies Identity Bias in Dense Retrieval},
   author={Kong, Chris Ziyu},
-  year={2026}
+  year={2027},
+  booktitle={Proceedings of EMNLP 2027}
 }
 ```
 

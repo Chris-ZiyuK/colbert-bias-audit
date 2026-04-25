@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正式研究发现 - ColBERT Bias Audit</title>
+    <style>
+        :root {
+            --bg: #f6f4ef;
+            --panel: #fffdf8;
+            --ink: #1f2937;
+            --muted: #5b6472;
+            --line: #d7d2c8;
+            --accent: #9b2226;
+            --accent-soft: #f3d8d2;
+            --blue: #0b6e99;
+            --blue-soft: #d9edf7;
+            --green: #386641;
+            --green-soft: #ddead3;
+            --gold: #9a6b00;
+            --gold-soft: #f4e9c9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(155, 34, 38, 0.08), transparent 28%),
+                radial-gradient(circle at top right, rgba(11, 110, 153, 0.08), transparent 25%),
+                var(--bg);
+            color: var(--ink);
+            line-height: 1.75;
+            padding: 36px 18px 60px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            margin: 34px 0 14px;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.08rem;
+            margin: 24px 0 8px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        .lead {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--accent);
+            border-radius: 16px;
+            padding: 20px 22px;
+            box-shadow: 0 10px 30px rgba(31, 41, 55, 0.05);
+        }
+
+        .nav {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .section-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px;
+            margin-top: 14px;
+            box-shadow: 0 10px 28px rgba(31, 41, 55, 0.04);
+        }
+
+        .callout {
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin: 14px 0;
+        }
+
+        .callout.red {
+            background: var(--accent-soft);
+            border: 1px solid rgba(155, 34, 38, 0.2);
+        }
+
+        .callout.blue {
+            background: var(--blue-soft);
+            border: 1px solid rgba(11, 110, 153, 0.18);
+        }
+
+        .callout.green {
+            background: var(--green-soft);
+            border: 1px solid rgba(56, 102, 65, 0.18);
+        }
+
+        .callout.gold {
+            background: var(--gold-soft);
+            border: 1px solid rgba(154, 107, 0, 0.18);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 16px 0;
+        }
+
+        .stat {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .stat .num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .stat .label {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        ul {
+            margin: 10px 0 10px 22px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 8px;
+            font-size: 0.95rem;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid #ece7dd;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f1ece1;
+            font-weight: 700;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .quote {
+            font-size: 1.08rem;
+            font-weight: 650;
+            color: var(--accent);
+        }
+
+        .small {
+            font-size: 0.92rem;
+            color: var(--muted);
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>正式研究发现</h1>
+        <p class="subtitle">ColBERT Bias Audit · 面向正式汇报的结果版总结 · 数据状态截至 2026 年 3 月 26 日</p>
+
+        <div class="lead">
+            <p class="quote">一句话总括：我们目前最稳的发现，不只是“模型会受身份信息影响”，而是“这种影响可以被定位到词级别，而且主要通过功能词传播”。</p>
+            <p>在此基础上，P1 说明这个现象在更大范围职业中仍然稳定存在；P2 进一步说明，经典的名字替换实验测到的并不是单一的“种族效应”，而是职业语境、名字的语言可处理性，以及身份类别残余效应共同作用的结果。</p>
+            <p class="nav">
+                相关页面：
+                <a href="project_overview.html">项目总览</a>
+                ·
+                <a href="progress_tracker.html">进度看板</a>
+            </p>
+        </div>
+
+        <h2>P1 · 职业系统化扩展</h2>
+        <div class="section-card">
+            <p><strong>研究问题</strong>：最初在少量职业上观察到的功能词偏见传导，是否只是小样本巧合，还是在更广泛职业中仍然成立？</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="num">33</div>
+                    <div class="label">职业</div>
+                </div>
+                <div class="stat">
+                    <div class="num">7</div>
+                    <div class="label">BLS 职业类别</div>
+                </div>
+                <div class="stat">
+                    <div class="num">1287</div>
+                    <div class="label">反事实测试</div>
+                </div>
+                <div class="stat">
+                    <div class="num">30 / 33</div>
+                    <div class="label">职业中功能词贡献大于内容词</div>
+                </div>
+            </div>
+
+            <div class="callout.green">
+                <strong>P1 正式发现</strong>：功能词偏见传导不是只在 10 个职业里偶然出现的现象，而是在更大职业集合中相当稳定的模式。
+            </div>
+
+            <h3>我们现在可以正式说什么</h3>
+            <ul>
+                <li>功能词主导模式在 33 个职业里有 30 个成立，说明它具有跨职业的稳健性。</li>
+                <li>把 name swap 和 pronoun swap 分开后，二者都保留了“功能词大于内容词”的模式；而且 pronoun swap 在 token level 上更强。</li>
+                <li>职业类别的描述性差异仍然存在，但在当前 profession-level 的非参数检验里，类别间差异还没有被干净地拉开到显著。</li>
+                <li>职业现实中的女性占比，与 pronoun-based 偏差更相关；与 name-based 偏差则没有形成稳定相关。</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <th>维度</th>
+                    <th>结果</th>
+                    <th>解释</th>
+                </tr>
+                <tr>
+                    <td>稳定性</td>
+                    <td>30 / 33 职业中，功能词贡献 &gt; 内容词贡献</td>
+                    <td>机制不是小样本假象，而是较稳定结构性模式。</td>
+                </tr>
+                <tr>
+                    <td>高偏见职业</td>
+                    <td>nurse、janitor、plumber、secretary 较高</td>
+                    <td>职业语义与社会刻板印象会调节偏见强度。</td>
+                </tr>
+                <tr>
+                    <td>swap type 对比</td>
+                    <td>pronoun swap 的 Func-TCD 高于 name swap；profession-level <code>p = 0.0035</code></td>
+                    <td>代词替换会更强地放大功能词层面的扰动，但不一定显著改变总分。</td>
+                </tr>
+                <tr>
+                    <td>现实性别结构</td>
+                    <td>与 pronoun-based SS / Func-TCD 显著相关；与 name-based 结果不稳定</td>
+                    <td>职业现实性别结构更像是在调节 gendered identity cue，而不是所有名字替换。</td>
+                </tr>
+            </table>
+
+            <div class="callout.blue">
+                <strong>最适合对外表述的版本</strong>：P1 的意义不在于“多跑了一些职业”，而在于证明功能词偏见传导在 name swap 和 pronoun swap 中都稳定存在，并且 pronoun swap 在 token level 上更强。
+            </div>
+        </div>
+
+        <h2>P2 · 名字混淆因素拆分</h2>
+        <div class="section-card">
+            <p><strong>研究问题</strong>：经典的名字替换实验，比如把 <code>Emily</code> 换成 <code>Lakisha</code>，到底测量的是种族身份，还是名字频率、BPE 分词复杂度、社会经济联想等因素的混合物？</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="num">30</div>
+                    <div class="label">名字</div>
+                </div>
+                <div class="stat">
+                    <div class="num">435</div>
+                    <div class="label">名字对</div>
+                </div>
+                <div class="stat">
+                    <div class="num">33</div>
+                    <div class="label">职业</div>
+                </div>
+                <div class="stat">
+                    <div class="num">43065</div>
+                    <div class="label">总测试数</div>
+                </div>
+            </div>
+
+            <div class="callout.red">
+                <strong>P2 正式发现</strong>：在扩展到 33 个职业、3 个模板、43065 次测试之后，嵌套模型、模板鲁棒性、leave-one-race-pair-out 敏感性分析，以及新增的正交子集面板共同表明：名字效应不是单一 race effect。最稳定的信号来自 <em>cross-gender</em>；在严格匹配子集中，<em>tokenization</em> 也会清晰保留；而 <em>cross-race</em> 更像是弱的、主要出现在 token level 的残余信号。
+            </div>
+
+            <table>
+                <tr>
+                    <th>结果层级</th>
+                    <th>统计结果</th>
+                    <th>当前解释</th>
+                </tr>
+                <tr>
+                    <td>总分偏差 SS</td>
+                    <td><code>cross_race p = 0.400</code>，不显著；<code>cross_gender p &lt; 1e-14</code>，显著</td>
+                    <td>控制项加入后，跨种族名字对不再稳定预测总分偏差；但跨性别名字对会显著增大总分差异。</td>
+                </tr>
+                <tr>
+                    <td>功能词扰动 Func-TCD</td>
+                    <td><code>cross_race p = 0.124</code>，不显著；<code>cross_gender p &lt; 1e-13</code>，显著</td>
+                    <td>在功能词层面，稳定信号主要来自 gender crossing，而不是跨种族本身。</td>
+                </tr>
+                <tr>
+                    <td>频率差异</td>
+                    <td><code>freq_diff</code> 对 SS 和 Func-TCD 都显著</td>
+                    <td>在完整主模型中，名字之间的频率差距越大，偏差越容易放大；但在严格 matched subset 里，这个效应会明显减弱。</td>
+                </tr>
+                <tr>
+                    <td>职业项</td>
+                    <td>多个职业系数显著</td>
+                    <td>职业语境仍然是强预测因子。</td>
+                </tr>
+            </table>
+
+            <h3>关于“名字到底是什么在起作用”</h3>
+            <div class="callout.gold">
+                <strong>当前最稳妥的答案</strong>：名字效应不是单一因素。就目前证据看，它至少同时包含三层东西：
+                <br>1. 职业语境带来的基线差异
+                <br>2. 名字之间的频率差异所带来的语言不均衡
+                <br>3. 性别相关的身份对比信号
+            </div>
+
+            <ul>
+                <li><strong>频率 / 罕见性</strong>：当前最稳定的 rarity 相关信号不是“名字整体越稀有越糟”。完整主模型里 <code>freq_diff</code> 稳定显著，但在同 race、同 gender、同 token count 的严格 matched subset 里，frequency-gap 效应会减弱到不稳定。这说明它更像是一个在整体样本中稳定存在、但不完全独立的解释项。</li>
+                <li><strong>tokenization</strong>：升级版 P2 重新用真实 tokenizer 复核了名字切分，发现很多原先手工估计为多 token 的名字其实是 1 token。主模型里 <code>token_diff</code> 和 <code>mean_tokens</code> 不显著，但在严格匹配 race、gender 和 frequency 的子集中，<code>token_diff</code> 对 SS 和 Func-TCD 都会重新变成显著正向预测因子。</li>
+                <li><strong>种族</strong>：目前没有足够证据支持“cross-race 本身”是完整模型中的稳定主效应。它在简化模型和个别模板里会出现，leave-one-race-pair-out 也不能把它恢复成稳定主效应；但在严格 matched 的 race-isolated subset 里，<code>cross-race</code> 对 Func-TCD 仍保留了一个弱但可检出的 token-level 残余信号。</li>
+                <li><strong>性别</strong>：在升级版 P2 里，<code>cross_gender</code> 对 SS 和 Func-TCD 都是稳定显著的，而且在 same-race 子样本、以及更严格 matched 的 gender-isolated subset 里仍然成立。这说明名字实验里确实存在强的 gender contrast 信号。</li>
+                <li><strong>SES</strong>：SES 已经进入主模型，但目前更像辅助控制项，而不是能单独支撑核心主张的主因。</li>
+            </ul>
+
+            <div class="callout.blue">
+                <strong>最适合对外表述的版本</strong>：P2 不是在否定名字效应，而是在重新分配解释权。升级版结果更支持这样的表述：名字实验测到的是一个复合效应，其中 gender contrast 是最稳定的部分；tokenization 在严格匹配子集中会被干净看见；frequency gap 在完整样本中稳定但在正交子集里会减弱；独立的 cross-race 主效应并不稳固，只留下弱的 token-level 残余。
+            </div>
+
+            <p class="small">P2b 的第一轮 tokenizer-verified matrix 验证已经启动。首轮 targeted validation 与上面的主结论方向一致：gender 仍然最稳，race 仍主要表现为弱的 token-level 残余；但由于当前真正的 tokenization-treatment pair 只有 4 组，P2b 还需要通过扩充 verified 名字池来完成最后的 tokenization / absolute-rarity 检验。</p>
+
+            <p class="small">新增的外部辅助验证也支持这一点：在一个不带 race 标签、只使用 <code>country + gender + popularity rank</code> 的外部名字池里，tokenization effect 再次显著复现（<code>SS p = 0.0081</code>, <code>Func-TCD p = 3.0e-05</code>）；而 popularity-rank-gap 本身没有形成稳定独立效应。这说明 tokenization 现在已经不只依赖当前 audit-name 集合，而是有了额外的数据源支撑。</p>
+        </div>
+
+        <h2>可直接使用的结论句</h2>
+        <div class="section-card">
+            <p><strong>关于 P1</strong>：</p>
+            <p>“我们把最初只在少数职业上看到的现象扩展到了 33 个职业，发现功能词偏见传导在 name swap 和 pronoun swap 中都稳定存在，而且 pronoun swap 在 token level 上更强，因此这不是偶然现象，而是 ColBERT 中一个相当稳定的结构性模式。”</p>
+
+            <p><strong>关于 P2</strong>：</p>
+            <p>“我们进一步拆分了名字替换实验到底在测量什么。结果显示，在完整模型里，cross-race 不再是稳定显著的解释变量；最稳定的信号来自 cross-gender，而名字之间的频率差异也会在整体样本中放大偏差。与此同时，在严格匹配的子集中，tokenization 效应会清晰出现，而 cross-race 只保留了弱的 token-level 残余。这说明名字实验测到的不是单一 race effect，而是多种因素共同作用。”</p>
+
+            <p><strong>关于名字因素的总判断</strong>：</p>
+            <p>“目前最稳的结论不是‘就是种族’或者‘就是罕见性’，而是：名字效应是职业语境、名字可处理性和身份类别残余效应共同构成的复合现象。”</p>
+        </div>
+
+        <h2>还不能说得太满的地方</h2>
+        <div class="section-card">
+            <ul>
+                <li>还不能把 P2 讲成“已经证明存在稳定独立的 race main effect”，因为这个结论在完整规格、模板鲁棒性和敏感性分析里都不稳；当前更像是弱的 token-level residual。</li>
+                <li>还不能把 P2 讲成“绝对罕见性不重要”，因为当前最稳定的是整体样本中的 frequency-gap 效应，而不是名字整体平均频率。</li>
+                <li>还不能把 tokenization 讲成“已经被完全识别”，因为它目前主要在严格匹配子集中显现；要想彻底封口，还需要重新构造一版经真实 tokenizer 验证的名字矩阵。</li>
+            </ul>
+
+            <p class="small">换句话说：P2 已经把“经典 audit name swap 测量的是什么”推进成了一个相当成熟的机制性叙事。当前唯一真正还没封口的地方，是要用一套经过真实 tokenizer 验证的新名字矩阵，把 tokenization 和绝对 rarity 再做最后一次干净拆分。</p>
+        </div>
+
+        <div class="footer">
+            Formal findings page created on March 26, 2026 for presentation-ready summaries.
+        </div>
+    </div>
+</body>
+
+</html>

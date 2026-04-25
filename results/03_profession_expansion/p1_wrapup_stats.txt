@@ -1,0 +1,26 @@
+P1 wrap-up analysis
+============================================================
+
+Swap-type summary
+swap_type  mean_ss  mean_func_tcd  mean_cont_tcd  mean_ratio  mean_func_minus_cont   n       ss  func_tcd  func_minus_cont
+     name 0.033327       0.017705       0.013339    2.439213              0.004365 990 0.033327  0.017705         0.004365
+  pronoun 0.034976       0.020940       0.013549    2.558815              0.007391 297 0.034976  0.020940         0.007391
+
+Overall function > content test
+Wilcoxon (func > cont): stat=606599.0, p=2.2115e-47 ***
+
+Row-level function > content by swap type
+name: mean_func=0.017705, mean_cont=0.013339, p=7.554e-30 ***
+pronoun: mean_func=0.020940, mean_cont=0.013549, p=1.71241e-21 ***
+
+Profession-level pronoun > name paired tests
+mean_ss: pronoun_mean=0.034976, name_mean=0.033327, p=0.725834 n.s.
+mean_func_tcd: pronoun_mean=0.020940, name_mean=0.017705, p=0.00348394 **
+mean_func_minus_cont: pronoun_mean=0.007391, name_mean=0.004365, p=0.0168692 *
+
+Category tests
+name: H=2.1651, p=0.903909 n.s.
+pronoun: H=4.9050, p=0.556049 n.s.
+
+Regression support
+C(swap_type)[T.pronoun] on func_minus_cont: coef=+0.003026, p=0.0338413

@@ -1,0 +1,107 @@
+{
+  "race_isolated": {
+    "description": "Same gender, matched token count, small frequency gap; test cross-race only.",
+    "n_rows": 3465,
+    "n_pairs": 35,
+    "outcomes": {
+      "ss": {
+        "coef": 0.0041137961274664665,
+        "stderr": 0.003232450620010018,
+        "pvalue": 0.20314030760461965,
+        "significant": false,
+        "r_squared": 0.15495247043181182
+      },
+      "func_tcd": {
+        "coef": 0.003420293910613821,
+        "stderr": 0.0016494847669707427,
+        "pvalue": 0.03812085398726735,
+        "significant": true,
+        "r_squared": 0.16280883290755666
+      }
+    }
+  },
+  "gender_isolated": {
+    "description": "Same race, matched token count, small frequency gap; test cross-gender only.",
+    "n_rows": 2673,
+    "n_pairs": 27,
+    "outcomes": {
+      "ss": {
+        "coef": 0.01279809192935012,
+        "stderr": 0.004079536272249196,
+        "pvalue": 0.0017060243026079858,
+        "significant": true,
+        "r_squared": 0.23386560584334048
+      },
+      "func_tcd": {
+        "coef": 0.007253602407540266,
+        "stderr": 0.00207631690416239,
+        "pvalue": 0.0004767421829007808,
+        "significant": true,
+        "r_squared": 0.24327455438484147
+      }
+    }
+  },
+  "frequency_gap_isolated": {
+    "description": "Same race, same gender, matched token count; test frequency disparity.",
+    "n_rows": 3465,
+    "n_pairs": 35,
+    "outcomes": {
+      "ss": {
+        "coef": 0.008082399332214704,
+        "stderr": 0.005948041515143458,
+        "pvalue": 0.1741992879588089,
+        "significant": false,
+        "r_squared": 0.16464941704694724
+      },
+      "func_tcd": {
+        "coef": 0.004456623294174564,
+        "stderr": 0.002395129793348682,
+        "pvalue": 0.06278624192576822,
+        "significant": false,
+        "r_squared": 0.1608320098871192
+      }
+    }
+  },
+  "tokenization_isolated": {
+    "description": "Same race, same gender, tightly matched frequency; test token count gap.",
+    "n_rows": 1683,
+    "n_pairs": 17,
+    "outcomes": {
+      "ss": {
+        "coef": 0.0052903893093636445,
+        "stderr": 0.0017081769936923268,
+        "pvalue": 0.0019542612113377456,
+        "significant": true,
+        "r_squared": 0.13446498322142197
+      },
+      "func_tcd": {
+        "coef": 0.003364731228392282,
+        "stderr": 0.0011140897215814077,
+        "pvalue": 0.002526396756208162,
+        "significant": true,
+        "r_squared": 0.12766038879357533
+      }
+    }
+  },
+  "absolute_rarity_probe": {
+    "description": "Same race, same gender, matched token count, near-equal pair frequency; probe mean rarity.",
+    "n_rows": 396,
+    "n_pairs": 4,
+    "outcomes": {
+      "ss": {
+        "coef": -0.001640470770763704,
+        "stderr": 0.002693112590946223,
+        "pvalue": 0.5424345582857824,
+        "significant": false,
+        "r_squared": 0.26147077666247154
+      },
+      "func_tcd": {
+        "coef": -0.001473850869203965,
+        "stderr": 0.0013594733487567268,
+        "pvalue": 0.27830552350612636,
+        "significant": false,
+        "r_squared": 0.30820786807911804
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+P2 orthogonalized subset panel
+============================================================
+
+race_isolated
+- Same gender, matched token count, small frequency gap; test cross-race only.
+- rows=3465, pairs=35
+- ss: coef=+0.004114, p=0.2031, R2=0.1550 n.s.
+- func_tcd: coef=+0.003420, p=0.03812, R2=0.1628 *
+
+gender_isolated
+- Same race, matched token count, small frequency gap; test cross-gender only.
+- rows=2673, pairs=27
+- ss: coef=+0.012798, p=0.001706, R2=0.2339 **
+- func_tcd: coef=+0.007254, p=0.0004767, R2=0.2433 ***
+
+frequency_gap_isolated
+- Same race, same gender, matched token count; test frequency disparity.
+- rows=3465, pairs=35
+- ss: coef=+0.008082, p=0.1742, R2=0.1646 n.s.
+- func_tcd: coef=+0.004457, p=0.06279, R2=0.1608 n.s.
+
+tokenization_isolated
+- Same race, same gender, tightly matched frequency; test token count gap.
+- rows=1683, pairs=17
+- ss: coef=+0.005290, p=0.001954, R2=0.1345 **
+- func_tcd: coef=+0.003365, p=0.002526, R2=0.1277 **
+
+absolute_rarity_probe
+- Same race, same gender, matched token count, near-equal pair frequency; probe mean rarity.
+- rows=396, pairs=4
+- ss: coef=-0.001640, p=0.5424, R2=0.2615 n.s.
+- func_tcd: coef=-0.001474, p=0.2783, R2=0.3082 n.s.

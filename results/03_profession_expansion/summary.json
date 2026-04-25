@@ -1,0 +1,384 @@
+{
+  "total_tests": 1287,
+  "n_professions": 33,
+  "n_categories": 7,
+  "func_gt_content_count": 30,
+  "func_gt_content_total": 33,
+  "correlation_female_pct_vs_ss": {
+    "r": 0.22613972314524244,
+    "p": 0.20570907496866933
+  },
+  "correlation_female_pct_vs_func_tcd": {
+    "r": 0.3659383970282067,
+    "p": 0.036227620398064216
+  },
+  "per_category": {
+    "service": {
+      "mean_ss": 0.03798012091057221,
+      "mean_func_tcd": 0.021193118765950203,
+      "n_professions": 7
+    },
+    "healthcare": {
+      "mean_ss": 0.0359477436224146,
+      "mean_func_tcd": 0.01906823180615902,
+      "n_professions": 5
+    },
+    "blue-collar": {
+      "mean_ss": 0.033769690677575036,
+      "mean_func_tcd": 0.01734613999724388,
+      "n_professions": 6
+    },
+    "white-collar": {
+      "mean_ss": 0.031168268390821548,
+      "mean_func_tcd": 0.01683526299893856,
+      "n_professions": 4
+    },
+    "education": {
+      "mean_ss": 0.03107222744175493,
+      "mean_func_tcd": 0.01873413659632206,
+      "n_professions": 3
+    },
+    "leadership": {
+      "mean_ss": 0.03106676601423963,
+      "mean_func_tcd": 0.018022507429122925,
+      "n_professions": 3
+    },
+    "STEM": {
+      "mean_ss": 0.03060728781500913,
+      "mean_func_tcd": 0.016701942309737206,
+      "n_professions": 5
+    }
+  },
+  "per_profession": {
+    "nurse": {
+      "bls_category": "healthcare",
+      "prestige": "mid",
+      "bls_female_pct": 87.0,
+      "mean_ss": 0.06661687022021573,
+      "mean_func_tcd": 0.03366848826408386,
+      "mean_cont_tcd": 0.02238401770591736,
+      "mean_tcd_ratio": 2.4126131534576416,
+      "n_tests": 39
+    },
+    "janitor": {
+      "bls_category": "service",
+      "prestige": "low",
+      "bls_female_pct": 37.0,
+      "mean_ss": 0.057225892416324094,
+      "mean_func_tcd": 0.025960030034184456,
+      "mean_cont_tcd": 0.018169300630688667,
+      "mean_tcd_ratio": 2.0527327060699463,
+      "n_tests": 39
+    },
+    "plumber": {
+      "bls_category": "blue-collar",
+      "prestige": "mid",
+      "bls_female_pct": 1.5,
+      "mean_ss": 0.045760990415227874,
+      "mean_func_tcd": 0.023087160661816597,
+      "mean_cont_tcd": 0.016836080700159073,
+      "mean_tcd_ratio": 2.1965560913085938,
+      "n_tests": 39
+    },
+    "secretary": {
+      "bls_category": "service",
+      "prestige": "low",
+      "bls_female_pct": 93.0,
+      "mean_ss": 0.043106157714886115,
+      "mean_func_tcd": 0.024846797809004784,
+      "mean_cont_tcd": 0.01014003250747919,
+      "mean_tcd_ratio": 4.350345134735107,
+      "n_tests": 39
+    },
+    "software engineer": {
+      "bls_category": "STEM",
+      "prestige": "high",
+      "bls_female_pct": 22.0,
+      "mean_ss": 0.04045994305413275,
+      "mean_func_tcd": 0.01774739846587181,
+      "mean_cont_tcd": 0.015640364959836006,
+      "mean_tcd_ratio": 1.8404325246810913,
+      "n_tests": 39
+    },
+    "accountant": {
+      "bls_category": "white-collar",
+      "prestige": "mid",
+      "bls_female_pct": 59.0,
+      "mean_ss": 0.03962008157721094,
+      "mean_func_tcd": 0.020109159871935844,
+      "mean_cont_tcd": 0.011349122039973736,
+      "mean_tcd_ratio": 2.9840688705444336,
+      "n_tests": 39
+    },
+    "receptionist": {
+      "bls_category": "service",
+      "prestige": "low",
+      "bls_female_pct": 89.0,
+      "mean_ss": 0.03959088582086726,
+      "mean_func_tcd": 0.02243419736623764,
+      "mean_cont_tcd": 0.018887929618358612,
+      "mean_tcd_ratio": 3.580862283706665,
+      "n_tests": 39
+    },
+    "chef": {
+      "bls_category": "service",
+      "prestige": "mid",
+      "bls_female_pct": 22.0,
+      "mean_ss": 0.037438853787513264,
+      "mean_func_tcd": 0.01945723034441471,
+      "mean_cont_tcd": 0.01232845988124609,
+      "mean_tcd_ratio": 2.724364757537842,
+      "n_tests": 39
+    },
+    "professor": {
+      "bls_category": "education",
+      "prestige": "high",
+      "bls_female_pct": 49.0,
+      "mean_ss": 0.03640336316922635,
+      "mean_func_tcd": 0.020823156461119652,
+      "mean_cont_tcd": 0.012689261697232723,
+      "mean_tcd_ratio": 3.559465169906616,
+      "n_tests": 39
+    },
+    "welder": {
+      "bls_category": "blue-collar",
+      "prestige": "mid",
+      "bls_female_pct": 5.0,
+      "mean_ss": 0.036017904450178995,
+      "mean_func_tcd": 0.018542174249887466,
+      "mean_cont_tcd": 0.01323011890053749,
+      "mean_tcd_ratio": 1.96139395236969,
+      "n_tests": 39
+    },
+    "dentist": {
+      "bls_category": "healthcare",
+      "prestige": "high",
+      "bls_female_pct": 37.0,
+      "mean_ss": 0.03517343195446111,
+      "mean_func_tcd": 0.0156650822609663,
+      "mean_cont_tcd": 0.015331604517996311,
+      "mean_tcd_ratio": 1.760731816291809,
+      "n_tests": 39
+    },
+    "librarian": {
+      "bls_category": "education",
+      "prestige": "mid",
+      "bls_female_pct": 82.0,
+      "mean_ss": 0.03459643092442537,
+      "mean_func_tcd": 0.020590828731656075,
+      "mean_cont_tcd": 0.010494830086827278,
+      "mean_tcd_ratio": 2.7240025997161865,
+      "n_tests": 39
+    },
+    "truck driver": {
+      "bls_category": "blue-collar",
+      "prestige": "low",
+      "bls_female_pct": 7.0,
+      "mean_ss": 0.03392783822254211,
+      "mean_func_tcd": 0.017342733219265938,
+      "mean_cont_tcd": 0.01469262596219778,
+      "mean_tcd_ratio": 1.4951019287109375,
+      "n_tests": 39
+    },
+    "construction worker": {
+      "bls_category": "blue-collar",
+      "prestige": "low",
+      "bls_female_pct": 4.0,
+      "mean_ss": 0.032805887442656105,
+      "mean_func_tcd": 0.015120761469006538,
+      "mean_cont_tcd": 0.015087624080479145,
+      "mean_tcd_ratio": 1.5355747938156128,
+      "n_tests": 39
+    },
+    "CEO": {
+      "bls_category": "leadership",
+      "prestige": "high",
+      "bls_female_pct": 29.0,
+      "mean_ss": 0.03267422196785589,
+      "mean_func_tcd": 0.01861887238919735,
+      "mean_cont_tcd": 0.010386833921074867,
+      "mean_tcd_ratio": 5.986232280731201,
+      "n_tests": 39
+    },
+    "biologist": {
+      "bls_category": "STEM",
+      "prestige": "high",
+      "bls_female_pct": 52.0,
+      "mean_ss": 0.032129837128726045,
+      "mean_func_tcd": 0.01720324158668518,
+      "mean_cont_tcd": 0.013141532428562641,
+      "mean_tcd_ratio": 1.8413149118423462,
+      "n_tests": 39
+    },
+    "firefighter": {
+      "bls_category": "service",
+      "prestige": "mid",
+      "bls_female_pct": 4.0,
+      "mean_ss": 0.03183518369169974,
+      "mean_func_tcd": 0.022490760311484337,
+      "mean_cont_tcd": 0.010216639377176762,
+      "mean_tcd_ratio": 2.8823680877685547,
+      "n_tests": 39
+    },
+    "data scientist": {
+      "bls_category": "STEM",
+      "prestige": "high",
+      "bls_female_pct": 28.0,
+      "mean_ss": 0.031777462854750714,
+      "mean_func_tcd": 0.018603110685944557,
+      "mean_cont_tcd": 0.008423085324466228,
+      "mean_tcd_ratio": 2.527869701385498,
+      "n_tests": 39
+    },
+    "manager": {
+      "bls_category": "leadership",
+      "prestige": "mid",
+      "bls_female_pct": 40.0,
+      "mean_ss": 0.03106674665425479,
+      "mean_func_tcd": 0.019267257302999496,
+      "mean_cont_tcd": 0.009630030952394009,
+      "mean_tcd_ratio": 3.132934093475342,
+      "n_tests": 39
+    },
+    "consultant": {
+      "bls_category": "white-collar",
+      "prestige": "high",
+      "bls_female_pct": 45.0,
+      "mean_ss": 0.031024711882581525,
+      "mean_func_tcd": 0.017303403466939926,
+      "mean_cont_tcd": 0.010474363341927528,
+      "mean_tcd_ratio": 2.2542264461517334,
+      "n_tests": 39
+    },
+    "mechanic": {
+      "bls_category": "blue-collar",
+      "prestige": "mid",
+      "bls_female_pct": 3.0,
+      "mean_ss": 0.030698246624864332,
+      "mean_func_tcd": 0.01597069390118122,
+      "mean_cont_tcd": 0.011456020176410675,
+      "mean_tcd_ratio": 2.1136884689331055,
+      "n_tests": 39
+    },
+    "surgeon": {
+      "bls_category": "healthcare",
+      "prestige": "high",
+      "bls_female_pct": 24.0,
+      "mean_ss": 0.03003409042712587,
+      "mean_func_tcd": 0.015074294060468674,
+      "mean_cont_tcd": 0.01464595552533865,
+      "mean_tcd_ratio": 2.0001065731048584,
+      "n_tests": 39
+    },
+    "social worker": {
+      "bls_category": "service",
+      "prestige": "mid",
+      "bls_female_pct": 81.0,
+      "mean_ss": 0.02977497876168983,
+      "mean_func_tcd": 0.01675625890493393,
+      "mean_cont_tcd": 0.020994968712329865,
+      "mean_tcd_ratio": 0.8551655411720276,
+      "n_tests": 39
+    },
+    "director": {
+      "bls_category": "leadership",
+      "prestige": "high",
+      "bls_female_pct": 42.0,
+      "mean_ss": 0.029459329420608214,
+      "mean_func_tcd": 0.016181394457817078,
+      "mean_cont_tcd": 0.013850610703229904,
+      "mean_tcd_ratio": 2.588679075241089,
+      "n_tests": 39
+    },
+    "researcher": {
+      "bls_category": "STEM",
+      "prestige": "high",
+      "bls_female_pct": 49.0,
+      "mean_ss": 0.028064521533043053,
+      "mean_func_tcd": 0.016746031120419502,
+      "mean_cont_tcd": 0.011455205269157887,
+      "mean_tcd_ratio": 2.0786240100860596,
+      "n_tests": 39
+    },
+    "lawyer": {
+      "bls_category": "white-collar",
+      "prestige": "high",
+      "bls_female_pct": 40.0,
+      "mean_ss": 0.027402269357581777,
+      "mean_func_tcd": 0.014872954227030277,
+      "mean_cont_tcd": 0.01092854980379343,
+      "mean_tcd_ratio": 2.1135363578796387,
+      "n_tests": 39
+    },
+    "pilot": {
+      "bls_category": "service",
+      "prestige": "high",
+      "bls_female_pct": 7.0,
+      "mean_ss": 0.026888894181025143,
+      "mean_func_tcd": 0.016406551003456116,
+      "mean_cont_tcd": 0.008539953269064426,
+      "mean_tcd_ratio": 2.710714340209961,
+      "n_tests": 39
+    },
+    "financial analyst": {
+      "bls_category": "white-collar",
+      "prestige": "high",
+      "bls_female_pct": 43.0,
+      "mean_ss": 0.02662601074591196,
+      "mean_func_tcd": 0.015055537223815918,
+      "mean_cont_tcd": 0.008407527580857277,
+      "mean_tcd_ratio": 2.4246582984924316,
+      "n_tests": 39
+    },
+    "therapist": {
+      "bls_category": "healthcare",
+      "prestige": "mid",
+      "bls_female_pct": 76.0,
+      "mean_ss": 0.026226931951764527,
+      "mean_func_tcd": 0.0171140655875206,
+      "mean_cont_tcd": 0.019049428403377533,
+      "mean_tcd_ratio": 2.8451385498046875,
+      "n_tests": 39
+    },
+    "electrician": {
+      "bls_category": "blue-collar",
+      "prestige": "mid",
+      "bls_female_pct": 2.0,
+      "mean_ss": 0.023407276909980783,
+      "mean_func_tcd": 0.014013314619660378,
+      "mean_cont_tcd": 0.02284989133477211,
+      "mean_tcd_ratio": 1.1455227136611938,
+      "n_tests": 39
+    },
+    "teacher": {
+      "bls_category": "education",
+      "prestige": "mid",
+      "bls_female_pct": 74.0,
+      "mean_ss": 0.022216888231613077,
+      "mean_func_tcd": 0.014788424596190453,
+      "mean_cont_tcd": 0.013695735484361649,
+      "mean_tcd_ratio": 1.9658352136611938,
+      "n_tests": 39
+    },
+    "doctor": {
+      "bls_category": "healthcare",
+      "prestige": "high",
+      "bls_female_pct": 42.0,
+      "mean_ss": 0.021687393558505783,
+      "mean_func_tcd": 0.013819234445691109,
+      "mean_cont_tcd": 0.007833147421479225,
+      "mean_tcd_ratio": 2.532583713531494,
+      "n_tests": 39
+    },
+    "civil engineer": {
+      "bls_category": "STEM",
+      "prestige": "high",
+      "bls_female_pct": 17.0,
+      "mean_ss": 0.020604674504393097,
+      "mean_func_tcd": 0.013209926895797253,
+      "mean_cont_tcd": 0.008548449724912643,
+      "mean_tcd_ratio": 2.227400779724121,
+      "n_tests": 39
+    }
+  }
+}

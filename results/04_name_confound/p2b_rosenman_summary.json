@@ -1,0 +1,172 @@
+{
+  "race": {
+    "n_rows": 12276,
+    "n_pairs": 124,
+    "mean_by_group": [
+      {
+        "group": "cross_race",
+        "ss": 0.032195,
+        "func_tcd": 0.016858000308275223,
+        "cont_tcd": 0.015301000326871872
+      },
+      {
+        "group": "same_race",
+        "ss": 0.027919,
+        "func_tcd": 0.014263000339269638,
+        "cont_tcd": 0.014011000283062458
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.004275683697448061,
+        "stderr": 0.0017444823582590165,
+        "pvalue": 0.014246960990827132,
+        "r_squared": 0.09728756212990486,
+        "significant": true
+      },
+      "func_tcd": {
+        "coef": 0.002594108430849891,
+        "stderr": 0.0009209555228680472,
+        "pvalue": 0.004851112931900703,
+        "r_squared": 0.12250284063349237,
+        "significant": true
+      }
+    }
+  },
+  "gender": {
+    "n_rows": 10593,
+    "n_pairs": 107,
+    "mean_by_group": [
+      {
+        "group": "cross_gender",
+        "ss": 0.036672,
+        "func_tcd": 0.019162999466061592,
+        "cont_tcd": 0.01614600047469139
+      },
+      {
+        "group": "same_gender",
+        "ss": 0.027919,
+        "func_tcd": 0.014263000339269638,
+        "cont_tcd": 0.014011000283062458
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.008753041789434259,
+        "stderr": 0.0017557922627912189,
+        "pvalue": 6.188568181662375e-07,
+        "r_squared": 0.18599889391109659,
+        "significant": true
+      },
+      "func_tcd": {
+        "coef": 0.004899873241298026,
+        "stderr": 0.0008356968225573993,
+        "pvalue": 4.539796274837439e-09,
+        "r_squared": 0.215038373668627,
+        "significant": true
+      }
+    }
+  },
+  "tokenization": {
+    "n_rows": 10197,
+    "n_pairs": 103,
+    "mean_by_group": [
+      {
+        "group": "token_matched",
+        "ss": 0.027919,
+        "func_tcd": 0.014263000339269638,
+        "cont_tcd": 0.014011000283062458
+      },
+      {
+        "group": "token_mismatch",
+        "ss": 0.034616,
+        "func_tcd": 0.019051000475883484,
+        "cont_tcd": 0.016195999458432198
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.006697072857610808,
+        "stderr": 0.002575552588751292,
+        "pvalue": 0.00931566857987009,
+        "r_squared": 0.09615370982013194,
+        "significant": true
+      },
+      "func_tcd": {
+        "coef": 0.004787495841494517,
+        "stderr": 0.0013821942908518233,
+        "pvalue": 0.000532815434875134,
+        "r_squared": 0.11616275040849111,
+        "significant": true
+      }
+    }
+  },
+  "frequency_gap": {
+    "n_rows": 9900,
+    "n_pairs": 100,
+    "mean_by_group": [
+      {
+        "group": "high_freq_gap",
+        "ss": 0.029408,
+        "func_tcd": 0.015018999576568604,
+        "cont_tcd": 0.013926999643445015
+      },
+      {
+        "group": "low_freq_gap",
+        "ss": 0.027919,
+        "func_tcd": 0.014263000339269638,
+        "cont_tcd": 0.014011000283062458
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.001489186222041149,
+        "stderr": 0.0017870360522171064,
+        "pvalue": 0.40466007102491697,
+        "r_squared": 0.09795840644199794,
+        "significant": false
+      },
+      "func_tcd": {
+        "coef": 0.0007553907898255336,
+        "stderr": 0.0008666726147320481,
+        "pvalue": 0.3834272988918994,
+        "r_squared": 0.11161016388820999,
+        "significant": false
+      }
+    }
+  },
+  "absolute_rarity": {
+    "n_rows": 2772,
+    "n_pairs": 28,
+    "mean_by_group": [
+      {
+        "group": "higher_mean_freq",
+        "ss": 0.02765,
+        "func_tcd": 0.013805000111460686,
+        "cont_tcd": 0.01291900034993887
+      },
+      {
+        "group": "lower_mean_freq",
+        "ss": 0.030042,
+        "func_tcd": 0.016956999897956848,
+        "cont_tcd": 0.015845999121665955
+      }
+    ],
+    "models": {
+      "ss": {
+        "coef": 0.0023927328615305026,
+        "stderr": 0.003485815515627388,
+        "pvalue": 0.4924484090835569,
+        "r_squared": 0.10557317096511865,
+        "significant": false
+      },
+      "func_tcd": {
+        "coef": 0.003152598179392987,
+        "stderr": 0.0018257795260729075,
+        "pvalue": 0.0842191275935691,
+        "r_squared": 0.14149214829301715,
+        "significant": false
+      }
+    }
+  }
+}

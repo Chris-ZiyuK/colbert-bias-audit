@@ -1,0 +1,55 @@
+P2b gap report
+============================================================
+
+Current tokenizer-verified cell coverage
+- Asian / F / 1 token(s): 1 -> Mei(8)
+- Asian / F / 2 token(s): 1 -> Priya(14)
+- Asian / F / 3 token(s): 0 -> 
+- Asian / F / 5 token(s): 0 -> 
+- Asian / M / 1 token(s): 1 -> Wei(12)
+- Asian / M / 2 token(s): 0 -> 
+- Asian / M / 3 token(s): 1 -> Xuefeng(1)
+- Asian / M / 5 token(s): 1 -> Thiruvengadam(0.5)
+- Black / F / 1 token(s): 2 -> Jasmine(215), Ebony(42)
+- Black / F / 2 token(s): 2 -> Tamika(25), Aisha(18)
+- Black / F / 3 token(s): 1 -> Lakisha(5)
+- Black / F / 5 token(s): 0 -> 
+- Black / M / 1 token(s): 4 -> Marcus(98), Andre(83), Jamal(46), Tyrone(44)
+- Black / M / 2 token(s): 1 -> Darnell(27)
+- Black / M / 3 token(s): 0 -> 
+- Black / M / 5 token(s): 0 -> 
+- Hispanic / F / 1 token(s): 2 -> Maria(577), Guadalupe(68)
+- Hispanic / F / 2 token(s): 0 -> 
+- Hispanic / F / 3 token(s): 0 -> 
+- Hispanic / F / 5 token(s): 0 -> 
+- Hispanic / M / 1 token(s): 2 -> Carlos(157), Alejandro(52)
+- Hispanic / M / 2 token(s): 0 -> 
+- Hispanic / M / 3 token(s): 0 -> 
+- Hispanic / M / 5 token(s): 0 -> 
+- White / F / 1 token(s): 6 -> Jennifer(932), Emily(844), Elizabeth(568), Sarah(537), Anne(346), Katherine(189)
+- White / F / 2 token(s): 0 -> 
+- White / F / 3 token(s): 0 -> 
+- White / F / 5 token(s): 0 -> 
+- White / M / 1 token(s): 5 -> Christopher(617), Greg(275), Todd(172), Brett(107), Geoffrey(31)
+- White / M / 2 token(s): 0 -> 
+- White / M / 3 token(s): 0 -> 
+- White / M / 5 token(s): 0 -> 
+
+Critical family counts
+- tokenization: total_pairs=17, treatment_pairs=4, control_pairs=13
+- absolute_rarity: total_pairs=4, treatment_pairs=2, control_pairs=2
+
+Coverage gaps
+- Asian / F: Tokenizer bucket too sparse for robust matched pairs -> {1: 1, 2: 1}
+- Asian / M: Tokenizer bucket too sparse for robust matched pairs -> {1: 1, 3: 1, 5: 1}
+- Black / F: Tokenizer bucket too sparse for robust matched pairs -> {1: 2, 2: 2, 3: 1}
+- Black / M: Tokenizer bucket too sparse for robust matched pairs -> {1: 4, 2: 1}
+- Hispanic / F: Only one tokenizer bucket available -> {1: 2}
+- Hispanic / M: Only one tokenizer bucket available -> {1: 2}
+- White / F: Only one tokenizer bucket available -> {1: 6}
+- White / M: Only one tokenizer bucket available -> {1: 5}
+
+Acquisition priorities
+- Priority 1: add non-White names that stay 2+ tokens under the actual ColBERT tokenizer while remaining close in frequency to existing same-race same-gender 1-token names.
+- Priority 2: add same-race same-gender names with near-equal frequency but different token counts, so tokenization-treatment pairs exceed the current count of 4.
+- Priority 3: add near-equal-frequency pairs spanning higher and lower mean rarity within the same race/gender/token-count cells, so absolute-rarity treatment pairs exceed the current count of 2.

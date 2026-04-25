@@ -1,0 +1,252 @@
+{
+  "_doc": "Conservative first-round additions selected from Rosenman/Olivella/Imai (2023). These names were chosen because they have high race-assignment probability in the Rosenman first-name table and clear conventional gender usage for P2b matching.",
+  "source_id": "rosenman_olivella_imai_2023_first_names",
+  "names": [
+    {
+      "name": "Kelli",
+      "gender": "F",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: clear White female candidate with 2-token ColBERT segmentation."
+    },
+    {
+      "name": "Rebekah",
+      "gender": "F",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: clear White female candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Jonathon",
+      "gender": "M",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: clear White male candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Demetrios",
+      "gender": "M",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: clear White male candidate with 4-token ColBERT segmentation."
+    },
+    {
+      "name": "Latoya",
+      "gender": "F",
+      "race": "Black",
+      "ses_tier": "low",
+      "notes": "Rosenman addition: high-confidence Black female candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Latasha",
+      "gender": "F",
+      "race": "Black",
+      "ses_tier": "low",
+      "notes": "Rosenman addition: high-confidence Black female candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Alonzo",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Black male candidate with 2-token ColBERT segmentation."
+    },
+    {
+      "name": "Jermaine",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Black male candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Gabriela",
+      "gender": "F",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Hispanic female candidate with 2-token ColBERT segmentation."
+    },
+    {
+      "name": "Marisol",
+      "gender": "F",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Hispanic female candidate with 2-token ColBERT segmentation."
+    },
+    {
+      "name": "Alejandra",
+      "gender": "F",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Hispanic female candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Rolando",
+      "gender": "M",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Hispanic male candidate with 2-token ColBERT segmentation."
+    },
+    {
+      "name": "Mauricio",
+      "gender": "M",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Hispanic male candidate with 4-token ColBERT segmentation."
+    },
+    {
+      "name": "Heriberto",
+      "gender": "M",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Hispanic male candidate with 4-token ColBERT segmentation."
+    },
+    {
+      "name": "Divya",
+      "gender": "F",
+      "race": "Asian",
+      "ses_tier": "high",
+      "notes": "Rosenman addition: high-confidence Asian female candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Khushbu",
+      "gender": "F",
+      "race": "Asian",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Asian female candidate with 4-token ColBERT segmentation."
+    },
+    {
+      "name": "Sandeep",
+      "gender": "M",
+      "race": "Asian",
+      "ses_tier": "mid",
+      "notes": "Rosenman addition: high-confidence Asian male candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Vivek",
+      "gender": "M",
+      "race": "Asian",
+      "ses_tier": "high",
+      "notes": "Rosenman addition: high-confidence Asian male candidate with 3-token ColBERT segmentation."
+    },
+    {
+      "name": "Abhishek",
+      "gender": "M",
+      "race": "Asian",
+      "ses_tier": "high",
+      "notes": "Rosenman addition: high-confidence Asian male candidate with 4-token ColBERT segmentation."
+    },
+
+    {
+      "name": "Imani",
+      "gender": "F",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Black F, 2-token, log_freq≈1.458, pairs w/ Aisha(Δ=0.010). High race_prob=0.944."
+    },
+    {
+      "name": "Shanice",
+      "gender": "F",
+      "race": "Black",
+      "ses_tier": "low",
+      "notes": "Rarity-R2: Black F, 2-token, log_freq≈1.399, pairs w/ Aisha(Δ=0.069). High race_prob=0.935."
+    },
+    {
+      "name": "Rashad",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Black M, 2-token, log_freq≈1.486, pairs w/ Alonzo(Δ=0.087) & Darnell(Δ=0.043). High race_prob=0.956."
+    },
+    {
+      "name": "Deandre",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "low",
+      "notes": "Rarity-R2: Black M, 2-token, log_freq≈1.563, pairs w/ Alonzo(Δ=0.010) & Darnell(Δ=0.033). High race_prob=0.963."
+    },
+    {
+      "name": "Dexter",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Black M, 1-token, log_freq≈1.727, pairs w/ Jamal(Δ=0.011). High race_prob=0.760."
+    },
+    {
+      "name": "Reginald",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Black M, 1-token, log_freq≈2.331, pairs w/ Marcus(Δ=0.013). High race_prob=0.841."
+    },
+    {
+      "name": "Cornelius",
+      "gender": "M",
+      "race": "Black",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Black M, 1-token, log_freq≈1.643, pairs w/ Jamal(Δ=0.095). High race_prob=0.811."
+    },
+    {
+      "name": "Ruth",
+      "gender": "F",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: White F, 1-token, log_freq≈2.123, pairs w/ Anne(Δ=0.001). High race_prob=0.730."
+    },
+    {
+      "name": "Diane",
+      "gender": "F",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: White F, 1-token, log_freq≈2.337, pairs w/ Emily(Δ=0.086) & Katherine(Δ=0.072). High race_prob=0.844."
+    },
+    {
+      "name": "Nathan",
+      "gender": "M",
+      "race": "White",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: White M, 1-token, log_freq≈2.054, pairs w/ Todd(Δ=0.016). High race_prob=0.834."
+    },
+    {
+      "name": "Charles",
+      "gender": "M",
+      "race": "White",
+      "ses_tier": "high",
+      "notes": "Rarity-R2: White M, 1-token, log_freq≈2.912, pairs w/ Christopher(Δ=0.004). High race_prob=0.814."
+    },
+    {
+      "name": "Maribel",
+      "gender": "F",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Hispanic F, 2-token, log_freq≈2.090, pairs w/ Marisol(Δ=0.019). High race_prob=0.907."
+    },
+    {
+      "name": "Gerardo",
+      "gender": "M",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Hispanic M, 2-token, log_freq≈2.085, pairs w/ Rolando(Δ=0.016). High race_prob=0.872."
+    },
+    {
+      "name": "Eduardo",
+      "gender": "M",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Hispanic M, 1-token, log_freq≈2.546, pairs w/ Alejandro(Δ=0.023). High race_prob=0.857."
+    },
+    {
+      "name": "Neha",
+      "gender": "F",
+      "race": "Asian",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Asian F, 2-token, log_freq≈1.704, pairs w/ Priya(Δ=0.113). High race_prob=0.824."
+    },
+    {
+      "name": "Gilberto",
+      "gender": "M",
+      "race": "Hispanic",
+      "ses_tier": "mid",
+      "notes": "Rarity-R2: Hispanic M, 2-token, log_freq≈2.024, pairs w/ Rolando(Δ=0.078). High race_prob=0.884."
+    }
+  ]
+}

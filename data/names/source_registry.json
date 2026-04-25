@@ -1,0 +1,62 @@
+{
+  "_doc": "Registry of auditable name sources used or planned for P2/P2b. Only include sources that can be cited and traced.",
+  "sources": [
+    {
+      "source_id": "bm2004_curated_local",
+      "status": "active",
+      "source_type": "curated_local",
+      "citation_short": "Bertrand & Mullainathan (2004)-inspired audit-name subset, manually curated in this repository",
+      "used_in": ["name_features.json", "name_features_tokenizer_verified.json", "p2b_verified_matrix.json"],
+      "notes": "Current repository source. Suitable for mechanism experiments, but too small and too sparse for a definitive tokenizer/rarity decomposition."
+    },
+    {
+      "source_id": "nber_w9873_verified",
+      "status": "verified_reference",
+      "source_type": "paper_reference",
+      "citation_short": "Bertrand, M., and S. Mullainathan. 2003. NBER Working Paper w9873. DOI: 10.3386/w9873",
+      "used_in": [],
+      "notes": "Verified from the NBER paper page in this session. This is a citable reference for classic audit names, but not by itself a large database."
+    },
+    {
+      "source_id": "official_frequency_source_tbd",
+      "status": "pending_verification",
+      "source_type": "external_dataset",
+      "citation_short": "To be filled only after the official frequency dataset URL/license/citation are verified",
+      "used_in": [],
+      "notes": "Placeholder for the next verified database-backed expansion. In this session, one candidate official source page returned access denied, so it remains unverified."
+    },
+    {
+      "source_id": "rosenman_olivella_imai_2023_first_names",
+      "status": "selected_primary_external_source",
+      "source_type": "external_dataset",
+      "citation_short": "Rosenman, E. T. R., S. Olivella, and K. Imai. 2023. Race and ethnicity data for first, middle, and last names. Harvard Dataverse. DOI: 10.7910/DVN/SGKW0K",
+      "used_in": [
+        "data/audit_names/external/first_nameRaceProbs.tab",
+        "data/audit_names/external/first_raceNameProbs.tab",
+        "data/audit_names/p2b_rosenman_additions.json",
+        "data/audit_names/p2b_rosenman_name_features.json",
+        "data/audit_names/p2b_rosenman_matrix.json",
+        "results/p2_name_confound/p2b_rosenman_report.txt"
+      ],
+      "notes": "Chosen as the primary external expansion source for the next P2b rebuild. It is larger and more directly aligned with race-labeled first-name coverage than names-dataset, while remaining citable and public. Caveat: the probabilities come from six Southern-state voter files, so any final writeup should note potential population-shift limitations. In this repository it is now used as the main external source for the expanded P2b matrix and targeted validation."
+    },
+    {
+      "source_id": "names_dataset_3_3_1",
+      "status": "historical_auxiliary_source",
+      "source_type": "external_dataset",
+      "citation_short": "philipperemy/name-dataset, version 3.3.1, Apache-2.0; country/gender/popularity-rank metadata from a Facebook-derived name database",
+      "used_in": ["p2b_aux_names_dataset_pool.json", "p2b_aux_names_dataset_pairs.json"],
+      "notes": "Kept only as a historical auxiliary validation source. It was useful for race-agnostic tokenization/popularity checks, but it is no longer the preferred external database for the main P2b expansion."
+    }
+  ],
+  "required_fields_for_new_names": [
+    "name",
+    "gender",
+    "race",
+    "census_freq_per_100k",
+    "source_id",
+    "source_name",
+    "source_citation",
+    "provenance_note"
+  ]
+}

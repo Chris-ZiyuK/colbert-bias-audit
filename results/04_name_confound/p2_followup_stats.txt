@@ -1,0 +1,24 @@
+P2 follow-up analysis
+============================================================
+
+Subset sizes
+same_race: 11484
+same_gender: 20790
+freq_matched_same_race_same_gender: 1683
+token_matched_same_race_same_gender: 3465
+
+Coefficient highlights
+within_race_ss_cross_gender: coef=+0.010486, se=0.002170, p=1.34427e-06 ***
+within_race_func_cross_gender: coef=+0.005341, se=0.000968, p=3.48181e-08 ***
+within_gender_ss_cross_race: coef=+0.001188, se=0.002149, p=0.580323 n.s.
+within_gender_func_cross_race: coef=+0.001600, se=0.000967, p=0.0980467 n.s.
+freq_matched_ss_token_diff: coef=+0.005290, se=0.001708, p=0.00195426 **
+freq_matched_func_token_diff: coef=+0.003365, se=0.001114, p=0.0025264 **
+token_matched_ss_freq_diff: coef=+0.008082, se=0.005948, p=0.174199 n.s.
+token_matched_func_freq_diff: coef=+0.004457, se=0.002395, p=0.0627862 n.s.
+
+Interpretation
+- gender_statement: Gender contrast remains robust inside same-race comparisons, so the upgraded P2 gender signal is not merely a byproduct of race mixing.
+- race_statement: Race contrast does not remain stable once gender is held fixed; any remaining race effect is weak and does not survive cleanly in the within-gender models.
+- tokenization_statement: When race, gender, and frequency are tightly matched, token difference becomes a significant positive predictor of both SS and function-word disruption.
+- frequency_statement: Once token count, race, and gender are exactly matched, frequency alone is weaker: it is not significant for SS and only borderline for function-word disruption.
