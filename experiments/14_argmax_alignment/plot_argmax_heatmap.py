@@ -17,6 +17,10 @@ import matplotlib
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-codex")
 matplotlib.use("Agg")
+import matplotlib as mpl
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
+mpl.rcParams["font.family"] = "DejaVu Sans"
 import matplotlib.pyplot as plt
 import numpy as np
 

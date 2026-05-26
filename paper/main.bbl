@@ -1,9 +1,10 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Abnar and Zuidema(2020)}]{abnar2020}
 Samira Abnar and Willem Zuidema. 2020.
-\newblock Quantifying attention flow in transformers.
+\newblock \href {https://doi.org/10.18653/v1/2020.acl-main.385} {Quantifying
+  attention flow in transformers}.
 \newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
   for Computational Linguistics}, pages 4190--4197. Association for
   Computational Linguistics.
@@ -34,10 +35,10 @@ Aylin Caliskan, Joanna~J. Bryson, and Arvind Narayanan. 2017.
   automatically from language corpora contain human-like biases}.
 \newblock \emph{Science}, 356(6334):183--186.
 
-\bibitem[{De-Arteaga et~al.(2019)De-Arteaga, Romanov, Wallach, Chayes, Borber,
+\bibitem[{De-Arteaga et~al.(2019)De-Arteaga, Romanov, Wallach, Chayes, Borgs,
   Chouldechova, Geyik, Kenthapadi, and Kalai}]{dearteaga2019}
 Maria De-Arteaga, Alexey Romanov, Hanna Wallach, Jennifer Chayes, Christian
-  Borber, Alexandra Chouldechova, Sahin Geyik, Krishnaram Kenthapadi, and
+  Borgs, Alexandra Chouldechova, Sahin Geyik, Krishnaram Kenthapadi, and
   Adam~Tauman Kalai. 2019.
 \newblock \href {https://doi.org/10.1145/3287560.3287572} {Bias in bios: A case
   study of semantic representation bias in a high-stakes setting}.
@@ -50,12 +51,13 @@ Thibault Formal, Benjamin Piwowarski, and St\'{e}phane Clinchant. 2021.
 \newblock In \emph{Proceedings of the 44th International ACM SIGIR Conference},
   pages 2288--2292. ACM.
 
-\bibitem[{Goldfarb-Tarrant et~al.(2024)Goldfarb-Tarrant, Rodriguez, Dwivedi-Yu,
-  and Lewis}]{goldfarb2024}
-Seraphina Goldfarb-Tarrant, Pedro Rodriguez, Jane Dwivedi-Yu, and Patrick
-  Lewis. 2024.
-\newblock {MultiContrievers}: Analysis of dense retrieval representations.
-\newblock In \emph{Proceedings of BlackboxNLP 2024}, pages 87--100. ACL.
+\bibitem[{Izacard et~al.(2022)Izacard, Caron, Hosseini, Riedel, Bojanowski,
+  Joulin, and Grave}]{izacard2022}
+Gautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr
+  Bojanowski, Armand Joulin, and Edouard Grave. 2022.
+\newblock \href {https://doi.org/10.48550/arXiv.2112.09118} {Unsupervised dense
+  information retrieval with contrastive learning}.
+\newblock \emph{Transactions on Machine Learning Research}.
 
 \bibitem[{Jain and Wallace(2019)}]{jain2019}
 Sarthak Jain and Byron~C. Wallace. 2019.
@@ -67,7 +69,8 @@ Sarthak Jain and Byron~C. Wallace. 2019.
   and Yih}]{karpukhin2020}
 Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey
   Edunov, Danqi Chen, and Wen-tau Yih. 2020.
-\newblock Dense passage retrieval for open-domain question answering.
+\newblock \href {https://doi.org/10.18653/v1/2020.emnlp-main.550} {Dense
+  passage retrieval for open-domain question answering}.
 \newblock In \emph{Proceedings of EMNLP 2020}, pages 6769--6781. ACL.
 
 \bibitem[{Khattab and Zaharia(2020)}]{khattab2020}
@@ -82,34 +85,43 @@ Omar Khattab and Matei Zaharia. 2020.
   and Rekabsaz}]{krieg2023}
 Klara Krieg, Emilia Parada-Cabaleiro, Gertraud Medicus, Oleg Lesota, Markus
   Schedl, and Navid Rekabsaz. 2023.
-\newblock Grep-{BiasIR}: A dataset for investigating gender representation bias
-  in information retrieval results.
-\newblock In \emph{Proceedings of CHIIR 2023}. ACM.
+\newblock \href {https://doi.org/10.1145/3576840.3578295} {Grep-{BiasIR}: A
+  dataset for investigating gender representation bias in information retrieval
+  results}.
+\newblock In \emph{Proceedings of the 2023 Conference on Human Information
+  Interaction and Retrieval}, pages 444--448. ACM.
 
 \bibitem[{Manchanda and Shivaswamy(2025)}]{manchanda2025}
 Sahil Manchanda and Pannaga Shivaswamy. 2025.
-\newblock What is in a name? {Mitigating} name bias in text embedding
-  similarity via anonymization.
-\newblock In \emph{Findings of ACL 2025}. ACL.
+\newblock \href {https://doi.org/10.18653/v1/2025.findings-acl.914} {What is in
+  a name? {Mitigating} name bias in text embedding similarity via
+  anonymization}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2025}, pages 17759--17781. ACL.
 
 \bibitem[{Nguyen et~al.(2016)Nguyen, Rosenberg, Song, Gao, Tiwary, Majumder,
   and Deng}]{msmarco}
 Tri Nguyen, Mir Rosenberg, Xia Song, Jianfeng Gao, Saurabh Tiwary, Rangan
   Majumder, and Li~Deng. 2016.
-\newblock {MS MARCO}: A human generated machine reading comprehension dataset.
+\newblock \href {https://arxiv.org/abs/1611.09268} {{MS MARCO}: A human
+  generated machine reading comprehension dataset}.
 \newblock \emph{arXiv preprint arXiv:1611.09268}.
 
-\bibitem[{Ovalle et~al.(2024)Ovalle, Goyal, Dhamala, Jagielski, Chang, and
-  Galstyan}]{ovalle2024}
-Anaelia Ovalle, Palash Goyal, Jwala Dhamala, Matthew Jagielski, Kai-Wei Chang,
-  and Aram Galstyan. 2024.
-\newblock Tokenization matters: Navigating data-scarce tokenization for gender
-  inclusive language technologies.
-\newblock In \emph{Findings of NAACL 2024}. ACL.
+\bibitem[{Ovalle et~al.(2024)Ovalle, Mehrabi, Goyal, Dhamala, Chang, Zemel,
+  Galstyan, Pinter, and Gupta}]{ovalle2024}
+Anaelia Ovalle, Ninareh Mehrabi, Palash Goyal, Jwala Dhamala, Kai-Wei Chang,
+  Richard Zemel, Aram Galstyan, Yuval Pinter, and Rahul Gupta. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.findings-naacl.113}
+  {Tokenization matters: Navigating data-scarce tokenization for gender
+  inclusive language technologies}.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  NAACL 2024}, pages 1739--1756. ACL.
 
 \bibitem[{Petrov et~al.(2023)Petrov, La~Malfa, Torr, and Bibi}]{petrov2023}
 Aleksandar Petrov, Emanuele La~Malfa, Philip Torr, and Adel Bibi. 2023.
-\newblock Language model tokenizers introduce unfairness between languages.
+\newblock \href
+  {https://papers.nips.cc/paper_files/paper/2023/hash/b6e76cf3ef3957519ff0f117d7b0553c-Abstract-Conference.html}
+  {Language model tokenizers introduce unfairness between languages}.
 \newblock In \emph{Advances in Neural Information Processing Systems},
   volume~36. NeurIPS.
 
@@ -128,6 +140,12 @@ Marco~Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. 2016.
 \newblock In \emph{Proceedings of the 22nd ACM SIGKDD International Conference
   on Knowledge Discovery and Data Mining}, pages 1135--1144. ACM.
 
+\bibitem[{Rosenman et~al.(2023)Rosenman, Olivella, and Imai}]{rosenman2023}
+Evan T.~R. Rosenman, Santiago Olivella, and Kosuke Imai. 2023.
+\newblock \href {https://doi.org/10.1038/s41597-023-02202-2} {Race and
+  ethnicity data for first, middle, and surnames}.
+\newblock \emph{Scientific Data}, 10:299.
+
 \bibitem[{Santhanam et~al.(2022)Santhanam, Khattab, Saad-Falcon, Potts, and
   Zaharia}]{santhanam2022}
 Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei
@@ -138,14 +156,16 @@ Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei
 
 \bibitem[{Singh and Joachims(2018)}]{singh2018}
 Ashudeep Singh and Thorsten Joachims. 2018.
-\newblock Fairness of exposure in rankings.
+\newblock \href {https://doi.org/10.1145/3219819.3220088} {Fairness of exposure
+  in rankings}.
 \newblock In \emph{Proceedings of the 24th ACM SIGKDD International Conference
   on Knowledge Discovery \& Data Mining}, pages 2219--2228. ACM.
 
 \bibitem[{Sundararajan et~al.(2017)Sundararajan, Taly, and
   Yan}]{sundararajan2017}
 Mukund Sundararajan, Ankur Taly, and Qiqi Yan. 2017.
-\newblock Axiomatic attribution for deep networks.
+\newblock \href {https://proceedings.mlr.press/v70/sundararajan17a.html}
+  {Axiomatic attribution for deep networks}.
 \newblock In \emph{Proceedings of the 34th International Conference on Machine
   Learning}, pages 3319--3328. PMLR.
 

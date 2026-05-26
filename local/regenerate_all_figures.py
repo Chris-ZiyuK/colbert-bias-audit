@@ -31,7 +31,7 @@ GRID   = '#E5E7EB'
 
 plt.rcParams.update({
     'font.family': 'sans-serif',
-    'font.sans-serif': ['Helvetica Neue', 'Helvetica', 'Arial', 'DejaVu Sans'],
+    'font.sans-serif': ['DejaVu Sans'],
     'font.size': 10,
     'axes.linewidth': 0.6,
     'axes.edgecolor': '#D1D5DB',
@@ -76,6 +76,10 @@ for r in data:
     if len(parts) > 1:
         p = ' '.join(parts[1:])  # e.g., "qualified doctor" -> "doctor"
     p = p.title()
+    if p == 'Ceo':
+        p = 'CEO'
+    elif p == 'Management Consultant':
+        p = 'Consultant'
     if p not in professions:
         professions[p] = {'func': [], 'cont': []}
     professions[p]['func'].append(float(r['func_tcd']))
@@ -108,16 +112,8 @@ for i, vals in enumerate([func_tcds, cont_tcds]):
     ax.vlines(pos, q25, q75, color=color, linewidth=2.5, alpha=0.7)
     ax.scatter(pos, q50, color='white', s=20, zorder=5, edgecolor=color, linewidth=1)
 
-# Stats annotation
 func_mean = np.mean(func_tcds)
 cont_mean = np.mean(cont_tcds)
-ratio = func_mean / cont_mean
-
-ax.annotate(f'Ratio = {ratio:.2f}×\n$p < 10^{{-273}}$',
-            xy=(1.5, max(func_tcds)*0.6), ha='center', va='center',
-            fontsize=9, color=ACCENT, fontweight='bold',
-            bbox=dict(boxstyle='round,pad=0.4', facecolor='#F0FAF8',
-                      edgecolor=ACCENT, linewidth=0.8, alpha=0.9))
 
 ax.set_xticks([1, 2])
 ax.set_xticklabels(['Function\nwords', 'Content\nwords'], fontsize=10, color=DARK)
@@ -129,10 +125,6 @@ ax.set_xlim(0.3, 2.7)
 # Subtle horizontal grid
 ax.yaxis.grid(True, alpha=0.2, linewidth=0.5, color=GRID)
 ax.set_axisbelow(True)
-
-# Add n annotation
-ax.text(0.98, 0.02, f'n = {len(func_tcds):,}', transform=ax.transAxes,
-        ha='right', va='bottom', fontsize=8, color=NEUTRAL)
 
 plt.savefig(f'{FIGDIR}/fig1_func_vs_cont_tcd.pdf', facecolor='white')
 plt.savefig(f'{FIGDIR}/fig1_func_vs_cont_tcd.png', facecolor='white')
@@ -254,15 +246,6 @@ ax.set_ylabel('Mean Score Sensitivity', fontsize=9.5, color=DARK)
 ax.set_title('Rarity Amplification', fontsize=12, fontweight='bold',
              color=DARK, pad=10)
 
-# RR/CC annotation
-ratio_rr = means[2] / means[0] if means[0] > 0 else 0
-ax.annotate(f'RR/CC = {ratio_rr:.2f}×',
-            xy=(2, means[2]), xytext=(2.2, means[2] + 0.007),
-            fontsize=8.5, color=ACCENT, fontweight='bold',
-            arrowprops=dict(arrowstyle='->', color=ACCENT, lw=1),
-            bbox=dict(boxstyle='round,pad=0.25', facecolor='#F0FAF8',
-                      edgecolor=ACCENT, linewidth=0.6))
-
 ax.yaxis.grid(True, alpha=0.15, linewidth=0.5, color=GRID)
 ax.set_axisbelow(True)
 ax.set_ylim(0, max(means) + 0.015)
@@ -383,21 +366,9 @@ for bar in bars2:
     ax.text(bar.get_x() + bar.get_width()/2, h + 0.0005, f'{h:.3f}',
             ha='center', va='bottom', fontsize=7.5, color=CONT, fontweight='bold')
 
-# Ratio brackets
-for i, (label, ratio, d, x_pos) in enumerate([
-    ('Controlled', syn_func/syn_cont, 0.44, 0),
-    ('Naturalistic', eco['func_cont_ratio'], eco['cohens_d'], 1.2),
-]):
-    y_top = max(syn_func, eco_func) + 0.0045
-    color = NEUTRAL if i == 0 else ACCENT
-    weight = 'normal' if i == 0 else 'bold'
-    ax.annotate(f'{ratio:.2f}×\n$d$={d:.2f}',
-                xy=(x_pos, y_top + 0.001), ha='center', fontsize=8,
-                color=color, fontweight=weight)
-
 ax.set_xticks(x)
-ax.set_xticklabels([f'Controlled\n(n={len(func_tcds):,})',
-                     f'Naturalistic\n(n={eco["n_tests"]:,})'],
+ax.set_xticklabels(['Controlled',
+                     'Naturalistic'],
                     fontsize=9, color=DARK)
 ax.set_ylabel('Mean TCD', fontsize=10, color=DARK)
 ax.set_title('Function-Word Sensitivity:\nControlled vs. Naturalistic', fontsize=12,
@@ -421,7 +392,7 @@ print("Generating Confound Decomposition dot plot...")
 
 fig, ax = plt.subplots(figsize=(4.0, 2.2))
 
-confounds = ['Cross-gender\nvs Same-gender', 'BPE gap > 0\nvs gap = 0', 'Cross-race\nvs Within-race']
+confounds = ['Cross-gender\nvs Same-gender', 'WordPiece gap > 0\nvs gap = 0', 'Cross-race\nvs Within-race']
 ratios_conf = [1.33, 1.08, 0.89]
 ci_low = [1.28, 1.04, 0.84]
 ci_high = [1.38, 1.12, 0.94]

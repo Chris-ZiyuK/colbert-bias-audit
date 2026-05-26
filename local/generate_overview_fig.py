@@ -4,6 +4,10 @@ Uses DejaVu Sans which has full glyph coverage.
 """
 import matplotlib
 matplotlib.use('Agg')
+import matplotlib as mpl
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
+mpl.rcParams["font.family"] = "DejaVu Sans"
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 import numpy as np

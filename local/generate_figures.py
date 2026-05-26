@@ -8,6 +8,10 @@ import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib as mpl
+mpl.rcParams["pdf.fonttype"] = 42
+mpl.rcParams["ps.fonttype"] = 42
+mpl.rcParams["font.family"] = "DejaVu Sans"
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -20,7 +24,9 @@ FIGURES.mkdir(parents=True, exist_ok=True)
 plt.rcParams.update({
     "font.size": 10, "axes.titlesize": 11, "axes.labelsize": 10,
     "xtick.labelsize": 9, "ytick.labelsize": 9,
-    "font.family": "serif", "figure.dpi": 300,
+    "font.family": "sans-serif",
+    "font.sans-serif": ["DejaVu Sans"],
+    "figure.dpi": 300,
 })
 
 df = pd.read_csv(RESULTS / "full_65name_results.csv")
@@ -39,10 +45,7 @@ sns.violinplot(data=data_melt, x="Type", y="TCD", palette=palette,
                inner="quartile", cut=0, ax=ax)
 ax.set_ylabel("Token Contribution Disparity")
 ax.set_xlabel("")
-ax.set_title("Func-TCD vs Cont-TCD (n=8,085)")
-ax.text(0.5, 0.93, f"Ratio = 1.41×, p < 10⁻²⁷³",
-        transform=ax.transAxes, ha="center", fontsize=8,
-        bbox=dict(boxstyle="round,pad=0.3", facecolor="lightyellow", alpha=0.8))
+ax.set_title("Func-TCD vs Cont-TCD")
 fig.tight_layout()
 fig.savefig(FIGURES / "fig1_func_vs_cont_tcd.pdf", bbox_inches="tight")
 fig.savefig(FIGURES / "fig1_func_vs_cont_tcd.png", bbox_inches="tight")
@@ -73,7 +76,7 @@ bars = ax.barh(range(7), ratios, color=colors, edgecolor="white", linewidth=0.5)
 ax.set_yticks(range(7))
 ax.set_yticklabels(template_labels, fontsize=7)
 ax.axvline(x=1.0, color="gray", linestyle="--", linewidth=0.8, alpha=0.5)
-ax.axvline(x=1.41, color="red", linestyle=":", linewidth=1, alpha=0.7, label="Overall (1.41×)")
+ax.axvline(x=1.43, color="red", linestyle=":", linewidth=1, alpha=0.7, label="Overall (1.43×)")
 ax.set_xlabel("Func-TCD / Cont-TCD Ratio")
 ax.set_title("Template Modulation of Bias Ratio")
 ax.legend(fontsize=7)
@@ -98,7 +101,7 @@ bars = ax.bar(cats, means, yerr=stds, color=colors_r, edgecolor="white",
 for i, (m, n) in enumerate(zip(means, ns)):
     ax.text(i, m + stds[i] + 0.001, f"n={n}", ha="center", fontsize=7)
 ax.set_ylabel("Mean Score Sensitivity (SS)")
-ax.set_title("Rarity Amplification: RR/CC = 1.15×")
+ax.set_title("Rarity Amplification")
 ax.set_xlabel("Pair Rarity Category")
 fig.tight_layout()
 fig.savefig(FIGURES / "fig3_rarity_amplification.pdf", bbox_inches="tight")
@@ -119,7 +122,12 @@ for p in professions:
     func_m = sub["func_tcd"].mean()
     cont_m = sub["cont_tcd"].mean()
     r = func_m / cont_m if cont_m > 0 else 0
-    prof_data.append({"profession": p.get("profession", q.split()[-1].rstrip("?")),
+    label = p.get("profession", q.split()[-1].rstrip("?"))
+    if label.lower() == "ceo":
+        label = "CEO"
+    elif label.lower() == "management consultant":
+        label = "consultant"
+    prof_data.append({"profession": label,
                       "ratio": r, "func_wins": func_m > cont_m})
 
 prof_df = pd.DataFrame(prof_data).sort_values("ratio", ascending=True)
@@ -132,7 +140,7 @@ ax.set_yticks(range(len(prof_df)))
 ax.set_yticklabels(prof_df["profession"], fontsize=6)
 ax.axvline(x=1.0, color="gray", linestyle="--", linewidth=0.8)
 ax.set_xlabel("Func/Cont TCD Ratio")
-ax.set_title(f"Per-Profession Ratio (30/33 > 1.0)")
+ax.set_title("Per-Profession Ratio")
 fig.tight_layout()
 fig.savefig(FIGURES / "fig4_profession_ratios.pdf", bbox_inches="tight")
 fig.savefig(FIGURES / "fig4_profession_ratios.png", bbox_inches="tight")

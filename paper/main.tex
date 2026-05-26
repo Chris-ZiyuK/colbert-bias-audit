@@ -3,7 +3,7 @@
 %% ACL Style (two-column, A4)
 %%
 \documentclass[11pt]{article}
-\usepackage{acl}
+\usepackage[review]{acl}
 \usepackage{times}
 \usepackage{latexsym}
 \usepackage{amsmath}
@@ -17,6 +17,26 @@
 \usepackage{microtype}
 \usepackage{inconsolata}  % Provides monospace font for URLs (needed by T1 encoding)
 \usepackage{enumitem}
+
+% Keep ACL review rulers in the outer margins rather than the two-column gutter.
+\makeatletter
+\newcommand{\makeLineNumberOuterColumn}{%
+  \ifnum\c@linenumber=43
+    \makeLineNumberRight
+  \else\ifnum\c@linenumber=203
+    \makeLineNumberRight
+  \else\ifnum\c@linenumber=368
+    \makeLineNumberRight
+  \else
+    \if@firstcolumn
+      \makeLineNumberLeft
+    \else
+      \makeLineNumberRight
+    \fi
+  \fi\fi\fi}
+\let\makeLineNumberOdd\makeLineNumberOuterColumn
+\let\makeLineNumberEven\makeLineNumberOuterColumn
+\makeatother
 
 % --- Float placement tuning (prevent float bottleneck) ---
 \setcounter{topnumber}{3}
@@ -48,7 +68,7 @@
 
 % ===========================================================================
 \begin{abstract}
-Neural retrieval models can exhibit score sensitivity when identity markers are swapped in documents, yet existing audits report only aggregate score differences without explaining where these shifts originate. We leverage ColBERT's decomposable late-interaction scoring to perform a token-level audit of score sensitivity in late-interaction dense retrieval. We introduce \textbf{Token Contribution Disparity (TCD)}, a metric that exactly decomposes counterfactual retrieval-score shifts down to individual query-token contributions. Across \textbf{55{,}440 controlled tests}, supplemented by naturalistic-template and MS~MARCO validations, we find that: (1)~identity-induced score shifts disproportionately concentrate in function words rather than content words, with function words absorbing 1.43$\times$ to 2.08$\times$ more score change; (2)~this pattern is robust across templates, query syntax, and real-world web text; (3)~gender mismatch is the strongest predictor of absolute score sensitivity (1.26$\times$ higher than same-gender pairs), whereas cross-race pairing alone does not independently increase absolute sensitivity; and (4)~subword fragmentation from tokenization yields a modest but consistent amplification. We show that while these score sensitivities are absent in BM25, we observe non-zero aggregate score sensitivity across several neural retrieval architectures, while exact token-level decomposition remains specific to ColBERT. Finally, synthetic candidate-pool ranking simulations demonstrate that these score shifts can produce rank displacements and top-$k$ membership changes.
+Neural retrieval models can exhibit score sensitivity when identity markers are swapped in documents, yet existing audits report only aggregate score gaps. We leverage ColBERT's decomposable late-interaction scoring to define Token Contribution Disparity (TCD), an exact token-level decomposition of counterfactual retrieval-score shifts. Across 55{,}440 controlled tests, plus naturalistic-template and MS~MARCO validations, we find that identity-induced score shifts concentrate in function words rather than content words: function words carry 1.43$\times$--2.08$\times$ more score change. This pattern is robust across templates, query syntax, and real-world web text. Gender mismatch is the strongest predictor of absolute score sensitivity (1.26$\times$ higher than same-gender pairs), whereas cross-race pairing alone does not independently increase absolute sensitivity. Subword fragmentation yields modest but consistent amplification. BM25 shows no sensitivity under the same swaps, while several neural retrieval architectures show non-zero aggregate sensitivity; exact token-level decomposition remains specific to ColBERT. Synthetic candidate-pool simulations further show that these score shifts can alter ranks and top-$k$ membership.
 \end{abstract}
 
 % ===========================================================================
@@ -67,7 +87,7 @@ We organize our study around four key research questions:
 \item[RQ4] Is aggregate identity sensitivity specific to ColBERT, or does it also appear across other neural retrieval architectures? (\S\ref{sec:results:validation})
 \end{description}
 
-Our main findings are: (1)~function words absorb 1.43--2.08$\times$ more identity-induced score change than content words ($d = 0.36$--$0.94$), a pattern observed across 29/33 professions; (2)~non-identity perturbation controls show that this score sensitivity carrier behavior extends to semantically weak, highly fragmented tokens; (3)~gender mismatch is the most stable observed predictor of score sensitivity magnitude (1.26$\times$ in the partition analysis), whereas cross-race pairing is not a reliable predictor of absolute sensitivity after controls; and (4)~synthetic candidate-pool ranking simulations show non-trivial rank and top-$k$ changes under identity swaps.
+Our main findings are: (1)~function words absorb 1.43--2.08$\times$ more identity-induced score change than content words ($d = 0.36$--$0.94$), a pattern observed across 30/33 professions; (2)~non-identity perturbation controls show that this score sensitivity carrier behavior extends to semantically weak, highly fragmented tokens; (3)~gender mismatch is the most stable observed predictor of score sensitivity magnitude (1.26$\times$ in the partition analysis), whereas cross-race pairing is not a reliable predictor of absolute sensitivity after controls; and (4)~synthetic candidate-pool ranking simulations show non-trivial rank and top-$k$ changes under identity swaps.
 
 \begin{figure*}[t]
 \centering
@@ -84,13 +104,13 @@ Our main findings are: (1)~function words absorb 1.43--2.08$\times$ more identit
 Singh and Joachims~(\citeyear{singh2018}) formalized exposure fairness in rankings. Rekabsaz et al.~(\citeyear{rekabsaz2021}) measured gender bias in BERT-based rankers and proposed adversarial mitigation at the aggregate level. Krieg et al.~(\citeyear{krieg2023}) created the Grep-BiasIR dataset for gender bias evaluation. Ziems et al.~(\citeyear{ziems2024}) proposed the PAIR framework for auditing indexical bias. Blodgett et al.~(\citeyear{blodgett2020}) argued that ``bias'' in NLP must be carefully specified with respect to who is harmed. To our knowledge, our work is the first to exploit ColBERT's MaxSim decomposition for token-level score-sensitivity auditing, differing from prior retrieval fairness studies that focus on aggregate measurement.
 
 \paragraph{Counterfactual auditing and names as proxies.}
-Bertrand and Mullainathan~(\citeyear{bertrand2004}) established the name-swap audit methodology for labor market discrimination. Sweeney~(\citeyear{sweeney2013}) demonstrated similar effects in online advertising. Caliskan et al.~(\citeyear{caliskan2017}) showed that static embeddings absorb human-like biases. De-Arteaga et al.~(\citeyear{dearteaga2019}) demonstrated stereotyped representations in contextualized models applied to occupation prediction. Manchanda and Shivaswamy~(\citeyear{manchanda2025}) found that names distort embedding similarity and proposed anonymization. We adopt the name-swap framework but go beyond aggregate scores to analyse \emph{per-token} effects and decompose the confounded name signal.
+Bertrand and Mullainathan~(\citeyear{bertrand2004}) established the name-swap audit methodology for labor market discrimination. Sweeney~(\citeyear{sweeney2013}) demonstrated similar effects in online advertising. Caliskan et al.~(\citeyear{caliskan2017}) showed that static embeddings absorb human-like biases. De-Arteaga et al.~(\citeyear{dearteaga2019}) demonstrated stereotyped representations in contextualized models applied to occupation prediction. Manchanda and Shivaswamy~(\citeyear{manchanda2025}) found that names distort embedding similarity and proposed anonymization. We adopt the name-swap framework but go beyond aggregate scores to analyze \emph{per-token} effects and decompose the confounded name signal.
 
 \paragraph{Tokenization and fairness.}
 Petrov et al.~(\citeyear{petrov2023}) showed that BPE tokenizers introduce cost and latency unfairness across languages. Ovalle et al.~(\citeyear{ovalle2024}) demonstrated that BPE over-fragmentation of neopronouns causes LLM misgendering. Bostrom and Durrett~(\citeyear{bostrom2020}) showed that tokenization choices affect downstream model behavior. Our rarity amplification finding extends this line of work to the retrieval scoring domain.
 
 \paragraph{Late-interaction retrieval.}
-ColBERT~\citep{khattab2020} and ColBERTv2~\citep{santhanam2022} preserve per-token representations and compute scores via MaxSim. This decomposability makes them uniquely suited for token-level attribution---a property that single-vector models like DPR~\citep{karpukhin2020} and Contriever~\citep{goldfarb2024} lack. We leverage this property both as the subject and the instrument of our score-sensitivity audit.
+ColBERT~\citep{khattab2020} and ColBERTv2~\citep{santhanam2022} preserve per-token representations and compute scores via MaxSim. This decomposability makes them uniquely suited for token-level attribution---a property that single-vector models like DPR~\citep{karpukhin2020} and Contriever~\citep{izacard2022} lack. We leverage this property both as the subject and the instrument of our score-sensitivity audit.
 
 \paragraph{Interpretability and token-level attribution.}
 Post-hoc token-level explanation methods---including LIME~\citep{ribeiro2016} and integrated gradients~\citep{sundararajan2017}---can provide approximate per-token importance scores for any model. Jain and Wallace~(\citeyear{jain2019}) cautioned that raw attention weights are not reliable explanations. SPLADE~\citep{formal2021} computes sparse per-term weights that provide a form of token-level scoring. We explore attention \emph{rollout}~\citep{abnar2020} to test whether differential attention routing explains the function-word sensitivity pattern. Unlike post-hoc approximations, our TCD metric provides an \emph{exact} decomposition of ColBERT's MaxSim score by construction.
@@ -147,7 +167,7 @@ To quantify overall score sensitivity, we define \textbf{Score Sensitivity} (SS)
 \subsection{Name Pool}
 \label{sec:method:names}
 
-We use \textbf{65 names} drawn from the Bertrand and Mullainathan~(\citeyear{bertrand2004}) audit set and the Rosenman et al.\ Harvard Dataverse ethnicity database, covering four US-associated racial categories: White (10 female, 9 male), Black (9 female, 12 male), Hispanic (6 female, 8 male), and Asian (5 female, 6 male). These form \textbf{120 stratified counterfactual name pairs}, balanced across cross-race same-gender, cross-gender same-race, within-group, and matched-rarity categories. Each name is annotated with race, gender, and subword token count (computed using ColBERTv2's WordPiece tokenizer; see Appendix~\ref{app:names}). Names tokenized into a single subword are classified as \emph{common}; those requiring $>$1 subword are \emph{rare}. We treat these labels as name-associated audit variables, not deterministic demographic identities.
+We use \textbf{65 names} drawn from the Bertrand and Mullainathan~(\citeyear{bertrand2004}) audit set and the Rosenman et al.\ Harvard Dataverse ethnicity database~\citep{rosenman2023}, covering four US-associated racial categories: White (10 female, 9 male), Black (9 female, 12 male), Hispanic (6 female, 8 male), and Asian (5 female, 6 male). These form \textbf{120 stratified counterfactual name pairs}, balanced across cross-race same-gender, cross-gender same-race, within-group, and matched-rarity categories. Each name is annotated with race, gender, and subword token count (computed using ColBERTv2's WordPiece tokenizer; see Appendix~\ref{app:names}). Names tokenized into a single subword are classified as \emph{common}; those requiring $>$1 subword are \emph{rare}. We treat these labels as name-associated audit variables, not deterministic demographic identities.
 
 \subsection{Experimental Setup}
 \label{sec:method:setup}
@@ -162,7 +182,7 @@ Crossing 33 queries $\times$ 120 name pairs $\times$ 14 templates yields \textbf
 We supplement the main experiment with: (i)~a control validation comparing identity swaps to non-identity substitutions (``ten''~$\to$~``fifteen''); (ii)~a BM25 baseline ($n$=1{,}155); (iii)~cross-architecture comparison on the same counterfactual pairs using DPR, SPLADE, Contriever, and a cross-encoder ($n$=1{,}155 each); (iv)~a name-masking sanity check; (v)~a naturalistic-template validation with 200 diverse generated passages ($n$=8{,}000; \S\ref{sec:results:naturalistic}); and (vi)~an ecological validation on naturally occurring passages from the MS~MARCO benchmark ($n$=5{,}000; \S\ref{sec:results:msmarco}). All code and data are available anonymously.\footnote{\url{https://anonymous.4open.science/r/colbert-bias-audit}}
 
 \paragraph{Statistical treatment.}
-Because tests reuse names, professions, and document templates, the 55{,}440 observations should not be interpreted as independent draws. We therefore emphasise effect sizes, ratios, mixed-effects robustness, and cluster-aware checks over raw $p$-values. Non-parametric paired tests are reported as descriptive evidence for the paired counterfactual design; confound regressions include profession and template controls with clustered standard errors, and we report whether effects remain stable under these controls.
+Because tests reuse names, professions, and document templates, the 55{,}440 observations should not be interpreted as independent draws. We therefore emphasize effect sizes, ratios, mixed-effects robustness, and cluster-aware checks over raw $p$-values. Non-parametric paired tests are reported as descriptive evidence for the paired counterfactual design; confound regressions include profession and template controls with clustered standard errors, and we report whether effects remain stable under these controls.
 
 
 % ===========================================================================
@@ -184,12 +204,12 @@ Across 55{,}440 counterfactual tests (33 professions $\times$ 120 name pairs $\t
 \begin{itemize}
     \item Func-TCD = 0.018 $\pm$ 0.013; Cont-TCD = 0.013 $\pm$ 0.011
     \item \textbf{Ratio = 1.43$\times$} (cluster-robust 95\% CI: [1.35, 1.51]; Cohen's $d = 0.36$)
-    \item \textbf{29/33 professions} (88\%) exhibit the pattern (Figure~\ref{fig:professions})
+    \item \textbf{30/33 professions} (91\%) exhibit the pattern (Figure~\ref{fig:professions})
 \end{itemize}
 
 Cluster bootstrap checks confirm that the ratio remains above 1.0 when resampling whole name pairs (95\% CI: 1.35--1.51), professions (1.30--1.57), templates (1.30--1.56), or name-pair$\times$profession cells (1.40--1.47). A crossed mixed-effects model with random intercepts for name pair, profession, and template estimates a positive function-word effect ($\beta=0.00544$, 95\% CI [0.00534, 0.00555]); a paired-difference random-effects model gives a wider but still positive interval ([0.00447, 0.00642]). Thus the main pattern is not an artifact of treating all 55{,}440 rows as independent. Additional token-grouping robustness checks in Appendix~\ref{app:robustness} (Table~\ref{tab:grouping}) show that the result is stable under punctuation removal, stopword-list, POS-based, and closed-class grouping definitions.
 
-The four exceptions---janitor ($r$=0.84), electrician ($r$=0.87), plumber ($r$=0.91), and social worker ($r$=0.99)---are cases where the content word itself appears more sensitive to the identity swap, reducing or reversing the function-word dominance.
+The three exceptions---therapist ($r$=0.91), electrician ($r$=0.90), and social worker ($r$=0.71)---are cases where the content word itself appears more sensitive to the identity swap, reducing or reversing the function-word dominance.
 
 \paragraph{Template modulation.} The ratio varies with document structure (Table~\ref{tab:template}). Across 14 templates, the ratio ranges from 0.96$\times$ (T12) to 1.84$\times$ (T11). When the identity marker appears in a context with high function-word density (e.g., ``Certified and licensed, \{NAME\}\ldots''), the ratio is highest. 13 of 14 templates produce ratios above 1.0.
 
@@ -235,7 +255,7 @@ T14 & Having worked internationally, \{NAME\}\ldots & 1.82$\times$ \\
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig4_profession_ratios.pdf}
-\caption{Func/Cont TCD ratio for each of 33 professions. Coral bars indicate Func~$>$~Cont; purple bars indicate the four exceptions. 29 out of 33 professions show higher function-word TCD.}
+\caption{Func/Cont TCD ratio for each of 33 professions. Coral bars indicate Func~$>$~Cont; purple bars indicate the three exceptions. 30 out of 33 professions show higher function-word TCD.}
 \label{fig:professions}
 \end{figure}
 
@@ -244,11 +264,11 @@ T14 & Having worked internationally, \{NAME\}\ldots & 1.82$\times$ \\
 
 We stratify name pairs by subword token count: CC (both common, 1 token each), CR (mixed), and RR (both rare, $>$1 token each). Pairs where both names are rare show a modest but consistent increase in score sensitivity:
 \begin{itemize}
-    \item CC: SS = 0.028; RR: SS = 0.031
-    \item \textbf{RR/CC ratio = 1.11$\times$} (Cohen's $d$ = 0.13)
+    \item CC: SS = 0.035; RR: SS = 0.040
+    \item \textbf{RR/CC ratio = 1.15$\times$} (Cohen's $d$ = 0.13)
 \end{itemize}
 
-The amplification occurs in the \emph{absolute rarity} condition---when both names undergo subword fragmentation---rather than in the token \emph{gap} between names. Since minority-group names are disproportionately fragmented by WordPiece~\citep{petrov2023}, this suggests a potential infrastructure-level fairness concern associated with tokenization fragmentation (Figure~\ref{fig:rarity}).
+The amplification is most interpretable in the \emph{absolute rarity} condition---when both names undergo subword fragmentation---although token-count gaps show a smaller secondary effect. Since minority-group names are disproportionately fragmented by WordPiece~\citep{petrov2023}, this suggests a potential infrastructure-level fairness concern associated with tokenization fragmentation (Figure~\ref{fig:rarity}).
 
 % fig:rarity moved after tab:decomposition to break float bottleneck
 
@@ -278,14 +298,14 @@ Cross-race            & 35{,}112 & 0.030 & 0.97$\times$ \\
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.85\columnwidth]{figures/fig3_rarity_amplification.pdf}
-\caption{Rarity amplification by name-pair category. Rare--rare (RR) pairs show a modest but monotonic increase in score sensitivity over common--common (CC) pairs. Points show means; whiskers show 95\% bootstrap CIs.}
+\caption{Rarity amplification by name-pair category. Rare--rare (RR) pairs show a modest increase in score sensitivity over common--common (CC) pairs. Bars show means; whiskers show 95\% bootstrap CIs.}
 \label{fig:rarity}
 \end{figure}
 
 \paragraph{Regression analysis.}
-Nested OLS regression with profession and template controls confirms gender mismatch as the most stable partial predictor of Score Sensitivity ($\beta = 0.010$, $p < 10^{-14}$). Cross-race pairing is not significant after these controls ($\beta = 0.001$, $p = 0.40$), while name-frequency disparity is smaller but significant ($\beta = 0.003$, $p = 0.027$). The full controlled model explains roughly one fifth of observed SS variation, indicating that profession, template, and name-level features jointly shape the effect.
+Nested OLS regression with profession and template controls confirms gender mismatch as the most stable partial predictor of Score Sensitivity ($\beta = 0.010$, $p < 10^{-14}$). Cross-race pairing is not significant after these controls ($\beta = 0.001$, $p = 0.40$), while subword-count disparity is smaller but significant ($\beta = 0.003$, $p = 0.027$). The full controlled model explains roughly one fifth of observed SS variation, indicating that profession, template, and name-level features jointly shape the effect.
 
-Three findings emerge (Figure~\ref{fig:confound}): (1)~\textbf{Gender mismatch} shows the strongest observed association with score sensitivity (1.26$\times$ higher SS, $d = 0.28$). (2)~\textbf{Cross-race pairing} does not independently amplify absolute score sensitivity (ratio = 0.97$\times$ in the partition analysis; n.s.\ after controls). (3)~\textbf{Subword rarity} adds modest amplification (RR/CC = 1.11$\times$, $d = 0.13$).
+Three findings emerge (Figure~\ref{fig:confound}): (1)~\textbf{Gender mismatch} shows the strongest observed association with score sensitivity (1.26$\times$ higher SS, $d = 0.28$). (2)~\textbf{Cross-race pairing} does not independently amplify absolute score sensitivity (ratio = 0.97$\times$ in the partition analysis; n.s.\ after controls). (3)~\textbf{Subword rarity} adds modest amplification (RR/CC = 1.15$\times$, $d = 0.13$).
 
 % fig:confound moved after tab:multimodel to break float bottleneck
 
@@ -318,7 +338,7 @@ SPLADE            & Sparse       & \textbf{0.123} & No \\
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig7_confound_decomposition.pdf}
-\caption{\textbf{Partition analysis for gender- and race-associated pairings.} Bars show mean Score Sensitivity; error bars show 95\% bootstrap CIs. Cross-gender pairs show higher Score Sensitivity than same-gender pairs, whereas cross-race pairs do not exceed within-race pairs.}
+\caption{\textbf{Partition analysis for gender, tokenization, and race factors.} Points show Score Sensitivity ratios; whiskers show 95\% bootstrap CIs. Cross-gender pairs show higher Score Sensitivity than same-gender pairs, whereas cross-race pairs do not exceed within-race pairs.}
 \label{fig:confound}
 \end{figure}
 
@@ -327,65 +347,34 @@ BM25 produces SS = 0.000 across all 1{,}155 tests, confirming that lexical match
 \subsection{Mechanistic Diagnostics}
 \label{sec:results:mechanism}
 
-\paragraph{Name masking (sanity check).} Replacing all name tokens in the \emph{documents} with \texttt{[MASK]} makes the two documents in each counterfactual pair identical, and TCD drops to exactly zero. While this outcome is expected by construction, it verifies that the implementation attributes score changes to the name-bearing counterfactual difference rather than to unrelated bookkeeping or positional artifacts.
-
-\paragraph{MaxSim argmax alignment.} To test whether function-word TCD is simply caused by query tokens switching to different best-matching document tokens, we trace the MaxSim argmax target for each query token across 11{,}088 counterfactual document pairs (24 name pairs $\times$ 33 professions $\times$ 14 templates; 70{,}560 query-token observations; Appendix~\ref{app:robustness}). Function words still show higher mean TCD than content words (1.35$\times$), but they do \emph{not} switch argmax targets more often: their argmax-change rate is slightly lower than content words (0.59 vs.\ 0.61). Nor is the effect explained by direct matching to the name span or its local context: function words hit the name $\pm$2-token window less often than content words (0.35 vs.\ 0.43). This negative result, visualised in Appendix Figure~\ref{fig:argmax_mechanism}, rules out a simple ``function words jump to the name token'' explanation and instead is consistent with contextual representational shifts before the final MaxSim operation, but does not establish a complete causal pathway.
-
-\paragraph{Attention rollout.} We apply attention rollout~\citep{abnar2020} to test whether name tokens route more attention to function-word positions than to content-word positions. The result is \emph{negative}: the attention ratio is 1.00 ($p = 0.065$). Layer-by-layer embedding probing suggests a more distributed representational pathway: at intermediate layers (L1--L9), content-word embeddings shift more than function words (ratio 0.41--0.52$\times$), but at the final layer (L12) function words converge to a 1.07$\times$ ratio. We therefore treat the mechanism as partially characterised rather than fully established.
-
-\paragraph{Query ablation probe.} To test whether function words merely appear as post-hoc attribution carriers or also affect aggregate score sensitivity, we compare the original function-heavy query (``Who is an experienced \{profession\}?'') with a content-only ablated query (``experienced \{profession\}'') across a representative subset of 700 tests. The original query yields slightly higher Score Sensitivity (SS) than the ablated query (mean SS 0.0361 vs. 0.0344; ratio = 1.051$\times$; paired Wilcoxon $p = 1.31 \times 10^{-2}$; Cohen's $d = 0.088$). This small but statistically reliable reduction suggests that function-word context contributes to overall sensitivity, although the effect size is modest and the ablation changes query length and syntax as well as function-word content.
+Name masking makes the two documents in each counterfactual pair identical and drives TCD to exactly zero, confirming that the implementation attributes score changes to the name-bearing difference. Mechanistic probes do not support a simple direct-matching account: function words show higher TCD than content words (1.35$\times$) but slightly \emph{lower} argmax-change rates (0.59 vs.\ 0.61) and fewer hits to the name $\pm$2-token window (0.35 vs.\ 0.43; Appendix Figure~\ref{fig:argmax_mechanism}). Attention rollout is also negative ($p=0.065$), while layer probes suggest a distributed representational pathway. Finally, ablating function words from the query slightly lowers SS (0.0361 to 0.0344; $d=0.088$), indicating a small aggregate role for function-word context.
 
 \subsection{Ranking Impact}
 \label{sec:results:ranking}
-Identity-induced score differences translate into ranking consequences. Across 55{,}440 counterfactual tests, \textbf{77.7\%} exhibit a non-trivial score difference ($>$0.01). In synthetic candidate-pool ranking simulations designed to approximate realistic qualification variance, identity swaps change at least one rank position in 36.6\% (95\% CI: [33.7\%, 39.7\%]), 55.0\% ([52.6\%, 57.1\%]), and 75.1\% ([73.7\%, 76.4\%]) of cases for pool sizes of 10, 20, and 50 documents, respectively. Mean absolute displacement grows with pool size (0.58 [0.52, 0.64], 1.21 [1.12, 1.29], and 3.07 [2.92, 3.21] positions), and top-$k$ membership changes are most visible in the Top-1 (8.5\%, 21.0\%, 41.0\%) and Top-3 (9.8\%, 7.8\%, 18.3\%) sets (Table~\ref{tab:ranking_metrics}). Appendix Table~\ref{tab:margin_flips} further shows that flips heavily concentrate in small-margin adjacent pairs; for pool size 50, 83.9\% of adjacent pairs have a score margin of $<0.05$, where observed rank flip rates reach 25.6\%--31.0\%.
-
-\paragraph{Signed directional analysis.}
-Signed score gaps are necessary for distinguishing identity sensitivity from group disadvantage. In the expanded name pool, the direction of score gaps is substantially name-pair dependent: cross-race pairing does not increase absolute score sensitivity after controls, even though individual name pairs can show large signed gaps. We therefore use the signed analysis as a diagnostic for deployment-specific exposure risk rather than as evidence for a global group ordering.
-
-\paragraph{Gender direction.}
-Male-associated names score higher than female-associated names in 62.3\% of cross-gender tests (mean gap $+$0.045). This directional pattern is consistent with the stronger absolute sensitivity observed for cross-gender pairs, but should be interpreted as a property of this name pool and query set rather than a universal statement about gender.
+Identity-induced score differences translate into ranking consequences. Across 55{,}440 counterfactual tests, \textbf{77.7\%} exhibit a non-trivial score difference ($>$0.01). In synthetic candidate-pool simulations, identity swaps change at least one rank position in 36.6\%, 55.0\%, and 75.1\% of cases for pool sizes of 10, 20, and 50, respectively; mean displacement rises from 0.58 to 3.07 positions. Detailed top-$k$, margin-flip, and signed-direction results appear in Appendix Tables~\ref{tab:ranking_metrics}--\ref{tab:margin_flips}; the signed gaps are name-pair dependent and should be used as deployment-specific diagnostics rather than global group orderings.
 
 \subsection{Naturalistic-Template Validation}
 \label{sec:results:naturalistic}
 
-To test whether the function-word sensitivity pattern generalizes beyond our 14 short templates, we apply the identical TCD pipeline to \textbf{200 diverse professional passages} generated from 16 structurally distinct templates spanning 14 professions and 13 knowledge domains (see Appendix~\ref{app:naturalistic} for examples). For each passage we perform the same 5-pair $\times$ 8-query counterfactual analysis, yielding \textbf{8{,}000 additional tests}. The function-word pattern strengthens on these longer naturalistic-template passages (Figure~\ref{fig:naturalistic}): the Func/Cont TCD ratio is \textbf{2.08$\times$} (Cohen's $d$ = 0.94), compared to 1.43$\times$ on the controlled templates. All 8/8 tested query professions show a ratio above 1.0. Removing punctuation from the function-word category does not weaken the pattern (F/C = 1.58$\times$ without ``?''), confirming the result is not driven by punctuation tokens.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.9\columnwidth]{figures/fig6_naturalistic_validation.pdf}
-\caption{Function-word sensitivity in controlled templates vs.\ naturalistic-template passages. The effect strengthens on longer diverse passages (2.08$\times$ vs.\ 1.43$\times$, $d$=0.94 vs.\ 0.36), suggesting that the controlled setup is not the only source of the pattern.}
-\label{fig:naturalistic}
-\end{figure}
+To test whether the pattern generalizes beyond our 14 short templates, we apply the identical TCD pipeline to \textbf{200 diverse professional passages} generated from 16 structurally distinct templates spanning 14 professions and 13 knowledge domains (Appendix~\ref{app:naturalistic}). Across \textbf{8{,}000 additional tests}, the Func/Cont ratio strengthens to \textbf{2.08$\times$} ($d=0.94$), all 8/8 tested query professions exceed 1.0, and punctuation removal preserves the pattern (F/C = 1.58$\times$; Appendix Figure~\ref{fig:naturalistic}).
 
 \subsection{MS MARCO Benchmark Validation}
 \label{sec:results:msmarco}
 
-To verify whether the function-word sensitivity pattern persists in naturally occurring text, we perform an ecological validation using the standard \textbf{MS~MARCO passage ranking collection}~\citep{msmarco}. We run a SpaCy NER scan over the first 10,000 passages in the collection, identifying passages containing person name entities. For the first 100 naturally occurring passages containing a person name, we perform the counterfactual name-swap audit using our pool of 10 names and 5 professional queries, yielding \textbf{5{,}000 counterfactual tests}. 
-
-We find that the function-word sensitivity pattern holds robustly on naturally occurring MS~MARCO text. The mean Func-TCD is \textbf{0.0162}, whereas the mean Cont-TCD is \textbf{0.0098}, yielding a Func/Cont TCD ratio of \textbf{1.65$\times$}. Function-word amplification occurs in \textbf{70.1\%} of all comparisons, and the overall mean Score Sensitivity is \textbf{0.0276}. This result demonstrates that our findings are not an artifact of template-generated documents, but rather represent a robust representational pattern of contextual late-interaction models processing real-world web text.
+We also audit naturally occurring passages from the \textbf{MS~MARCO passage ranking collection}~\citep{msmarco}. A spaCy NER scan identifies person-name passages; auditing the first 100 such passages with 10 names and 5 professional queries yields \textbf{5{,}000 counterfactual tests}. The pattern persists: mean Func-TCD is \textbf{0.0162} versus Cont-TCD \textbf{0.0098}, for a \textbf{1.65$\times$} ratio, with function-word amplification in \textbf{70.1\%} of comparisons and mean SS = \textbf{0.0276}.
 
 % ===========================================================================
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{Function-word sensitivity.}
-Non-identity perturbation control (\S\ref{sec:results:control}) shows function-word amplification extends to rare nonsense words (1.67$\times$) but not semantically grounded substitutions, consistent with sensitivity to semantically weak or fragmented tokens. Identity names instantiate this sensitivity in a socially consequential setting because name tokens carry demographic associations as well as frequency and tokenization structure. The naturalistic-template validation (2.08$\times$) and template modulation (0.96$\times$--1.84$\times$) support generalizability beyond a single short template.
-
-\paragraph{Attention null and layer probing.}
-Attention rollout did not confirm differential pathways ($p = 0.065$), while layer-by-layer probing and argmax alignment suggest that identity signal is redistributed across contextual representations before the final MaxSim computation. This points to a plausible representational pathway, but further head-level analysis is needed before making a stronger mechanistic claim.
-
-\paragraph{Confound structure.}
-Gender mismatch drives sensitivity magnitude (1.26$\times$), while cross-race pairing does not independently increase absolute score sensitivity after controls. Signed score gaps remain important for deployment-specific harm assessment, but in our expanded name pool they are strongly name-pair dependent rather than reducible to a single universal group ordering. Subword fragmentation~\citep{petrov2023, ovalle2024} modestly amplifies the effect, suggesting an infrastructure-level issue that content-level debiasing alone may miss.
-
-\paragraph{ColBERT as diagnostic.}
-Integrated gradients produces a concordant function/content ratio (IG: 1.56$\times$, Spearman $\rho = 0.49$, $p < 10^{-44}$), providing an approximate post-hoc check that agrees with TCD's exact MaxSim decomposition.
+Function-word amplification extends to rare nonsense words but not semantically grounded substitutions, suggesting sensitivity to semantically weak or fragmented subject-position tokens; identity names make this sensitivity socially consequential because they also carry demographic and frequency-associated signals. The mechanism appears distributed rather than a direct MaxSim jump to name tokens: attention rollout is negative, while argmax and layer probes point to contextual representational shifts before scoring. Gender mismatch drives sensitivity magnitude, cross-race pairing does not independently increase absolute sensitivity after controls, and subword fragmentation~\citep{petrov2023, ovalle2024} adds a modest infrastructure-level effect. An integrated-gradients analysis yields a concordant function/content ratio (1.56$\times$), supporting TCD's exact decomposition.
 
 
 % ===========================================================================
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have presented TCD, a token-level score-sensitivity diagnostic exploiting ColBERT's decomposable MaxSim scoring. Across 55{,}440 controlled tests spanning 65 names from four US-associated racial categories, function words absorb 1.43$\times$ more identity-induced score change than content words; this ratio increases to 2.08$\times$ in the naturalistic-template validation. Gender mismatch is the most stable observed predictor of sensitivity magnitude (1.26$\times$), while cross-race pairing does not independently amplify absolute sensitivity after controls. Practical interventions include \textbf{document-side name masking} (which eliminates TCD but may sacrifice legitimate relevance), \textbf{equitable tokenizer design}, and \textbf{TCD monitoring} as a continuous sensitivity diagnostic.
+We presented TCD, a token-level score-sensitivity diagnostic for ColBERT's decomposable MaxSim scoring. Across 55{,}440 controlled tests, function words absorb 1.43$\times$ more identity-induced score change than content words; this ratio rises to 2.08$\times$ in naturalistic-template validation. Gender mismatch is the most stable predictor of sensitivity magnitude, while cross-race pairing does not independently amplify absolute sensitivity after controls. Potential interventions include document-side name masking, equitable tokenizer design, and TCD monitoring.
 
 
 % ===========================================================================
@@ -395,13 +384,13 @@ We have presented TCD, a token-level score-sensitivity diagnostic exploiting Col
 
 \paragraph{Synthetic core design.} Our main experiment uses template-generated counterfactual pairs. While our naturalistic-template validation (\S\ref{sec:results:naturalistic}) demonstrates that the function-word pattern generalizes to longer and more diverse generated passages with an even stronger effect (2.08$\times$), these passages are still constructed. We validated the generalizability of the function-word pattern on real naturally occurring web text by running a 5{,}000-test audit on the MS~MARCO benchmark (\S\ref{sec:results:msmarco}), confirming a strong 1.65$\times$ ratio. However, a larger scale evaluation on other organic corpora (e.g., actual job postings, resumes) with naturally embedded names would further strengthen external validity.
 
-\paragraph{Name pool scope.} Our 65-name pool covers four US-centric race-associated name categories (White, Black, Hispanic, Asian) drawn from established audit studies and the Rosenman ethnicity database. Names from other racial groups, geographies, cultural contexts, and non-binary gender identities are not represented. The stratified pairing strategy improves coverage but cannot fully eliminate confounds between race, gender, frequency, orthography, and tokenization.
+\paragraph{Name pool scope.} Our 65-name pool covers four US-centric race-associated name categories (White, Black, Hispanic, Asian) drawn from established audit studies and the Rosenman ethnicity database~\citep{rosenman2023}. Names from other racial groups, geographies, cultural contexts, and non-binary gender identities are not represented. The stratified pairing strategy improves coverage but cannot fully eliminate confounds between race, gender, frequency, orthography, and tokenization.
 
-\paragraph{Single diagnostic model.} While we compare aggregate sensitivity across BM25 and five neural retrieval architectures, the token-level TCD analysis is specific to ColBERT's MaxSim decomposition. We validate TCD against integrated gradients (Spearman $\rho$ = 0.49, concordant F/C ratio), but extending token-level attribution to other architectures remains future work.
+\paragraph{Single diagnostic model.} While we compare aggregate sensitivity across BM25 and five neural retrieval architectures, the token-level TCD analysis is specific to ColBERT's MaxSim decomposition. We validate TCD against integrated gradients, but extending token-level attribution to other architectures remains future work.
 
-\paragraph{Rarity amplification.} The rarity effect (RR/CC = 1.11$\times$, $d = 0.13$) is modest. A larger, more diverse name pool with controlled frequency, orthography, and tokenizer-fragmentation levels would strengthen this finding.
+\paragraph{Rarity amplification.} The rarity effect (RR/CC = 1.15$\times$, $d = 0.13$) is modest. A larger, more diverse name pool with controlled frequency, orthography, and tokenizer-fragmentation levels would strengthen this finding.
 
-\paragraph{Attention null result.} Our attention rollout analysis did not confirm the hypothesised differential attention pathway ($p = 0.065$). The mechanism by which function words absorb identity information may not be captured by head-averaged rollout; layer-specific or head-specific analysis could reveal more nuanced patterns.
+\paragraph{Attention null result.} Our attention rollout analysis did not confirm the hypothesized differential attention pathway ($p = 0.065$). The mechanism by which function words absorb identity information may not be captured by head-averaged rollout; layer-specific or head-specific analysis could reveal more nuanced patterns.
 
 
 % ===========================================================================
@@ -409,7 +398,7 @@ We have presented TCD, a token-level score-sensitivity diagnostic exploiting Col
 % ===========================================================================
 \section*{Ethical Considerations}
 
-This work audits score sensitivity in a retrieval model using established name-swap methodology. The names used are drawn from published audit studies~\citep{bertrand2004} and the Rosenman et al.\ ethnicity database, and are \emph{race-associated} and \emph{gender-associated}, not deterministic demographic identifiers. Our racial and gender categories are simplifications of complex social constructs and are used solely as analytical variables for bias measurement, not as claims about identity.
+This work audits score sensitivity in a retrieval model using established name-swap methodology. The names used are drawn from published audit studies~\citep{bertrand2004} and the Rosenman et al.\ ethnicity database~\citep{rosenman2023}, and are \emph{race-associated} and \emph{gender-associated}, not deterministic demographic identifiers. Our racial and gender categories are simplifications of complex social constructs and are used solely as analytical variables for bias measurement, not as claims about identity.
 
 The counterfactual documents are synthetic and do not describe real individuals. TCD is a diagnostic metric measuring score sensitivity, not a direct measure of social harm. Signed score gaps and ranking simulations are required to connect sensitivity to exposure differences; in our experiments, these directional effects can be substantial for individual name pairs but should not be interpreted as deterministic statements about demographic groups.
 
@@ -450,7 +439,7 @@ White    & 10 & 9  & 19 & 32\% \\
 \label{tab:names}
 \end{table}
 
-Table~\ref{tab:names} summarises the 65-name pool by race and gender. Names are drawn from \citet{bertrand2004} and the Rosenman et al.\ Harvard Dataverse ethnicity database.
+Table~\ref{tab:names} summarizes the 65-name pool by race and gender. Names are drawn from \citet{bertrand2004} and the Rosenman et al.\ Harvard Dataverse ethnicity database~\citep{rosenman2023}.
 
 \section{Professions and Query Format}
 \label{app:professions}
@@ -498,6 +487,13 @@ The naturalistic-template validation (\S\ref{sec:results:naturalistic}) uses 200
 \end{quote}
 
 Each passage undergoes the same 5-pair $\times$ 8-query counterfactual analysis as the main experiment, yielding 8,000 tests. The Func/Cont TCD ratio is 2.08$\times$ (Cohen's $d$ = 0.94), confirming that the function-word pattern is not an artifact of the main experiment's template structure.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig6_naturalistic_validation.pdf}
+\caption{Function-word sensitivity in controlled templates ($n=55{,}440$) vs.\ naturalistic-template passages ($n=8{,}000$). The effect strengthens on longer diverse passages (2.08$\times$ vs.\ 1.43$\times$, $d$=0.94 vs.\ 0.36).}
+\label{fig:naturalistic}
+\end{figure}
 
 \section{Robustness and Mechanism Details}
 \label{app:robustness}
@@ -701,4 +697,3 @@ All models are publicly available under permissive licenses (MIT/Apache 2.0). Co
 All experiments were run on a single Apple M-series CPU (no GPU) in approximately 50 minutes total. The main ColBERT experiment (55{,}440 tests) takes $\sim$22 minutes; each multi-model comparison (1{,}155 tests) takes $\sim$5 minutes; the naturalistic-text validation (8{,}000 tests) takes $\sim$7 minutes. The 200-trial expanded synthetic ranking simulations and query-ablation probes add approximately 6 minutes of runtime. Runtime excludes optional plotting and bootstrap resampling.
 
 \end{document}
-
