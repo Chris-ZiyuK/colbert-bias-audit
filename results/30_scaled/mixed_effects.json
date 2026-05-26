@@ -1,0 +1,34 @@
+{
+  "input": "results/30_scaled/raw_rows.json",
+  "n_rows": 55440,
+  "overall": {
+    "mean_func_tcd": 0.017996814449198147,
+    "mean_cont_tcd": 0.012554216142225584,
+    "mean_func_minus_cont": 0.005442598306972562,
+    "ratio": 1.4335275293426413
+  },
+  "long_model": {
+    "model": "long_tcd_random_intercepts",
+    "n_observations": 110880,
+    "n_name_pairs": 120,
+    "n_professions": 33,
+    "n_templates": 14,
+    "beta_is_function": 0.005442598306972563,
+    "ci_low": 0.005337431920545553,
+    "ci_high": 0.005547764693399572,
+    "p_value": 0.0,
+    "converged": true,
+    "aic": null
+  },
+  "difference_model": {
+    "model": "paired_difference_random_intercepts",
+    "n_observations": 55440,
+    "mean_func_minus_cont": 0.005442598306972562,
+    "intercept": 0.005442598306974121,
+    "ci_low": 0.004466976225392587,
+    "ci_high": 0.006418220388555656,
+    "p_value": 7.941427160777678e-28,
+    "converged": true,
+    "aic": null
+  }
+}

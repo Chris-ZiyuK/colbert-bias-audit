@@ -1,0 +1,276 @@
+这版已经非常接近最终可投稿版了。整体判断：
+
+**Findings：我现在会倾向 weak accept / accept-leaning。**
+**Main conference：仍然 borderline，但已经可以认真争取；最大剩余短板不是主实验，而是少量 overclaim、ablation 解释过强、以及 appendix 浮动排版。**
+
+这版最明显的进步是：abstract、RQ、cross-architecture claim、ranking simulation、token grouping、query robustness 都已经基本修到审稿可防御状态。TCD 被清楚表述为 “exactly decomposes counterfactual retrieval-score shifts”，并且 introduction 也明确解释了 ColBERT MaxSim 如何支持 exact token-level diagnostic。
+
+---
+
+# 1. 总体评分
+
+| 维度                   |      评分 | 当前评价                                                                                                               |
+| -------------------- | ------: | ------------------------------------------------------------------------------------------------------------------ |
+| Novelty              | 4.0 / 5 | TCD + ColBERT MaxSim exact decomposition 的角度清楚，有独立贡献。                                                              |
+| Technical Soundness  | 3.7 / 5 | 统计、robustness、ranking simulation 都比前几版扎实；但 query ablation 的 causal claim 需要降调。                                     |
+| Empirical Strength   | 3.8 / 5 | controlled + naturalistic + MS MARCO + cross-architecture + query/token robustness + ranking simulation，实验矩阵已经很完整。 |
+| Fairness Framing     | 4.0 / 5 | 已经很好地区分 score sensitivity 与 directional group harm。                                                                |
+| Mechanistic Evidence | 3.2 / 5 | argmax/attention/layer probing + query ablation 有帮助，但仍不能强 claim causal mechanism。                                  |
+| Presentation         | 3.5 / 5 | 主文已经顺；appendix 还有浮动图表和 Figure 3 视觉密度问题。                                                                            |
+| Overall              | 3.8 / 5 | Findings 有希望；main 需要最后一轮 polish 和过强措辞处理。                                                                           |
+
+---
+
+# 2. 这版已经改得很好的地方
+
+## 2.1 Abstract 已经成熟很多
+
+现在 abstract 的语气基本正确：不是说“证明模型有 bias”，而是说 neural retrievers exhibit score sensitivity，TCD exactly decomposes counterfactual retrieval-score shifts，function words absorb more score change，cross-race pairing does not independently increase absolute sensitivity。这个 framing 很稳。
+
+尤其是 cross-architecture 这一句现在很准确：
+
+> non-zero aggregate score sensitivity across several neural retrieval architectures, while exact token-level decomposition remains specific to ColBERT.
+
+这比之前 “generalizes across architectures” 科学很多。
+
+## 2.2 Introduction 的方法动机已经补齐
+
+现在 introduction 里已经明确说，ColBERT 的 MaxSim score 可以分解为 query-token contributions，因此可以定义 TCD 作为 exact token-level diagnostic。这个是文章的核心 methodological hook，现在终于在第一页讲清楚了。
+
+## 2.3 RQ 和 terminology 基本稳了
+
+RQ1 改成了 “token-level score shifts”，RQ3 改成 “race-associated pairing, gender-associated mismatch, or tokenization”，这比之前更符合 fairness 论文的谨慎语言。
+
+## 2.4 Ranking simulation 明显增强
+
+4.7 现在主文给出了完整的 rank-change rate、95% CI、mean displacement、Top-1/Top-3 changes，并且 Appendix Table 10/11 给出了 200 trials、bootstrap CI 和 score-margin flip statistics。这个比上一版强很多，已经足够作为 Findings 级别的 ranking-impact evidence。
+
+## 2.5 Token grouping robustness 和 query robustness 已经可防御
+
+Appendix E 的 Table 7 覆盖 main/no punctuation/stopword/POS/closed-class，Appendix F 的 Table 9 说明 query-format robustness subset 与 full aggregate 不直接可比。这两个之前容易被 reviewer 攻击的点现在基本补上了。
+
+---
+
+# 3. 当前最需要修的核心问题
+
+## 3.1 Query ablation 的 causal claim 过强
+
+这是当前版本最大的科学表述问题。
+
+你现在在 4.1 写：
+
+> To test whether the presence of function words in the query causally drives the overall score sensitivity...
+
+并且结论写：
+
+> confirms that function words are not merely passive post-hoc carriers; their active inclusion ... grammatically amplifies...
+
+但是这个实验的实际 effect 很小：
+
+* SS 从 0.0361 降到 0.0344；
+* Ablation Sensitivity Ratio = 1.051×；
+* p = 0.013；
+* Cohen’s d = 0.0875。
+
+这个可以说是 **small but statistically reliable intervention-style evidence**，但不能说 “confirms” 或 “causally drives”。原因有两个：
+
+第一，ablation 同时改变了 query length、syntax、token composition、normalization context，不是只删除 function-word contribution。第二，d = 0.0875 极小，作为 causal mechanism 证据很弱。
+
+建议改成：
+
+> **Query ablation probe.** To test whether function words merely appear as post-hoc attribution carriers or also affect aggregate score sensitivity, we compare the original function-heavy query with a content-only ablated query. The original query yields slightly higher SS than the ablated query (0.0361 vs. 0.0344; ratio = 1.051×; paired Wilcoxon p = 0.013; d = 0.088). This small but statistically reliable reduction suggests that function-word context contributes to overall sensitivity, although the effect size is modest and the ablation changes query length and syntax as well as function-word content.
+
+这个版本更稳。
+
+另外，这个小实验不一定适合放在 4.1 “Control Validation”。它更像 mechanism/intervention probe。建议移动到 4.6 “Mechanistic Diagnostics” 或 4.2 末尾。如果不移动，也至少把标题改成 **Query ablation probe**，不要叫 intervention 太重。
+
+---
+
+## 3.2 Section 3.3 里 “drives the difference” 仍有一点因果味
+
+3.3 写：
+
+> Aggregate score gaps tell us that a model treats two documents differently, but not which part of the query drives the difference. TCD answers this...
+
+这个 “drives” 仍然暗示 causal attribution。你前后都在强调 TCD 是 exact accounting，不是 causal attribution，所以这里最好统一。
+
+建议改成：
+
+> Aggregate score gaps tell us that a model treats two documents differently, but not where the difference appears in the decomposed query-token score. TCD answers this by accounting for the score gap at the level of individual query-token contributions.
+
+这个小改会让全文更一致。
+
+---
+
+## 3.3 Abstract 最后一句 “trigger” 稍微强
+
+现在 abstract 说：
+
+> synthetic candidate-pool ranking simulations demonstrate that these score shifts trigger rank displacements and top-k membership changes.
+
+“trigger” 有点决定性。建议改成：
+
+> can produce rank displacements and top-k membership changes
+
+或者：
+
+> are large enough to produce rank displacements and top-k membership changes in synthetic candidate pools.
+
+这样更符合 simulation 的性质。
+
+---
+
+# 4. Ranking simulation 现在强了，但仍有两个 presentation 问题
+
+## 4.1 主文 4.7 很好，但 “massive” 不适合论文
+
+4.7 里写：
+
+> for pool size 50, a massive 83.9% of adjacent pairs...
+
+“massive” 有点口语化/宣传化。建议改成：
+
+> for pool size 50, 83.9% of adjacent pairs have a score margin < 0.05...
+
+干净很多。
+
+## 4.2 Appendix H 图表浮动有明显排版问题
+
+现在 Appendix H 的 Table 10 和 Table 11 被浮动到了最后一页，甚至在 Computational Details 后面；Figure 8 也插在 H 和 I 之间，导致 appendix 的逻辑顺序有点乱。你现在的内容是对的，但排版上 reviewer 会觉得不够 polished。
+
+建议在 LaTeX 里用：
+
+```latex
+\usepackage{placeins}
+...
+\section{Synthetic Candidate-Pool Ranking Simulation}
+...
+\begin{table*}[t]
+...
+\end{table*}
+\FloatBarrier
+
+\section{Computational Details}
+```
+
+或者把 Table 10/11 放到 H section 一开始，保证它们不要跨到 I 后面。
+
+Figure 8 也可以放到 cross-architecture appendix 前后，不要卡在 ranking simulation 和 computational details 之间。
+
+---
+
+# 5. 还有几个 reviewer 可能会抓的小点
+
+## 5.1 “all prior retrieval fairness studies” 有点绝对
+
+Related Work 里写：
+
+> Our work differs from all prior retrieval fairness studies by providing token-level attribution rather than aggregate measurement.
+
+这个 “all prior” 容易被 reviewer 挑战。更稳的写法：
+
+> Our work differs from most prior retrieval fairness studies by focusing on exact token-level score decomposition rather than aggregate measurement.
+
+或者：
+
+> To our knowledge, our work is the first to exploit ColBERT’s MaxSim decomposition for token-level score-sensitivity auditing.
+
+后者更精准。
+
+## 5.2 Appendix G 的 “statistically rigorous null result” 仍然略强
+
+Appendix G 里 multiple comparison 后 race-level directional comparisons drops to zero，然后说：
+
+> This statistically rigorous null result reinforces...
+
+这里可以保留，但我建议把 “statistically rigorous null result” 改成：
+
+> This corrected directional analysis reinforces...
+
+因为 “null result” 很容易被理解成你证明了不存在 race effect，但事实上只是当前 setup 下没有 robust evidence。
+
+## 5.3 Computational Details 需要更新总运行时间
+
+你现在新增了 query ablation、200-trial ranking simulation、bootstrap CI、margin bins，但 computational details 仍然只写：
+
+> main ColBERT 22 minutes; each multi-model 5 minutes; naturalistic 7 minutes; total 45 minutes.
+
+现在这个总时间很可能不包括新增 ranking simulation / ablation / bootstrap。建议补一句：
+
+> The synthetic ranking simulations and query-ablation probes add approximately X minutes.
+
+如果没算，可以写：
+
+> Runtime excludes optional plotting and bootstrap resampling.
+
+不要让 reviewer 怀疑实验时间不一致。
+
+---
+
+# 6. 接收概率判断
+
+## Findings
+
+我现在会比较乐观。当前版本已经有：
+
+* 清晰的 TCD metric；
+* large-scale controlled tests；
+* cluster bootstrap and mixed-effects；
+* non-identity perturbation controls；
+* token grouping robustness；
+* query syntax robustness；
+* naturalistic-template validation；
+* MS MARCO validation；
+* cross-architecture aggregate check；
+* synthetic ranking simulation with CIs and margin flip analysis；
+* ethical considerations and limitations。
+
+这些对 Findings 来说已经很完整。只要把 query ablation 过强措辞降下来、修 appendix 浮动，**我会倾向 accept-leaning**。
+
+## Main conference
+
+仍然是 borderline，但这版已经比之前强很多。main reviewer 最大可能批评：
+
+1. 真实 deployment/candidate corpus 仍缺；
+2. query ablation effect size 太小，不足以证明 causal mechanism；
+3. main contribution 更像 diagnostic/audit，而不是 new model/method；
+4. synthetic templates 仍是核心实验。
+
+如果目标是 main，最有帮助的最后补强是：用一个真实或半真实的 biographical/candidate corpus 做小规模 ranking validation。即便只做几百个 profile，也会大幅提高 external validity。
+
+---
+
+# 7. 我会给的正式 review 倾向
+
+**Recommendation: Weak Accept for Findings / Borderline for Main.**
+
+**Strengths:**
+The paper proposes a well-motivated and technically clean diagnostic exploiting ColBERT’s decomposable MaxSim scoring. TCD is simple, exact for ColBERT, and clearly distinguished from causal attribution or social harm. The central function-word concentration result is interesting, supported by a large controlled audit, cluster-aware inference, query-format robustness, token-grouping robustness, naturalistic and MS MARCO validations, and ranking simulations. The fairness framing is careful, especially in separating absolute score sensitivity from directional group harm.
+
+**Weaknesses:**
+The core experiments remain mostly synthetic/template-based, and the ranking evaluation is synthetic rather than based on an organic candidate retrieval corpus. The new query ablation provides useful intervention-style evidence but has a very small effect size and should not be described as confirming causal mediation. Mechanistic evidence remains suggestive rather than conclusive. Some appendix floats and figure/table ordering need polish.
+
+---
+
+# 8. 最后一轮必修 checklist
+
+1. 把 query ablation 的 “causally drives / confirms / active inclusion grammatically amplifies” 全部降调。
+2. 把 query ablation 放到 4.6 或改名为 “Query ablation probe”。
+3. 3.3 的 “drives the difference” 改成 “where the difference appears / enters”。
+4. Abstract 最后一句 “trigger” 改成 “can produce”。
+5. 4.7 删除 “massive”。
+6. Related Work 的 “all prior retrieval fairness studies” 改成 “most prior” 或 “to our knowledge”。
+7. Appendix G 的 “statistically rigorous null result” 改成 “corrected directional analysis”。
+8. Computational Details 补上 ranking simulation / ablation / bootstrap 的运行时间说明。
+9. 用 `\FloatBarrier` 修 Appendix H/I 的 table 和 figure 浮动顺序。
+10. 可选但有加分：Figure 3 改为 dot plot，提升专业审美。
+
+---
+
+# 最终判断
+
+这版已经**可以进入最后 polish 阶段**。不建议再大改主线，也不建议继续堆很多新实验。现在最重要的是避免因为小的 causal overclaim 和排版问题被 reviewer 抓住。
+
+一句话总结：
+
+> 这篇现在已经是一篇比较成熟的 score-sensitivity audit paper；Findings 很有希望，main 还差一点真实候选检索数据或更强 causal intervention。下一步不是重写，而是把 claim 降到证据能完全支撑的范围内。

@@ -1,0 +1,4914 @@
+{
+  "experiment": "query_ablation_intervention",
+  "description": "Compares score sensitivity of function-heavy vs. content-only ablated query",
+  "metrics": {
+    "n_tests": 700,
+    "mean_ss_original": 0.03610405981524798,
+    "mean_ss_ablated": 0.03435363192145293,
+    "ablation_ratio": 1.0509532121027925,
+    "wilcoxon_p": 0.013105652114579246,
+    "cohens_d": 0.08750641281151321
+  },
+  "results": [
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.04427818297861351,
+      "ss_ablated": 0.05251414033730927
+    },
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.006245408096729208,
+      "ss_ablated": 0.03014477224611233
+    },
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.008568181978586603,
+      "ss_ablated": 0.0258579823284645
+    },
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.0445997265629184,
+      "ss_ablated": 0.04022011330876711
+    },
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.02607196617974292,
+      "ss_ablated": 0.03697772628179323
+    },
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.060393603062602025,
+      "ss_ablated": 0.06776372809659491
+    },
+    {
+      "profession": "doctor",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.021501118002135472,
+      "ss_ablated": 0.030972468517102388
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.04945098504013708,
+      "ss_ablated": 0.05968290557348306
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.05371973132017797,
+      "ss_ablated": 0.04445376993195061
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.10900381216470478,
+      "ss_ablated": 0.082680719227344
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.016230976932510948,
+      "ss_ablated": 0.021682101363932445
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.05058324740824683,
+      "ss_ablated": 0.05778394487783575
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.028613512506680767,
+      "ss_ablated": 0.0388684576299668
+    },
+    {
+      "profession": "doctor",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.046228410579992656,
+      "ss_ablated": 0.04100629014649806
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.034281040812469486,
+      "ss_ablated": 0.02834896559335651
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.01946399199953127,
+      "ss_ablated": 0.006477305638595432
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.043081121406209476,
+      "ss_ablated": 0.03160583185327805
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.01787742135756818,
+      "ss_ablated": 0.0055734887322911545
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.004341746493640612,
+      "ss_ablated": 0.008066622468540502
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.005941924165715213,
+      "ss_ablated": 0.004732306872891195
+    },
+    {
+      "profession": "doctor",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.013286302183977302,
+      "ss_ablated": 0.0021429000561029032
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.00960909886956302,
+      "ss_ablated": 0.012659555040284202
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.02285086629893851,
+      "ss_ablated": 0.006382040226111854
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.016330834396141636,
+      "ss_ablated": 0.02371073658082126
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.0057995756007987965,
+      "ss_ablated": 0.007800495872940243
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.044025718930394135,
+      "ss_ablated": 0.025769765894380254
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.008744165619074753,
+      "ss_ablated": 0.004774262494436995
+    },
+    {
+      "profession": "doctor",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.02497202688162265,
+      "ss_ablated": 0.008248753569197638
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.014283024451870196,
+      "ss_ablated": 0.048185152774265
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.01267410427015522,
+      "ss_ablated": 0.04286310600608879
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.06898804447304181,
+      "ss_ablated": 0.00799842119293561
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.007391011504739105,
+      "ss_ablated": 0.016439002858115948
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.0018987896092066772,
+      "ss_ablated": 0.032180267500941134
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.0014225148082904863,
+      "ss_ablated": 0.041701985049227445
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.002804573120925479,
+      "ss_ablated": 0.016144421756881154
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.013198208346315115,
+      "ss_ablated": 0.025536741876012323
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.016269735508674606,
+      "ss_ablated": 0.049550356449219596
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.04305343033752044,
+      "ss_ablated": 2.4350450753683404e-05
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.0018008132900734,
+      "ss_ablated": 0.01931052765330674
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.011178210393841176,
+      "ss_ablated": 0.028111422774132012
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.005500073354666836,
+      "ss_ablated": 0.03574643878571637
+    },
+    {
+      "profession": "doctor",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.014827984789175968,
+      "ss_ablated": 0.022007415948695378
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.061342258970339396,
+      "ss_ablated": 0.0695829470348743
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.017016567151734538,
+      "ss_ablated": 0.014698003750443186
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.12374150399766093,
+      "ss_ablated": 0.10186552915465812
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.060723181886429285,
+      "ss_ablated": 0.050037347490288736
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.036125071358543724,
+      "ss_ablated": 0.026032951924042903
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.06886560688091402,
+      "ss_ablated": 0.06810213324998714
+    },
+    {
+      "profession": "doctor",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.028973511450504415,
+      "ss_ablated": 0.007838166120224067
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.03359879620234702,
+      "ss_ablated": 0.0068983196403059185
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.020414434557770825,
+      "ss_ablated": 0.017281721368260724
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.058507411279882605,
+      "ss_ablated": 0.04911869619542033
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.016197771599736722,
+      "ss_ablated": 0.006365372774372449
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.0068880901153011796,
+      "ss_ablated": 0.004944980670029371
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.02190961567625298,
+      "ss_ablated": 0.0031334691339958676
+    },
+    {
+      "profession": "doctor",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.02696141537146635,
+      "ss_ablated": 0.027432908013635165
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.05818976789421458,
+      "ss_ablated": 0.02983637916644173
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.04591192289725702,
+      "ss_ablated": 0.02409264591371867
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.1315092874394336,
+      "ss_ablated": 0.06492665003531298
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.05853199846632601,
+      "ss_ablated": 0.04514460658842656
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.02490606713282238,
+      "ss_ablated": 0.0039350981251619135
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.0877877659591903,
+      "ss_ablated": 0.03902096114519427
+    },
+    {
+      "profession": "doctor",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.03755257525344134,
+      "ss_ablated": 0.024174760673164097
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.010332256137590356,
+      "ss_ablated": 0.001124369835840516
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.01837258610934079,
+      "ss_ablated": 0.026111190989406126
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.022319017939209377,
+      "ss_ablated": 0.005648081578142495
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.029376581375852574,
+      "ss_ablated": 0.036505201540600114
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.018195307821439216,
+      "ss_ablated": 0.01232430391291904
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.007574349177497082,
+      "ss_ablated": 0.005669820604465243
+    },
+    {
+      "profession": "doctor",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.017878564632404042,
+      "ss_ablated": 0.012981031627981603
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.06682433337568455,
+      "ss_ablated": 0.0821395021464402
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.024895762699190704,
+      "ss_ablated": 0.05488072229568804
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.04999377119523842,
+      "ss_ablated": 0.07805665321232151
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.06266823555581841,
+      "ss_ablated": 0.0603304996165722
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.05500138481443029,
+      "ss_ablated": 0.07696969439503272
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.06781777309591111,
+      "ss_ablated": 0.07656151677875217
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.020870351291075864,
+      "ss_ablated": 0.03006156751674826
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.005422896895688401,
+      "ss_ablated": 0.00680817481658194
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.008109498395747783,
+      "ss_ablated": 0.004225283238722496
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.030359815271222664,
+      "ss_ablated": 0.007565973072730763
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.017975061107742465,
+      "ss_ablated": 0.014626364836521633
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.010003678745922468,
+      "ss_ablated": 0.009572973893290267
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.008217578396314809,
+      "ss_ablated": 0.00027651052164750215
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.017301936368642308,
+      "ss_ablated": 0.013264382811669874
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.0038978396049260716,
+      "ss_ablated": 0.020602097025721775
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 5.8107612190417715e-05,
+      "ss_ablated": 0.024554829904129202
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 3.842838494720879e-05,
+      "ss_ablated": 0.027116521433932013
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.038572135030436216,
+      "ss_ablated": 0.040513406138405365
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.03187198221166952,
+      "ss_ablated": 0.03837679057653605
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.01168849558612481,
+      "ss_ablated": 0.027117403423713698
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.009223932303568447,
+      "ss_ablated": 0.006392307497840679
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.03881104518730486,
+      "ss_ablated": 0.00932294199723836
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.042760049241461075,
+      "ss_ablated": 0.015737153565147984
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.002836030403907845,
+      "ss_ablated": 0.02440520771000774
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.018096094115168396,
+      "ss_ablated": 0.013805551982841608
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.06854728856434196,
+      "ss_ablated": 0.04225032708242477
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.02340834891237403,
+      "ss_ablated": 0.017980067931592875
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.022342494126517957,
+      "ss_ablated": 0.0066971913126549956
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.031033298470054007,
+      "ss_ablated": 0.00670669627608038
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.018725451601215835,
+      "ss_ablated": 0.007257218296115337
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.07721878925677676,
+      "ss_ablated": 0.046654185042269904
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.017627617685224393,
+      "ss_ablated": 0.01379240519073635
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.02925200750199936,
+      "ss_ablated": 0.008278500851803369
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.04045469178263466,
+      "ss_ablated": 0.009612690450422581
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.020111434771230945,
+      "ss_ablated": 0.01678651780388252
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.016351192117941598,
+      "ss_ablated": 0.0053938733311398
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.01046349861893239,
+      "ss_ablated": 0.01320892130949813
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.03546993786291913,
+      "ss_ablated": 6.635128560518664e-05
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.008639503099081045,
+      "ss_ablated": 0.007824955995319448
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.0015616271967738332,
+      "ss_ablated": 0.010606630624119692
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.02801075601642866,
+      "ss_ablated": 0.010070246779507994
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.009431660074661077,
+      "ss_ablated": 0.0036394259019689023
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.0528272782146753,
+      "ss_ablated": 0.04822870066037709
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.03257091705161013,
+      "ss_ablated": 0.028511018007390337
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.10642728035919768,
+      "ss_ablated": 0.09161518846132073
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.07045427255422708,
+      "ss_ablated": 0.040329991839566245
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.04352141683706695,
+      "ss_ablated": 0.019005864147045453
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.04364682126716231,
+      "ss_ablated": 0.04911654690193135
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.037687056667278215,
+      "ss_ablated": 0.017397927873745316
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.002611104609706632,
+      "ss_ablated": 0.025701245033447808
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.005830176887762357,
+      "ss_ablated": 0.0013960078950280526
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.04927134670028553,
+      "ss_ablated": 0.04983574602133491
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.0014417185733846365,
+      "ss_ablated": 0.007059017508798542
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.007722132245493106,
+      "ss_ablated": 0.01482584650775438
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.007498872329362638,
+      "ss_ablated": 0.006942567044285585
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.003987449129725226,
+      "ss_ablated": 0.002500345475526873
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.053528633992916956,
+      "ss_ablated": 0.03845719155129557
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.03170360449237733,
+      "ss_ablated": 0.02356257770793761
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.09261584261890467,
+      "ss_ablated": 0.05575990125194691
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.048360356213652846,
+      "ss_ablated": 0.04505401502593834
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.019817597972789272,
+      "ss_ablated": 0.002724167656667043
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.06607299168983524,
+      "ss_ablated": 0.0374441753982324
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.02239404624762874,
+      "ss_ablated": 0.01819605483434573
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.010480519709095281,
+      "ss_ablated": 0.01514844994912702
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.009850552708863503,
+      "ss_ablated": 0.0016486631735986225
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.01813715789890287,
+      "ss_ablated": 0.006258165490241542
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.013626477207080292,
+      "ss_ablated": 0.02442727727481009
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.012178404060501125,
+      "ss_ablated": 0.00857896249560118
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.015364108627581119,
+      "ss_ablated": 0.0030170363776950804
+    },
+    {
+      "profession": "software engineer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.0002052027918852281,
+      "ss_ablated": 0.003163543372608808
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.04659025263030947,
+      "ss_ablated": 0.06718738856347427
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.0018310352118490307,
+      "ss_ablated": 0.03422393270432609
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.021883646912188377,
+      "ss_ablated": 0.05285817812460323
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.056366506578469915,
+      "ss_ablated": 0.05521665206201527
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.02166339563803281,
+      "ss_ablated": 0.0420096239997015
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.052764418104214054,
+      "ss_ablated": 0.06581259908802042
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.009068030592006697,
+      "ss_ablated": 0.02644474030313034
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.07574650828631206,
+      "ss_ablated": 0.08507421008562432
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.08715142586030604,
+      "ss_ablated": 0.0798916564535511
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.12221606763216544,
+      "ss_ablated": 0.09386519343667167
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.03635266909448739,
+      "ss_ablated": 0.03682892195530714
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.069368820983998,
+      "ss_ablated": 0.0794848301990835
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.06595245262675331,
+      "ss_ablated": 0.076949539792518
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.06762868635192497,
+      "ss_ablated": 0.06049322650002733
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.04529902268637532,
+      "ss_ablated": 0.04658317102490862
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.03040044217886054,
+      "ss_ablated": 0.0209763901695582
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.05370013210509232,
+      "ss_ablated": 0.042398580375110635
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.0008297668355192191,
+      "ss_ablated": 0.01160368399153021
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.013835340594443387,
+      "ss_ablated": 0.02357696417778872
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.028641582465550892,
+      "ss_ablated": 0.030877296735426035
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.0266573529369433,
+      "ss_ablated": 0.01607680047425034
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.011990482549288034,
+      "ss_ablated": 0.01355797632742236
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.02194815469668465,
+      "ss_ablated": 0.003867908262440462
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.01825922811797096,
+      "ss_ablated": 0.03217675331381311
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.00197826533773641,
+      "ss_ablated": 0.0011768112752175996
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.04695162954651641,
+      "ss_ablated": 0.019640252176638187
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.0015264066678770997,
+      "ss_ablated": 0.00038415395347584616
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.021603730530932588,
+      "ss_ablated": 0.0034862044085934045
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.020520410806776246,
+      "ss_ablated": 0.05677877138436618
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.012867846347021159,
+      "ss_ablated": 0.04659153771738793
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.05163928819313019,
+      "ss_ablated": 0.0040609748286779745
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.017329561781633907,
+      "ss_ablated": 0.0231878672179967
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.007073553701448022,
+      "ss_ablated": 0.04443189462581701
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.010243572615008618,
+      "ss_ablated": 0.05165663793180178
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.0025559731786190475,
+      "ss_ablated": 0.02227543811615692
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.006223443889066283,
+      "ss_ablated": 0.03207795646586336
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.006602737808709163,
+      "ss_ablated": 0.041305695483033394
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.035811089183737634,
+      "ss_ablated": 0.016662737703079675
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.0007453670201194699,
+      "ss_ablated": 0.02715867439515257
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.0067995531634499,
+      "ss_ablated": 0.02925099665413411
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.003596406888248952,
+      "ss_ablated": 0.037809940741915994
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.00899037210177754,
+      "ss_ablated": 0.020011209114624486
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.05750158067621245,
+      "ss_ablated": 0.06221826548664583
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.029212321737317255,
+      "ss_ablated": 0.020716758860845133
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.11649206740944858,
+      "ss_ablated": 0.10095349715337615
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.07684150578163639,
+      "ss_ablated": 0.06100572316038177
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.03809607383191809,
+      "ss_ablated": 0.026663153594871026
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.0762963846301207,
+      "ss_ablated": 0.07485736477907992
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.02992698847736183,
+      "ss_ablated": 0.00641215090735855
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.02752713471607892,
+      "ss_ablated": 0.015520153401738367
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.02272756334944529,
+      "ss_ablated": 0.02572392329980011
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.05034418001360064,
+      "ss_ablated": 0.02924312485700715
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.016569908544043197,
+      "ss_ablated": 0.011837637110428493
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.009098012512117077,
+      "ss_ablated": 0.0158148162234945
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.021861981074896057,
+      "ss_ablated": 0.016028803621989916
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.023817940352884075,
+      "ss_ablated": 0.026418826962724597
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.019144288150042627,
+      "ss_ablated": 0.015668872751218033
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.023896554237899246,
+      "ss_ablated": 0.0011371890769743948
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.0840527585519233,
+      "ss_ablated": 0.021114738963854268
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.027364645747441227,
+      "ss_ablated": 0.011191860689721247
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.0021079399156668315,
+      "ss_ablated": 0.047868902970910975
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.04218460537331316,
+      "ss_ablated": 0.004448448016372647
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.0189810399592798,
+      "ss_ablated": 0.004999780350827255
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.022464091554403397,
+      "ss_ablated": 0.02140030409755626
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.010811643563718365,
+      "ss_ablated": 0.0003746789088006416
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.04548317659138635,
+      "ss_ablated": 0.010248431273298123
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.0029174241216495594,
+      "ss_ablated": 0.014139739302926422
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.0060007797170386215,
+      "ss_ablated": 0.009436075749356896
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.03432526749430549,
+      "ss_ablated": 0.019388715404936707
+    },
+    {
+      "profession": "lawyer",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.0013206706390671962,
+      "ss_ablated": 0.002587254137922529
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.00240333935243302,
+      "ss_ablated": 0.0006934938495608585
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.02114607685553762,
+      "ss_ablated": 0.004412222403206342
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.02746477340887121,
+      "ss_ablated": 0.014971760278015505
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.02701158984157928,
+      "ss_ablated": 0.011702747198689521
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.003645694419532524,
+      "ss_ablated": 0.005264422719888104
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.027988498934524975,
+      "ss_ablated": 0.024403101932775364
+    },
+    {
+      "profession": "teacher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.009232111118499746,
+      "ss_ablated": 0.00016199635382756731
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.046233372088580305,
+      "ss_ablated": 0.049487852764542005
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.05569777215222467,
+      "ss_ablated": 0.044250238493549185
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.09493845537143938,
+      "ss_ablated": 0.052183475589613254
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.0007482701336516193,
+      "ss_ablated": 0.010982436654851413
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.055850908453584154,
+      "ss_ablated": 0.06121658772166945
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.01900590263465267,
+      "ss_ablated": 0.029052123027109897
+    },
+    {
+      "profession": "teacher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.04568520879893082,
+      "ss_ablated": 0.03893956929430132
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.02175764385495382,
+      "ss_ablated": 0.0356803959522054
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.014845926149222656,
+      "ss_ablated": 0.034642454634176804
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.028153774956907168,
+      "ss_ablated": 0.046986786371155345
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.07084309737893443,
+      "ss_ablated": 0.058993629574972783
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.022321983008371352,
+      "ss_ablated": 0.040946472379224406
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.03840703029735603,
+      "ss_ablated": 0.041640808758415644
+    },
+    {
+      "profession": "teacher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.010462759605627665,
+      "ss_ablated": 0.02317456986845791
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.0670594812254786,
+      "ss_ablated": 0.050958094368573174
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.050701257524334443,
+      "ss_ablated": 0.03333296754010773
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.024539642495984244,
+      "ss_ablated": 0.020421740307411097
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.051872182442414747,
+      "ss_ablated": 0.054905876029907444
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.07737042753778176,
+      "ss_ablated": 0.06977102313115711
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.04871497681131801,
+      "ss_ablated": 0.05676624874045544
+    },
+    {
+      "profession": "teacher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.036371310456565796,
+      "ss_ablated": 0.020394685457154837
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.0017039175047606622,
+      "ss_ablated": 0.028393152704619385
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.008278375910464032,
+      "ss_ablated": 0.01133756642672511
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.06167211712977153,
+      "ss_ablated": 0.0007537852658978942
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.0025208292891655106,
+      "ss_ablated": 0.0025120096101426868
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.011556738062042824,
+      "ss_ablated": 0.013360754809809888
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.00022350206947369225,
+      "ss_ablated": 0.032951840994671924
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.015923159391710053,
+      "ss_ablated": 0.0036785961710065745
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.015568331954414165,
+      "ss_ablated": 0.03345631204224235
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.013601241277176544,
+      "ss_ablated": 0.05855180190669439
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.015783311296259046,
+      "ss_ablated": 0.03865200547726342
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.020222337550535343,
+      "ss_ablated": 0.05035518349571868
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.008787228577242382,
+      "ss_ablated": 0.02622839705740555
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.01896823313855846,
+      "ss_ablated": 0.06354478515316286
+    },
+    {
+      "profession": "teacher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.01113845088810381,
+      "ss_ablated": 0.024093525573088328
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.0402225146008561,
+      "ss_ablated": 0.031188054024698413
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.015567689597630394,
+      "ss_ablated": 0.00506627786978284
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.09624118328377114,
+      "ss_ablated": 0.056843766255137845
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.06410119886677099,
+      "ss_ablated": 0.04230645701793451
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.036379384622279014,
+      "ss_ablated": 0.0066312941713829445
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.044795351017797004,
+      "ss_ablated": 0.03292748246922126
+    },
+    {
+      "profession": "teacher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.03316952371266142,
+      "ss_ablated": 0.0017100099812250762
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.004042752968856239,
+      "ss_ablated": 0.04199901941592575
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.01178139506171132,
+      "ss_ablated": 0.027403788910705777
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.07504333413714151,
+      "ss_ablated": 0.06078002811839367
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.018797109926148352,
+      "ss_ablated": 0.004585918172205668
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.027929596398706055,
+      "ss_ablated": 0.03566582479898094
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.0014764598560014185,
+      "ss_ablated": 0.026655601681116872
+    },
+    {
+      "profession": "teacher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.003466422180853778,
+      "ss_ablated": 0.008175862194851403
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.06547199961732386,
+      "ss_ablated": 0.03845768871007911
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.05313898709324423,
+      "ss_ablated": 0.037010464951797994
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.11389106675086723,
+      "ss_ablated": 0.0446194372204774
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.06670995592661097,
+      "ss_ablated": 0.052844051470096264
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.02617111082466288,
+      "ss_ablated": 0.007199190483204248
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.06512073179831865,
+      "ss_ablated": 0.02496440821481962
+    },
+    {
+      "profession": "teacher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.03904181107701701,
+      "ss_ablated": 0.030801776853571654
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.010907949057245958,
+      "ss_ablated": 0.0007277310182287517
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.00887979307493667,
+      "ss_ablated": 0.020025779591734415
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.011066933299637415,
+      "ss_ablated": 0.013376661409032682
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.047472167560624806,
+      "ss_ablated": 0.056137141208639815
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.01473277984303055,
+      "ss_ablated": 0.002400437207477369
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.008306680360347077,
+      "ss_ablated": 0.020252494049076402
+    },
+    {
+      "profession": "teacher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.008704712764794377,
+      "ss_ablated": 0.007621709190640668
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.0634139666025523,
+      "ss_ablated": 0.0673255497300173
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.07382698661791129,
+      "ss_ablated": 0.064532885650684
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.06813018863653457,
+      "ss_ablated": 0.04385883127437797
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.03797637095783797,
+      "ss_ablated": 0.04850926216171034
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.07723393129402939,
+      "ss_ablated": 0.08481484748863809
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.038318242631521296,
+      "ss_ablated": 0.03613139630052653
+    },
+    {
+      "profession": "nurse",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.043370265269109476,
+      "ss_ablated": 0.03596536877007052
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.1342636631043163,
+      "ss_ablated": 0.14128400435255714
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.11953067971826788,
+      "ss_ablated": 0.121483819119164
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.16629337381462359,
+      "ss_ablated": 0.12458246868710703
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.07322526130983609,
+      "ss_ablated": 0.08686506912383543
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.14078576941935717,
+      "ss_ablated": 0.16602715344160487
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.10333957379689261,
+      "ss_ablated": 0.12225831961723535
+    },
+    {
+      "profession": "nurse",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.10061978680579349,
+      "ss_ablated": 0.10572806751281853
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.027684291964993165,
+      "ss_ablated": 0.03369173797445293
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.016922141876846913,
+      "ss_ablated": 0.010233685520193707
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.03002314626908244,
+      "ss_ablated": 0.02075173468961616
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.01714555297203881,
+      "ss_ablated": 0.0034244789985576445
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.013326227015671795,
+      "ss_ablated": 0.0216200012496628
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.005585599347817374,
+      "ss_ablated": 0.006398205398618072
+    },
+    {
+      "profession": "nurse",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.003493936902971055,
+      "ss_ablated": 0.0029011248973640725
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.017649013673267027,
+      "ss_ablated": 0.0054016655710555275
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.02810944716807276,
+      "ss_ablated": 0.009194829416884868
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.024207505934838596,
+      "ss_ablated": 0.04282567633120987
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.02271513734937657,
+      "ss_ablated": 0.018521948492963486
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.051144671380446934,
+      "ss_ablated": 0.028214078543526717
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.004071314749166702,
+      "ss_ablated": 0.010412999133420572
+    },
+    {
+      "profession": "nurse",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.026890004945377483,
+      "ss_ablated": 0.008881462200311075
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.017965178858157696,
+      "ss_ablated": 0.006636652590127188
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.018788555108244016,
+      "ss_ablated": 0.003691289581227777
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.07300722011046896,
+      "ss_ablated": 0.025312510658792482
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.015673340371424965,
+      "ss_ablated": 0.012174088081763686
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.02537865725195744,
+      "ss_ablated": 0.004113003289779394
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.03390162152094367,
+      "ss_ablated": 0.0015301492109188637
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.026918139427366823,
+      "ss_ablated": 0.015510110440075133
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.05478732690854029,
+      "ss_ablated": 0.07629333546724869
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.058590124438952694,
+      "ss_ablated": 0.12049453211407207
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.02698815650709597,
+      "ss_ablated": 0.09078807938194652
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.041902218120238234,
+      "ss_ablated": 0.07352040314921619
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.03691077277857494,
+      "ss_ablated": 0.06121528253684572
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.04194616660687521,
+      "ss_ablated": 0.09522256741139944
+    },
+    {
+      "profession": "nurse",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.04278108590845535,
+      "ss_ablated": 0.060060850383039065
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.12908453733590228,
+      "ss_ablated": 0.1264255218338281
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.07851287071102675,
+      "ss_ablated": 0.07898996852994264
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.15666744830756746,
+      "ss_ablated": 0.1178596405326289
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.1448978228131208,
+      "ss_ablated": 0.13022119983646208
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.09459611580976796,
+      "ss_ablated": 0.08095762832839531
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.15647249143989034,
+      "ss_ablated": 0.14461062955877638
+    },
+    {
+      "profession": "nurse",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.07374853455539448,
+      "ss_ablated": 0.052097577811448866
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.053331459239062906,
+      "ss_ablated": 0.09468068684763917
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.05548838618607195,
+      "ss_ablated": 0.07853580666559971
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.11234490087581077,
+      "ss_ablated": 0.098477259154939
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.0023379280112999852,
+      "ss_ablated": 0.022415853190982337
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.07852804597278785,
+      "ss_ablated": 0.10022971710469021
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.03625015612242597,
+      "ss_ablated": 0.05322396354490629
+    },
+    {
+      "profession": "nurse",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.021873057093947705,
+      "ss_ablated": 0.02824940040389965
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.056479437507837765,
+      "ss_ablated": 0.018019477537818438
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.04735101533198801,
+      "ss_ablated": 0.03003371715135329
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.1071547173231546,
+      "ss_ablated": 0.03826305066561502
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.0628786479887145,
+      "ss_ablated": 0.04096865686662391
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.0234935081004425,
+      "ss_ablated": 0.01511550758098023
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.0704045706480422,
+      "ss_ablated": 0.01613115752617241
+    },
+    {
+      "profession": "nurse",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.03566300013475925,
+      "ss_ablated": 0.025196802612428862
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.03411618333294949,
+      "ss_ablated": 0.03151039350241309
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.044640583654248604,
+      "ss_ablated": 0.07013445466061743
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.023424436320408477,
+      "ss_ablated": 0.056909760166502066
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.05411216756754531,
+      "ss_ablated": 0.06885796876088088
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.02793505451099126,
+      "ss_ablated": 0.032333261482471315
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.019355839476161592,
+      "ss_ablated": 0.038507913815121184
+    },
+    {
+      "profession": "nurse",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.029465348300593063,
+      "ss_ablated": 0.03192968248638649
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.036116485484309215,
+      "ss_ablated": 0.055196152874963836
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.0007528944947683132,
+      "ss_ablated": 0.027584123436995275
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.018903853004191996,
+      "ss_ablated": 0.04943583518536781
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.05101881681388576,
+      "ss_ablated": 0.03917235735485517
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.027444253017710658,
+      "ss_ablated": 0.04505507576511188
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.05754586509339511,
+      "ss_ablated": 0.0626833868290461
+    },
+    {
+      "profession": "researcher",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.0037350600821359427,
+      "ss_ablated": 0.01653411070791425
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.061053528940030063,
+      "ss_ablated": 0.05868898546793272
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.06473423154100391,
+      "ss_ablated": 0.055837835736090996
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.1050643608274453,
+      "ss_ablated": 0.07523681458149767
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.021652664521784066,
+      "ss_ablated": 0.03213330726316628
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.05044065634846381,
+      "ss_ablated": 0.05559354104718487
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.02945829190004946,
+      "ss_ablated": 0.04087511442598771
+    },
+    {
+      "profession": "researcher",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.05630807747610842,
+      "ss_ablated": 0.048523133672234965
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.026368145808962993,
+      "ss_ablated": 0.013051002715234232
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.01490091220277293,
+      "ss_ablated": 0.003113142997695107
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.019023346533736645,
+      "ss_ablated": 0.001479761828529901
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.0387389741076642,
+      "ss_ablated": 0.02518233756954552
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.0009077394438219624,
+      "ss_ablated": 0.007939711515424967
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.0024394294494125266,
+      "ss_ablated": 0.005174803193900177
+    },
+    {
+      "profession": "researcher",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.012184891896195215,
+      "ss_ablated": 0.0035085150890895103
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.008670092761012615,
+      "ss_ablated": 0.021499660993920377
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.010242490161305297,
+      "ss_ablated": 0.013426267371220818
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.02244573005751702,
+      "ss_ablated": 0.04551859299526302
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.005371842892894057,
+      "ss_ablated": 0.011416704722214661
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.04215507065718294,
+      "ss_ablated": 0.01657917694008153
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.008354121634329609,
+      "ss_ablated": 0.010526439066925252
+    },
+    {
+      "profession": "researcher",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.008205768178969293,
+      "ss_ablated": 0.008373260392967131
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.029988213433405186,
+      "ss_ablated": 0.0005057940212466985
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.026384420792748775,
+      "ss_ablated": 2.308308378835045e-05
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.09639855037676007,
+      "ss_ablated": 0.04537887008648471
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.026262676826247854,
+      "ss_ablated": 0.018356274288776685
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.036153647174520465,
+      "ss_ablated": 0.009242456595890887
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.041497160296847954,
+      "ss_ablated": 0.0009331021740369041
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.025882212712063413,
+      "ss_ablated": 0.008573314055538817
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.012879470145022196,
+      "ss_ablated": 0.0007858997802699585
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.004715536077998873,
+      "ss_ablated": 0.03125211748901392
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.05551275349195363,
+      "ss_ablated": 0.010049729500731045
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.010088622639135375,
+      "ss_ablated": 0.008413526614268599
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.003996709773410708,
+      "ss_ablated": 0.008675266930086505
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.013139423272183794,
+      "ss_ablated": 0.02440505948556766
+    },
+    {
+      "profession": "researcher",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.0010037663724773737,
+      "ss_ablated": 0.0066983182162381515
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.07057149189454472,
+      "ss_ablated": 0.06769131273808807
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.03296097058532793,
+      "ss_ablated": 0.025486841889857535
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.13239607620872304,
+      "ss_ablated": 0.10754099763870567
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.0847279000874913,
+      "ss_ablated": 0.06531586583992531
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.043058919507451235,
+      "ss_ablated": 0.025674544834534494
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.07457153099311029,
+      "ss_ablated": 0.0698898382875439
+    },
+    {
+      "profession": "researcher",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.04666632743288886,
+      "ss_ablated": 0.017269437644658783
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.013893669139503708,
+      "ss_ablated": 0.03812724730311697
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.004366763995813597,
+      "ss_ablated": 0.007587103650363268
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.07667196290426657,
+      "ss_ablated": 0.06754208207419314
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.005238266760594208,
+      "ss_ablated": 0.005568503205316895
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.02121325824461884,
+      "ss_ablated": 0.02260778689805294
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.00020569920940893285,
+      "ss_ablated": 0.014286628620014816
+    },
+    {
+      "profession": "researcher",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.003139841275855439,
+      "ss_ablated": 0.0016481667344726732
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.0839901246437065,
+      "ss_ablated": 0.05849973708904787
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.06618287792831394,
+      "ss_ablated": 0.046711146035026435
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.13956259612065117,
+      "ss_ablated": 0.07919317613780753
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.07801712774156763,
+      "ss_ablated": 0.06327933451936935
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.04751947996819556,
+      "ss_ablated": 0.023822867249974664
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.09595508704062791,
+      "ss_ablated": 0.05724824810055638
+    },
+    {
+      "profession": "researcher",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.0439479767301756,
+      "ss_ablated": 0.031006061631971216
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.014823776004829014,
+      "ss_ablated": 0.032898460106596236
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.00644201957762993,
+      "ss_ablated": 0.004278397809152491
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.04121899697999113,
+      "ss_ablated": 0.02237033148516646
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.012542025779080106,
+      "ss_ablated": 0.009575214961573363
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.005119966802855553,
+      "ss_ablated": 0.008239302370667135
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.016157833892911894,
+      "ss_ablated": 0.014592056011406078
+    },
+    {
+      "profession": "researcher",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.0030318301734828185,
+      "ss_ablated": 0.009972115577679637
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.0655968009534677,
+      "ss_ablated": 0.09145229844726036
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.028151608099785907,
+      "ss_ablated": 0.06502145097794909
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.04386941017423782,
+      "ss_ablated": 0.0710692714662963
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.05715536146087056,
+      "ss_ablated": 0.0518496989349776
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.04043028641159214,
+      "ss_ablated": 0.0596482330368274
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.0662242895836392,
+      "ss_ablated": 0.08213947416818587
+    },
+    {
+      "profession": "accountant",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.02427012769834602,
+      "ss_ablated": 0.04072878457613906
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.04403049562634197,
+      "ss_ablated": 0.03145415767167354
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.04262767269438629,
+      "ss_ablated": 0.02659872042233083
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.09041482452441077,
+      "ss_ablated": 0.056038471733121285
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.004274800321827072,
+      "ss_ablated": 0.008706822103419666
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.03878175572910436,
+      "ss_ablated": 0.04825977388094643
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.02211105868956505,
+      "ss_ablated": 0.023690690109655663
+    },
+    {
+      "profession": "accountant",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.03752190474150896,
+      "ss_ablated": 0.032671924112900895
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.04532322734837899,
+      "ss_ablated": 0.03394165846845649
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.03136655940068265,
+      "ss_ablated": 0.01660921357589866
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.04460191657353735,
+      "ss_ablated": 0.03388818248295959
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.0007120967457694064,
+      "ss_ablated": 0.006137172131561598
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.014674264373850596,
+      "ss_ablated": 0.019640093121636327
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.027251282530973118,
+      "ss_ablated": 0.023477391960741383
+    },
+    {
+      "profession": "accountant",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.03348451720132439,
+      "ss_ablated": 0.02107475966476671
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.023450661889159213,
+      "ss_ablated": 0.004912035997150515
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.022415797126429163,
+      "ss_ablated": 0.0011832015033936187
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.03187931583557359,
+      "ss_ablated": 0.043013740912757524
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.01367082286159091,
+      "ss_ablated": 0.00665642585868579
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.06413550840684522,
+      "ss_ablated": 0.049158439761326826
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.01753012411522866,
+      "ss_ablated": 0.018169624144194495
+    },
+    {
+      "profession": "accountant",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.01592779654419033,
+      "ss_ablated": 0.006481780666430405
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.0032389025326373315,
+      "ss_ablated": 0.049639739733605165
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.00846352665985843,
+      "ss_ablated": 0.050884630396629375
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.06895542659861327,
+      "ss_ablated": 0.003760958580122057
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.014967964954481735,
+      "ss_ablated": 0.028734865875382
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.0007533897301651749,
+      "ss_ablated": 0.04321919090313575
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.003997422495391926,
+      "ss_ablated": 0.05960895383633437
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.0052731743528710885,
+      "ss_ablated": 0.022198065880259188
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.020459291533760752,
+      "ss_ablated": 0.013024287774987639
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.014896815600612413,
+      "ss_ablated": 0.004063387264329781
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.06656830509521251,
+      "ss_ablated": 0.021753794488494464
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.01835806074173927,
+      "ss_ablated": 0.004550961639952107
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.009089854971078849,
+      "ss_ablated": 0.007679377926691597
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.030493502730684217,
+      "ss_ablated": 0.0024691391633511147
+    },
+    {
+      "profession": "accountant",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.004570661381512328,
+      "ss_ablated": 0.003355315196833202
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.10357447403419974,
+      "ss_ablated": 0.09886155683065297
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.06840923026589099,
+      "ss_ablated": 0.061123372674168036
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.19895316017521414,
+      "ss_ablated": 0.16553755494882985
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.09979989850920766,
+      "ss_ablated": 0.08222226961227244
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.0796182790628321,
+      "ss_ablated": 0.06945004239339439
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.11837055905976634,
+      "ss_ablated": 0.11629890925370104
+    },
+    {
+      "profession": "accountant",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.059936683774183194,
+      "ss_ablated": 0.03841297336957134
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.02087218085888475,
+      "ss_ablated": 0.0014172861602039773
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.028879208570616745,
+      "ss_ablated": 0.030932554171787086
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.03581692771057704,
+      "ss_ablated": 0.016911144788301715
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.017725506927478343,
+      "ss_ablated": 0.01003066272523657
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.011594400956692,
+      "ss_ablated": 0.010838016243849183
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.022240427744988484,
+      "ss_ablated": 0.012982421777354383
+    },
+    {
+      "profession": "accountant",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.03649007291101639,
+      "ss_ablated": 0.031625979861422016
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.08316503709027841,
+      "ss_ablated": 0.05731040843429809
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.05834279753268898,
+      "ss_ablated": 0.03486681057188781
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.14806294800647968,
+      "ss_ablated": 0.08023390657737438
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.05807588070504378,
+      "ss_ablated": 0.049005907772227714
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.034226765709015616,
+      "ss_ablated": 0.0013586677222999946
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.0867479846542136,
+      "ss_ablated": 0.04924514822910659
+    },
+    {
+      "profession": "accountant",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.04222300102627094,
+      "ss_ablated": 0.02678627996461851
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.023220403274538077,
+      "ss_ablated": 0.03299843687031539
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.02043329515798835,
+      "ss_ablated": 0.016586969819518647
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.058248405434796695,
+      "ss_ablated": 0.02712531243636716
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.006737947575223187,
+      "ss_ablated": 0.001257462888000159
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.007799745925214012,
+      "ss_ablated": 0.01873902023691235
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.03472088614973036,
+      "ss_ablated": 0.03183559477425021
+    },
+    {
+      "profession": "accountant",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.00893241437049815,
+      "ss_ablated": 0.011586094365231435
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.07347849770583711,
+      "ss_ablated": 0.08371649821212163
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.021762148150220026,
+      "ss_ablated": 0.05659289354269308
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.057292595984479354,
+      "ss_ablated": 0.08401914316903031
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.0735271789218924,
+      "ss_ablated": 0.0721053596827338
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.04771004907744141,
+      "ss_ablated": 0.06905320991440833
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.0815058893514435,
+      "ss_ablated": 0.08841352193219294
+    },
+    {
+      "profession": "chef",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.02781486132931534,
+      "ss_ablated": 0.03903114186851211
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.04306496201641443,
+      "ss_ablated": 0.045727395136261145
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.057678246170838415,
+      "ss_ablated": 0.043676266112161945
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.09761076204361278,
+      "ss_ablated": 0.0763835812429919
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.016328532088432154,
+      "ss_ablated": 0.021481100262580623
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.048153237477531495,
+      "ss_ablated": 0.05508512054423264
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.025847073899078515,
+      "ss_ablated": 0.03865116980784236
+    },
+    {
+      "profession": "chef",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.0544247633682772,
+      "ss_ablated": 0.04976446417890285
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.09685397276654997,
+      "ss_ablated": 0.09310840995661966
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.06559521767037355,
+      "ss_ablated": 0.05980204866042339
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.0874244204719604,
+      "ss_ablated": 0.08321481575689917
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.02529882844563557,
+      "ss_ablated": 0.03958106896270908
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.05301844306341973,
+      "ss_ablated": 0.07131923236170078
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.07144404085896051,
+      "ss_ablated": 0.07135628439783782
+    },
+    {
+      "profession": "chef",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.06423342202203423,
+      "ss_ablated": 0.05726903002623085
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.020848382956258075,
+      "ss_ablated": 0.06693747472085408
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.004046003988308186,
+      "ss_ablated": 0.04601429183720383
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.07626852132482338,
+      "ss_ablated": 0.11022986820895952
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.02278478195470987,
+      "ss_ablated": 0.03892030843526246
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.03483268350847043,
+      "ss_ablated": 0.003327158900916205
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.027796206121180413,
+      "ss_ablated": 0.039227257487746865
+    },
+    {
+      "profession": "chef",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.010067523892882521,
+      "ss_ablated": 0.03590298071404879
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.007526116182576509,
+      "ss_ablated": 0.0008955053444840778
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.01099050855101979,
+      "ss_ablated": 0.0012154923258487376
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.08437564298295352,
+      "ss_ablated": 0.047649451849335424
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.006557645690673348,
+      "ss_ablated": 0.01637559410692426
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.006564307187170894,
+      "ss_ablated": 0.005259536545117263
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.01954265574292173,
+      "ss_ablated": 0.0010740363037398159
+    },
+    {
+      "profession": "chef",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.010891234156813694,
+      "ss_ablated": 0.016331863712995314
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.031434270963237046,
+      "ss_ablated": 0.03620411871635261
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.015032218684272198,
+      "ss_ablated": 0.05204491865156772
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.018863731185171612,
+      "ss_ablated": 0.02484721932949179
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.0027452886973140995,
+      "ss_ablated": 0.017652787752620174
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.023010246321930206,
+      "ss_ablated": 0.03992679401174644
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.015960118602391125,
+      "ss_ablated": 0.04967025132710967
+    },
+    {
+      "profession": "chef",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.017419941664379227,
+      "ss_ablated": 0.0332734286998689
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.05728186108592871,
+      "ss_ablated": 0.05577561877687666
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.03525994961069273,
+      "ss_ablated": 0.02572605582063097
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.12485149101895242,
+      "ss_ablated": 0.09382832108162044
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.05700602300655189,
+      "ss_ablated": 0.03404421141552222
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.05589543945661708,
+      "ss_ablated": 0.03423970122498129
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.05025375965844671,
+      "ss_ablated": 0.049433775530980474
+    },
+    {
+      "profession": "chef",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.04838757795551419,
+      "ss_ablated": 0.023475400077627266
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.04543744505652817,
+      "ss_ablated": 0.09222327503553786
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.03290757338507042,
+      "ss_ablated": 0.04723534584751149
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.12455780335201186,
+      "ss_ablated": 0.14083258724709927
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.0313924415620244,
+      "ss_ablated": 0.0477989567160239
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.04101901052575205,
+      "ss_ablated": 0.058137798631029504
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.03841976627759706,
+      "ss_ablated": 0.06838528678983219
+    },
+    {
+      "profession": "chef",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.022872071582412223,
+      "ss_ablated": 0.030657135189823766
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.07238072579413032,
+      "ss_ablated": 0.06491552934902008
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.051956362122299614,
+      "ss_ablated": 0.04379992370874286
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.13791319233732569,
+      "ss_ablated": 0.09215743568195377
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.06360967650689217,
+      "ss_ablated": 0.05849450138963322
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.0328284175095792,
+      "ss_ablated": 0.022383352249062505
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.09046697778642732,
+      "ss_ablated": 0.06242635494244117
+    },
+    {
+      "profession": "chef",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.04265313460125219,
+      "ss_ablated": 0.046571871338213645
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.026996161285434573,
+      "ss_ablated": 0.007700115725663566
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.010991068393243127,
+      "ss_ablated": 0.02095835554587601
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.02373750391581053,
+      "ss_ablated": 0.006143582762241052
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.013946173693120303,
+      "ss_ablated": 0.023671383661904064
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.02253730200766541,
+      "ss_ablated": 0.012843829561073796
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.010287997983507637,
+      "ss_ablated": 0.018313994903088167
+    },
+    {
+      "profession": "chef",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.02072437482021432,
+      "ss_ablated": 0.019991997115103317
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.06890625383409939,
+      "ss_ablated": 0.07580190918289252
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.02582445107035001,
+      "ss_ablated": 0.0545062595719884
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.04483695267999224,
+      "ss_ablated": 0.06522985702854468
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.06692647160607999,
+      "ss_ablated": 0.059568282248109
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.04236807500472932,
+      "ss_ablated": 0.06437239602891708
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.07205789396902568,
+      "ss_ablated": 0.08704771921398449
+    },
+    {
+      "profession": "pilot",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.031811603198432424,
+      "ss_ablated": 0.0417773551341244
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.041991551711248645,
+      "ss_ablated": 0.05260264685268236
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.03576526699299134,
+      "ss_ablated": 0.03051502358067594
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.0728863672246016,
+      "ss_ablated": 0.04957888463664888
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.0008919056161117946,
+      "ss_ablated": 0.007867196383367733
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.033765878180114915,
+      "ss_ablated": 0.04880723750446465
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.02608828748855676,
+      "ss_ablated": 0.039922386933554
+    },
+    {
+      "profession": "pilot",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.04080062396438549,
+      "ss_ablated": 0.036918477426104886
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.007129764933840162,
+      "ss_ablated": 0.0072846782012830225
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.005831705346069013,
+      "ss_ablated": 0.0129710749466048
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.0025360995670813524,
+      "ss_ablated": 0.008964466187671277
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.041363870535149144,
+      "ss_ablated": 0.03081015859262819
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.012698466428349315,
+      "ss_ablated": 0.010021252657449176
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.013378140289152546,
+      "ss_ablated": 0.009147911872564266
+    },
+    {
+      "profession": "pilot",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.004589282233296879,
+      "ss_ablated": 0.004100524123989098
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.020280668689455238,
+      "ss_ablated": 0.0419999242104836
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.00522477820353784,
+      "ss_ablated": 0.0236383509700852
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.058782336408644706,
+      "ss_ablated": 0.06471532957434017
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.019033420706502373,
+      "ss_ablated": 0.02152745807051917
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.014922203198952499,
+      "ss_ablated": 0.0003357762740798219
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.02919462827645443,
+      "ss_ablated": 0.024737575848428492
+    },
+    {
+      "profession": "pilot",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.004208230081020951,
+      "ss_ablated": 0.017793478153191395
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.04119983851607804,
+      "ss_ablated": 0.027797916856525537
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.033639006704712655,
+      "ss_ablated": 0.03139372471434241
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.11790247983146401,
+      "ss_ablated": 0.07904699077727234
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.029799133491549293,
+      "ss_ablated": 0.03008903254293902
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.03553007769025273,
+      "ss_ablated": 0.0261921124241389
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.06408147355330086,
+      "ss_ablated": 0.050217034023935354
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.036782631140640974,
+      "ss_ablated": 0.03641791120443843
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.004363851546976505,
+      "ss_ablated": 0.0024908950078319633
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.0031457128255070487,
+      "ss_ablated": 0.03171100492246018
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.036381821615457985,
+      "ss_ablated": 0.0006947131460698963
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.0023740903774929693,
+      "ss_ablated": 0.0148358346358316
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.0037458842730933757,
+      "ss_ablated": 0.011375791252070694
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.021767601776551234,
+      "ss_ablated": 0.0135822118577411
+    },
+    {
+      "profession": "pilot",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.0021485055670725354,
+      "ss_ablated": 0.0093203894207098
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.07506076715333383,
+      "ss_ablated": 0.09172496563512561
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.03362435964586981,
+      "ss_ablated": 0.04212125238678303
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.14214149510358423,
+      "ss_ablated": 0.11929651649292637
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.0701645685310112,
+      "ss_ablated": 0.060653740920912094
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.05081407082819429,
+      "ss_ablated": 0.055361005894110075
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.08025884983869493,
+      "ss_ablated": 0.09674599185067084
+    },
+    {
+      "profession": "pilot",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.04760680209338748,
+      "ss_ablated": 0.027880009392517086
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.041958566467047015,
+      "ss_ablated": 0.011942076713339177
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.03765954815734234,
+      "ss_ablated": 0.037815599688236896
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.03219307427660769,
+      "ss_ablated": 0.0293478404287003
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.04469634104549282,
+      "ss_ablated": 0.03422559354330881
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.013080096495189701,
+      "ss_ablated": 0.017416756344511113
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.04748441984530085,
+      "ss_ablated": 0.03262067443385056
+    },
+    {
+      "profession": "pilot",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.03409980936675039,
+      "ss_ablated": 0.0392005767286883
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.0710930402154384,
+      "ss_ablated": 0.05297340478545074
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.05314031073590226,
+      "ss_ablated": 0.05530694133774197
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.12308073740848083,
+      "ss_ablated": 0.07994901193106806
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.06450635862515557,
+      "ss_ablated": 0.0609733558301717
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.026858582054313872,
+      "ss_ablated": 0.019183193249223577
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.103138901065155,
+      "ss_ablated": 0.07875188423931229
+    },
+    {
+      "profession": "pilot",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.04158861745706294,
+      "ss_ablated": 0.04528698762354908
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.0021892464318925666,
+      "ss_ablated": 0.015441111708700448
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.0024242174447149747,
+      "ss_ablated": 0.010262320138095742
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.027662481155981602,
+      "ss_ablated": 0.006577556354586442
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.022079931935774646,
+      "ss_ablated": 0.02744506525332836
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.007720092807972762,
+      "ss_ablated": 0.003066665295320704
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.011760802336326126,
+      "ss_ablated": 0.00023196396245632413
+    },
+    {
+      "profession": "pilot",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.0018324273840939745,
+      "ss_ablated": 0.0013892430987910095
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T0",
+      "ss_original": 0.009434580635849734,
+      "ss_ablated": 0.0027338088774711026
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T1",
+      "ss_original": 0.033780078697401794,
+      "ss_ablated": 0.027864638003843003
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T2",
+      "ss_original": 0.03002058768482126,
+      "ss_ablated": 0.028471547986623165
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T3",
+      "ss_original": 0.010007366071410104,
+      "ss_ablated": 0.01655115524259624
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T4",
+      "ss_original": 0.001061071375901758,
+      "ss_ablated": 0.0028594238816609502
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T5",
+      "ss_original": 0.002631297188759606,
+      "ss_ablated": 0.020875329503479263
+    },
+    {
+      "profession": "electrician",
+      "pair": "Emily\u2192Lakisha",
+      "template": "T6",
+      "ss_original": 0.02383502500793747,
+      "ss_ablated": 0.03634273736674402
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T0",
+      "ss_original": 0.02629611167050714,
+      "ss_ablated": 0.0364255790802873
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T1",
+      "ss_original": 0.03345077436605024,
+      "ss_ablated": 0.028236191614788277
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T2",
+      "ss_original": 0.07313990505113424,
+      "ss_ablated": 0.06157892682128946
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T3",
+      "ss_original": 0.0015775218269183811,
+      "ss_ablated": 0.004850501999607065
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T4",
+      "ss_original": 0.043038705876598034,
+      "ss_ablated": 0.049792455761368
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T5",
+      "ss_original": 0.015248221092205846,
+      "ss_ablated": 0.029044950977362427
+    },
+    {
+      "profession": "electrician",
+      "pair": "Sarah\u2192Tamika",
+      "template": "T6",
+      "ss_original": 0.03435390556359484,
+      "ss_ablated": 0.0397243326572788
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T0",
+      "ss_original": 0.03621019767060666,
+      "ss_ablated": 0.02757655931457605
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T1",
+      "ss_original": 0.029310925846107356,
+      "ss_ablated": 0.014679944096032576
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T2",
+      "ss_original": 0.03563258984182779,
+      "ss_ablated": 0.02070625230959471
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T3",
+      "ss_original": 0.00889634588857233,
+      "ss_ablated": 0.0037190893508380445
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T4",
+      "ss_original": 0.013947415159053083,
+      "ss_ablated": 0.015119513929621213
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T5",
+      "ss_original": 0.009629504633927892,
+      "ss_ablated": 0.008498345322643007
+    },
+    {
+      "profession": "electrician",
+      "pair": "Anne\u2192Aisha",
+      "template": "T6",
+      "ss_original": 0.023896741428443686,
+      "ss_ablated": 0.018530374525795194
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T0",
+      "ss_original": 0.0750799811098999,
+      "ss_ablated": 0.06345452051117022
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T1",
+      "ss_original": 0.07060979772884003,
+      "ss_ablated": 0.0652428637996835
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T2",
+      "ss_original": 0.024537614263291305,
+      "ss_ablated": 0.02677600123401837
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T3",
+      "ss_original": 0.059329447108725446,
+      "ss_ablated": 0.07097194966513953
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T4",
+      "ss_original": 0.09349696963303823,
+      "ss_ablated": 0.08909375273783597
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T5",
+      "ss_original": 0.057362500574097516,
+      "ss_ablated": 0.07183516594006191
+    },
+    {
+      "profession": "electrician",
+      "pair": "Todd\u2192Jamal",
+      "template": "T6",
+      "ss_original": 0.04655792673048171,
+      "ss_ablated": 0.0434787853709406
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.010240671868934102,
+      "ss_ablated": 0.03695756777168077
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.006467124996226344,
+      "ss_ablated": 0.02707441337663777
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.054824704649239324,
+      "ss_ablated": 0.0035055845012374113
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.027572144244657898,
+      "ss_ablated": 0.04113877878833923
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.002607696963977877,
+      "ss_ablated": 0.024952575711169135
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.005468624384088194,
+      "ss_ablated": 0.043811843912481545
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brett\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.004568201636972776,
+      "ss_ablated": 0.0019397210629247645
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.029990999659503963,
+      "ss_ablated": 0.029643758564548185
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.024045457371819918,
+      "ss_ablated": 0.045276437732038655
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.00046441832932679535,
+      "ss_ablated": 0.03275957777764635
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.01960065680766895,
+      "ss_ablated": 0.04020086831948417
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.025990153578180235,
+      "ss_ablated": 0.03945326418659046
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.022768058580099036,
+      "ss_ablated": 0.05683958742782272
+    },
+    {
+      "profession": "electrician",
+      "pair": "Neil\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.022664023055655784,
+      "ss_ablated": 0.029852938806298294
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T0",
+      "ss_original": 0.038382526931273475,
+      "ss_ablated": 0.04048437011792981
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T1",
+      "ss_original": 0.028509200985748617,
+      "ss_ablated": 0.020443924891730362
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T2",
+      "ss_original": 0.09815273583253889,
+      "ss_ablated": 0.07164358742770396
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T3",
+      "ss_original": 0.05528467956210446,
+      "ss_ablated": 0.035822402225151345
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T4",
+      "ss_original": 0.032466685438843436,
+      "ss_ablated": 0.011641956973291259
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T5",
+      "ss_original": 0.040090075070385825,
+      "ss_ablated": 0.034579864998435336
+    },
+    {
+      "profession": "electrician",
+      "pair": "Allison\u2192Kenya",
+      "template": "T6",
+      "ss_original": 0.03432068316468186,
+      "ss_ablated": 0.015152796645796454
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T0",
+      "ss_original": 0.025815137160962693,
+      "ss_ablated": 0.0030976556725824072
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T1",
+      "ss_original": 0.012367966140975423,
+      "ss_ablated": 0.009535475664698076
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T2",
+      "ss_original": 0.04015442244226225,
+      "ss_ablated": 0.028353453040020946
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T3",
+      "ss_original": 0.0035470319375039984,
+      "ss_ablated": 0.001379464744023662
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T4",
+      "ss_original": 0.006717411482576026,
+      "ss_ablated": 0.0028477135347542704
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T5",
+      "ss_original": 0.011869761286278922,
+      "ss_ablated": 0.001578455787654465
+    },
+    {
+      "profession": "electrician",
+      "pair": "Jill\u2192Ebony",
+      "template": "T6",
+      "ss_original": 0.015863895365989637,
+      "ss_ablated": 0.014111002118198159
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T0",
+      "ss_original": 0.013975162131776441,
+      "ss_ablated": 0.0011778908906699922
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T1",
+      "ss_original": 0.0026174211278458272,
+      "ss_ablated": 0.010352184646077726
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T2",
+      "ss_original": 0.06366325397957348,
+      "ss_ablated": 0.011707306872618091
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T3",
+      "ss_original": 0.0012654485207131939,
+      "ss_ablated": 0.014005604256710172
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T4",
+      "ss_original": 0.013661790873002193,
+      "ss_ablated": 0.042851796253087805
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T5",
+      "ss_original": 0.020611442127360637,
+      "ss_ablated": 0.014304890449776416
+    },
+    {
+      "profession": "electrician",
+      "pair": "Geoffrey\u2192Tyrone",
+      "template": "T6",
+      "ss_original": 0.002205600522789644,
+      "ss_ablated": 0.0015106271356545016
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T0",
+      "ss_original": 0.022480474663391134,
+      "ss_ablated": 0.012710711425013519
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T1",
+      "ss_original": 0.021556025776586798,
+      "ss_ablated": 0.03136300383031446
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T2",
+      "ss_original": 0.0047866716213009804,
+      "ss_ablated": 0.014149431432709204
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T3",
+      "ss_original": 0.03374718586205266,
+      "ss_ablated": 0.04940128264936887
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T4",
+      "ss_original": 0.02705377675815502,
+      "ss_ablated": 0.0252539652551612
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T5",
+      "ss_original": 0.01892039763442274,
+      "ss_ablated": 0.03448863582420772
+    },
+    {
+      "profession": "electrician",
+      "pair": "Brendan\u2192Leroy",
+      "template": "T6",
+      "ss_original": 0.020556905143698043,
+      "ss_ablated": 0.016156283231217542
+    }
+  ]
+}

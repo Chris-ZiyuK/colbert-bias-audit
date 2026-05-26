@@ -1,0 +1,57 @@
+{
+  "experiment": "non_identity_perturbation",
+  "description": "Tests whether function-word TCD amplification is specific to identity swaps (C1)",
+  "summaries": {
+    "IDENTITY": {
+      "n_tests": 280,
+      "mean_func_tcd": 0.020184028946927616,
+      "mean_cont_tcd": 0.011174556848293703,
+      "func_cont_ratio": 1.8062487149107496,
+      "mean_ss": 0.03456717449966214,
+      "wilcoxon_p": 1.2488325371472336e-23,
+      "cohens_d": 0.7425954619493582
+    },
+    "NUMBER": {
+      "n_tests": 120,
+      "mean_func_tcd": 0.00492012295871973,
+      "mean_cont_tcd": 0.004916811116466609,
+      "func_cont_ratio": 1.000673575245148,
+      "mean_ss": 0.007471466600262216,
+      "wilcoxon_p": 0.09083622491874355,
+      "cohens_d": 0.0010929548857451386
+    },
+    "ADJECTIVE": {
+      "n_tests": 48,
+      "mean_func_tcd": 0.009497405961155891,
+      "mean_cont_tcd": 0.009038854695972987,
+      "func_cont_ratio": 1.050731124750484,
+      "mean_ss": 0.010692710356260342,
+      "wilcoxon_p": 0.5141848154229933,
+      "cohens_d": 0.05348957365996864
+    },
+    "INSTITUTION": {
+      "n_tests": 120,
+      "mean_func_tcd": 0.008279518162210783,
+      "mean_cont_tcd": 0.011724971950752661,
+      "func_cont_ratio": 0.7061439632424277,
+      "mean_ss": 0.015990608132690317,
+      "wilcoxon_p": 0.5992519855836134,
+      "cohens_d": -0.302281676146227
+    },
+    "RARE_NONID": {
+      "n_tests": 280,
+      "mean_func_tcd": 0.02772953880152532,
+      "mean_cont_tcd": 0.016602517339301164,
+      "func_cont_ratio": 1.6702008638102417,
+      "mean_ss": 0.048807829340556295,
+      "wilcoxon_p": 1.3200884617838286e-19,
+      "cohens_d": 0.6817127850431963
+    }
+  },
+  "identity_vs_nonid": {
+    "identity_mean_ratio": 2.7565645667482364,
+    "nonid_mean_ratio": 2.311141538000493,
+    "mann_whitney_p": 4.197024172867635e-06,
+    "cohens_d": 0.15282740914106593
+  }
+}

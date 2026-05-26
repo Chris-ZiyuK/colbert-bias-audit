@@ -1,0 +1,61 @@
+{
+  "experiment": "query_format_ablation",
+  "description": "Tests function-word pattern across 5 query formats (D1)",
+  "summaries": {
+    "Q1_original": {
+      "n_tests": 700,
+      "mean_func_tcd": 0.021521437572581428,
+      "mean_cont_tcd": 0.012414824329649231,
+      "func_cont_ratio": 1.733527354163496,
+      "mean_n_func_tokens": 4.0,
+      "mean_n_cont_tokens": 2.2,
+      "wilcoxon_p": 3.2606650389700083e-53,
+      "cohens_d": 0.6701325467193707,
+      "description": "Original (4 function words: who, is, an, ?)"
+    },
+    "Q2_with_clause": {
+      "n_tests": 700,
+      "mean_func_tcd": 0.01715529799461365,
+      "mean_cont_tcd": 0.011443380582079823,
+      "func_cont_ratio": 1.4991459797709261,
+      "mean_n_func_tokens": 1.0,
+      "mean_n_cont_tokens": 4.2,
+      "wilcoxon_p": 2.0591107036410048e-19,
+      "cohens_d": 0.5178720261667104,
+      "description": "Prepositional (1 function word: with)"
+    },
+    "Q3_imperative": {
+      "n_tests": 700,
+      "mean_func_tcd": 0.018712722275938308,
+      "mean_cont_tcd": 0.012062989062230502,
+      "func_cont_ratio": 1.5512508698634466,
+      "mean_n_func_tokens": 2.0,
+      "mean_n_cont_tokens": 4.2,
+      "wilcoxon_p": 6.018735785041649e-33,
+      "cohens_d": 0.6114378972350428,
+      "description": "Imperative (2 function words: a, for)"
+    },
+    "Q4_keyword": {
+      "n_tests": 700,
+      "mean_func_tcd": 0.0,
+      "mean_cont_tcd": 0.010759293590007084,
+      "func_cont_ratio": 0.0,
+      "mean_n_func_tokens": 0.0,
+      "mean_n_cont_tokens": 4.2,
+      "wilcoxon_p": 1.0,
+      "cohens_d": 0.0,
+      "description": "Keyword-only (0 function words)"
+    },
+    "Q5_what_makes": {
+      "n_tests": 700,
+      "mean_func_tcd": 0.022763617452749584,
+      "mean_cont_tcd": 0.01441264105220658,
+      "func_cont_ratio": 1.5794202721273258,
+      "mean_n_func_tokens": 3.0,
+      "mean_n_cont_tokens": 3.2,
+      "wilcoxon_p": 2.69334202933922e-45,
+      "cohens_d": 0.6614337020779498,
+      "description": "Question variant (3 function words: what, a, ?)"
+    }
+  }
+}

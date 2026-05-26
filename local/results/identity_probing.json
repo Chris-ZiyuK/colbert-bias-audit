@@ -1,0 +1,122 @@
+[
+  {
+    "pos": 0,
+    "token": "[CLS]",
+    "class": "special",
+    "accuracy": 1.0,
+    "std": 0.0,
+    "n": 50
+  },
+  {
+    "pos": 1,
+    "token": "document",
+    "class": "special",
+    "accuracy": 0.9199999999999999,
+    "std": 0.09797958971132709,
+    "n": 50
+  },
+  {
+    "pos": 2,
+    "token": ":",
+    "class": "special",
+    "accuracy": 0.9800000000000001,
+    "std": 0.039999999999999994,
+    "n": 50
+  },
+  {
+    "pos": 3,
+    "token": "emily",
+    "class": "content",
+    "accuracy": 1.0,
+    "std": 0.0,
+    "n": 50
+  },
+  {
+    "pos": 4,
+    "token": "has",
+    "class": "function",
+    "accuracy": 0.74,
+    "std": 0.12000000000000002,
+    "n": 50
+  },
+  {
+    "pos": 5,
+    "token": "over",
+    "class": "function",
+    "accuracy": 0.64,
+    "std": 0.17435595774162696,
+    "n": 50
+  },
+  {
+    "pos": 6,
+    "token": "ten",
+    "class": "content",
+    "accuracy": 0.5,
+    "std": 0.0,
+    "n": 50
+  },
+  {
+    "pos": 7,
+    "token": "years",
+    "class": "content",
+    "accuracy": 0.5599999999999999,
+    "std": 0.12000000000000002,
+    "n": 50
+  },
+  {
+    "pos": 8,
+    "token": "of",
+    "class": "function",
+    "accuracy": 0.5199999999999999,
+    "std": 0.0979795897113271,
+    "n": 50
+  },
+  {
+    "pos": 9,
+    "token": "experience",
+    "class": "content",
+    "accuracy": 0.45999999999999996,
+    "std": 0.08,
+    "n": 50
+  },
+  {
+    "pos": 10,
+    "token": "in",
+    "class": "function",
+    "accuracy": 0.58,
+    "std": 0.2135415650406262,
+    "n": 50
+  },
+  {
+    "pos": 11,
+    "token": "this",
+    "class": "function",
+    "accuracy": 0.72,
+    "std": 0.18330302779823363,
+    "n": 50
+  },
+  {
+    "pos": 12,
+    "token": "field",
+    "class": "content",
+    "accuracy": 0.8399999999999999,
+    "std": 0.17435595774162693,
+    "n": 50
+  },
+  {
+    "pos": 13,
+    "token": ".",
+    "class": "special",
+    "accuracy": 0.6533333333333333,
+    "std": 0.02666666666666666,
+    "n": 29
+  },
+  {
+    "pos": 14,
+    "token": "[SEP]",
+    "class": "special",
+    "accuracy": 0.6833333333333332,
+    "std": 0.033333333333333354,
+    "n": 16
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "function": {
+    "n_tokens": 44352,
+    "mean_tcd": 0.017475470982513473,
+    "argmax_change_rate": 0.5911571067821068,
+    "name_span_hit_rate": 0.0011273448773448773,
+    "name_context_hit_rate_w2": 0.349476911976912,
+    "mean_tcd_if_argmax_changed": 0.018066648268409567,
+    "mean_tcd_if_argmax_stable": 0.016620671596923126
+  },
+  "content": {
+    "n_tokens": 26208,
+    "mean_tcd": 0.012938657665218116,
+    "argmax_change_rate": 0.612675518925519,
+    "name_span_hit_rate": 0.19417735042735043,
+    "name_context_hit_rate_w2": 0.4339514652014652,
+    "mean_tcd_if_argmax_changed": 0.015232914234073356,
+    "mean_tcd_if_argmax_stable": 0.009309569129496651
+  },
+  "ratios": {
+    "tcd_func_over_content": 1.3506401849931684,
+    "argmax_change_func_over_content": 0.9648779631653144,
+    "name_context_func_over_content": 0.8053364028040895
+  },
+  "top_argmax_type_transitions": [
+    {
+      "from": "function",
+      "to": "function",
+      "count": 19891
+    },
+    {
+      "from": "content",
+      "to": "content",
+      "count": 15013
+    },
+    {
+      "from": "function",
+      "to": "special",
+      "count": 1721
+    },
+    {
+      "from": "special",
+      "to": "function",
+      "count": 1360
+    },
+    {
+      "from": "content",
+      "to": "function",
+      "count": 1355
+    },
+    {
+      "from": "function",
+      "to": "content",
+      "count": 1291
+    },
+    {
+      "from": "content",
+      "to": "special",
+      "count": 762
+    },
+    {
+      "from": "special",
+      "to": "content",
+      "count": 627
+    },
+    {
+      "from": "special",
+      "to": "special",
+      "count": 256
+    }
+  ],
+  "config": {
+    "n_name_pairs": 24,
+    "n_professions": 33,
+    "n_templates": 14,
+    "n_document_pairs": 11088,
+    "n_query_token_rows": 70560
+  }
+}

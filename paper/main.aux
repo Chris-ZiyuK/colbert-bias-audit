@@ -1,0 +1,191 @@
+\relax 
+\bibstyle{acl_natbib}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{singh2018}
+\citation{rekabsaz2021,ziems2024,manchanda2025}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{singh2018}
+\citation{rekabsaz2021}
+\citation{krieg2023}
+\citation{ziems2024}
+\citation{blodgett2020}
+\citation{bertrand2004}
+\citation{sweeney2013}
+\citation{caliskan2017}
+\citation{dearteaga2019}
+\citation{manchanda2025}
+\citation{petrov2023}
+\citation{ovalle2024}
+\citation{bostrom2020}
+\citation{khattab2020}
+\citation{santhanam2022}
+\citation{karpukhin2020}
+\citation{goldfarb2024}
+\citation{ribeiro2016}
+\citation{sundararajan2017}
+\citation{jain2019}
+\citation{formal2021}
+\citation{abnar2020}
+\citation{santhanam2022}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{2}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Fairness in information retrieval.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Counterfactual auditing and names as proxies.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tokenization and fairness.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Late-interaction retrieval.}{2}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Interpretability and token-level attribution.}{2}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{2}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{2}{Methodology}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Task and Model}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:maxsim}{{1}{2}{Task and Model}{equation.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Overview of the TCD auditing pipeline.} \emph  {Step~1}: We construct counterfactual document pairs that are identical except for an identity name (e.g., Emily $\to $ Lakisha). \emph  {Step~2}: ColBERT encodes each query token and document token independently, then computes per-token MaxSim scores---each query token finds its single best-matching document token. \emph  {Step~3}: Absolute TCD measures sensitivity magnitude: $|\mathrm  {MaxSim}(D_A)_i - \mathrm  {MaxSim}(D_B)_i|$ (where $\mathrm  {MaxSim}(D)_i = \max _j \cos (q_i, d_j)$). We classify query tokens as \textcolor {red}{function words} (who, is, an, ?) or \textcolor {blue}{content words} (experienced, doctor) and aggregate. The ratio of Func-TCD to Cont-TCD is 1.43$\times $ in the controlled experiment and 2.08$\times $ in the naturalistic-template validation.}}{3}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:overview}{{1}{3}{\textbf {Overview of the TCD auditing pipeline.} \emph {Step~1}: We construct counterfactual document pairs that are identical except for an identity name (e.g., Emily $\to $ Lakisha). \emph {Step~2}: ColBERT encodes each query token and document token independently, then computes per-token MaxSim scores---each query token finds its single best-matching document token. \emph {Step~3}: Absolute TCD measures sensitivity magnitude: $|\mathrm {MaxSim}(D_A)_i - \mathrm {MaxSim}(D_B)_i|$ (where $\mathrm {MaxSim}(D)_i = \max _j \cos (q_i, d_j)$). We classify query tokens as \textcolor {red}{function words} (who, is, an, ?) or \textcolor {blue}{content words} (experienced, doctor) and aggregate. The ratio of Func-TCD to Cont-TCD is 1.43$\times $ in the controlled experiment and 2.08$\times $ in the naturalistic-template validation}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Counterfactual Design}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Token Contribution Disparity (TCD)}{3}{subsection.3.3}\protected@file@percent }
+\newlabel{eq:tcd}{{3}{3}{Token Contribution Disparity (TCD)}{equation.3}{}}
+\citation{bertrand2004}
+\newlabel{eq:ss}{{4}{4}{Token Contribution Disparity (TCD)}{equation.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Name Pool}{4}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:method:names}{{3.4}{4}{Name Pool}{subsection.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Experimental Setup}{4}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:method:setup}{{3.5}{4}{Experimental Setup}{subsection.3.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Queries.}{4}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Scale.}{4}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Statistical treatment.}{4}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{4}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{4}{4}{Results}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Control Validation (RQ1)}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:results:control}{{4.1}{4}{Control Validation (RQ1)}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Non-identity perturbation control.}{4}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Function-Word Concentration of Identity-Induced Score Shifts (RQ2)}{5}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:results:funcword}{{4.2}{5}{Function-Word Concentration of Identity-Induced Score Shifts (RQ2)}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Template modulation.}{5}{section*.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of TCD values for function words vs.\ content words across 55{,}440 counterfactual tests. Function words show consistently higher score sensitivity (1.43$\times $, cluster-robust 95\% CI [1.35, 1.51]; $d = 0.36$).}}{5}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:func_cont}{{2}{5}{Distribution of TCD values for function words vs.\ content words across 55{,}440 counterfactual tests. Function words show consistently higher score sensitivity (1.43$\times $, cluster-robust 95\% CI [1.35, 1.51]; $d = 0.36$)}{figure.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Func/Cont TCD ratio by document template. 13/14 templates produce ratios above 1.0. The ratio ranges from 0.96$\times $ to 1.84$\times $, modulated by the local function-word density surrounding the identity marker.}}{5}{table.caption.13}\protected@file@percent }
+\newlabel{tab:template}{{1}{5}{Func/Cont TCD ratio by document template. 13/14 templates produce ratios above 1.0. The ratio ranges from 0.96$\times $ to 1.84$\times $, modulated by the local function-word density surrounding the identity marker}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Rarity Amplification (RQ3a)}{5}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:results:rarity}{{4.3}{5}{Rarity Amplification (RQ3a)}{subsection.4.3}{}}
+\citation{petrov2023}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Func/Cont TCD ratio for each of 33 professions. Coral bars indicate Func~$>$~Cont; purple bars indicate the four exceptions. 29 out of 33 professions show higher function-word TCD.}}{6}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:professions}{{3}{6}{Func/Cont TCD ratio for each of 33 professions. Coral bars indicate Func~$>$~Cont; purple bars indicate the four exceptions. 29 out of 33 professions show higher function-word TCD}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Confound Decomposition (RQ3b)}{6}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:results:decomposition}{{4.4}{6}{Confound Decomposition (RQ3b)}{subsection.4.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Confound decomposition (partition analysis). Gender mismatch produces the largest score sensitivity increase (1.26$\times $, $d=0.28$); cross-race pairing alone does not amplify absolute sensitivity.}}{6}{table.caption.15}\protected@file@percent }
+\newlabel{tab:decomposition}{{2}{6}{Confound decomposition (partition analysis). Gender mismatch produces the largest score sensitivity increase (1.26$\times $, $d=0.28$); cross-race pairing alone does not amplify absolute sensitivity}{table.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Rarity amplification by name-pair category. Rare--rare (RR) pairs show a modest but monotonic increase in score sensitivity over common--common (CC) pairs. Points show means; whiskers show 95\% bootstrap CIs.}}{6}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:rarity}{{4}{6}{Rarity amplification by name-pair category. Rare--rare (RR) pairs show a modest but monotonic increase in score sensitivity over common--common (CC) pairs. Points show means; whiskers show 95\% bootstrap CIs}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {paragraph}{Regression analysis.}{6}{section*.17}\protected@file@percent }
+\citation{abnar2020}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Identity sensitivity (SS) across retrieval architectures ($n$=1{,}155 per model). BM25 shows zero sensitivity; all neural models show non-zero sensitivity under their own scoring functions. Because score scales differ across architectures, the values should not be read as a calibrated fairness ranking. Only ColBERT supports exact token-level TCD decomposition.}}{7}{table.caption.18}\protected@file@percent }
+\newlabel{tab:multimodel}{{3}{7}{Identity sensitivity (SS) across retrieval architectures ($n$=1{,}155 per model). BM25 shows zero sensitivity; all neural models show non-zero sensitivity under their own scoring functions. Because score scales differ across architectures, the values should not be read as a calibrated fairness ranking. Only ColBERT supports exact token-level TCD decomposition}{table.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Partition analysis for gender- and race-associated pairings.} Bars show mean Score Sensitivity; error bars show 95\% bootstrap CIs. Cross-gender pairs show higher Score Sensitivity than same-gender pairs, whereas cross-race pairs do not exceed within-race pairs.}}{7}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:confound}{{5}{7}{\textbf {Partition analysis for gender- and race-associated pairings.} Bars show mean Score Sensitivity; error bars show 95\% bootstrap CIs. Cross-gender pairs show higher Score Sensitivity than same-gender pairs, whereas cross-race pairs do not exceed within-race pairs}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Cross-Architecture Validation (RQ4)}{7}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:results:validation}{{4.5}{7}{Cross-Architecture Validation (RQ4)}{subsection.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Mechanistic Diagnostics}{7}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:results:mechanism}{{4.6}{7}{Mechanistic Diagnostics}{subsection.4.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{Name masking (sanity check).}{7}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{MaxSim argmax alignment.}{7}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Attention rollout.}{7}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Query ablation probe.}{7}{section*.23}\protected@file@percent }
+\citation{msmarco}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Ranking Impact}{8}{subsection.4.7}\protected@file@percent }
+\newlabel{sec:results:ranking}{{4.7}{8}{Ranking Impact}{subsection.4.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Signed directional analysis.}{8}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gender direction.}{8}{section*.25}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Function-word sensitivity in controlled templates vs.\ naturalistic-template passages. The effect strengthens on longer diverse passages (2.08$\times $ vs.\ 1.43$\times $, $d$=0.94 vs.\ 0.36), suggesting that the controlled setup is not the only source of the pattern.}}{8}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:naturalistic}{{6}{8}{Function-word sensitivity in controlled templates vs.\ naturalistic-template passages. The effect strengthens on longer diverse passages (2.08$\times $ vs.\ 1.43$\times $, $d$=0.94 vs.\ 0.36), suggesting that the controlled setup is not the only source of the pattern}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Naturalistic-Template Validation}{8}{subsection.4.8}\protected@file@percent }
+\newlabel{sec:results:naturalistic}{{4.8}{8}{Naturalistic-Template Validation}{subsection.4.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}MS MARCO Benchmark Validation}{8}{subsection.4.9}\protected@file@percent }
+\newlabel{sec:results:msmarco}{{4.9}{8}{MS MARCO Benchmark Validation}{subsection.4.9}{}}
+\citation{petrov2023,ovalle2024}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{9}{Discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Function-word sensitivity.}{9}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Attention null and layer probing.}{9}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Confound structure.}{9}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ColBERT as diagnostic.}{9}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{9}{Conclusion}{section.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{Synthetic core design.}{9}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Name pool scope.}{9}{section*.33}\protected@file@percent }
+\citation{bertrand2004}
+\citation{blodgett2020}
+\bibdata{refs}
+\bibcite{abnar2020}{{1}{2020}{{Abnar and Zuidema}}{{}}}
+\bibcite{bertrand2004}{{2}{2004}{{Bertrand and Mullainathan}}{{}}}
+\bibcite{blodgett2020}{{3}{2020}{{Blodgett et~al.}}{{Blodgett, Barocas, Daum{\'e}, and Wallach}}}
+\bibcite{bostrom2020}{{4}{2020}{{Bostrom and Durrett}}{{}}}
+\bibcite{caliskan2017}{{5}{2017}{{Caliskan et~al.}}{{Caliskan, Bryson, and Narayanan}}}
+\bibcite{dearteaga2019}{{6}{2019}{{De-Arteaga et~al.}}{{De-Arteaga, Romanov, Wallach, Chayes, Borber, Chouldechova, Geyik, Kenthapadi, and Kalai}}}
+\bibcite{formal2021}{{7}{2021}{{Formal et~al.}}{{Formal, Piwowarski, and Clinchant}}}
+\bibcite{goldfarb2024}{{8}{2024}{{Goldfarb-Tarrant et~al.}}{{Goldfarb-Tarrant, Rodriguez, Dwivedi-Yu, and Lewis}}}
+\bibcite{jain2019}{{9}{2019}{{Jain and Wallace}}{{}}}
+\bibcite{karpukhin2020}{{10}{2020}{{Karpukhin et~al.}}{{Karpukhin, Oguz, Min, Lewis, Wu, Edunov, Chen, and Yih}}}
+\@writefile{toc}{\contentsline {paragraph}{Single diagnostic model.}{10}{section*.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Rarity amplification.}{10}{section*.35}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Attention null result.}{10}{section*.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Use of AI assistants.}{10}{section*.38}\protected@file@percent }
+\bibcite{khattab2020}{{11}{2020}{{Khattab and Zaharia}}{{}}}
+\bibcite{krieg2023}{{12}{2023}{{Krieg et~al.}}{{Krieg, Parada-Cabaleiro, Medicus, Lesota, Schedl, and Rekabsaz}}}
+\bibcite{manchanda2025}{{13}{2025}{{Manchanda and Shivaswamy}}{{}}}
+\bibcite{msmarco}{{14}{2016}{{Nguyen et~al.}}{{Nguyen, Rosenberg, Song, Gao, Tiwary, Majumder, and Deng}}}
+\bibcite{ovalle2024}{{15}{2024}{{Ovalle et~al.}}{{Ovalle, Goyal, Dhamala, Jagielski, Chang, and Galstyan}}}
+\bibcite{petrov2023}{{16}{2023}{{Petrov et~al.}}{{Petrov, La~Malfa, Torr, and Bibi}}}
+\bibcite{rekabsaz2021}{{17}{2021}{{Rekabsaz et~al.}}{{Rekabsaz, Kopeinik, and Schedl}}}
+\bibcite{ribeiro2016}{{18}{2016}{{Ribeiro et~al.}}{{Ribeiro, Singh, and Guestrin}}}
+\bibcite{santhanam2022}{{19}{2022}{{Santhanam et~al.}}{{Santhanam, Khattab, Saad-Falcon, Potts, and Zaharia}}}
+\bibcite{singh2018}{{20}{2018}{{Singh and Joachims}}{{}}}
+\bibcite{sundararajan2017}{{21}{2017}{{Sundararajan et~al.}}{{Sundararajan, Taly, and Yan}}}
+\bibcite{sweeney2013}{{22}{2013}{{Sweeney}}{{}}}
+\bibcite{ziems2024}{{23}{2024}{{Ziems et~al.}}{{Ziems, Held, Dwivedi-Yu, and Yang}}}
+\citation{bertrand2004}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Name pool summary (65 names, 4 races). \% Rare = proportion requiring $>$1 WordPiece token. Minority-group names are disproportionately fragmented.}}{12}{table.caption.40}\protected@file@percent }
+\newlabel{tab:names}{{4}{12}{Name pool summary (65 names, 4 races). \% Rare = proportion requiring $>$1 WordPiece token. Minority-group names are disproportionately fragmented}{table.caption.40}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Name Pool}{12}{appendix.A}\protected@file@percent }
+\newlabel{app:names}{{A}{12}{Name Pool}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Professions and Query Format}{12}{appendix.B}\protected@file@percent }
+\newlabel{app:professions}{{B}{12}{Professions and Query Format}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Document Templates}{12}{appendix.C}\protected@file@percent }
+\newlabel{app:templates}{{C}{12}{Document Templates}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Naturalistic-Template Validation Details}{12}{appendix.D}\protected@file@percent }
+\newlabel{app:naturalistic}{{D}{12}{Naturalistic-Template Validation Details}{appendix.D}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Cluster bootstrap robustness for the main Func/Cont TCD ratio.}}{13}{table.caption.41}\protected@file@percent }
+\newlabel{tab:cluster_bootstrap}{{5}{13}{Cluster bootstrap robustness for the main Func/Cont TCD ratio}{table.caption.41}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Mixed-effects robustness. Both models include crossed random intercepts for repeated name-pair, profession, and template factors; both effects are positive ($p<10^{-27}$).}}{13}{table.caption.42}\protected@file@percent }
+\newlabel{tab:mixed_effects}{{6}{13}{Mixed-effects robustness. Both models include crossed random intercepts for repeated name-pair, profession, and template factors; both effects are positive ($p<10^{-27}$)}{table.caption.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Robustness and Mechanism Details}{13}{appendix.E}\protected@file@percent }
+\newlabel{app:robustness}{{E}{13}{Robustness and Mechanism Details}{appendix.E}{}}
+\@writefile{toc}{\contentsline {paragraph}{Token Grouping Robustness.}{13}{section*.43}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Func/Cont TCD ratio across different query token grouping schemes. Due to the short query structure, all standard NLP classifications converge to either the 1.43$\times $ or 1.58$\times $ ratio, demonstrating robust amplification in all settings.}}{13}{table.caption.44}\protected@file@percent }
+\newlabel{tab:grouping}{{7}{13}{Func/Cont TCD ratio across different query token grouping schemes. Due to the short query structure, all standard NLP classifications converge to either the 1.43$\times $ or 1.58$\times $ ratio, demonstrating robust amplification in all settings}{table.caption.44}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces MaxSim argmax-alignment results over 11{,}088 document pairs and 70{,}560 query-token observations.}}{13}{table.caption.45}\protected@file@percent }
+\newlabel{tab:argmax_alignment}{{8}{13}{MaxSim argmax-alignment results over 11{,}088 document pairs and 70{,}560 query-token observations}{table.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Aggregate MaxSim argmax-alignment diagnostics. Function words show higher TCD but not higher argmax-switch or name-context-hit rates, supporting a contextual-shift rather than direct name-matching explanation.}}{13}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:argmax_mechanism}{{7}{13}{Aggregate MaxSim argmax-alignment diagnostics. Function words show higher TCD but not higher argmax-switch or name-context-hit rates, supporting a contextual-shift rather than direct name-matching explanation}{figure.caption.46}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Query Format Robustness Check}{13}{appendix.F}\protected@file@percent }
+\newlabel{app:query_format}{{F}{13}{Query Format Robustness Check}{appendix.F}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Query format robustness check results ($n=700$ per format). Across all syntax structures containing function words, the score-sensitivity amplification holds (effect size $d = 0.52$--$0.67$; Wilcoxon signed-rank $p < 10^{-18}$). These ratios are computed on the robustness subset (10 name pairs $\times $ 10 professions $\times $ 7 templates) and are therefore not directly comparable to the full 55{,}440-test controlled template aggregate ratio.}}{14}{table.caption.47}\protected@file@percent }
+\newlabel{tab:query_format_results}{{9}{14}{Query format robustness check results ($n=700$ per format). Across all syntax structures containing function words, the score-sensitivity amplification holds (effect size $d = 0.52$--$0.67$; Wilcoxon signed-rank $p < 10^{-18}$). These ratios are computed on the robustness subset (10 name pairs $\times $ 10 professions $\times $ 7 templates) and are therefore not directly comparable to the full 55{,}440-test controlled template aggregate ratio}{table.caption.47}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {G}Multiple Comparisons Correction}{14}{appendix.G}\protected@file@percent }
+\newlabel{app:multiple_comparisons}{{G}{14}{Multiple Comparisons Correction}{appendix.G}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {H}Synthetic Candidate-Pool Ranking Simulation}{14}{appendix.H}\protected@file@percent }
+\newlabel{app:ranking_sim}{{H}{14}{Synthetic Candidate-Pool Ranking Simulation}{appendix.H}{}}
+\@writefile{toc}{\contentsline {paragraph}{Pool Construction.}{14}{section*.48}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Complete ranking impact metrics across pool sizes under counterfactual identity swaps (200 trials per pool size with 95\% bootstrap confidence intervals in brackets). Top-$k$ set changes refer to membership changes at that cutoff; a Top-3 change need not imply a Top-10 change if the swapped candidates remain within the top-10.}}{15}{table.caption.50}\protected@file@percent }
+\newlabel{tab:ranking_metrics}{{10}{15}{Complete ranking impact metrics across pool sizes under counterfactual identity swaps (200 trials per pool size with 95\% bootstrap confidence intervals in brackets). Top-$k$ set changes refer to membership changes at that cutoff; a Top-3 change need not imply a Top-10 change if the swapped candidates remain within the top-10}{table.caption.50}{}}
+\@writefile{toc}{\contentsline {paragraph}{Displacement and Top-$k$ Set Changes.}{15}{section*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Score Margin Flip Analysis.}{15}{section*.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {I}Computational Details}{15}{appendix.I}\protected@file@percent }
+\newlabel{app:compute}{{I}{15}{Computational Details}{appendix.I}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Adjacent score margin flip statistics across candidate pool sizes, showing pair distribution and actual rank flip rates per margin bin.}}{15}{table.caption.52}\protected@file@percent }
+\newlabel{tab:margin_flips}{{11}{15}{Adjacent score margin flip statistics across candidate pool sizes, showing pair distribution and actual rank flip rates per margin bin}{table.caption.52}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \textbf  {Aggregate identity sensitivity across architectures.} Comparison of aggregate score sensitivity (SS) across different neural retrieval architectures ($n=1{,}155$ per model). While all models exhibit non-zero aggregate sensitivity, only ColBERT supports exact token-level decomposition.}}{15}{figure.caption.53}\protected@file@percent }
+\newlabel{fig:multimodel}{{8}{15}{\textbf {Aggregate identity sensitivity across architectures.} Comparison of aggregate score sensitivity (SS) across different neural retrieval architectures ($n=1{,}155$ per model). While all models exhibit non-zero aggregate sensitivity, only ColBERT supports exact token-level decomposition}{figure.caption.53}{}}
+\gdef \@abspage@last{15}

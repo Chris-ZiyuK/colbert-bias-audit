@@ -1,0 +1,10 @@
+{
+  "n_comparisons": 5000,
+  "n_passages": 100,
+  "n_queries": 5,
+  "mean_func_tcd": 0.016194957391917706,
+  "mean_cont_tcd": 0.009813403660058975,
+  "func_cont_ratio": 1.6502895379542943,
+  "mean_score_sensitivity": 0.027586892977469444,
+  "pct_ratio_gt_1": 0.7006
+}

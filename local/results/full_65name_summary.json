@@ -1,0 +1,12 @@
+{
+  "n_total": 8085,
+  "n_names": 35,
+  "n_pairs": 35,
+  "n_queries": 33,
+  "n_templates": 7,
+  "overall_ratio": 1.4146942913942908,
+  "overall_p": 8.589419945948505e-274,
+  "rr_cc_ratio": 1.1480780361185825,
+  "prof_func_wins": 30,
+  "directionality_frac": 0.4831168831168831
+}

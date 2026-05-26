@@ -1,0 +1,50 @@
+{
+  "t1_control": {
+    "identity_mean": 0.021340143084526062,
+    "control_mean": 0.0015626460313796996,
+    "p_value": 7.017248396558741e-06,
+    "cohens_d": 1.856696668346132,
+    "n_identity": 25,
+    "n_control": 5,
+    "significant": true
+  },
+  "t2_func_vs_cont": {
+    "func_tcd_mean": 0.021340143084526062,
+    "cont_tcd_mean": 0.021159932613372803,
+    "ratio": 1.0085165900310744,
+    "mw_p": 0.3489869261329762,
+    "wilcoxon_p": 0.1375921368598938,
+    "cohens_d": 0.013743016408673482,
+    "n": 25,
+    "significant": false
+  },
+  "t3_rarity": {
+    "cc_mean_ss": 0.030880125257141858,
+    "cr_mean_ss": 0.03921203530035934,
+    "amplification": 1.2698146453046042,
+    "p_value": 0.2669147108720698,
+    "n_cc": 15,
+    "n_cr": 15,
+    "significant": false
+  },
+  "t4_masking": {
+    "orig_func_tcd": 0.01805217315753301,
+    "masked_func_tcd": 0.0,
+    "reduction_pct": 100.0,
+    "significant": true
+  },
+  "t5_colbert_ss": {
+    "mean": 0.037375665452148245,
+    "n": 9
+  },
+  "t6_ranking": {
+    "rank_flip_rate": 1.0,
+    "mean_displacement": 5.666666666666667,
+    "mean_mrr_change": 0.13563843563843564,
+    "n": 9
+  },
+  "t7_bm25": {
+    "bm25_mean_ss": 0.0,
+    "near_zero": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "config": {
+    "n_names": 65,
+    "n_pairs": 120,
+    "n_professions": 33,
+    "n_templates": 14,
+    "query_formats": [
+      "Q1"
+    ],
+    "total_tests": 55440
+  },
+  "core": {
+    "func_tcd": 0.017996814449198147,
+    "cont_tcd": 0.012554216142225584,
+    "ratio": 1.4335275293426413,
+    "cohens_d": 0.3607969826832049,
+    "wilcoxon_p": 0.0,
+    "n_prof_above_1": 29
+  },
+  "score_sensitivity": {
+    "mean_ss": 0.030011310916252552,
+    "pct_nontrivial": 77.71103896103897
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "n_tests": 8000,
+  "n_passages": 200,
+  "func_cont_ratio": 2.079959233763077,
+  "mean_func_tcd": 0.015559031466022133,
+  "mean_cont_tcd": 0.0074804501999169585,
+  "mean_ss": 0.024157545203848232,
+  "wilcoxon_p": 0.0,
+  "cohens_d": 0.9430326358503721,
+  "pct_ratio_gt1": 78.5
+}

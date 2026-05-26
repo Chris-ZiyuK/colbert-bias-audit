@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Emily",
+    "name_idx": 3,
+    "name_token": "emily",
+    "mean_func_attn": 0.06684176460978695,
+    "mean_cont_attn": 0.06678108032274283,
+    "ratio": 1.0009087047821157,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Lakisha",
+    "name_idx": 3,
+    "name_token": "la",
+    "mean_func_attn": 0.026682000820950576,
+    "mean_cont_attn": 0.02675694733029661,
+    "ratio": 0.9971989887926724,
+    "n_func": 5,
+    "n_cont": 6
+  },
+  {
+    "name": "Greg",
+    "name_idx": 3,
+    "name_token": "greg",
+    "mean_func_attn": 0.06302208482444054,
+    "mean_cont_attn": 0.06293917640218308,
+    "ratio": 1.001317278474184,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Jamal",
+    "name_idx": 3,
+    "name_token": "jamal",
+    "mean_func_attn": 0.07364524961695082,
+    "mean_cont_attn": 0.0735846948360349,
+    "ratio": 1.0008229263035044,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Sarah",
+    "name_idx": 3,
+    "name_token": "sarah",
+    "mean_func_attn": 0.061244869922337755,
+    "mean_cont_attn": 0.061190052445179416,
+    "ratio": 1.000895856025086,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Tanisha",
+    "name_idx": 3,
+    "name_token": "tan",
+    "mean_func_attn": 0.03307598053696387,
+    "mean_cont_attn": 0.03311281870681071,
+    "ratio": 0.9988874951971617,
+    "n_func": 5,
+    "n_cont": 5
+  },
+  {
+    "name": "Todd",
+    "name_idx": 3,
+    "name_token": "todd",
+    "mean_func_attn": 0.056120499768308615,
+    "mean_cont_attn": 0.056054436984437433,
+    "ratio": 1.0011785469166254,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Tyrone",
+    "name_idx": 3,
+    "name_token": "tyrone",
+    "mean_func_attn": 0.06469606215420551,
+    "mean_cont_attn": 0.06465861020040242,
+    "ratio": 1.0005792260873998,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Brad",
+    "name_idx": 3,
+    "name_token": "brad",
+    "mean_func_attn": 0.06707243999236681,
+    "mean_cont_attn": 0.06699839337423684,
+    "ratio": 1.001105199907054,
+    "n_func": 5,
+    "n_cont": 4
+  },
+  {
+    "name": "Darnell",
+    "name_idx": 3,
+    "name_token": "dar",
+    "mean_func_attn": 0.032000229319460276,
+    "mean_cont_attn": 0.03203035984293321,
+    "ratio": 0.9990593136130632,
+    "n_func": 5,
+    "n_cont": 5
+  }
+]

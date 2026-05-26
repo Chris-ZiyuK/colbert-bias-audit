@@ -1,63 +1,109 @@
 #!/usr/bin/env bash
-# ===========================================================================
-# run_all.sh — Reproduce all experiments from scratch
-# ===========================================================================
-# Usage:  bash scripts/run_all.sh
-# Requires: conda environment 'colbert_bias' with dependencies installed
-# ===========================================================================
+# =============================================================================
+# ColBERT Bias Audit — Full Experiment Pipeline
+# =============================================================================
+# Usage:  bash scripts/run_all.sh [PHASE]
+#   PHASE: p0|p1|p2|p2b|rt|bm25|ablation|multi|msmarco|ranking|mitigation|all
+#
+# Prerequisites:
+#   pip install -r requirements.txt
+#   python -m spacy download en_core_web_sm  (for MS MARCO experiment)
+# =============================================================================
 
 set -euo pipefail
 cd "$(dirname "$0")/.."
-ROOT=$(pwd)
 
-echo "═══════════════════════════════════════════════════════════"
-echo "  ColBERT Bias Audit — Full Reproduction Pipeline"
-echo "═══════════════════════════════════════════════════════════"
-echo ""
+PHASE="${1:-all}"
+RESULTS="results"
 
-# Phase 1: Control validation
-echo "▶ [01] Control Validation..."
-python experiments/01_control_validation/control_test.py
+echo "======================================================================"
+echo "ColBERT Bias Audit Pipeline"
+echo "Phase: $PHASE"
+echo "======================================================================"
 
-# Phase 2: Function-word bias (initial 10 professions)
-echo "▶ [02] Function-Word Bias..."
-python experiments/02_function_word_bias/function_word_bias.py
+# --- Phase 0: Control Validation ---
+if [[ "$PHASE" == "p0" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> P0: Control validation"
+  python experiments/01_control_validation/p0_control_experiment.py \
+    --output-dir "$RESULTS/01_control"
+fi
 
-# Phase 3: Profession expansion (33 professions)
-echo "▶ [03] Profession Expansion..."
-python experiments/03_profession_expansion/profession_expansion.py
-python experiments/03_profession_expansion/p1_wrapup_analysis.py
+# --- Phase 1: Profession Expansion ---
+if [[ "$PHASE" == "p1" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> P1: Profession expansion"
+  python experiments/02_function_word_analysis/p1_function_word_analysis.py \
+    --output-dir "$RESULTS/02_function_word"
+  python experiments/03_profession_expansion/p1_profession_expansion.py \
+    --output-dir "$RESULTS/03_profession_expansion"
+fi
 
-# Phase 4: Name confound decomposition
-echo "▶ [04] Name Confound Decomposition..."
-python experiments/04_name_confound/p2_name_confound_audit.py
-python experiments/04_name_confound/p2b_rosenman_validation.py
+# --- Phase 2: Name Confound Decomposition ---
+if [[ "$PHASE" == "p2" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> P2: Name confound decomposition"
+  python experiments/04_name_confound/p2_name_confound.py \
+    --output-dir "$RESULTS/04_name_confound"
+fi
 
-# Phase 5: Real-text validation
-echo "▶ [05] Real-Text Validation..."
-python experiments/05_real_text_validation/real_text_validation.py
+# --- Phase 2b: Rosenman Validation ---
+if [[ "$PHASE" == "p2b" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> P2b: Rosenman validation"
+  python experiments/04_name_confound/p2b_rosenman_validation.py \
+    --output-dir "$RESULTS/04_name_confound"
+fi
 
-# Phase 6: BM25 baseline
-echo "▶ [06] BM25 Baseline..."
-python experiments/06_bm25_baseline/bm25_baseline.py
+# --- Real Text Validation ---
+if [[ "$PHASE" == "rt" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> RT: Real text validation"
+  python experiments/05_real_text/real_text_validation.py \
+    --output-dir "$RESULTS/05_real_text"
+fi
 
-# Phase 7: DPR comparison (planned)
-# echo "▶ [07] DPR Comparison..."
-# python experiments/07_dpr_comparison/dpr_comparison.py
+# --- BM25 Control ---
+if [[ "$PHASE" == "bm25" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> BM25: Non-contextual control"
+  python experiments/06_bm25_control/bm25_control.py \
+    --output-dir "$RESULTS/06_bm25"
+fi
 
-# Phase 8: MS MARCO counterfactual (planned)
-# echo "▶ [08] MS MARCO Counterfactual..."
-# python experiments/08_msmarco_counterfactual/msmarco_counterfactual.py
+# ==========================================================================
+# NEW EXPERIMENTS (EMNLP Submission)
+# ==========================================================================
 
-# Phase 9: Ranking impact (planned)
-# echo "▶ [09] Ranking Impact..."
-# python experiments/09_ranking_impact/ranking_impact.py
+# --- Exp 7a: Attention Ablation ---
+if [[ "$PHASE" == "ablation" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> Exp 7a: Attention ablation (masking + rollout + probing)"
+  python experiments/07_attention_ablation/attention_ablation.py \
+    --sub all --output-dir "$RESULTS/07_attention_ablation"
+fi
 
-# Phase 10: Mitigation (planned)
-# echo "▶ [10] Mitigation..."
-# python experiments/10_mitigation/tokenizer_equalization.py
+# --- Exp 7b: Multi-Model Comparison ---
+if [[ "$PHASE" == "multi" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> Exp 7b: Multi-model comparison"
+  python experiments/07_multi_model/multi_model_comparison.py \
+    --output-dir "$RESULTS/07_multi_model"
+fi
 
-echo ""
-echo "═══════════════════════════════════════════════════════════"
-echo "  ✅ All experiments complete."
-echo "═══════════════════════════════════════════════════════════"
+# --- Exp 8: MS MARCO Counterfactual ---
+if [[ "$PHASE" == "msmarco" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> Exp 8: MS MARCO counterfactual audit"
+  python experiments/08_msmarco_counterfactual/msmarco_tcd_audit.py \
+    --output-dir "$RESULTS/08_msmarco"
+fi
+
+# --- Exp 9: Ranking Impact ---
+if [[ "$PHASE" == "ranking" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> Exp 9: Ranking impact study"
+  python experiments/09_ranking_impact/ranking_impact.py \
+    --output-dir "$RESULTS/09_ranking_impact"
+fi
+
+# --- Exp 10: Mitigation ---
+if [[ "$PHASE" == "mitigation" || "$PHASE" == "all" ]]; then
+  echo -e "\n>>> Exp 10: Mitigation strategies"
+  python experiments/10_mitigation/mitigation.py \
+    --strategy all --output-dir "$RESULTS/10_mitigation"
+fi
+
+echo -e "\n======================================================================"
+echo "✓ Pipeline complete: $PHASE"
+echo "======================================================================"

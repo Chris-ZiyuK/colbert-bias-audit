@@ -8,6 +8,20 @@ matplotlib>=3.7
 seaborn>=0.12
 statsmodels>=0.14
 
-# Optional: DPR comparison (Phase 7)
-# faiss-cpu>=1.7
-# sentence-transformers>=2.2
+# Multi-model comparison (Exp 7b)
+# DPR, Contriever share transformers; no extra dep needed
+
+# SPLADE (Exp 7b)
+# Uses transformers AutoModelForMaskedLM; no extra dep
+
+# Cross-encoder (Exp 7b)
+# Uses transformers AutoModelForSequenceClassification; no extra dep
+
+# Attention ablation (Exp 7a)
+scikit-learn>=1.2
+
+# MS MARCO NER (Exp 8)
+spacy>=3.5
+
+# Reproducibility
+tqdm>=4.64
