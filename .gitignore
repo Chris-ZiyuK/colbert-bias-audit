@@ -39,3 +39,14 @@ Thumbs.db
 
 # Model cache
 .cache/
+
+# LaTeX
+*.aux
+*.log
+*.blg
+*.bbl
+*.out
+*.toc
+*.pdfsync
+*.synctex.gz
+
